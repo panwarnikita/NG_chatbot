@@ -1,0 +1,1389 @@
+### GROUP: ABOUT NAVGURUKUL (OVERVIEW & MISSION)
+NavGurukul is a technology-led non-profit organization established in 2016 with a mission to enable underserved youth across India to access dignified, future-ready careers. Founded on the radical belief that "Talent is universal, but opportunity is not," the organization works to dismantle structural barriers that prevent millions of young people from realizing their potential. By designing inclusive and scalable systems, NavGurukul provides high-quality, affordable, and outcomes-driven learning pathways that prepare students—often first-generation learners—for the growing digital economy.
+
+- Core Purpose: Bridges the divide between potential and opportunity through industry-relevant education and skilling.
+- Strategic Methods: Promotes digital literacy, quality higher education, and improved employment access.
+- Long-term Goal: To create a nationwide network where education and skills are inclusive and accessible to every motivated student.
+- Official website link of Navgurukul - https://www.navgurukul.org/
+
+
+
+
+### GROUP: RESIDENTIAL LEARNING CAMPUSES
+NavGurukul operates 9 residential campuses across India, currently hosting over 1,100 students. These campuses are designed as immersive, peer-led, and self-paced learning environments where students focus on software engineering, soft skills, and life skills. A unique aspect of these campuses is the "Income Share Agreement" model: students pay no upfront fees for their education or stay; instead, they contribute a small amount only after they secure a job, ensuring that financial barriers do not stop anyone from learning.
+
+- Total Campuses: 9 Residential locations across India.
+- Student Capacity: 1,100+ students.
+- Learning Model: Immersive, peer-driven, and self-paced.
+- Fees: Zero upfront cost; payment only after employment.
+
+### LIST OF CAMPUS LOCATIONS:
+1. Pune (Maharashtra): Focus on tech and software engineering.
+2. Dharamshala (Himachal Pradesh): One of the primary residential hubs.
+3. Sarjapur (Bangalore): Located in India's tech capital.
+4. Dantewada (Chhattisgarh): Part of the social impact initiative in rural areas.
+5. Jashpur (Chhattisgarh): Expansion of the residential model.
+6. Raipur (Chhattisgarh): Capital city campus.
+7. Kishanganj (Bihar): Bringing tech education to Eastern India.
+8. Udaipur (Rajasthan): Campus focused on empowering regional youth.
+9. Baru Sahib (Himachal Pradesh): Specifically dedicated to the BCA program.
+
+
+
+
+### GROUP: SOP - SCHOOL OF PROGRAMMING
+The School of Programming (SOP) is one of NavGurukul's flagship programs, offering a fully-funded, one-year residential course in software engineering. It is designed to train students from underserved communities to become job-ready software engineers and secure aspirational careers in the tech industry. The learning environment is self-paced and peer-driven, where students are supported by facilitators and collaborative programming to master modern technologies.
+Residential Nature: Students live and learn on campus for the entire duration of the course.
+Financial Support: The program is fully-funded, covering all living expenses, food, and education for economically disadvantaged students.
+Technical Curriculum: Focuses on industry-standard tools like Python, HTML, CSS, JavaScript, ReactJS, and NodeJS. 
+Curriculum: (https://docs.google.com/document/d/1c34wCeKdT0E1fVCN7pqPeNO1DzL-jLXFCrY4hzQi3WA/edit?usp=sharing)
+Holistic Development: Emphasizes critical thinking, problem-solving, English communication, and essential life skills beyond coding.
+Career Outcomes: A strong track record of successful job placements in software development roles across various tech companies.
+
+
+### GROUP: SOB - SCHOOL OF BUSINESS
+The School of Business (SOB) provides specialized training in business management through a residential model. While other programs focus on engineering, SOB is dedicated to effective higher education in business disciplines to empower youth for professional corporate roles.
+Core Focus: Professional training in business management and corporate operations.
+Goal: Providing diverse career pathways beyond technology to ensure meaningful employment in the business sector.
+### GROUP: SOB - SCHOOL OF BUSINESS DETAILED CURRICULUM
+The School of Business (SOB) curriculum focuses on providing students with essential tools for the modern business environment, including CRM, Digital Marketing, and Data Analytics.
+
+#### Course 1: Google Suite
+* Overview: Comprehensive training on Google Sheets for data management.
+* Basic Google Sheets: https://www.coursera.org/learn/google-sheets/home/module/1
+* Advanced Google Sheets: https://www.coursera.org/learn/google-sheets---advanced-topics/home/module/1
+
+#### Course 2: Introduction to CRM and Salesforce
+* Overview: Learning the fundamentals of Customer Relationship Management and Salesforce configuration.
+* Sales and CRM Overview: https://www.coursera.org/learn/sales-and-crm-overview/home/module/1
+* Configuring Salesforce for Marketing and Sales: https://www.coursera.org/learn/lead-management-in-salesforce/home/module/1
+* Salesforce for Customer Service: https://www.coursera.org/learn/opportunity-management-in-salesforce/home/module/1
+* Reports and Dashboards: https://www.coursera.org/learn/reports-dashboards-and-customer-success-in-salesforce/home/module/1
+* Practical Component: Students must complete the 'CRM & Salesforce Assignments.docx' as part of the course.
+
+#### Course 3: Digital Marketing
+* Overview: A deep dive into digital foundations, commerce, and advertisement strategies.
+* Main Resource: https://www.coursera.org/learn/foundations-of-digital-marketing-and-e-commerce/home/module/1
+* Key Modules:
+    - Digital Marketing Introduction.
+    - Website Building and Analytics.
+    - Search Engine Optimization (SEO).
+    - SEM and Google Ads.
+    - Social Media Marketing and Facebook Ads.
+
+#### Course 4: Data Analytics
+* Overview: Building the analytical skills necessary for deriving business insights.
+* Key Modules:
+    - Statistics Introduction.
+    - SQL Queries for data retrieval.
+    - Business Insights with Tableau for data visualization.
+
+
+### GROUP: SOD - SCHOOL OF DATA ANALYTICS
+The School of Data Analytics (SOD) is a specialized program where students sharpen their analytical and technical capabilities. The curriculum is built around data visualization and database management to prepare students for the data-driven economy.
+Technical Tools: Mastery of industry-standard software like Tableau, Power BI, and various databases.
+Learning Method: Built through collaborative group discussions and deep peer-to-peer learning.
+
+
+### GROUP: SOF - SCHOOL OF FINANCE
+The School of Finance (SOF) is designed for students fascinated by the financial world, offering a self-paced mastery of accounting and taxation. It prepares learners to unlock opportunities in high-growth finance sectors through practical, student-led training.
+Accounting Curriculum: Includes comprehensive learning of Financial Accounting, Cost Accounting, and Management Accounting.
+Taxation Training: Covers Direct Tax laws and the computation of income for individuals, firms, and companies.
+Tally Proficiency: Full training in Tally user interface, company management, ledgers, payment vouchers, and financial reports.
+Co-curricular Participation: Students manage student councils, maintain health and hygiene, and engage in sports and recreational field visits.
+
+
+### GROUP: SOSC - SCHOOL OF SECOND CHANCES
+The School of Second Chances (SOSC) is a trauma-informed residential program specifically designed for women survivors of abuse, violence, or incarceration. It provides a safe 12-18 month environment for women to rebuild their lives, gain vocational skills, and achieve complete independence.
+Vocational Skills: Training in culinary arts (Super Chef), textile techniques (Future Textile Designer), and digital literacy.
+Support System: Focused on dignity, safety, and peer mentorship within a trauma-informed framework.
+Volunteer Opportunities: Roles available in Business Development (Food Truck), Social Media, Mentorship, and Creative Facilitation.
+Primary Location: This program primarily operates out of the Pune campus.
+### TEAM & CONTACT INFORMATION : 
+The School of Second Chances (SOSC) is led by dedicated practitioners focused on trauma-informed growth and sustainable futures.
+#### KEY MEMBERS:
+Arzoo Jolly (Founder): Specializes in trauma-informed community work and organizational well-being.
+Sanjana Swaroop (Entrepreneur in Residence, SoSC Future Textiles Program): A corporate lawyer turned social entrepreneur, Sanjana is dedicated to building socially and environmentally equitable futures.
+#### SUPPORT & INQUIRIES:
+For anyone seeking support, wanting to volunteer, or having questions regarding the School of Second Chances (SOSC), the following contact channels are available:
+- Phone: +91 9878657667
+- Email: sosc@navgurukul.org
+
+
+
+### GROUP: SOE - SCHOOL OF EDUCATION
+The School of Education (SOE) focuses on preparing the next generation of educators. It provides dedicated courses and pedagogical training for students interested in making a career in the field of teaching and education.
+Availability: Currently offered at the NavGurukul Sarjapur (Bangalore) and Pune campuses.
+Purpose: Specialized training in educational methods and classroom management.
+
+
+
+
+
+### GROUP: ZUVY - INTELLIGENT LEARNING SOLUTIONS
+Zuvy is NavGurukul’s digital initiative that provides intelligent learning solutions, ranging from custom Learning Management Systems (LMS) for organizations to industry-ready bootcamps for learners. It enables communities and companies to thrive through accessible, future-focused learning opportunities.
+
+- Core Mission: To make career-oriented digital education accessible and affordable, especially for women and youth from underserved communities.
+- Key Impact Numbers:
+    * 6,000+ Learners reached across India.
+    * 500+ Learners placed in companies like Amazon, Microsoft, and Google.
+    * 90% Course Completion rate (5-7x higher than the industry average).
+    * 83% Cost Reduction compared to enterprise LMS platforms.
+    * 18+ States reached with low-bandwidth optimization.
+    * 120+ Hiring Partners providing job and internship opportunities.
+
+#### ZUVY SOLUTIONS & PATHS:
+1. For Learners (Zuvy Finishing School): 
+   - Offers career-ready training in full-stack development, Data Structures and Algorithms (DSA), and real-world projects.
+   - Focuses on building portfolio-ready projects and gaining interview confidence for job-readiness.
+2. For Businesses & NGOs (Zuvy Learning Solutions): 
+   - Custom LMS solutions for large-scale workforce or community training, including content, delivery, assessments, and reporting tools.
+3. For CSR Partners & Employers (Zuvy Partnerships): 
+   - Allows sponsoring underserved learners and accessing a diverse, job-ready talent pool.
+
+#### KEY LEADERSHIP - ZUVY:
+- Sandhya Dittakavi (Co-Founder & CEO): Seasoned leader with global experience in technology (formerly with Cisco, ServiceNow, Apple, and Infosys) and entrepreneurship.
+- Nilesh Yadav (Product Leader): 12+ years in EdTech product strategy, previously driving innovation at PrepLadder and OYO.
+
+
+
+
+
+### GROUP: SAMA - REPURPOSING E-WASTE INTO LEARNING TOOLS
+Sama is a NavGurukul initiative that turns e-waste (specifically aged laptops) into refurbished devices to bridge the digital divide for underserved youth and women across India. It provides a sustainable pathway for organizations to donate end-of-life hardware that would otherwise end up in landfills, contributing to pollution.
+
+#### THE PROCESS (HOW SAMA WORKS):
+- Collection: Corporate partners donate their end-of-life laptops instead of discarding them.
+- Refurbishment: Devices undergo secure data erasure, hardware upgrades, and are pre-loaded with educational content.
+- Distribution: Refurbished devices are shared through verified NGOs and institutions to reach women and youth in remote areas.
+- Impact Tracking: An in-house "Install RMS" system monitors real-time usage and educational outcomes ethically.
+
+#### IMPACT IN NUMBERS:
+- Students Impacted: 2,39,730 students reached, including 1,19,865 girls across 1,471 schools in India.
+- Digital Labs: 47 labs established in Karnataka, benefiting 7,845 students.
+- Skills Training: 3,615 individuals trained in digital literacy, design, data entry, and coding.
+- Higher Education: 6 students have advanced to master’s programs through NGO collaborations.
+
+#### KEY MEMBERS - SAMA:
+- Manisha Sinha (Co-Founder & CEO): MBA from Delhi School of Economics with 5+ years in Growth and Partnerships; leads strategy and stakeholder relationships.
+- Nitesh Sharma (Co-Founder & COO): BCA with 5+ years in partnerships and operations; leads operational management and process optimization.
+
+
+
+
+### GROUP: NAVIGO - AI POWERED CAREER & LIFE SKILLS EXPLORER
+NAVigo is a NavGurukul initiative that brings AI-powered learning and 21st-century life skills to government school students. It aims to bridge the skill gap created by the rapid rise of AI in the industry, ensuring that students—especially those in underserved areas—are prepared for the jobs of tomorrow.
+
+#### THE NAVIGO APPROACH:
+- Life Skills Development: Focuses on building communication, confidence, collaboration, and a growth mindset.
+- Career Exploration: Uses hands-on projects with AI tools to help students explore diverse career paths.
+- AI Awareness: Provides an understanding of AI fundamentals, ethical usage, and real-world applications.
+
+#### KEY FEATURES & CURRICULUM:
+- Career a Month Model: Students explore 7 to 10 different careers annually through AI-supported projects.
+- Blended Learning: A mix of online and offline engagement (2-3 hours/week) focusing on themed projects.
+- AI Literacy: Training in Generative AI tools, chatbot usage, prompting techniques, and AI ethics.
+- Digital Literacy: Skills in smart searching, device basics, and digital etiquette.
+- Offline Skill Builders: Group discussions, presentations, and peer feedback sessions.
+
+#### IMPACT & FUTURE ROADMAP:
+- Current Impact: 4,503 learners in 22 pilot schools; 2,377 learners in the Sukuma (Chhattisgarh) program.
+- Nov 2026 Goal: To train 20,000 learners in AI, with 50% being women or gender minorities.
+- June 2025 Timeline: Full curriculum rollout planned in Dantewada schools.
+- Upcoming Steps: Finalizing trainers and college partners for AVPN implementation and launching the Sukuma program.
+
+
+
+
+### GROUP: AI LEARNING LABS - TRANSFORMING EDUCATION
+AI Learning Labs focuses on researching how AI transforms education by leveraging pedagogical research. The goal is to build cutting-edge AI tools that help students and teachers use AI efficiently, aiming to reach 1 Crore underserved students in the next year.
+
+#### GUIDING PRINCIPLES:
+- Student-Centric: Embedding with students to understand first-hand needs.
+- Beyond Wrappers: Diving into deep tech and pedagogy to solve unique pain points.
+- Process Driven: Ensuring solutions are thoughtful, sustainable, and mission-aligned.
+
+#### INTERACTIVE AI TOOLS & PROJECTS:
+1. Abracadraw: Practice prompting for image generation through 5 levels.
+   - Link: https://abracadraw.navgurukul.org/
+2. Flowchart Learner: Build logic and visualize programming concepts.
+   - Link: https://flowchart.navgurukul.org/
+3. Voice Agent: Interact with an AI voice assistant in natural language.
+   - Link: https://voice-agent-orcin.vercel.app/
+4. AI English Tutor: Practice English conversations based on realistic scenarios.
+   - Link: https://ai-english-tutor-genai.vercel.app/
+5. YouTube Question Generator: Generate test questions from any YouTube video URL.
+   - Link: https://get-yt-video-backend-six.vercel.app/
+6. AI Interview: Practice mock interviews with instant feedback and resume-based questions.
+   - Link: https://main.d33nd16sirwq0n.amplifyapp.com/
+7. AI Interview Admin Panel: Management dashboard for users, jobs, and system settings.
+   - Link: https://main.d35zplgj7wa4yb.amplifyapp.com/dashboard/student-details
+8. Linux Command Tutor: Interactive CLI playground to learn and practice Linux commands.
+   - Link: https://navgurukul-shell.vercel.app/
+9. Flashcard Generator: Automatically create study flashcards from any technical text.
+   - Link: https://navgurukul-shell.vercel.app/
+10. Prompt Practice: Structured modules to learn effective prompt engineering.
+    - Link: https://ai-prompt-frontend.vercel.app/
+11. Moodlens: Analyze emotions in text with Google's Generative AI and visualizations.
+    - Link: https://moodlens-v2.vercel.app/
+
+
+
+
+
+
+
+### GROUP: OUR PARTNERS & ECOSYSTEM
+NavGurukul’s work is strengthened through collaborations with global corporations, national government departments, and a diverse range of non-profit organizations. This robust ecosystem provides the institutional credibility needed to co-create curricula and skilling frameworks at a national scale. By influencing state-level education reform and redefining access, these partnerships provide direct pathways for underserved learners to transition into high-growth careers.
+
+1. DONORS & CORPORATE PARTNERS:
+These organizations provide essential financial support and strategic mentorship to keep NavGurukul programs fully-funded.
+
+Major Donors: Amazon, Accenture, KPMG, Macquarie, and the Harish & Bina Shah Foundation.
+
+Strategic Partners: DXC Technology, ARES, Affle, AVPN, and The/Nudge Institute.
+
+2. PLACEMENT PARTNERS (COMPANIES HIRING FROM NAVGURUKUL):
+These companies actively recruit talent from NavGurukul, recognizing the quality of their industry-ready skills and professional training.
+
+Tech & Financial Giants: Amazon, Accenture, NatWest, CloudThat, and Macquarie.
+
+Social Sector & Impact: Teach For India (TFI).
+
+Open Source & Technology: Frappe (identified by the 'F' logo).
+
+3. GOVERNMENT PARTNERS:
+NavGurukul works in close collaboration with various state and national government bodies to implement large-scale educational initiatives.
+
+Key Collaborations: Government of Telangana, Government of Haryana, and Government of Delhi.
+
+4. NON-PROFIT & MOBILIZATION PARTNERS:
+These partners are crucial for identifying talent in remote areas and supporting the overall student journey.
+
+Ecosystem Partners: Sattva, Educate Girls, Project Potential, and Vidya Bhawan Society (Udaipur).
+
+Mobilization Support: Miloon, Alohomora, Akanksha, and Ibtada.
+
+
+
+
+
+### GROUP: CAREER AT NAVGURUKUL
+Working at NavGurukul means making a tangible impact by empowering students from underserved communities to build aspirational careers. We invest in professional growth through continuous learning and leadership opportunities within a collaborative, supportive team passionate about our shared mission. We imagine an equitable higher education alternative where students learn the right skills and mindsets to thrive in the world.
+
+1. WHY JOIN NAVGURUKUL?
+Make a Tangible Impact: Your work directly helps students from marginalized communities hold the same jobs and live lives of similar possibilities as those at the top of the pyramid.
+
+Grow With a Purpose: Continuous learning and leadership opportunities for all team members.
+
+Culture that Cares: A mission-driven environment focused on profound transformation and inclusion.
+
+2. OPEN FULL-TIME ROLES & DEPARTMENTS:
+NavGurukul offers various roles across multiple departments, mostly in Remote or Hybrid settings.
+
+Tech & AI: ML Engineer, AI Engineer, Full Stack Developer.
+
+Leadership & Strategy: Chief of Staff, Special Projects & Strategic Operations (CEO’s Office), CXO roles, Entrepreneur in Residence (EIR).
+
+People & Culture: Sr. People & Culture Associate, People Operations & Systems Lead.
+
+Placements & Fundraising: Placements Lead, Placement Manager, Fundraising Manager, Fundraising Lead, Partnership Lead.
+
+Specialized Programs: Code India Fellowship, English & Twenty-first Century (ETC) Skills Specialist, Accounts Executive.
+
+Initiatives (SAMA & SOSC): Founding Team Member (SAMA), Community Projects (SOSC), Build Businesses That Matter.
+
+3. APPLICATION & VOLUNTEERING:
+If you are interested in working or volunteering with NavGurukul, you can explore and apply for roles through the official portal.
+
+Official Job Portal: https://recruiterflow.com/navgurukul/jobs
+
+Volunteering: Opportunities available with the School of Second Chances (Pune/Hybrid) and Sama Social.
+
+Interest Form: General working/volunteering interest forms are available on the portal.
+
+
+
+
+### GROUP: NGVERSE - ENTREPRENEUR IN RESIDENCE (EIR) PROGRAM
+The Entrepreneur in Residence (EIR) program is the creative engine behind NavGurukul's rapid expansion, known as NGVerse. It is designed for entrepreneurs to build and scale new social initiatives without the typical struggles of starting an NGO from scratch.
+
+1. SUCCESS STORIES OF THE EIR PROGRAM:
+Many of NavGurukul's major initiatives were born through this program in the last three years:
+
+Zuvy: Achieved ₹6 Crores in revenue in a very short time—a milestone that took NavGurukul 8 years to reach.
+
+Sama: Reached over 3,00,000+ learners in just 4 months.
+
+Other Initiatives: School of Second Chances (SOSC), AI Learning Labs, and NAVigo were all incubated through the EIR model.
+
+2. WHY THIS PROGRAM WAS BUILT:
+NavGurukul created this incubator to solve the common problems new non-profits face in India:
+
+Support System: Instead of working alone, entrepreneurs get a supportive ecosystem.
+
+Operations Support: Founders don't have to spend years on backend operations, compliance paperwork, or balancing budgets.
+
+Speed to Impact: Entrepreneurs can go from "zero to impact" in months rather than years.
+
+NGO Survival: It addresses the fact that nearly 30% of new non-profits in India close within 24 months due to tough conditions.
+
+
+
+
+
+
+### GROUP: DONATE & SUPPORT NAVGURUKUL
+Donations to NavGurukul help transform underprivileged students into skilled coders and professionals. All contributions made by Indian citizens are eligible for tax exemption under Section 80G.
+
+1. DONATION OPTIONS:
+Monthly Payment: Options include ₹100, ₹500, ₹1000, ₹2500, ₹5000, or ₹10000.
+
+One-Time Payment: Any amount can be donated as a one-time contribution.
+
+Payment Gateway Note: A 2% charge is levied for using the online payment gateway.
+
+Eligibility: Separate portals are available for Indian Citizens and Foreign Citizens.
+
+2. BANK TRANSFER DETAILS:
+Direct transfers can be made using the following official details:
+
+UPI ID: navgurukulf@kotak
+
+Account Name: Navgurukul Foundation for Social Welfare
+
+Account Number: 0512251778
+
+IFSC Code: KKBK0004260
+
+3. MANDATORY DETAILS FOR DONORS:
+After making a donation, donors must email the following details to donate@navgurukul.org to process the transaction and 80G certificate:
+
+Full Name and Contact Number.
+
+Email Address and Transaction ID.
+
+Amount Donated and Residential Address (if available).
+
+
+
+
+
+
+### GROUP: NAVGURUKUL QUICK FACTS & HISTORY
+This section contains key historical milestones and general organizational data used for internal quizzes and student awareness.
+
+1. FOUNDATION & FIRST CAMPUS:
+Establishment Date: NavGurukul was officially started on November 23, 2016.
+
+First Campus: The first residential campus was established in Dharamshala specifically for boys.
+
+2. ORGANIZATIONAL SCALE:
+Total Employees: The organization currently has between 250 to 254 total employees.
+
+Current Campuses: NavGurukul has a total of 9 campuses.
+
+3. FIRST BATCH & GENDER FOCUS:
+Initial Batch Size: In the very first batch of NavGurukul, there were a total of 9 girls.
+
+Inclusion Strategy: Six out of seven current flagship campuses are dedicated only to girl students to ensure gender inclusion.
+
+4. CORE INITIATIVES (NGVERSE):
+Current Major Initiatives: NavGurukul currently operates several initiatives including NAVigo (NVGO), Sama, and the School of Second Chances (SOSC).
+
+Other Digital Initiatives: Meraki, Zuvy, and Samyarth.
+
+
+
+
+
+
+
+
+### GROUP: NAVGURUKUL ETERNAL UNIVERSITY CAMPUS (BCA PROGRAM - HIMACHAL PRADESH)
+Located in Himachal Pradesh, NavGurukul, in collaboration with Eternal University, offers a unique 3-year fully residential Bachelor of Computer Applications (BCA) degree program. This campus serves as a dedicated space for young women from underprivileged backgrounds to earn a recognized academic degree while gaining deep technical expertise.
+
+1. KEY FEATURES OF THE BCA PROGRAM:
+Degree with Industry Integration: Students earn a recognized BCA degree with a curriculum strictly aligned to current industry needs.
+
+One-Year Internship: The final year includes a dedicated 1-year internship to ensure hands-on work experience before graduation.
+
+Holistic Development: Beyond technology, the program focuses on leadership, critical thinking, and communication skills.
+
+Financial Assistance: Students only pay an admission fee of ₹23,500, while the remaining costs are covered by NavGurukul.
+
+2. PROGRAM BENEFITS:
+Location: Situated in the serene environment of Eternal University, Himachal Pradesh.
+
+Recognition: Provides a formal academic degree from a recognized university.
+
+Exposure: Includes summer internships and a structured final-year internship for real-world industry exposure.
+
+Target Audience: Specifically empowering women to thrive in the competitive tech industry with both a degree and practical skills.
+
+
+
+
+
+
+
+### GROUP: SAMYARTH - DIGITAL INNOVATION FOR SOCIAL IMPACT
+The Samyarth team at NavGurukul focuses on building digital solutions that address systemic challenges in education, agriculture, and rural development. Their work ranges from adult literacy and student tracking to AI-powered interview tools and farmer-market connectivity.
+
+1. PDLD: PADHE DANTEWADA LIKHE DANTEWADA
+Overview: A digital platform designed to transform District Education Management by streamlining how teachers log test results.
+
+The Challenge: Teachers were previously overwhelmed by manual test logging and report creation.
+
+Solution: A mobile app for 2,000+ teachers to log results and a dashboard for stakeholders to track real-time progress.
+
+Status: Successfully deployed and operational across the district with positive client feedback.
+
+2. BHARAT FPO: CONNECTING FARMERS DIGITALLY
+Overview: A national digital directory (bharatfpofinder.nafpo.in) empowering Farmer Producer Organisations (FPOs) across India.
+
+Key Achievements: Integrated MCA data for over 44,000 FPO users, allowing businesses to discover and connect with them directly.
+
+Future Roadmap: Next phases include enhanced mobile responsiveness, robust security protocols, and advanced analytics for deeper engagement insights.
+
+3. ZOE: AI-POWERED SPEECH INTERVIEWING
+Overview: An innovative platform leveraging speech-to-speech AI to help students refine their communication skills.
+
+Modules: Includes an "AI Interviewer Module" for practice scenarios and a "Speech Module" for natural interaction.
+
+Impact: Currently engaging students with a goal to broaden reach by the end of the month.
+
+4. VILLAGE CHILDREN REGISTER (VCR)
+Overview: A digital initiative in Dantewada to track student enrollment and prevent school dropouts.
+
+The Solution: An offline-first mobile app for "Bal Mitras" to collect survey data in remote areas, paired with a real-time dashboard for the district administration.
+
+Status: The platform is ready for its official launch.
+
+5. DRAW AND LEARN
+Overview: A web-first tool that uses AI to make bilingual vocabulary acquisition joyful for students in Classes 1-5.
+
+Features: Students draw a word, and AI provides hints, examples, and pronunciation in English and Telugu.
+
+Pilot Scope: An initial 8-week pilot is planned for 10-20 schools, targeting 1,000 to 2,000 students.
+
+6. OTHER INITIATIVES:
+Build Together: Developing a Glycemic Load Tracker and a Student Reflection AI Tool.
+
+Igatpuri Meetup: A milestone gathering focused on fostering team cohesion and future collaborations.
+
+
+
+
+
+
+
+
+### GROUP: DIGITAL TOOLS & COMMUNICATION (NOTION, SLACK, DISCORD)
+NavGurukul leverages modern digital workspaces to foster collaboration, transparency, and student-led governance. These tools ensure that every student has access to academic resources and can participate in campus operations effectively.
+
+1. NOTION: THE VERSATILE WORKSPACE
+Notion serves as a centralized documentation and project management tool.
+
+Centralized Documentation: A single place for academic resources, campus norms, policies, and process documentation.
+
+Knowledge Sharing: Students create and share tutorials and best practices, supporting the peer-learning environment.
+
+Project Tracking: Used to monitor academic coding projects and student council (Disco) initiatives.
+
+Transparency: Facilitates "Etiocracy" by documenting roles, task lists, and historical data, empowering students to take ownership.
+
+2. SLACK: PROFESSIONAL & OFFICIAL COMMUNICATION
+Slack is the primary platform for formal announcements and professional coordination.
+
+Official Announcements: Used by associates for program changes, policy updates, and campus-wide info.
+
+Professional Collaboration: Facilitates academic discussions and coordination with Academic, Life Skill, and Operations Associates.
+
+Structured Channels: Dedicated channels for specific batches, projects, and operational teams.
+
+Official Link: https://navgurukul.slack.com/ssb/redirect
+
+3. DISCORD: COMMUNITY & REAL-TIME INTERACTION
+Discord focuses on community building, informal discussions, and student-led initiatives.
+
+Community Engagement: A relaxed space for peer support, social interaction, and sharing experiences.
+
+Real-time Interaction: Voice and video channels are used for impromptu group study sessions and problem-solving.
+
+Student Governance: Student-led bodies (Disco coordinators for Kitchen, Academics, Placement, etc.) use Discord for internal coordination and quick polls.
+
+Event Coordination: Primary hub for organizing hackathons, workshops, and recreational activities.
+
+Weekly Updates: Transparency for the reward system (energy points) and other student initiatives is maintained here.
+Official Link: https://discord.com/invite/Rwf9YBTY
+
+
+
+
+
+### GROUP: NAVGURUKUL CORE POLICIES & SUPPORT ECOSYSTEM
+This section contains all official policies, links to full documents, and contact groups for internal support.
+
+1. STUDENT SAFEGUARDING & POSH:
+Student Safeguard Policy: Ensures a safe, respectful environment for all, emphasizing dignity regardless of age or background. Any harassment or neglect is strictly unacceptable and must be reported to the ICC team.
+
+Full Document Link: https://drive.google.com/file/d/1UP2Zq_Fq_RVG2hs_1pLqdmy6RHPhqb5e/view
+
+NG_POSH Policy: Dedicated to a secure workplace/campus free from sexual harassment, governed by the Internal Complaints Committee (ICC).
+
+2. CULTURE & WELL-BEING:
+NG Culture Principles: Belief in individual potential, connection over hierarchy, and service. Encourages bold thinking, rapid experimentation, and accountability.
+
+Culture Full Document: https://drive.google.com/file/d/11kTGRTxbtPtBqBRXps-boBv8K3KC2PYw/view
+
+Mental & Emotional Well-being: Support provided through SunoNaa, offering confidential one-on-one therapy/counseling sessions for stress and anxiety.
+
+3. TEAM LEAVE POLICY 2026:
+Comprehensive leave structure for FTE, CIF, CII, FTC, and FTI members:
+
+Casual Leave: 15 days/year.
+
+Wellness Leave: 10 days/year.
+
+Vipassana Leave: 10 days for sitting a course + 10 days for Sewa (All employees).
+
+Maternity & Parental: 12 weeks for maternity; 6 weeks for parental leave.
+
+Other Leaves: Wedding (5 days), Bereavement (5 days), Exam (5 days for alumni), and Learning & Development (4 days).
+
+Full Leave Policy Link: https://navgurukul.notion.site/NG-Leave-Policy-2026-2d8a93c7c39180b39018d6c4fd59c969
+
+
+### GROUP: LAPTOP ALLOCATION & USAGE POLICY (FOR EMPLOYEES)
+NavGurukul team members ko unke functional needs aur laptop ki availability ke basis par computing resources provide karta hai.
+
+1. ELIGIBILITY & SPECIFICATIONS:
+Residential Campus Employees (Intern/Full-time, Salary < 50k): I3 or AMD equivalent, 8GB RAM, 256GB SSD.
+
+Full-time Developers: I3/I5/AMD equivalent, 8GB RAM, 256GB SSD. (Interns from outside NG need CEO approval).
+
+Android Developers: 16GB RAM is provided.
+
+Senior Employees (Salary > 50k): Eligible for I5 or AMD equivalent, 8GB/12GB/16GB RAM, 256GB SSD.
+
+2. PROCEDURE TO GET A LAPTOP:
+Step 1: Requisition form fill karna hota hai. Verbal confirmation valid nahi hai.
+
+Step 2: HR-Ops availability confirm karke Reporting Manager ko CC karte huye email bhejte hain.
+
+Step 3: Allocation aur dispatch mein 3 se 10 working days ka samay lagta hai.
+
+Students turned Interns: Ye log student laptops hi use karna continue karte hain, lekin manager ko email confirmation dena hota hai.
+
+3. USAGE & SAFETY RULES:
+Personal Use: Restricted personal use allowed hai, lekin malicious content (jaise porn sites) sakti se mana hai.
+
+Security: Laptop ko password se protect karna aur samay-samay par password badalna mandatory hai.
+
+Responsibility: Laptop ki safety ki poori zimmedari owner ki hai, chahe wo campus mein ho ya travel kar raha ho.
+
+Backups: Work-related data ka backup rakhna employee ki zimmedari hai.
+
+4. STOLEN, LOST, OR DAMAGED LAPTOPS:
+Stolen/Lost: Police ko turant report karke 24 hours ke andar FIR copy obtain karni hogi aur HR-Ops ko inform karna hoga.
+
+Damage Cost: Agar damage employee ki galti se hua hai, toh repair ya replacement ka poora cost unki salary se deduct kiya jayega.
+
+5. TERMINATION & EXIT PROCESS:
+Laptop Return: Resignation ya termination ke waqt laptop IT/HR ko return karna hota hai.
+
+Data Security: Return karne se pehle sara company data delete karna aur passwords hatana zaroori hai.
+
+NOC: IT department laptop condition verify karne ke baad hi No Dues (NOC) aur Experience certificate release karta hai.
+
+### Group: CONTACT SUPPORT (GOOGLE GROUPS):
+Finance & Accounts: accounts@navgurukul.org (Reimbursements and financial concerns).
+
+Operations: operations@navgurukul.org (Campus expenses/approvals).
+
+Culture Team: culture_team@navgurukul.org (Campus culture communication).
+
+Placements: tnp@navgurukul.org (Job leads and placement concerns).
+
+Academics: all-academic-team@navgurukul.org (All academic discussions).
+
+CEO Office: ceooffice@navgurukul.org (Placement/Campus reports and donor engagement).
+
+HR & Recruitment: pnc@navgurukul.org (Personnel concerns/escalations) & talent@navgurukul.org (Recruitment).
+
+General Groups: allresidential@navgurukul.org & team@navgurukul.org.
+
+
+
+### GROUP: EXPENSE REIMBURSEMENT POLICY (APRIL 2025 - MARCH 2026)
+NavGurukul apne team members ko work-related expenses ke liye reimbursement provide karta hai, lekin carbon footprint kam karne ke liye train aur bus ko flights se upar priority di jati hai.
+
+1. TRAVEL LIMITS & ELIGIBILITY:
+Flights: Upper limit ₹5,000. Allowed only for distances >1000 km, or if the fastest train takes >24 hours.
+
+Special Regions: NE Region aur Islands ke liye limit ₹6,500 tak extend hoti hai.
+
+Trains: Allowed up to ₹2,000 (3AC category).
+
+Buses: Allowed up to ₹1,500.
+
+Personal Vehicles: Two-wheeler (₹3/km, limit ₹1,000) aur Four-wheeler (₹7/km, limit ₹1,000).
+
+Auto/Cab: ₹10/km (limit ₹500).
+
+2. FOOD & ACCOMMODATION:
+Meals: ₹200 per meal (daily limit ₹600) for non-campus stays.
+
+Senior Leadership: Networking meals limit ₹750 (strategic partnerships ke liye).
+
+Accommodation: Day stay (₹1,000), Overnight stay (₹1,500), Month-long stay (₹8,000).
+
+Note: Campus ya NG flat mein stay aur meals ko priority di jati hai agar vacancy ho.
+
+3. DOCUMENTATION & APPROVALS:
+Bills: ₹500 se upar ke har expense ke liye bill compulsory hai.
+
+Vouchers: ₹500 se niche ke liye vouchers/UPI screenshots valid hain. Vouchers bina proof ke sirf ₹200 tak valid hain.
+
+Approvals: Reporting Manager policy limits ke andar approve kar sakte hain. Limits ke upar ke liye skip-level manager ki approval chahiye.
+
+4. GENERAL GUIDELINES:
+Non-Reimbursable: Meat products, intoxicants, fines/challans, aur personal asset breakage reimburse nahi hote.
+
+IT & Mobile: Recharge reimbursement basic plans (1GB/day) ke liye available hai. Laptop repair IT admin ke through hota hai.
+
+
+### GROUP: CHALLENGES IN HIGHER EDUCATION vs NG APPROACH
+Our program addresses the failures of the current education system where ~97% of engineers lack required startup skills.
+
+Affordability: Private colleges are unaffordable; NavGurukul is accessible to marginalized backgrounds.
+
+Employability: Traditional curriculum is outdated; NG uses industry-aligned pedagogy.
+
+Language Barrier: Content is often only in English; NG provides vernacular support.
+
+Unique Pedagogy: Mentorship-based (seniors guide juniors), self-paced digital learning, and peer-learning environment.
+
+### GROUP: ECOVERSITY & SUSTAINABLE CAMPUS
+Ecoversity is a self-sustainable, environment-friendly campus built from scratch.
+
+Vision: A template for wholesome education encompassing livelihoods, community, and ecology.
+
+Food: Organically generated on-land for learners, staff, and volunteers.
+
+Water: Contributes to the water table through rainwater harvesting and afforestation.
+
+Electricity: Minimized needs through natural cooling and solar energy.
+
+### GROUP: Meraki 
+Meraki is an important initiative by NavGurukul that focuses on making programming and digital skills accessible, especially to learners from underserved communities. It's designed to be a readiness program that can open doors to job opportunities or further training in the IT sector.
+
+Here's a breakdown of what Meraki entails:
+
+*   Online Learning Platform: Meraki is a mobile-first platform, primarily an Android application, that allows students to learn coding and digital skills using just a smartphone and an optional keyboard. It's part of NavGurukul Foundation for Social Welfare and began in 2020 to offer low-cost online tech education.
+*   Introductory Courses: It offers a free, 3-month online introductory course on Software Programming (primarily Python) and Touch Typing. Other courses include JavaScript, Scratch, web development, and spoken English.
+*   Target Audience: Meraki specifically focuses on young women and girls to address the underrepresentation of women in the IT sector. It also aims to reach students from secondary schools and low-income families across India.
+*   Learning Approach: The platform encourages self-learning, providing course content, live classes, and expert mentoring. It also offers content in multiple regional languages to ensure clarity and accessibility, while also developing English skills.
+*   Pathway to Further Opportunities: Meraki acts as a stepping stone. Successfully completing the program can lead to job opportunities or admission into more aspirational training programs, including NavGurukul's fully-funded residential software engineering program.
+*   Impact: The Meraki app is used by over 55,000 learners across various states, providing them with foundational tech skills. NavGurukul's vision includes reaching 100 million remote Meraki users to train them in software programming and data typing in the next five years.
+MERAKI MOBILE APP: 
+Meraki brings programming to young adults across India, aligned with NEP 2020.
+
+Courses: Scratch, Web Development, Typing, Python, and English Speaking.
+
+Features: Live classes, vernacular curriculum, offline practice, and portfolio creation.
+
+Impact: 68.67% retention rate with average sessions of ~28 minutes.
+
+
+
+
+
+
+
+### GROUP: NAVGURUKUL CORE TEAM DETAILS
+NavGurukul's leadership brings together a wealth of experience from world-class institutions and companies like Harvard, IIT, Amazon, and GitHub.
+
+1. ABHISHEK GUPTA (CO-FOUNDER & CHIEF OF INNOVATION)
+Education: B.Tech from IIT Delhi, CSE.
+
+Entrepreneurship: Co-founded https://www.google.com/search?q=Zumbl.com and FranklyMe.
+
+Public Service & Recognition: Worked with the Education Dept, Delhi Govt before starting NavGurukul. Recognized in Forbes India 30u30 and is a TEDx speaker.
+
+2. NIDHI ANARKAT (CO-FOUNDER AND CEO)
+Education: Harvard Graduate in Educational Technology; Bachelors in Computer Science.
+
+Experience: Founded EmpowerEd before NavGurukul. Previously worked at EI (Educational Initiatives), Knewton, and Hero Vired.
+
+
+3. BALAKRISHNAN C. (DIRECTOR, RESIDENTIAL PROGRAM)
+Professional Background: Ex Sr. Director at Lowes India.
+
+Expertise: Over 20 years of experience in technology leadership and development at major firms like Tesco and Planetasia.
+
+4. VIJAY VEDANTHAM (DIRECTOR, RESIDENTIAL TECHNOLOGY)
+Industry Experience: Former Sr. Director of Software Engineering with GitHub.
+
+Leadership: 25 years of senior leadership experience at global tech giants Amazon and Microsoft.
+
+5. PRACHI SHAH (Team Leader of AI Labs,LEARNING EXPERIENCE DESIGN)
+Education: Graduate in Applied Physics from NIT Surat.
+
+Specialization: Learning and Pedagogy expert with prior experience at Maverick Learning Centre and Atria University.
+
+6. ANUP KALBALIA (ADVISOR, LEARNING EXPERIENCE)
+Corporate Experience: Ex Vice President at Unacademy.
+
+Legacy: Led CodeChef for 12+ years, which is recognized as one of the best coding learning platforms in India.
+
+7. PRIYANKA DANGWAL (ASSISTANT MANAGER)
+Alumni Achievement: A proud alumna of NavGurukul.
+
+Roles: Worked extensively across Academics and Admissions functions.
+
+Leadership: Currently leading the Dantewada Campus at just 20 years of age.
+
+
+
+
+
+
+
+### GROUP: INSPIRATIONAL TESTIMONIALS & SUCCESS STORIES
+Real-life examples of students who transformed their lives through NavGurukul's residential program.
+
+1. SONAM KUMAWAT (Indore, Madhya Pradesh)
+Background: Father's monthly salary was barely INR 10K to support 3 children.
+
+NG Journey: Joined in Sep 2018. She loved the culture and mentorship, which taught her how to self-learn.
+
+Achievement: Cracked the Amazon India interview in her first attempt.
+
+Impact: Through her savings, she bought her own house, and now her parents live rent-free.
+
+2. NIKITA (Delhi Outskirts)
+Background: Joined in Aug 2021 after class 12 via NGO partner Alohomora. Father was a clerk earning INR 17K.
+
+NG Journey: Became fluent in spoken English and improved communication. Enrolled in the BCA program at IGNOU.
+
+Achievement: Interned at NatWest with a stipend of INR 30K/month.
+
+Current Status: Post-internship, her annual salary is INR 5.4 LPA (2.5x more than her entire family's previous income).
+
+3. BHAGYASHREE (Pune, Maharashtra)
+Background: Joined in July 2021. Father is an auto-rickshaw driver and mother a cook. Faced toxic conditions and domestic violence at home.
+
+NG Journey: Found Python and JavaScript like "magic." Loved the peer learning concept—learning and teaching together.
+
+Achievement: Got an internship at NatWest within 4 months, which converted into a full-time offer.
+
+Impact: At 19, her salary of INR 5 LPA is way more than her entire family's income.
+
+
+
+
+
+### GROUP: NG VALUES & CULTURAL PRINCIPLES
+These principles guide how we think, act, hire, and grow together at NavGurukul.
+
+1. INNOVATION & STRATEGIES:
+Unconditional Belief in Potential: We believe everyone has the ability to learn and change. Growth is about dignity, self-belief, and purpose—not just jobs.
+
+Strategic Excellence: Raising the bar to deliver results through thoughtful, principled decisions and outstanding execution.
+
+Innovate and Simplify: True innovation means questioning assumptions to make complex things simple and taking creative risks.
+
+Think Big, Fail Fast, Reflect Aloud: Envision bold possibilities, learn rapidly from failures, and share transparent insights for collective growth.
+
+2. ATTITUDES & MINDSET:
+Responsibility to Question (Disagree and Commit): Challenge ideas vigorously before decisions, then commit completely to support the outcome.
+
+Practice Radical Honesty: Representing facts truthfully, taking full responsibility for actions, and refusing shortcuts that trade ethics for convenience.
+
+Pride in Frugality: Delivering more with less, ensuring resources are used efficiently for maximum community impact.
+
+
+
+
+
+
+### GROUP: ETIOCRACY - STUDENT-LED GOVERNANCE
+Etiocracy is NavGurukul’s unique system of student-led governance and distributed authority. Students take significant ownership and responsibility for daily operations, academics, and overall campus life.
+
+1. KEY PRINCIPLES OF ETIOCRACY:
+No Hierarchy, Distributed Authority: NavGurukul minimizes top-down hierarchy. Authority and responsibilities are distributed among students rather than a few individuals making all decisions.
+
+Student-as-Partner Model: Students are active partners and contributors, not just recipients of education.
+
+Parallel with Industry Structures: Functioning mirrors modern tech companies, using daily stand-ups, project-based work, and accountability.
+
+2. DYNAMIC ROLES & RESPONSIBILITIES:
+Short-term & Long-term Roles: Roles range from managing specific events to being long-term domain coordinators.
+
+Multiple Roles per Partner: Students often hold multiple roles simultaneously to develop diverse skills.
+
+Transparent Selection: Open roles have clear Job Descriptions (JDs). Selection is done through a transparent process, often involving a jury of randomly selected students for interviews.
+
+3. STUDENT COUNCILS (DISCO):
+The "Disco" teams are the prime example of Etiocracy, where student leaders manage various domains:
+
+Domains Managed: Discipline, Placement, Academics, Facility Management, Workout, Kitchen, Life Skills, Hackathons, and English Coordination.
+
+4. OPERATIONAL TRANSPARENCY:
+Documentation: All rules, processes, and role descriptions are well-documented and accessible on platforms like Notion.
+
+Quick Iterations: The system is agile, allowing roles and processes to be quickly adapted based on feedback and evolving campus needs.
+
+
+
+
+
+
+### GROUP: PEOPLE & CULTURE (PNC) - VERTICALS & STRUCTURE
+PNC is the "Heart of NavGurukul," focusing on building a sustainable and growth-oriented workforce.
+
+1. RECRUITMENT VERTICAL:
+Sourcing & Hiring: Managing candidate experience, recruitment operations, and workforce acquisition.
+
+Stats (Last 4 Months): 110 New Joinees (88 active).
+
+Alumni Hiring: 62 alumni hired (56.4% of total recruitment).
+
+External Hiring: 48 external members (43.6%).
+
+Current Requirement: 21 open jobs with a total requirement of 56 people.
+
+Challenges: Quality of applicants, sourcing for location-specific roles, and limited talent pipelines.
+
+2. CULTURE & WELL-BEING VERTICAL:
+Engagement: Focuses on mental health (Amaha), L&D, policy governance, and scaling check-ins.
+
+Mental Health: 100% onboarded on Amaha; 30% active usage.
+
+Learning: 80% teams joined "Learning Saturdays."
+
+Projects: Inclusive communication (NVC & POSH), conflict resolution, and safe spaces training.
+
+Check-ins: 100+ check-ins completed; PIP (Performance Improvement Plan) policy is ready.
+
+3. HR OPERATIONS VERTICAL:
+Payroll & Admin: Managing salary cycles, performance appraisals, and policy administration.
+
+Asset Management: New laptop process launched for replacement, repair, and issuance.
+
+Future Plans: Launching a reimbursement dashboard and revamping all policies (Leave & Reimbursement).
+
+Challenges: Delays in leave data due to unfilled trackers and coordination issues in travel/ticket booking.
+
+### GROUP: PNC FUTURE PLANS & PROJECTS (UPCOMING 3 MONTHS)
+Growth & Tech: Focus on AI & Backend Engineering hiring.
+
+Leadership Hiring: Placements, CXOs, and Co-founder roles.
+
+Fellowships: Hiring 10 Code India Fellows and 2 Innovation Fellows.
+
+HR Systems: Launching a new AT (Attendance/Salary) tracker (currently 50% done).
+
+Employee Appraisal: December appraisals to be based on competencies.
+
+
+
+
+
+
+
+
+
+### GROUP: ADMISSION PROCESS & ELIGIBILITY (SOP, SOB, SOE, SOF, SOD)
+NavGurukul follows a multi-stage selection process to find students with a strong willingness to learn, regardless of their prior coding experience.
+
+1. ELIGIBILITY CRITERIA:
+Target Group: Primarily girls and trans individuals.
+
+Age: 17 years or older.
+
+Education: Minimum completion of 12th grade.
+
+Financial Background: Family income must be less than ₹5 Lacs per annum.
+
+Documentation: Requires valid ID proof, age proof, and residential proof.
+
+2. SELECTION STEPS:
+Step 1: Online Assessment: A test focusing on basic mathematics and logical reasoning.
+
+Step 2: English Interview: A 30-minute phone call to assess basic communication skills.
+
+Step 3: Algebra/Logic Interview: A 1-hour WhatsApp video call to test problem-solving abilities.
+
+Step 4: Culture Fit Round: A 30-minute phone discussion to evaluate alignment with residential, community-based learning.
+
+Step 5: Offer Letter: Selected candidates receive an official offer via email.
+
+Step 6: Enrollment: Coordination for travel to the campus for boarding and lodging.
+
+3. IMPORTANT PROGRAM NOTES:
+Cost: Training, boarding, and lodging are free, funded through scholarships/partnerships.
+
+Commitment: One-year, intensive, and fully residential program; students must live on campus.
+
+Admission Link: https://admissions.navgurukul.org/students
+
+## GROUP: ADMISSION PROCESS FOR SOSC (SUPPORTIVE ADMISSIONS)
+The SOSC program focuses on students from vulnerable backgrounds (tribals, HIV+, abuse victims, etc.) and follows a more sensitive, supportive approach.
+
+1. APPLICATION & SCREENING:
+Initial Screening: A supportive conversation to understand the candidate's background, circumstances, and motivation.
+
+Sensitive Approach: The process is designed to be supportive given the students' past experiences.
+
+2. READINESS & EMPOWERMENT:
+Culture Fit Discussion: Evaluates alignment with community values, self-reliance, and readiness for a transformative residential experience.
+
+Focus on Independence: Assessment looks for a genuine desire for independence and developing practical life skills.
+
+Safe Environment: The entire admission and program emphasis is on providing a safe space for healing and growth.
+
+
+
+
+### GROUP: NAVGURUKUL EMPLOYEE ROLES & SALARY STRUCTURE
+NavGurukul offers competitive salaries based on roles, responsibilities, and experience. The general salary range for employees is between ₹1 Lakh and ₹6 Lakhs per year.
+
+1. TECHNICAL ROLES:
+Backend Developer / Lead: Approximately ₹2.9L – ₹4.6L per year.
+
+Software Developer: Approximately ₹3L – ₹4L per year.
+
+2. PROGRAM & ACADEMIC ROLES:
+Program Manager: Approximately ₹5L – ₹6L per year.
+
+Academic Associate: Approximately ₹2.9L – ₹3.2L per year.
+
+Marketing/Community Manager: Approximately ₹19,000 – ₹24,000 per month.
+
+3. INTERNSHIPS:
+Intern: Approximately ₹1L – ₹2L per year.
+
+4. SUMMARY STATISTICS:
+Average Salary Range: Often cited around ₹3L - ₹4.6L per annum.
+
+Minimum Salary: Starts around ₹1 Lakh (for interns).
+
+Maximum Salary: Up to ₹6 Lakhs for managerial roles.
+
+
+
+
+
+### Group CORE COUNCILS & RESPONSIBILITIES:
+Discipline Coordinator: Oversees campus norms, ensures a conducive learning environment, mediates conflicts, and promotes a respectful community culture.
+
+Placement Coordinator: Supports the placement journey by reviewing resumes, conducting mock interviews, coordinating with employers, and ensuring students are placement-ready.
+
+Academics Coordinator: Facilitates peer programming, doubt-solving, progress tracking, and provides feedback on curriculum improvements.
+
+Facility Coordinator: Manages physical infrastructure, maintains cleanliness, handles repair requests, and oversees essential supply inventory.
+
+Kitchen Coordinator: Manages daily kitchen operations, menu planning, hygiene, and ensures nutritious meals for all students.
+
+English Coordinator: Enhances fluency by organizing speaking practice sessions, group discussions, and managing learning resources.
+
+Workout Coordinator: Promotes physical well-being by leading daily exercise routines and organizing sports activities.
+
+Life Skills Coordinator: Fosters personal growth through workshops on emotional intelligence, financial literacy, and time management.
+
+Hackathon Coordinator: Executes technical projects, coding challenges, and innovation-based learning initiatives.
+
+
+
+
+
+
+### GROUP: STUDENT LAPTOP DISTRIBUTION POLICY (ENHANCED)
+NavGurukul has introduced a deposit-waiver policy to support students who face financial challenges in paying the standard ₹15,000 security deposit for taking laptops off-campus.
+
+1. ELIGIBILITY & GOAL:
+Target: Students with genuine financial challenges who cannot arrange the deposit.
+
+Goal: To ensure learning continues without interruption for deserving students.
+
+2. REQUIREMENTS FOR DEPOSIT WAIVER:
+Legal Bond: The student must sign a legal bond promising to return the laptop on time and in good condition.
+
+Guardians: If the student is under 18, parents must also sign the document.
+
+5 Guarantors: The student must find 5 other students to act as guarantors who agree to ensure the laptop is returned.
+
+Costs: Students must cover the cost of the stamp paper and any courier charges if they cannot return to campus personally.
+
+3. BOND PAPER VALUES BY STATE:
+Himachal Pradesh (Dharamshala, Baru Sahib): ₹100
+
+Rajasthan (Udaipur): ₹200
+
+Chhattisgarh (Raipur, Jashpur, Dantewada): ₹250
+
+Bihar (Kishanganj): ₹300
+
+Maharashtra (Pune): ₹500
+
+Karnataka (Sarjapur, Bangalore): ₹500
+
+4. CONSEQUENCES OF VIOLATION:
+Legal Action: Failure to return the laptop on time or in good condition will result in legal action, including filing an FIR.
+
+Trust Clause: If the overall compliance rate falls below 99%, the waiver option will be withdrawn for everyone.
+
+Guarantor Penalty: If guarantors fail to help retrieve a laptop, they lose eligibility for the waiver and cannot act as guarantors for one year.
+
+5. STUDENT EXPECTATIONS (OFF-CAMPUS):
+Students taking laptops home must:
+
+Continue working toward set learning goals.
+
+Participate in hackathons and join daily stand-up meetings.
+
+Join eligible placement activities.
+
+Failure to meet these will result in an immediate recall of the laptop.
+
+
+### NAVGURUKUL HQ LEADERSHIP TEAM (IGATPURI)
+* Niwvaas Ashok Wvagmode is the Project Manager at NavGurukul HQ in Igatpuri. He handles HQ and land development.
+* Pooja Mahanor is the Project Lead at the NavGurukul Igatpuri HQ.
+* Pushpa Kumari handles Operations Work at the NavGurukul Igatpuri HQ.
+
+### NAVGURUKUL AI LABS TEAM MEMBERS
+* Prachi Shah is the Team Leader of AI Labs at NavGurukul.
+* Aniket Katkar works as an AI Developer in the AI Labs team.
+* Tanya Bharara is an AI Engineer in the AI Labs team at NavGurukul.
+* Rutwik is an AI Developer in the AI Labs team.
+* Suraj Sahani is an AI & Android Developer in the AI Labs team.
+* Anshika Tripathi is an AI Developer in the AI Labs team.
+* Rishav Tiwari is a member of the AI Labs team.
+* Mayur Bari is a member of the AI Labs team.
+* Rozeen is an AI Engineer in the AI Labs team.
+* Sachin Inamdar is a member of the AI Labs team.
+
+
+
+### GROUP: NAVGURUKUL HQ & EMPLOYEE MEETUPS
+NavGurukul is building its own dedicated Headquarters (HQ) in Igatpuri to provide a permanent space for the team, as previous campuses were in different states without a central owned location.
+
+1. PURPOSE OF EMPLOYEE MEETUPS AT HQ:
+Team Bonding: Members from different teams stay for around 15 days to live together and build stronger professional and personal connections.
+
+Holistic Connection: The main purpose of these meetups is learning and building a deeper connection with one’s body, mind, land, and the team.
+
+Land Engagement: Team members spend time connecting with the land through activities like trekking, camping, and building small things.
+
+Collaboration: Meetups provide a space for learning together, having focused discussions, and holding team-wide meetups.
+
+2. HQ FACILITIES & FUTURE PLANS:
+Current Operations: The site is currently used for employee meetups and providing training.
+
+Infrastructure: The land is being developed to include office spaces, stay facilities, and a dedicated meditation hall.
+
+Future Goal: Once construction is complete, the HQ will be the primary hub for trainings and various other learning activities.
+
+3. RULES & DURATION:
+Shramdaan: Everyone at HQ must contribute through Shramdaan (voluntary work contribution).
+
+Community Living: HQ is treated like a home where everyone takes part in daily responsibilities and supports each other.
+
+Stay Duration: Employees usually stay at HQ for a period of 15 to 20 days.
+
+
+4. Navgurukul HQ LEADERSHIP (Igatpuru) TEAM:
+Project Manager: Niwvaas Ashok Wvagmode (Handles HQ and land development)
+
+Project Lead: Pooja Mahanor
+
+Operations Work: Pushpa Kumari
+
+
+
+
+
+### GROUP: NAVGURUKUL CAMPUS NORMS & RULES
+NavGurukul campuses maintain a set of norms to ensure a disciplined, productive, and harmonious environment. These rules are integral to the student-led governance model, where students actively uphold these standards.
+
+1. RESPONSIBILITY & CONDUCT:
+Discipline: High level of discipline is expected in academic pursuits and personal conduct, including following the daily schedule.
+
+Behavior: Respectful, polite, and cooperative behavior is mandatory. Students must resolve conflicts constructively and foster a supportive environment.
+
+Punctuality: Highly valued for all sessions, meetings, and meal times.
+
+Attendance: Regular daily attendance is mandatory for all academic and extracurricular activities as per policy.
+
+2. SHARED OWNERSHIP (CAMPUS MAINTENANCE):
+Cleanliness: Maintaining tidiness in living spaces and common areas is a shared responsibility of all students.
+
+Kitchen & Campus Duties: Students are assigned rotating duties for meal preparation, clean-up, and overall campus maintenance to promote responsibility.
+
+3. TECHNOLOGY & ACADEMIC HYGIENE:
+Internet Usage: Access is primarily for learning purposes; responsible usage is expected.
+
+Device Usage: Laptops provided for learning must be used responsibly and cared for.
+
+Saving Work: Students must regularly save academic work, preferably on platforms like GitHub, to prevent loss and enable collaboration.
+
+
+
+
+### GROUP: TEAM STRUCTURE & STRENGTH
+NavGurukul maintains various teams to handle residential, academic, and organizational operations. Below is the individual and group count of team members:
+
+1. CORE OPERATIONS & RESIDENTIAL:
+Residential Team: 86 members (Includes Operations, Lifeskills, and Academics).
+
+PnC, Finance & L&D: 15 members (PnC + Finance + Learning and Development team).
+
+Operations (Sama + SOSC): 15 members.
+
+2. GROWTH & OUTREACH:
+Admission & Outreach: 11 members.
+
+Placement & Communication: 33 members.
+
+3. LEADERSHIP & SPECIAL PROJECTS:
+Zuvy & Samyarth: 88 members.
+
+CEO & CIO Office: 21 members.
+
+
+
+
+
+### Samyarth + Zuvy Employee of Navgurukul
+Amruta Ganesh works as a Program Manager at NavGurukul. Her email is amruta@navgurukul.org and she has 2 years, 4 months, and 15 days of experience.
+
+KALUKULA ANIRUDH is part of the AFE team at NavGurukul. His email is anirudh.k@navgurukul.org and he has 1 year, 1 month, and 22 days of experience.
+
+Deepika Rana is the Director of Engineering at NavGurukul. Her email is deepika@navgurukul.org and she has 0 years, 8 months, and 5 days of experience.
+
+Narendra Singh is a Designer and Full Time Consultant. His email is narendra@navgurukul.org and he has 4 years, 9 months, and 23 days of experience.
+
+Piyush Kalra is a Product Manager. His email is piyush@navgurukul.org and he has 1 year, 2 months, and 15 days of experience.
+
+Shruthi Vinod is in the AFE team as a Part Time Consultant. Her email is shruthi.v@samyarth.org and she has 1 year and 23 days of experience.
+
+Souvik Deb is a Senior Frontend Developer and Hustler. His email is souvik@navgurukul.org and he has 2 years, 2 months, and 23 days of experience.
+
+Roshni Jha is a Frontend Developer. Her email is roshni@navgurukul.org and she has 2 years, 4 months, and 30 days of experience.
+
+Urmila Parte is a Frontend Developer and Full Time Intern. Her email is urmilaparte@navgurukul.org and she has 9 months and 9 days of experience.
+
+ALKA TIWARI is a Frontend Developer. Her email is alkatiwari@navgurukul.org and she has 8 months and 22 days of experience.
+
+Aniket Dutta is a Backend Developer. His email is aniket@navgurukul.org and he has 1 year, 8 months, and 9 days of experience.
+
+Poonam Bagh is a Frontend Developer. Her email is poonam@navgurukul.org and she has 4 years, 9 months, and 9 days of experience.
+
+Deshmukh Prashant Shankar is a Frontend Developer. His email is prashant@navgurukul.org and he has 3 years and 23 days of experience.
+
+Saquib Aijaz works in QA. His email is saquibaijaz@navgurukul.org and he has 3 years, 6 months, and 14 days of experience.
+
+Laxmi Yadav is a Backend Developer. Her email is laxmiyadav@navgurukul.org and she has 2 years, 4 months, and 30 days of experience.
+
+Damanpreet Singh is an Android Developer. His email is damanpreet@navgurukul.org and he has 4 years, 2 months, and 1 day of experience.
+
+B Kalyani is an Android Developer and Full Time Intern. Her email is kalyani@navgurukul.org and she has 3 years, 3 months, and 10 days of experience.
+
+Sapna Jha is a Flutter Developer. Her email is sapna@navgurukul.org and she has 2 years, 11 months, and 11 days of experience.
+
+Archana Kumari is a Full Stack Developer and Full Time Intern. Her email is k.archana@navgurukul.org and she has 1 year and 18 days of experience.
+
+Sukanya Mohanty is a Backend Developer. Her email is sukanyamohanty@navgurukul.org and she has 2 years, 4 months, and 30 days of experience.
+
+Amit Kumar is a Frontend Developer. His email is amitkumar@navgurukul.org and he has 3 years and 20 days of experience.
+
+Apeksha Babaji Hande is a Frontend Developer. Her email is apeksha@navgurukul.org and she has 2 years, 6 months, and 21 days of experience.
+
+PRABHAT KUMAR LODHI is a Frontend Developer. His email is prabhat@navgurukul.org and he has 2 years, 10 months, and 21 days of experience.
+
+Saloni Panwar is a Frontend Developer. Her email is saloni@navgurukul.org and she has 3 years, 9 months, and 12 days of experience.
+
+Aadarsh Kumar is a Backend Developer. His email is aadarsh@navgurukul.org and he has 3 years, 7 months, and 23 days of experience.
+
+Alima Alima is a Frontend Developer and Full Time Intern. Her email is alimausmani@navgurukul.org and she has 8 months and 22 days of experience.
+
+PRIYANKA SAHU is a Frontend Developer and Full Time Intern. Her email is priyankasahu@navgurukul.org and she has 8 months and 22 days of experience.
+
+Sushmita Sushmita is a Frontend Developer and Full Time Intern. Her email is sushumita@navgurukul.org and she has 8 months and 22 days of experience.
+
+Anirudh Bansal is a Designer. His email is anirudh@navgurukul.org and he has 2 years and 23 days of experience.
+
+Sudiksha Dayaram Yadav is a Designer. Her email is sudiksha@navgurukul.org and she has 2 years, 10 months, and 7 days of experience.
+
+Saksham Chauhan is a Program Manager. His email is saksham.c@navgurukul.org and he has 10 months and 2 days of experience.
+
+Dhanshri Dewanand Sonwane is an Android Developer. Her email is dhanshri@navgurukul.org and she has 4 years, 2 months, and 17 days of experience.
+
+NILESH YADAV is a Product Builder. His email is nilesh.y@navgurukul.org and he has 9 months and 23 days of experience.
+
+Chhaya Verma is a Frontend Developer. Her email is chhaya@navgurukul.org and she has 9 months and 9 days of experience.
+
+PRIYOMJEET NATH is a Frontend Developer. His email is priyomjeet@navgurukul.org and he has 2 years and 23 days of experience.
+
+PRIYA SHUKLA is a Full Stack Developer and Full Time Intern. Her email is priyashukla@navgurukul.org.
+
+Ujala is a Frontend Developer. Her email is ujala@navgurukul.org and she has 2 years, 4 months, and 30 days of experience.
+
+Bhupendra Deshmukh is a Backend Developer. His email is bhupendra@navgurukul.org and he has 3 years, 4 months, and 23 days of experience.
+
+Jayshri Prakash Ghodke is in QA. Her email is jghodke@navgurukul.org and she has 2 years, 7 months, and 4 days of experience.
+
+Aman Sharma is a Frontend Developer. His email is aman@navgurukul.org and he has 3 years, 11 months, and 22 days of experience.
+
+Amit Yadav is a Full Stack Developer. His email is amit.y@navgurukul.org and he has 9 months and 9 days of experience.
+
+Puran Chandra Lohar is a Frontend Developer. His email is puran@navgurukul.org and he has 3 years and 23 days of experience.
+
+Tamanna is a Frontend Developer. Her email is tamanna@navgurukul.org and she has 2 years, 11 months, and 11 days of experience.
+
+Arunesh DHARDHAR is a Backend Developer. His email is arunesh@navgurukul.org and he has 1 year, 11 months, and 20 days of experience.
+
+Goldy is a Developer. Her email is goldy@navgurukul.org and she has 2 years, 6 months, and 23 days of experience.
+
+Jyoti Sharma is a Developer. Her email is jyotisharma@navgurukul.org and she has 2 years, 6 months, and 23 days of experience.
+
+Komal Ahire is a Frontend Developer. Her email is komala@navgurukul.org and she has 5 years, 2 months, and 23 days of experience.
+
+Mahendra is a Backend Developer. His email is mahendra@navgurukul.org and he has 3 years, 6 months, and 30 days of experience.
+
+MUKUL MUKUL is a Backend Developer. His email is mukul@navgurukul.org and he has 9 months and 19 days of experience.
+
+Naseer is a Frontend Developer. His email is nasir@navgurukul.org and he has 3 years, 3 months, and 28 days of experience.
+
+Sanjna Panwar is a Backend Developer. Her email is sanjna@navgurukul.org and she has 3 years, 9 months, and 1 day of experience.
+
+Shivansh Rawat is a Frontend Developer and Consultant. His email is shivansh@navgurukul.org and he has 3 years and 23 days of experience.
+
+Nikita is a Frontend Developer and Full Time Intern. Her email is nikita.v@navgurukul.org and she has 9 months and 9 days of experience.
+
+Geeta Shri Yadav is a Frontend Developer and Full Time Intern. Her email is geetashriyadav@navgurukul.org and she has 9 months and 9 days of experience.
+
+Sohan Vishwas works at NavGurukul. His email is sohan@navgurukul.org and he has 9 months and 9 days of experience.
+
+
+
+### Team and students data in each campus - 
+
+Total current Students in Dantewada	- 110
+Dantewada Team member -
+1. Sheikh        -	Scrum Leader
+2. Swati	        - SOP Academic Associate
+3. Rahul	        - SOP Academic Associate
+4. Kumkum        - SOB  Academic Associate
+5. Pooja yadav	  - Life Skill Associate
+6. Nitin 	     - Operations Associate
+7. Subela	     - SOB Academic Associate
+8. Soniya	     - Life Skill Associate
+
+
+Total current Students in Kishanganj - 52	
+Kishanganj Team member -
+1. Neelam   -	Life Skill Associate Intern
+2. Nigam	   - SOP Academic Associate
+3. Khushboo	- Academic Associate
+4. Prerna	- Academic Associate
+5. Aaksh	   - CIF
+6. Aarti	   - LSA / Placement
+				
+				
+Total current Students in Dharamshala - 46	
+Dharamshala Team member	-
+1. Sachin	- SOP Academic Associate
+2. Ankit	   - Operations Associate
+				
+				
+Total current Students in Pune - 80
+Pune Team member	-
+1. Divya     -	 SOP Academic Associate Intern
+2. Meenakshi -	SOB Academic Associate
+3. Sayna	    - Life Sikill Associate Intern
+4. Muktai	 - SOE Academic Associate
+5. Rani	    - Operations Associate 
+6. Bushra	 - LSA Intern
+7. Aanista	 - SOSC
+8. Pooja	    - SOSC
+9. Jyoti	    - SOSC
+10. Shweta	 - SMA
+				
+				
+Total current Students in Sarjapura	- 	83	
+Sarjapura Team member -
+1. Anindita	    -   Operations Associate
+2. Keerti	    -   Operations Associate
+3. Harsh	       -   SOP Academic Associate
+4. Reshma	    -   SOP Academic Associate
+5. Nisha	       -   SOP Academic Associate
+6.Jyoti	       -   SOP Academic Associate
+7.Anjani	       -   IT Associate
+8.Jannat	       -   Life Skill Associate
+9.Aanchal	    -   Life Skill Associate
+10. Shabnam	    -   SOSC
+		
+				
+				
+Total current Students in Raigarh - 133	
+Raigarh	Team member -
+1. Pooja P	 - Scrum Leader
+2. Samiksha	 - Life Skill Associate
+3. Fanija	 - Life Skill Associate
+4. Bhawana	 - Operations Associate intern
+5. Tanzil	 - SOP Academic Associate
+6. Raman	    - SOP Academic Associate
+7. Priya	    - SOP Academic Associate
+8. Nidhi	    - leading the campus
+9. Prerna	 - outreach support
+				
+
+
+
+
+### GROUP: STUDENT LEAVE POLICY
+NavGurukul's leave policy for students balances academic engagement with personal needs.
+
+1. ATTENDANCE & PUNCTUALITY:
+Core Rule: Mandatory daily attendance for 8 hours of coding and 1 hour of English practice.
+
+Daily Schedule: Punctuality is strictly enforced for all sessions, meal times, and campus duties.
+
+2. LEAVE ENTITLEMENT (NEW):
+Graduated Students: 40 leaves per year.
+
+Students Pursuing Studies (Graduation/Other): 70 leaves per year to accommodate exams and external studies.
+
+3. APPLICATION PROCESS:
+Short Absences (1-2 Days): Notify Academic or Life Skill Associates via Slack/form for verbal or written approval.
+
+Extended Leave (3+ Days): Formal written request required with reasons (e.g., medical certificate). Requires approval from campus leadership/directors.
+
+4. CONSEQUENCES OF UNAPPROVED ABSENCE:
+Academic & Disciplinary: Can lead to warnings, project delays, or point deductions in the energy reward system.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

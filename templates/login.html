@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | NaviAI Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #E91E63;
+            --bg-gradient: linear-gradient(135deg, #f3dee4ff 0%, #e8ebf4ff 100%);
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            margin: 0; 
+            height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            background: var(--bg-gradient);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animated Background Elements */
+        .circle {
+            position: absolute; border-radius: 50%; background: white; filter: blur(60px); z-index: -1; opacity: 0.6;
+            animation: move 15s infinite alternate ease-in-out;
+        }
+        .c1 { width: 400px; height: 400px; background: #ffe4f0; top: -10%; left: -5%; }
+        .c2 { width: 350px; height: 350px; background: #e0f2fe; bottom: -10%; right: -5%; }
+
+        @keyframes move { from { transform: translate(0, 0); } to { transform: translate(50px, 30px); } }
+
+        /* Premium Card with Permanent Pink Border */
+        .login-card { 
+            background: rgba(255, 255, 255, 0.95); 
+            padding: 60px 45px; 
+            border-radius: 40px; 
+            /* Static Pink Border for UI beauty */
+            border: 2px solid var(--primary); 
+            box-shadow: 0 40px 100px -20px rgba(233, 30, 99, 0.15); 
+            text-align: center; 
+            width: 100%; 
+            max-width: 420px; 
+            position: relative; 
+            z-index: 10;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .login-card:hover {
+            transform: translateY(-10px);
+            background: #fffafd;
+            box-shadow: 0 50px 120px -20px rgba(233, 30, 99, 0.25);
+            border-color: #f3dee4ff;
+        }
+
+        /* Branding: NaviAI Pink with Star */
+        .naviai-container {
+            display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 25px;
+        }
+
+        .naviai-text {
+            font-size: 56px; font-weight: 800; color: var(--primary); letter-spacing: -3px;
+        }
+
+        .star-front {
+            font-size: 40px; color: #FFD700; filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+            animation: pulseStar 3s infinite ease-in-out;
+        }
+
+        @keyframes pulseStar { 0%, 100% { transform: scale(1); opacity: 0.7; } 50% { transform: scale(1.2); opacity: 1; } }
+
+        h2 { color: var(--text-dark); font-size: 32px; font-weight: 800; margin: 10px 0; letter-spacing: -1px; }
+        
+        .pink-highlight { color: var(--primary); font-weight: 800; }
+
+        p { color: var(--text-muted); font-size: 16px; line-height: 1.6; margin-bottom: 40px; }
+
+        /* Permanent Pink Border on Button */
+        .google-btn { 
+            display: flex; align-items: center; justify-content: center; gap: 15px; text-decoration: none; 
+            color: var(--primary); background: white; 
+            border: 2px solid var(--primary); 
+            padding: 16px; border-radius: 24px; font-weight: 700; font-size: 16px; 
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.1);
+        }
+
+        .google-btn:hover { 
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(233, 30, 99, 0.2);
+            background: #fffafd;
+        }
+
+        .google-btn img { width: 24px; }
+
+        .footer { margin-top: 45px; font-size: 14px; color: #94a3b8; font-weight: 600; }
+        .footer span { color: var(--primary); font-weight: 800; }
+    </style>
+</head>
+<body>
+    <div class="circle c1"></div>
+    <div class="circle c2"></div>
+
+    <div class="login-card">
+        <div class="naviai-container">
+            <span class="naviai-text">NaviAI</span>
+            <span class="star-front">✨</span>
+        </div>
+
+        <h2>Welcome to <span class="pink-highlight">NaviAI</span> ✨</h2>
+        <p>Your intelligent gateway to the <b>NavGurukul</b> universe. Please sign in to continue.</p>
+        
+        <a href="/login" class="google-btn">
+            <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" alt="Google">
+            Continue with Google
+        </a>
+
+        <div class="footer">
+            Built with ❤️ for <span>Future Leaders</span>
+        </div>
+    </div>
+</body>
+</html>
