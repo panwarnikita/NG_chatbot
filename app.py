@@ -34,24 +34,22 @@ google = oauth.register(
 
 
 os.environ["NVIDIA_API_KEY"] = os.environ.get('NVIDIA_API_KEY')
-embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+
 
 def initialize_vector_db():
     if os.path.exists("vectorstore"):
+        embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
         return FAISS.load_local("vectorstore", embeddings, allow_dangerous_deserialization=True)
-    
-    file_path = "data/about_ng.txt"
-    if os.path.exists(file_path):
-        loader = TextLoader(file_path)
-        documents = loader.load()
-        text_splitter = RecursiveCharacterTextSplitter(chunk_size=1500, chunk_overlap=200)
-        docs = text_splitter.split_documents(documents)
-        db_vector = FAISS.from_documents(docs, embeddings)
-        db_vector.save_local("vectorstore")
-        return db_vector
     return None
 
-vector_db = initialize_vector_db()
+
+vector_db = None
+
+@app.before_request
+def load_db():
+    global vector_db
+    if vector_db is None:
+        vector_db = initialize_vector_db()
 
 
 
