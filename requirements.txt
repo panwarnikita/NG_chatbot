@@ -4,11 +4,9 @@ authlib
 pymongo[srv]
 langchain
 langchain-community
-langchain-huggingface
 langchain-nvidia-ai-endpoints
 langchain-text-splitters
 faiss-cpu
-sentence-transformers
 python-dotenv
 gunicorn
 requests
