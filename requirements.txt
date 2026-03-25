@@ -1,12 +1,1 @@
-flask
-flask-session
-authlib
-pymongo[srv]
-langchain
-langchain-community
-langchain-nvidia-ai-endpoints
-langchain-text-splitters
-faiss-cpu
-python-dotenv
-gunicorn
-requests
+-r backend/requirements.txt
