@@ -191,7 +191,7 @@ export default function App() {
 
     stopSpeaking(); // Naya message send karte hi voice stop karein
     addMessage('User', queryText);
-    if (!presetQuery) setInput('');
+    setInput(''); // Always clear input after sending message
     setLoading(true);
 
     const langInstructions = {
