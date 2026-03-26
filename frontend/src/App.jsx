@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { marked } from 'marked'
-import { FiMenu, FiMic, FiMicOff, FiPaperclip, FiPlus, FiGlobe } from 'react-icons/fi'
+import { FiMenu, FiMic, FiMicOff, FiPaperclip, FiPlus, FiGlobe, FiSquare } from 'react-icons/fi'
 import { IoSend } from 'react-icons/io5'
 
 const translations = {
@@ -133,9 +133,8 @@ export default function App() {
   const [loading, setLoading] = useState(false)
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [isListening, setIsListening] = useState(false)
-  const [language, setLanguage] = useState(() => {
-    return localStorage.getItem('appLanguage') || 'en'
-  })
+  const [isSpeaking, setIsSpeaking] = useState(false) // Tracking if AI is speaking
+  const [language, setLanguage] = useState(() => localStorage.getItem('appLanguage') || 'en')
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false)
   const chatRef = useRef(null)
   const recognitionRef = useRef(null)
@@ -144,12 +143,10 @@ export default function App() {
   const userInitial = useMemo(() => 'G', [])
   const t = translations[language]
 
-  // Save language preference
   useEffect(() => {
     localStorage.setItem('appLanguage', language)
   }, [language])
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (languageDropdownRef.current && !languageDropdownRef.current.contains(event.target)) {
@@ -161,9 +158,7 @@ export default function App() {
   }, [])
 
   const scrollToBottom = () => {
-    if (chatRef.current) {
-      chatRef.current.scrollTop = chatRef.current.scrollHeight
-    }
+    if (chatRef.current) chatRef.current.scrollTop = chatRef.current.scrollHeight
   }
 
   const addMessage = (role, content) => {
@@ -171,130 +166,110 @@ export default function App() {
     setTimeout(scrollToBottom, 0)
   }
 
-  useEffect(() => {
-    return () => {
-      if (recognitionRef.current) {
-        recognitionRef.current.stop()
-      }
-    }
-  }, [])
+  // TTS Logic with Stop tracking
+  const stopSpeaking = () => {
+    window.speechSynthesis.cancel();
+    setIsSpeaking(false);
+  };
 
-  const loadThread = async (chatId) => {
-    if (!chatId) return
-    try {
-      const res = await fetch(`/get_chat/${chatId}`)
-      const data = await res.json()
-      if (!data.messages) return
-      const mapped = data.messages.map((msg) => ({
-        role: msg.role === 'user' ? 'User' : 'AI',
-        content: msg.content
-      }))
-      setCurrentChatId(chatId)
-      setSelectedRole(data.role || 'student')
-      setMessages(mapped)
-      setTimeout(scrollToBottom, 0)
-    } catch (error) {
-      console.error('History load error:', error)
-    }
-  }
+  const speakText = (text, lang) => {
+    stopSpeaking();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = (lang === 'hi' || lang === 'mr') ? 'hi-IN' : 'en-IN';
+    utterance.rate = 1.0;
+    
+    utterance.onstart = () => setIsSpeaking(true);
+    utterance.onend = () => setIsSpeaking(false);
+    utterance.onerror = () => setIsSpeaking(false);
 
-  const sendMessage = async (presetQuery) => {
-    const query = (presetQuery ?? input).trim()
-    if (!query || loading || !selectedRole) return
+    window.speechSynthesis.speak(utterance);
+  };
 
-    addMessage('User', query)
-    if (!presetQuery) setInput('')
-    setLoading(true)
+  const sendMessage = async (presetQuery, wasVoice = false) => {
+    const queryText = (presetQuery ?? input).trim();
+    if (!queryText || loading || !selectedRole) return;
+
+    stopSpeaking(); // Naya message send karte hi voice stop karein
+    addMessage('User', queryText);
+    if (!presetQuery) setInput('');
+    setLoading(true);
+
+    const langInstructions = {
+        en: "Reply strictly in English.",
+        hi: "Reply strictly in Hindi using Devanagari script (हिंदी) only. Do NOT use English alphabets or Hinglish.",
+        mr: "Reply strictly in Marathi using Devanagari script (मराठी) only. Do NOT use English alphabets."
+    };
+
+    const finalPrompt = `IMPORTANT: ${langInstructions[language]}\n\nUser Message: ${queryText}`;
 
     try {
       const res = await fetch('/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query, chat_id: currentChatId, role: selectedRole })
-      })
-      const data = await res.json()
+        body: JSON.stringify({ query: finalPrompt, chat_id: currentChatId, role: selectedRole })
+      });
+      const data = await res.json();
 
-      addMessage('AI', data.response || 'No response from server')
+      addMessage('AI', data.response || 'No response from server');
+      
+      if (wasVoice) {
+        speakText(data.response, language);
+      }
+
       if (!currentChatId && data.chat_id) {
-        setCurrentChatId(data.chat_id)
-        setHistory((prev) => [{ id: data.chat_id, title: query }, ...prev])
+        setCurrentChatId(data.chat_id);
+        setHistory((prev) => [{ id: data.chat_id, title: queryText }, ...prev]);
       }
     } catch (error) {
-      addMessage('AI', `Error: ${error.message}`)
+      addMessage('AI', `Error: ${error.message}`);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   const handleVoice = () => {
-    if (!selectedRole || loading) return
-
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
-    if (!SpeechRecognition) {
-      alert('Your browser does not support Speech Recognition.')
-      return
-    }
+    if (!selectedRole || loading) return;
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) return alert('Speech Recognition not supported.');
 
     if (isListening && recognitionRef.current) {
-      recognitionRef.current.stop()
-      return
+      recognitionRef.current.stop();
+      return;
     }
 
-    const recognition = new SpeechRecognition()
-    recognition.lang = 'en-IN'
-    recognition.interimResults = false
-    recognition.continuous = false
-
-    recognition.onstart = () => {
-      setIsListening(true)
-    }
-
+    const recognition = new SpeechRecognition();
+    recognition.lang = language === 'hi' ? 'hi-IN' : language === 'mr' ? 'mr-IN' : 'en-IN';
+    recognition.onstart = () => setIsListening(true);
     recognition.onresult = (event) => {
-      const transcript = (event.results?.[0]?.[0]?.transcript || '').trim()
-      if (transcript) setInput(transcript)
-    }
-
-    recognition.onerror = () => {
-      setIsListening(false)
-      recognitionRef.current = null
-    }
-
-    recognition.onend = () => {
-      setIsListening(false)
-      recognitionRef.current = null
-    }
-
-    recognitionRef.current = recognition
-    recognition.start()
+      const transcript = (event.results?.[0]?.[0]?.transcript || '').trim();
+      if (transcript) sendMessage(transcript, true); 
+    };
+    recognition.onerror = () => setIsListening(false);
+    recognition.onend = () => setIsListening(false);
+    recognitionRef.current = recognition;
+    recognition.start();
   }
 
   const startNewChat = () => {
-    setCurrentChatId(null)
-    setMessages([])
-    setInput('')
-    setSelectedRole('')
+    setCurrentChatId(null);
+    setMessages([]);
+    setInput('');
+    setSelectedRole('');
+    stopSpeaking();
   }
 
   const handleRoleSelect = (role) => {
-    setSelectedRole(role)
-    setSidebarOpen(true)
+    setSelectedRole(role);
+    setSidebarOpen(true);
   }
-
-  const selectedRoleLabel = roleOptions(language).find((role) => role.key === selectedRole)?.label || t.selectRoleButton
 
   const renderBubble = (msg, idx) => {
     const isAI = msg.role === 'AI'
     return (
       <div key={idx} className={`message-wrapper ${isAI ? '' : 'user-wrapper'}`}>
-        <div className={`avatar ${isAI ? 'ai-avatar' : 'user-avatar'}`}>
-          {isAI ? 'NaviAI' : userInitial}
-        </div>
-        <div
-          className={`bubble ${isAI ? 'ai-bubble' : 'user-bubble'}`}
-          dangerouslySetInnerHTML={{
-            __html: isAI ? marked.parse(msg.content || '') : msg.content
-          }}
-        />
+        <div className={`avatar ${isAI ? 'ai-avatar' : 'user-avatar'}`}>{isAI ? 'Navi' : userInitial}</div>
+        <div className={`bubble ${isAI ? 'ai-bubble' : 'user-bubble'}`} 
+             dangerouslySetInnerHTML={{ __html: isAI ? marked.parse(msg.content || '') : msg.content }} />
       </div>
     )
   }
@@ -307,9 +282,7 @@ export default function App() {
         <div className="history-list">
           {history.length === 0 && <div className="history-empty">{t.noHistory}</div>}
           {history.map((item) => (
-            <div key={item.id} className="history-card" onClick={() => loadThread(item.id)}>
-              {(item.title || '').slice(0, 50)}...
-            </div>
+            <div key={item.id} className="history-card" onClick={() => loadThread(item.id)}>{(item.title || '').slice(0, 50)}...</div>
           ))}
         </div>
       </aside>
@@ -317,62 +290,25 @@ export default function App() {
       <main id="main-content">
         <header>
           <div className="header-left">
-            {selectedRole && (
-              <button 
-                className="toggle-sidebar-btn" 
-                onClick={() => setSidebarOpen(!sidebarOpen)}
-                title={sidebarOpen ? 'Close sidebar' : 'Open sidebar'}
-              >
-                <FiMenu />
-              </button>
-            )}
+            {selectedRole && <button className="toggle-sidebar-btn" onClick={() => setSidebarOpen(!sidebarOpen)}><FiMenu /></button>}
             <div className="brand-name-header">NaviAI <span>✨</span></div>
           </div>
           <div className="header-right">
             <div className="language-selector" ref={languageDropdownRef}>
-              <button 
-                className="language-toggle"
-                title={t.language}
-                onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}
-              >
-                <FiGlobe /> {language.toUpperCase()}
-              </button>
+              <button className="language-toggle" onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}><FiGlobe /> {language.toUpperCase()}</button>
               {showLanguageDropdown && (
                 <div className="language-dropdown">
-                  <button 
-                    className={`language-option ${language === 'en' ? 'active' : ''}`}
-                    onClick={() => {
-                      setLanguage('en')
-                      setShowLanguageDropdown(false)
-                    }}
-                  >
-                    🇬🇧 English
-                  </button>
-                  <button 
-                    className={`language-option ${language === 'hi' ? 'active' : ''}`}
-                    onClick={() => {
-                      setLanguage('hi')
-                      setShowLanguageDropdown(false)
-                    }}
-                  >
-                    🇮🇳 हिंदी (Hindi)
-                  </button>
-                  <button 
-                    className={`language-option ${language === 'mr' ? 'active' : ''}`}
-                    onClick={() => {
-                      setLanguage('mr')
-                      setShowLanguageDropdown(false)
-                    }}
-                  >
-                    🇮🇳 मराठी (Marathi)
-                  </button>
+                  {['en', 'hi', 'mr'].map(l => (
+                    <button key={l} className={`language-option ${language === l ? 'active' : ''}`} onClick={() => {setLanguage(l); setShowLanguageDropdown(false)}}>
+                      {l === 'en' ? '🇬🇧 English' : l === 'hi' ? '🇮🇳 हिंदी' : '🇮🇳 मराठी'}
+                    </button>
+                  ))}
                 </div>
               )}
             </div>
           </div>
           <div className="user-info">
-            <span className="role-badge">{t.role}: {selectedRoleLabel}</span>
-            <span>{t.guest}</span>
+            <span className="role-badge">{roleOptions(language).find(r => r.key === selectedRole)?.label || t.selectRoleButton}</span>
             <a href="/logout">{t.logout}</a>
           </div>
         </header>
@@ -380,36 +316,17 @@ export default function App() {
         <div id="chat-window" ref={chatRef}>
           {messages.length === 0 ? (
             <div id="landing-container">
-              <div className="welcome-text">
-                <h1 className="gradient-text">{t.hiGuest}</h1>
-                <h2>
-                  {selectedRole
-                    ? t.assistantHello
-                    : t.selectRole}
-                </h2>
-              </div>
-
+              <div className="welcome-text"><h1 className="gradient-text">{t.hiGuest}</h1><h2>{selectedRole ? t.assistantHello : t.selectRole}</h2></div>
               {!selectedRole ? (
                 <div className="role-cards">
                   {roleOptions(language).map((role) => (
-                    <button
-                      key={role.key}
-                      className="role-card"
-                      type="button"
-                      onClick={() => handleRoleSelect(role.key)}
-                    >
-                      <h3>{role.label}</h3>
-                      <p>{role.description}</p>
-                    </button>
+                    <button key={role.key} className="role-card" onClick={() => handleRoleSelect(role.key)}><h3>{role.label}</h3><p>{role.description}</p></button>
                   ))}
                 </div>
               ) : (
                 <div className="quick-cards">
-                  {quickPrompts(language).map((prompt) => (
-                    <div key={prompt.text} className="card" onClick={() => sendMessage(prompt.text)}>
-                      <p>{prompt.text}</p>
-                      <span className="card-icon">{prompt.icon}</span>
-                    </div>
+                  {quickPrompts(language).map((p) => (
+                    <div key={p.text} className="card" onClick={() => sendMessage(p.text, false)}><p>{p.text}</p><span className="card-icon">{p.icon}</span></div>
                   ))}
                 </div>
               )}
@@ -417,49 +334,37 @@ export default function App() {
           ) : (
             <>
               {messages.map(renderBubble)}
-              {loading && (
-                <div className="message-wrapper">
-                  <div className="avatar ai-avatar">NaviAI</div>
-                  <div className="bubble ai-bubble italic">{t.thinking}</div>
-                </div>
-              )}
+              {loading && <div className="message-wrapper"><div className="avatar ai-avatar">Navi</div><div className="bubble ai-bubble italic">{t.thinking}</div></div>}
             </>
           )}
         </div>
 
         <div className="input-container">
           <div className="input-bar">
-            <label htmlFor="file-upload" className="icon-btn" title="Add file">
-              <FiPaperclip />
-              <input type="file" id="file-upload" style={{ display: 'none' }} />
-            </label>
+            <label htmlFor="file-upload" className="icon-btn" title="Add file"><FiPaperclip /><input type="file" id="file-upload" style={{ display: 'none' }} /></label>
+            <input type="text" id="user-input" placeholder={selectedRole ? t.askAnything : t.selectRoleFirst} value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && sendMessage(input, false)} disabled={!selectedRole} />
+            
+            {/* AGAR AI BOL RAHA HAI TOH STOP BUTTON DIKHEGA, WARNA MIC ICON */}
+            {isSpeaking ? (
+              <button 
+                className="icon-btn stop-btn" 
+                onClick={stopSpeaking} 
+                title="Stop Reading"
+              >
+                <FiSquare style={{ color: 'red' }} />
+              </button>
+            ) : (
+              <button 
+                className={`icon-btn mic-btn ${isListening ? 'mic-btn-active' : ''}`} 
+                onClick={handleVoice} 
+                title={isListening ? t.stopVoice : t.voiceInput} 
+                disabled={!selectedRole || loading}
+              >
+                {isListening ? <FiMicOff /> : <FiMic />}
+              </button>
+            )}
 
-            <input
-              type="text"
-              id="user-input"
-              placeholder={selectedRole ? t.askAnything : t.selectRoleFirst}
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
-              disabled={!selectedRole}
-            />
-
-            <button
-              className={`icon-btn mic-btn ${isListening ? 'mic-btn-active' : ''}`}
-              type="button"
-              onClick={handleVoice}
-              title={isListening ? t.stopVoice : t.voiceInput}
-              disabled={!selectedRole || loading}
-            >
-              {isListening ? <FiMicOff /> : <FiMic />}
-            </button>
-
-            {isListening && <span className="mic-status">{t.listening}</span>}
-
-            <button className="send-btn" type="button" onClick={() => sendMessage()} disabled={!selectedRole || loading}>
-              <IoSend />
-              <span>{t.send}</span>
-            </button>
+            <button className="send-btn" onClick={() => sendMessage(input, false)} disabled={!selectedRole || loading || !input.trim()}><IoSend /><span>{t.send}</span></button>
           </div>
         </div>
       </main>

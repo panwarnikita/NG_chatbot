@@ -46,6 +46,8 @@ def get_qdrant_connection_kwargs(vectorstore_path):
         "path": vectorstore_path,
     }
 
+    
+
 ROLE_PROMPTS = {
     "student": (
         "You are a NavGurukul admissions assistant helping a student. "
@@ -163,6 +165,10 @@ def ask():
         "6. DEFAULT LANGUAGE: Always start the conversation in English. "
         "7. ADAPTIVE LANGUAGE: Use English as default language."
         "8.IMPORTANT: You must act as a continuous conversationalist."
+        "9. CRITICAL: Always match the language script of the selected language. "
+        "10. If Hindi/Marathi is selected, never use English letters in your response."
+        "11. NO SYMBOLS: Do NOT use special characters like asterisks (*), hashtags (#), or dashes (-) for bullet points."
+        "12. When Hindi is selected, do not use English alphabets for Hindi words."
     )
 
     try:

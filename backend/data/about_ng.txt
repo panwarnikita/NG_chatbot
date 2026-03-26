@@ -1,3 +1,1061 @@
+
+
+
+
+
+
+
+
+### 🏢 1. What is NavGurukul?
+NavGurukul is a technology-driven non-profit organization based in Gurugram, Haryana, India, dedicated to empowering underserved youth — with a strong focus on women and girls — through high-quality, fully-funded tech education. It offers residential programs that train students in software engineering, design, media, finance, and management, with a guaranteed pathway to aspirational employment in the IT sector.
+
+NavGurukul operates as a meaningful alternative to conventional college education. Students from humble economic backgrounds receive free residential training, food, and learning resources, and are only expected to pay back a nominal fee (in installments) once they secure a job.
+
+
+## 🎯 2. Mission and Vision
+Mission: To provide underserved youth — especially women and girls from rural India, scheduled castes and tribes, and economically disadvantaged communities — free, high-quality education and skills training that creates pathways to aspirational, well-paying careers.
+
+Vision: To create an equitable higher education alternative where students from underserved communities can learn skills to build aspirational careers and thrive in the world. NavGurukul envisions a world where affordable, world-class education empowers every individual to reach their highest potential.
+
+
+
+
+## 👨‍💻 3. Founders
+NavGurukul was co-founded by:
+
+Abhishek Gupta: An alumnus of IIT Delhi, Forbes India 30 Under 30. Abhishek had previously co-founded two startups before volunteering with Delhi government’s education department. Witnessing firsthand how talented students from humble backgrounds lacked access to quality education motivated him to build NavGurukul.
+
+
+
+## 💡 5. What Problem Does NavGurukul Solve?
+NavGurukul addresses several interconnected problems in India’s higher education and employment landscape:
+
+Access Gap: Quality higher education is a distant dream for youth from rural India, scheduled castes/tribes, religious minorities, and economically disadvantaged families.
+
+Employability Crisis: Conventional colleges often fail to deliver practical skills. Thousands of graduates remain unemployed because they lack market-relevant capabilities.
+
+Gender Inequality in Tech: Women from marginalized backgrounds face extra economic and social barriers.
+
+Digital Poverty: Lack of devices and internet. NavGurukul addresses this through Meraki and Sama (refurbishing laptops).
+
+NavGurukul solves these problems through:
+
+Fully-funded, free residential campuses (no cost to learners)
+
+A peer-learning, self-paced model with no traditional teachers or exams
+
+Open-source learning platform (Meraki) accessible via smartphone
+
+Income-sharing model: students pay back only after securing jobs
+
+English language and personality development training
+
+Programs like: School of Second Chances, Zuvy, Code India Fellowship, and AI-powered tools.
+
+
+
+
+
+## 🎓 NavGurukul Campus Pedagogy
+NavGurukul follows a modern and student-centered learning pedagogy that focuses on practical skills, self-learning, and community-based education. The goal is to help students become independent learners, strong problem solvers, and job-ready professionals.
+
+1. Self-Learning (Student-Driven Learning)
+Students learn through online learning platforms, projects, and exercises. Instead of traditional classroom teaching, students take responsibility for their own learning.
+
+Example:
+
+Students study coding modules online
+
+They practice assignments daily
+
+They solve problems on their own first
+
+2. Peer Learning
+Students learn from each other.
+
+Example:
+
+If one student understands a concept well, they help others.
+
+Students do group discussions and doubt sessions.
+
+Learning happens through collaboration.
+
+3. Mentorship Support
+Mentors and facilitators are available to guide students when they get stuck.
+
+Example:
+
+Mentors explain difficult concepts
+
+They help students with projects
+
+They support students in career preparation
+
+4. Project-Based Learning
+Students learn by building real projects.
+
+Example:
+
+Web development projects
+
+Coding challenges
+
+Real-world problem solving
+
+This helps students gain practical experience.
+
+5. Holistic Development
+NavGurukul focuses not only on coding but also on overall personality development.
+Students learn:
+
+Communication skills
+
+English speaking
+
+Problem solving
+
+Leadership
+
+Teamwork
+
+6. Community Living
+Students live together in the campus which helps them learn:
+
+Discipline
+
+Responsibility
+
+Collaboration
+
+Community values
+
+### 🔄 Re-Test Information (Detailed)
+1. Purpose of the Re-Test
+The re-test is provided to give students another opportunity if they were unable to clear the Screening test (previous) test or want to improve their performance. It helps students prepare better and demonstrate their learning ability.
+
+2. When Can a Student Take a Re-Test?
+A student can request a re-test if:
+
+They did not pass the Pre-Test / ST Test
+
+They missed the test due to technical issues
+
+They want to improve their score
+
+They were unable to complete the test due to network or device problems
+
+3. Re-Test Eligibility Criteria
+Students may be eligible for a re-test if they:
+
+Completed the first test honestly
+
+Show interest in continuing the admission process
+
+Follow the admission team instructions
+
+4. Re-Test Topics
+The re-test will include questions from similar topics such as:
+
+Math: Patterns, Percentages, Profit and Loss, Simple Interest, Time and Work.
+
+Reasoning: Logical reasoning, Basic problem solving.
+
+5. Preparation Tips for Students
+Before taking the re-test, students should:
+
+Practice basic math questions
+
+Solve pattern and reasoning problems
+
+Revise previous test topics
+
+Ensure stable internet connection and proper device
+
+6. Re-attempt for LR Scheduling
+Receiving a test link through WhatsApp or email.
+
+7. Re-Test Rules
+Students must follow these rules:
+
+Do not take help from others
+
+Do not use external resources during the test
+
+Complete the test within the given time
+
+Maintain honesty and integrity
+
+8. What Happens After the Re-Test?
+After completing the re-test:
+
+The admission team will review the results
+
+If the student clears the test, they will move to the next round (LR Round)
+
+If not selected, the student may apply again in future after few days
+
+
+# NAVGURUKUL OVERVIEW
+
+## Question: What is NavGurukul?
+Answer:
+NavGurukul is a technology-driven non-profit organization based in Gurugram, Haryana, India.
+
+---
+
+## Question: What does NavGurukul do?
+Answer:
+The organization empowers underserved youth through high-quality, fully funded technology education.
+
+---
+
+## Question: Who does NavGurukul help?
+Answer:
+NavGurukul focuses especially on women and girls from underserved communities.
+
+---
+
+## Question: What kind of education does NavGurukul provide?
+Answer:
+NavGurukul offers residential programs that train students in technology and professional skills.
+
+---
+
+## Question: What subjects do students study at NavGurukul?
+Answer:
+Programs include software engineering, design, media, finance, and management.
+
+---
+
+## Question: What happens after completing NavGurukul programs?
+Answer:
+Students receive support to secure aspirational employment opportunities in the IT sector.
+
+---
+
+## Question: Is NavGurukul different from traditional colleges?
+Answer:
+Yes. NavGurukul operates as an alternative to conventional college education.
+
+---
+
+## Question: Who can join NavGurukul?
+Answer:
+Students from humble economic backgrounds can join the programs.
+
+---
+
+## Question: Is NavGurukul free?
+Answer:
+Students receive free residential training, food, and learning resources during the program.
+
+---
+
+## Question: Do students pay fees?
+Answer:
+Students pay only a nominal fee in installments after securing a job.
+
+---
+
+# FOUNDER INFORMATION
+
+## Question: Who founded NavGurukul?
+Answer:
+NavGurukul was co-founded by Abhishek Gupta.
+
+---
+
+## Question: What is Abhishek Gupta’s background?
+Answer:
+Abhishek Gupta is an alumnus of IIT Delhi and Harvard.
+
+---
+
+## Question: Has the founder received recognition?
+Answer:
+Abhishek Gupta was featured in Forbes India 30 Under 30.
+
+---
+
+## Question: What did the founder do before NavGurukul?
+Answer:
+He co-founded two startups before working with the Delhi government’s education department.
+
+---
+
+## Question: Why did Abhishek Gupta start NavGurukul?
+Answer:
+He saw talented students from humble backgrounds lacking access to quality education.
+
+---
+
+## Question: What motivated the creation of NavGurukul?
+Answer:
+This experience motivated him to build NavGurukul to provide equal access to quality education.
+
+---
+
+# ORGANIZATION HISTORY
+
+## Question: When was NavGurukul founded?
+Answer:
+NavGurukul was founded in November 2016.
+
+---
+
+## Question: How many campuses were there initially?
+Answer:
+The organization started with 2 campuses.
+
+---
+
+## Question: Has NavGurukul expanded since then?
+Answer:
+Yes. NavGurukul has expanded to multiple residential campuses across India.
+
+---
+
+## Question: How many campuses exist today?
+Answer:
+Currently NavGurukul operates around 8 campuses.
+
+---
+
+## Question: Where are the campuses located?
+Answer:
+Campuses are located in Bangalore, Pune, Dharamshala, Bihar, Chhattisgarh, and Himachal Pradesh.
+
+---
+
+# PROBLEMS NAVGURUKUL SOLVES
+
+## Question: What problem does NavGurukul solve?
+Answer:
+NavGurukul addresses multiple challenges in higher education and employment in India.
+
+---
+
+## Question: What is the access gap in education?
+Answer:
+Many students from rural India and marginalized communities cannot access quality higher education.
+
+---
+
+## Question: Which groups face these challenges?
+Answer:
+Groups include scheduled castes, tribes, religious minorities, and economically disadvantaged families.
+
+---
+
+## Question: Why are traditional colleges not enough?
+Answer:
+Many colleges require high fees and often fail to teach practical job skills.
+
+---
+
+## Question: Why are many graduates unemployed?
+Answer:
+Many graduates lack market-relevant skills needed by employers.
+
+---
+
+## Question: How does this affect technology careers?
+Answer:
+Students often lack practical technical skills required for jobs in the technology sector.
+
+---
+
+## Question: What gender barriers exist in tech?
+Answer:
+Women and girls from marginalized communities face social and economic barriers entering tech careers.
+
+---
+
+## Question: What is digital poverty?
+Answer:
+Many students lack devices, internet access, and digital tools needed for learning.
+
+---
+
+# HOW NAVGURUKUL SOLVES THESE
+
+## Question: How does NavGurukul solve these problems?
+Answer:
+NavGurukul provides fully funded residential campuses with no cost to learners.
+
+---
+
+## Question: How is learning structured?
+Answer:
+NavGurukul follows a peer-learning and self-paced education model.
+
+---
+
+## Question: Does NavGurukul use traditional exams?
+Answer:
+The learning model avoids traditional teachers and exams.
+
+---
+
+## Question: What is Meraki?
+Answer:
+Meraki is NavGurukul’s open-source learning platform accessible through smartphones.
+
+---
+
+## Question: How do students repay the program cost?
+Answer:
+Students pay back only after securing a job through an income-sharing model.
+
+---
+
+## Question: Does NavGurukul teach soft skills?
+Answer:
+Programs include English language training and personality development.
+
+---
+
+# INITIATIVES
+
+## Question: What is the School of Second Chances program?
+Answer:
+This program supports women survivors and helps them rebuild careers and confidence.
+
+---
+
+## Question: What is Zuvy?
+Answer:
+Zuvy is an online learning initiative by NavGurukul.
+
+---
+
+## Question: What is the Code India Fellowship?
+Answer:
+It is a program that trains individuals to support education and learning initiatives.
+
+---
+
+## Question: Does NavGurukul use AI in learning?
+Answer:
+NavGurukul also develops AI-powered learning tools to support education.
+
+---
+
+# IMPACT
+
+## Question: How many students study in residential centers?
+Answer:
+More than 1,100 students currently study in NavGurukul residential campuses.
+
+---
+
+## Question: How many alumni success stories exist?
+Answer:
+NavGurukul has over 630 alumni success stories.
+
+---
+
+## Question: How many students have been placed?
+Answer:
+More than 1,500 students have secured job placements.
+
+---
+
+## Question: What is the combined annual earnings of alumni?
+Answer:
+Alumni collectively earn more than INR 50 Crore annually.
+
+---
+
+## Question: How many learners use the Meraki platform?
+Answer:
+Over 50,000 learners study through the Meraki platform.
+
+---
+
+## Question: How many teachers have been trained using Meraki?
+Answer:
+More than 1,000 teachers have been trained through Meraki.
+
+---
+
+## Question: In how many cities does NavGurukul operate?
+Answer:
+NavGurukul operates campuses across 8+ cities in India.
+
+---
+
+## Question: Does NavGurukul work with governments?
+Answer:
+NavGurukul partners with governments in states like Chhattisgarh and Himachal Pradesh.
+
+---
+
+## Question: How long has NavGurukul been operating?
+Answer:
+NavGurukul has been operating since November 2016.
+
+---
+
+# FUNDING
+
+## Question: Who supports NavGurukul financially?
+Answer:
+NavGurukul receives support from organizations and philanthropic partners.
+
+---
+
+## Question: Which organizations support NavGurukul?
+Answer:
+Supporters include MIT Solve, Microsoft, Capgemini, Accenture, Social Alpha, and N/Core.
+
+
+
+
+
+# CURRICULUM OVERVIEW
+
+## Question: What is the curriculum at NavGurukul?
+Also asked as: What do students study?
+
+Answer:
+NavGurukul programs focus on practical and industry-relevant learning combined with personal development.
+
+---
+
+## Question: What programs are included in the curriculum?
+Answer:
+Depending on the program such as SOP, SOB, SOF, SOE, or BCA, students learn programming, business operations, finance and accounting, educator facilitation skills, or computer applications.
+
+---
+
+## Question: Do students learn soft skills at NavGurukul?
+Answer:
+Along with technical skills, students also learn professional English, communication, teamwork, leadership, and problem-solving.
+
+---
+
+# SOP (School of Programming)
+
+## Question: What is taught in SOP?
+Answer:
+The School of Programming curriculum focuses on computational thinking and software development skills.
+
+---
+
+## Question: What programming languages do students learn in SOP?
+Answer:
+Students learn programming using JavaScript and Python.
+
+---
+
+## Question: Do students learn frontend development in SOP?
+Answer:
+Yes. Students learn HTML, CSS, and React.js for frontend development.
+
+---
+
+## Question: Do students learn backend development in SOP?
+Answer:
+Students learn backend development using Node.js and Python.
+
+---
+
+## Question: Do students learn APIs?
+Answer:
+Students learn how to work with REST APIs in web applications.
+
+---
+
+## Question: Do students learn system design?
+Answer:
+Students learn the basics of system architecture and how applications are structured.
+
+---
+
+## Question: Do students build projects in SOP?
+Answer:
+Students build applications, complete clone projects, and develop professional software portfolios.
+
+---
+
+# SOB (School of Business)
+
+## Question: What do students learn in SOB?
+Answer:
+The School of Business prepares students for business operations and digital marketing roles.
+
+---
+
+## Question: Do students learn business operations?
+Answer:
+Students learn business operations, process management, and project tracking.
+
+---
+
+## Question: Do students learn digital marketing?
+Answer:
+Students learn digital marketing fundamentals and social media management.
+
+---
+
+## Question: Do students learn customer support processes?
+Answer:
+Students learn customer support workflows and content operations.
+
+---
+
+## Question: Do students learn SEO?
+Answer:
+Students learn SEO basics and analytics interpretation.
+
+---
+
+## Question: Do students learn workplace communication?
+Answer:
+Students learn professional communication, email writing, and workplace documentation.
+
+---
+
+# SOF (School of Finance)
+
+## Question: What do students learn in SOF?
+Answer:
+The School of Finance prepares students for accounting and finance roles.
+
+---
+
+## Question: Do students learn accounting?
+Answer:
+Students learn accounting fundamentals and bookkeeping.
+
+---
+
+## Question: Do students learn ledgers and financial statements?
+Answer:
+Students learn ledger maintenance and financial statements preparation.
+
+---
+
+## Question: Do students learn GST and taxes?
+Answer:
+Students learn GST basics and income tax fundamentals.
+
+---
+
+## Question: Do students learn payroll processing?
+Answer:
+Students learn payroll processing and statutory compliance.
+
+---
+
+## Question: What tools do students use in SOF?
+Answer:
+Students learn accounting software such as Tally and use spreadsheets for reporting.
+
+---
+
+## Question: Do students learn reporting skills?
+Answer:
+Students learn professional financial reporting skills.
+
+---
+
+# SOE (School of Educators)
+
+## Question: What do students learn in SOE?
+Answer:
+The School of Educators focuses on facilitation and teaching support skills.
+
+---
+
+## Question: Do students learn learning psychology?
+Answer:
+Students learn how learners understand concepts and how to support learning.
+
+---
+
+## Question: Do students learn lesson planning?
+Answer:
+Students learn how to design structured lesson plans and sessions.
+
+---
+
+## Question: Do students learn facilitation skills?
+Answer:
+Students learn group facilitation and learner engagement techniques.
+
+---
+
+## Question: Do students learn mentoring?
+Answer:
+Students learn mentoring methods and feedback techniques.
+
+---
+
+## Question: Do students learn classroom management?
+Answer:
+Students learn classroom management and communication skills.
+
+---
+
+# BCA PROGRAM
+
+## Question: What subjects are included in the BCA program?
+Answer:
+The BCA program teaches computer applications and core computer science subjects.
+
+---
+
+## Question: Do BCA students learn programming?
+Answer:
+Students learn programming concepts and coding fundamentals.
+
+---
+
+## Question: Do students learn databases?
+Answer:
+Students learn database systems and data management.
+
+---
+
+## Question: Do students learn operating systems?
+Answer:
+Students learn operating systems and system fundamentals.
+
+---
+
+## Question: Do students learn data structures?
+Answer:
+Students learn data structures used in software development.
+
+---
+
+## Question: Do students learn networking?
+Answer:
+Students study computer networks and communication systems.
+
+---
+
+## Question: Do students learn software engineering?
+Answer:
+Students learn software engineering fundamentals.
+
+---
+
+## Question: How is learning supported in BCA?
+Answer:
+BCA also includes project-based learning, peer learning, and professional skill development supported by NavGurukul.
+
+---
+
+# LEARNING STYLE
+
+## Question: Is learning theoretical or practical?
+Answer:
+NavGurukul follows a practical and project-based learning model.
+
+---
+
+## Question: Do students learn by building projects?
+Answer:
+Students learn by building projects and solving real-world problems.
+
+---
+
+## Question: Do students participate in hackathons?
+Answer:
+Students may participate in hackathons and collaborative challenges.
+
+---
+
+## Question: Do students present their work?
+Answer:
+Students present their work and explain concepts to peers to strengthen understanding.
+
+---
+
+# CAMPUS
+
+## Question: Where are NavGurukul campuses located?
+Answer:
+NavGurukul has multiple residential campuses across India.
+
+---
+
+## Question: In which cities does NavGurukul have campuses?
+Answer:
+Campuses are located in Bengaluru (Karnataka), Pune (Maharashtra), Dharamshala (Himachal Pradesh), Dantewada (Chhattisgarh), Jashpur (Chhattisgarh), Raipur (Chhattisgarh), Kishanganj (Bihar), and Baru Sahib (Himachal Pradesh).
+
+---
+
+# RESIDENTIAL PROGRAM
+
+## Question: What is the NavGurukul residential program?
+Answer:
+NavGurukul runs fully funded residential programs where students live and study on campus.
+
+---
+
+## Question: What facilities are provided in the residential program?
+Answer:
+Students receive accommodation, meals, internet access, structured learning schedules, learning spaces, laptops, and learning materials.
+
+---
+
+## Question: Do residential students receive mentoring?
+Answer:
+Yes. Students receive mentoring support and professional development guidance.
+
+---
+
+## Question: Do students live in a learning community?
+Answer:
+Yes. Students live in peer learning communities where they collaborate and support each other.
+
+---
+
+## Question: Why is the program residential?
+Answer:
+The residential model helps students focus fully on learning.
+
+---
+
+## Question: Why does NavGurukul provide housing and meals?
+Answer:
+This model removes barriers such as housing, food, travel, and unstable environments.
+
+---
+
+## Question: How does the residential environment help students?
+Answer:
+It creates a safe and structured learning environment for long-term skill development.
+
+
+
+
+
+
+
+
+# NAVGURUKUL OUTREACH
+
+## Question: What is NavGurukul outreach?, What is the outreach program?
+Answer:
+NavGurukul outreach programs are awareness sessions conducted with NGOs and communities to inform students about NavGurukul’s fully funded residential education programs and career opportunities.
+
+---
+
+## Question: Why does NavGurukul conduct outreach programs?
+Answer:
+Outreach programs help students from underserved communities learn about NavGurukul programs, eligibility, admission process, and career opportunities.
+
+---
+
+## Question: What happens in NavGurukul seminars?, What is discussed in outreach seminars?
+Answer:
+Outreach seminars explain NavGurukul programs, admission process, eligibility criteria, courses available, and how students can apply for the screening test.
+
+---
+
+## Question: Does NavGurukul work with NGOs?
+Answer:
+Yes, NavGurukul collaborates with partner NGOs to conduct outreach programs and reach students from marginalized communities.
+
+---
+
+## Question: Can my NGO partner with NavGurukul?
+Answer:
+Yes, NGOs can collaborate with NavGurukul for outreach activities to help students learn about educational opportunities.
+
+---
+
+## Question: How do NGOs appear in the interest form?
+Answer:
+If your NGO is already partnered with NavGurukul, you can select the NGO name from the list provided in the form.
+
+---
+
+## Question: What if my NGO is not listed in the form?
+Answer:
+If your NGO name does not appear in the list, you can manually write the name of your NGO in the provided field.
+
+---
+
+## Question: How can I register for a NavGurukul seminar?
+Answer:
+Students can register for outreach seminars by filling the NavGurukul Google Interest Form.
+
+---
+
+## Question: How do I join an outreach session?
+Answer:
+To join an outreach session, students need to submit the interest form with their contact details. The outreach team may contact them with further information.
+
+---
+
+## Question: What is the NavGurukul interest form?
+Answer:
+The NavGurukul Interest Form is a Google form where students can register their interest in NavGurukul programs and receive information about admissions and seminars.
+
+---
+
+## Question: Where can I fill the NavGurukul interest form?
+Answer:
+Students can fill the Google Interest Form to register their interest in NavGurukul programs and outreach events.
+
+---
+
+## Question: Why does the form ask for email?
+Answer:
+The email address is collected so the NavGurukul team can communicate updates about admissions and outreach programs.
+
+---
+
+## Question: Why do I need to enter my name?
+Answer:
+The name field helps the NavGurukul team identify and communicate with applicants.
+
+---
+
+## Question: Why does the form ask for contact number?
+Answer:
+The contact number helps the outreach team contact students for further information or guidance about the program.
+
+---
+
+## Question: Why does the form ask about NGO?
+Answer:
+The form asks whether the student is associated with any NGO to understand outreach partnerships and community connections.
+
+---
+
+## Question: What courses can I choose in the interest form?
+Answer:
+Students can select from several programs including BCA, SOP, SOB, SOF, SOE, or choose “Not Sure” if they need guidance.
+
+---
+
+## Question: Can I apply for BCA?
+Answer:
+Yes, students can select the BCA program in the interest form if they are interested in a formal degree program supported by NavGurukul.
+
+---
+
+## Question: What is SOP in the form?
+Answer:
+SOP stands for School of Programming where students learn software development skills and coding.
+
+---
+
+## Question: What is SOB in the form?
+Answer:
+SOB stands for School of Business where students learn business operations, communication, and management skills.
+
+---
+
+## Question: What is SOF in the form?
+Answer:
+SOF stands for School of Finance where students learn accounting, financial tools, and finance-related skills.
+
+---
+
+## Question: What is SOE in the form?
+Answer:
+SOE stands for School of Educators or Entrepreneurship depending on the program. It focuses on leadership, facilitation, and education roles.
+
+---
+
+## Question: Do I need graduation for SOP?
+Answer:
+In the interest form, SOP is listed as requiring graduation as a mandatory qualification.
+
+---
+
+## Question: Do I need graduation for SOE?
+Answer:
+Yes, SOE is listed in the form as requiring graduation as a mandatory qualification.
+
+---
+
+## Question: What if I don’t know which course to choose?
+Answer:
+Students can select “Not Sure” in the form, and the NavGurukul team will guide them in choosing the right program.
+
+---
+
+## Question: How do I take the NavGurukul test?
+Answer:
+From NavGurukul's website you can check for residential programs, then students can click the admission test link to take the screening test by choosing the school they want to do SOP, SOB, SOF, BCA etc.
+
+---
+
+## Question: Where do I find the test link?
+Answer:
+The admission test link is provided directly in the interest form so students can access the screening test.
+
+---
+
+## Question: Does NavGurukul provide exam preparation help?
+Answer:
+Yes, NavGurukul provides videos explaining how students can prepare for and crack the screening exam.
+
+---
+
+## Question: Is there an English video for exam preparation?
+Answer:
+Yes, NavGurukul provides a full English video explaining how to prepare for the NavGurukul exam.
+
+---
+
+## Question: Is there a Hindi video for exam preparation?
+Answer:
+Yes, NavGurukul provides a Hindi video explaining how to prepare for the NavGurukul exam.
+
+---
+
+## Question: Who is the outreach program designed for?
+Answer:
+The outreach program mainly targets girls and women from underprivileged backgrounds who are looking for fully funded education and job opportunities.
+
+---
+
+## Question: What benefits do outreach programs provide?
+Answer:
+Outreach programs help students learn about NavGurukul education opportunities, admission process, and available career pathways.
+
+---
+
+## Question: Who manages outreach queries?
+Answer:
+Outreach queries are handled by the NavGurukul outreach team.
+
+---
+
+## Question: Who are the outreach coordinators?
+Answer:
+Outreach support is managed by team members including ----------
+
+---
+
+## Question: How will the outreach team contact me?
+Answer:
+After submitting the interest form, the outreach team may contact students through phone or email for further communication.
+
+---
+
+## Question: How can I contact the outreach team?
+Answer:
+Students can reach out through the email mentioned in the form or through official NavGurukul communication channels.
+
+---
+
+
+
+
+
+
 ### GROUP: ABOUT NAVGURUKUL (OVERVIEW & MISSION)
 NavGurukul is a technology-led non-profit organization established in 2016 with a mission to enable underserved youth across India to access dignified, future-ready careers. Founded on the radical belief that "Talent is universal, but opportunity is not," the organization works to dismantle structural barriers that prevent millions of young people from realizing their potential. By designing inclusive and scalable systems, NavGurukul provides high-quality, affordable, and outcomes-driven learning pathways that prepare students—often first-generation learners—for the growing digital economy.
 
@@ -9,96 +1067,1854 @@ NavGurukul is a technology-led non-profit organization established in 2016 with 
 
 
 
-### GROUP: RESIDENTIAL LEARNING CAMPUSES
-NavGurukul operates 9 residential campuses across India, currently hosting over 1,100 students. These campuses are designed as immersive, peer-led, and self-paced learning environments where students focus on software engineering, soft skills, and life skills. A unique aspect of these campuses is the "Income Share Agreement" model: students pay no upfront fees for their education or stay; instead, they contribute a small amount only after they secure a job, ensuring that financial barriers do not stop anyone from learning.
+# 🎓 NAVGURUKUL RESIDENTIAL PROGRAM OVERVIEW
 
-- Total Campuses: 9 Residential locations across India.
-- Student Capacity: 1,100+ students.
-- Learning Model: Immersive, peer-driven, and self-paced.
-- Fees: Zero upfront cost; payment only after employment.
+---
 
-### LIST OF CAMPUS LOCATIONS:
-1. Pune (Maharashtra): Focus on tech and software engineering.
-2. Dharamshala (Himachal Pradesh): One of the primary residential hubs.
-3. Sarjapur (Bangalore): Located in India's tech capital.
-4. Dantewada (Chhattisgarh): Part of the social impact initiative in rural areas.
-5. Jashpur (Chhattisgarh): Expansion of the residential model.
-6. Raipur (Chhattisgarh): Capital city campus.
-7. Kishanganj (Bihar): Bringing tech education to Eastern India.
-8. Udaipur (Rajasthan): Campus focused on empowering regional youth.
-9. Baru Sahib (Himachal Pradesh): Specifically dedicated to the BCA program.
+## 📋 Eligibility Criteria
+
+### SOB, SOF and BCA:
+1. Minimum Age 16.5  
+2. 12th pass + Graduates  
+3. Income less than 5 LAP  
+
+### SOP, SOE:
+1. Minimum Age 16.5  
+2. Graduated  
+3. Income less than 5 LAP  
+
+### SoSc:
+- Age 18+ years  
+- No formal education needed for a Super Chef.  
+- For Future Textile Design Program - min 5th pass.  
+- Girls/Women from extremely marginalised backgrounds / experience of trauma and violence.  
+- Priority to HIV+ women and survivors of trafficking, incarceration, homelessness, or assault.  
+
+---
+
+## ⏳ Duration
+
+1. SOB - 1 - 1.5 years  
+2. SOF - 1 Year  
+3. SOP - 1.5 - 2 years  
+4. BCA - 3 years  
+5. SOE - 1 - 1.5 years  
+6. SoSc - 1 - 1.5 years  
+
+Self-paced learning, leading to a flexible duration of the course.
+
+---
+
+## 💰 Fee Structure of NavGurukul Programmes
+
+Most programmes at NavGurukul are fully funded. This means students do not have to pay any course fees.  
+
+The following schools are fully funded programmes:
+- School of Education  
+- School of Programming  
+- School of Business  
+- School of Finance  
+- School of Second Chance  
+
+Students who join these schools do not need to pay any fees, as the programme is supported and funded by NavGurukul. It’s a scholarship you can get after clearing the test and interviews through the admission process.  
+
+---
+
+## 🎓 BCA Programme Fee
+
+The BCA programme has a one-time fee of ₹23500.  
+
+Students only need to pay this one-time amount, and the rest of the learning support is provided through NavGurukul.  
+
+The fee component is included to ensure the commitment of the students. If a student drops out midway through the course, the seat remains vacant for the entire academic year, since this is a degree program. Unlike diploma or certificate programs, where admissions can happen on a rolling basis, degree program seats cannot be filled once the academic year has started.  
+
+---
+
+## 💻 Laptop Support
+
+Students are provided with laptops on campus for the duration of the course.  
+
+No personal laptop is required to start the application or the selection process.  
+
+---
+
+## 🚀 Selection Process
+
+- Online/Offline Test: Basic 1-hour test covering 8th-grade Maths.  
+- Learning round: A personal conversation to understand the student’s motivation and background.  
+- Culture fit round: Family background check, including income criteria (<5LPA)  
+
+---
+
+## 📅 Admission Timeline
+
+- Applications: Open throughout the year (Rolling admissions) for fully funded campuses.  
+- Application for BCA: According to UGC, tentatively close by Aug-Sep.  
+
+---
+
+## 🔄 Re-test Rules
+
+If a student does not pass the entrance test on the first try or LR, they are encouraged to reapply or re-attempt LR.  
+
+There is usually a cooling period of 10 day to study and try again.  
+
+---
+
+## 📩 Contact & Application Links
+
+### Resource Details
+
+- Website: https://www.navgurukul.org/  
+- Application Link: https://admissions.navgurukul.org/partnerLanding/navgurukul  
+- Email: admissions@navgurukul.org  
+- Helpline: 8891300300  
+- Social Media: NavGurukul Instagram | LinkedIn  
+
+---
+
+## 📍 Next Steps After Selection
+
+- Counselling: A call with the team to discuss campus allocation.  
+- Documentation: Submission of ID proof, income certificate, and educational mark sheets.  
+- Travel: Students receive instructions on how to reach their assigned campus.  
+
+---
 
 
 
 
-### GROUP: SOP - SCHOOL OF PROGRAMMING
-The School of Programming (SOP) is one of NavGurukul's flagship programs, offering a fully-funded, one-year residential course in software engineering. It is designed to train students from underserved communities to become job-ready software engineers and secure aspirational careers in the tech industry. The learning environment is self-paced and peer-driven, where students are supported by facilitators and collaborative programming to master modern technologies.
-Residential Nature: Students live and learn on campus for the entire duration of the course.
-Financial Support: The program is fully-funded, covering all living expenses, food, and education for economically disadvantaged students.
-Technical Curriculum: Focuses on industry-standard tools like Python, HTML, CSS, JavaScript, ReactJS, and NodeJS. 
-Curriculum: (https://docs.google.com/document/d/1c34wCeKdT0E1fVCN7pqPeNO1DzL-jLXFCrY4hzQi3WA/edit?usp=sharing)
-Holistic Development: Emphasizes critical thinking, problem-solving, English communication, and essential life skills beyond coding.
-Career Outcomes: A strong track record of successful job placements in software development roles across various tech companies.
+
+# 🏫 NAVGURUKUL SCREENING & ADMISSION DOCUMENT
+
+---
+
+## 📘 Screening Test Structure
+
+### School of Programming (SOP) & BCA
+
+S. No.  
+Concepts  
+#No. of Qs  
+Easy  
+Medium  
+Hard  
+Total Weightage  
+
+1  
+Patterns  
+4  
+1  
+2  
+1  
+8  
+
+2  
+Percentage  
+3  
+1  
+1  
+1  
+6  
+
+3  
+Time and Work  
+3  
+1  
+2  
+0  
+5  
+
+4  
+Linear Equation  
+6  
+2  
+1  
+3  
+13  
 
 
-### GROUP: SOB - SCHOOL OF BUSINESS
-The School of Business (SOB) provides specialized training in business management through a residential model. While other programs focus on engineering, SOB is dedicated to effective higher education in business disciplines to empower youth for professional corporate roles.
-Core Focus: Professional training in business management and corporate operations.
-Goal: Providing diverse career pathways beyond technology to ensure meaningful employment in the business sector.
-### GROUP: SOB - SCHOOL OF BUSINESS DETAILED CURRICULUM
-The School of Business (SOB) curriculum focuses on providing students with essential tools for the modern business environment, including CRM, Digital Marketing, and Data Analytics.
+Total  
+16  
+5  
+6  
+5  
+32  
 
-#### Course 1: Google Suite
-* Overview: Comprehensive training on Google Sheets for data management.
-* Basic Google Sheets: https://www.coursera.org/learn/google-sheets/home/module/1
-* Advanced Google Sheets: https://www.coursera.org/learn/google-sheets---advanced-topics/home/module/1
+---
 
-#### Course 2: Introduction to CRM and Salesforce
-* Overview: Learning the fundamentals of Customer Relationship Management and Salesforce configuration.
-* Sales and CRM Overview: https://www.coursera.org/learn/sales-and-crm-overview/home/module/1
-* Configuring Salesforce for Marketing and Sales: https://www.coursera.org/learn/lead-management-in-salesforce/home/module/1
-* Salesforce for Customer Service: https://www.coursera.org/learn/opportunity-management-in-salesforce/home/module/1
-* Reports and Dashboards: https://www.coursera.org/learn/reports-dashboards-and-customer-success-in-salesforce/home/module/1
-* Practical Component: Students must complete the 'CRM & Salesforce Assignments.docx' as part of the course.
+### School of Business (SOB) & School of Finance (SOF)
 
-#### Course 3: Digital Marketing
-* Overview: A deep dive into digital foundations, commerce, and advertisement strategies.
-* Main Resource: https://www.coursera.org/learn/foundations-of-digital-marketing-and-e-commerce/home/module/1
-* Key Modules:
-    - Digital Marketing Introduction.
-    - Website Building and Analytics.
-    - Search Engine Optimization (SEO).
-    - SEM and Google Ads.
-    - Social Media Marketing and Facebook Ads.
+S. No.  
+Concepts  
+#No. of Qs  
+Easy  
+Medium  
+Hard  
+Total Weightage  
 
-#### Course 4: Data Analytics
-* Overview: Building the analytical skills necessary for deriving business insights.
-* Key Modules:
-    - Statistics Introduction.
-    - SQL Queries for data retrieval.
-    - Business Insights with Tableau for data visualization.
+1  
+Patterns  
+4  
+1  
+2  
+1  
+8  
+
+2  
+Percentage  
+4  
+1  
+2  
+1  
+8  
+
+3  
+Profit & Loss  
+4  
+1  
+2  
+1  
+8  
+
+4  
+Simple Interest  
+4  
+1  
+2  
+1  
+8  
 
 
-### GROUP: SOD - SCHOOL OF DATA ANALYTICS
-The School of Data Analytics (SOD) is a specialized program where students sharpen their analytical and technical capabilities. The curriculum is built around data visualization and database management to prepare students for the data-driven economy.
-Technical Tools: Mastery of industry-standard software like Tableau, Power BI, and various databases.
-Learning Method: Built through collaborative group discussions and deep peer-to-peer learning.
+Total  
+16  
+4  
+8  
+4  
+32  
+
+---
+
+## 🎯 Difficulty Level
+
+Easy  
+Medium  
+Hard  
+
+Marks  
+1  
+2  
+3  
+
+---
+
+## 🆕 Screening Test Format – Version 3
+
+As NavGurukul expanded its programmes into different schools, the Screening Test (ST) has been redesigned to better match the learning requirements of each school.  
+
+Earlier, there was one common Screening Test used to evaluate students for all programmes.  
+
+Now, there are two different Screening Tests, designed specifically for different schools:  
+
+ST for School of Programming (SOP) & BCA  
+ST for School of Business (SOB) & School of Finance (SOF)  
+
+Each test focuses on concepts that are most relevant to the learning path of that school.  
+
+---
+
+## 📊 Screening Test – School of Programming (SOP) & BCA
+
+### Concepts and Questions
+
+1. Number Patterns  
+Total questions: 4  
+Difficulty: 1 Easy, 2 Medium, 1 Hard  
+
+2. Percentages  
+Total questions: 3  
+Difficulty: 1 Easy, 1 Medium, 1 Hard  
+
+3. Work & Time  
+Total questions: 3  
+Difficulty: 1 Easy, 2 Medium  
+
+4. Linear Equations (Two Variables)  
+Total questions: 6  
+Difficulty: 2 Easy, 2 Medium, 2 Hard  
+
+---
+
+## 📊 Screening Test – School of Business (SOB) & School of Finance (SOF)
+
+### Concepts and Questions
+
+1. Number Patterns  
+Total questions: 4  
+Difficulty: 1 Easy, 2 Medium, 1 Hard  
+
+2. Percentages  
+Total questions: 4  
+Difficulty: 1 Easy, 2 Medium, 1 Hard  
+
+3. Profit & Loss  
+Total questions: 4  
+Difficulty: 1 Easy, 2 Medium, 1 Hard  
+
+4. Simple Interest  
+Total questions: 4  
+Difficulty: 1 Easy, 2 Medium, 1 Hard  
+
+---
+
+## 📄 Question Paper Summary (New Format)
+
+Total questions: 16 MCQs  
+
+Marks are based on difficulty level:  
+Easy question: 1 mark  
+Medium question: 2 marks  
+Hard question: 3 marks  
+
+Total marks: 32  
+
+---
+
+## 📉 Cut-off Marks (New Format)
+
+School of Programming: 21 marks  
+School of Business: 11 marks  
+School of Finance: 13 marks  
+
+---
+
+## 🧠 Screening Test
+
+The screening test broadly filters the students based on their aptitude for different concepts. For each program, there is a cut-off.  
+
+The Screening Test is the first step for the student. This test is conducted both in online and offline formats. Offline seminars are conducted in regions that are remote with low internet/device availability. For example, Dantewada, Jashpur, etc. It is a paper-and-pencil test. The majority of students come through an online screening test available on the website.  
+
+The duration of the test is 90 minutes, which is 1.5 hours.  
+
+Online students just have to select the option and move next, for offline, they will be given an OMR sheet and which gets scanned and evaluated by the ZipGrade app.  
+
+The passing criteria of this test to move on to the next round, which is the Learning Round is also depend on the schools that we are offering, about which you will know further in the doc in detail.  
+
+---
+
+## ⚠️ Things to Remember
+
+The same paper is to be administered for the offline and online tests.  
+
+WHY: All the students have the same/similar paper (fairness). Secondly, for the team that is taking the learning round, it becomes simple to handle one paper.  
+
+All the sets will be different. They will be generated by the back-end.  
+
+WHY: To avoid copying, cheating, and rote memorization of the paper.  
+
+All the questions are going to be MCQ:  
+
+WHY: We can do OMR only through MCQ questions. And OMR is the only way right now to do the checking of papers quickly. A paper manually would take around 20-30 minutes. OMR scanning would take less than a minute.  
+
+---
+
+## 🎥 Learning Support
+
+Students who take the Screening Test through any partner organization are provided with our Learning Video, which explains the key concepts covered in the Screening Test.  
+
+Students who apply through “No Partner” come to NavGurukul on their own and take the test independently. For many of them, this is the first point of contact with NavGurukul.  
+
+Once a student comes in touch with us through the Screening Test, whether they clear the test or not, we share the Learning Video with them. Students who do not clear the test can use the video to practice and re-attempt the Screening Test. Students who clear the test can use the same video to prepare better for the next stage, called the Learning Round (LR).  
+
+The Learning Round includes questions similar to those explained in the Learning Video. More details about the Learning Round (LR) are shared later in this document.  
+
+---
+
+## 🔁 Learning Round
+
+When a student attempts and clear the Screening Test, we provide a Learning Round practice video. In this video, we explain the concepts covered in the Screening Test, which will also be covered in the Learning Round. This helps the student prepare well. If the student has any doubts, they can clear them by understanding the concepts through the video.  
+
+You might think, Why are we taking the Learning Round?, in which we are asking similar concepts and questions that the student already attempted and passed in the Screening test? The simple answer is, it is for ensuring integrity in the screening process and to be able to identify students who might have good logical thinking skills and a high effort attitude, and were close to clearing the cut-off for the priority schools, like SOP, and give them a chance.  
+
+---
+
+## 🔍 Traits to Observe
+
+Hunger in the belly: Shows interest, puts effort into solving problems, and genuinely wants to figure things out.  
+
+Comprehension: Ability to understand questions clearly and respond accordingly. Listens carefully and understands what is being asked.  
+
+Logical Reasoning Ability: Shows strong analytical thinking and problem-solving skills.  
+
+Aptitude: Has a natural ability to work with numbers, patterns, and basic problem-solving concepts.  
+
+Learning Ability: Able to grasp new concepts, learn from explanations, and improve with guidance and feedback.  
 
 
-### GROUP: SOF - SCHOOL OF FINANCE
-The School of Finance (SOF) is designed for students fascinated by the financial world, offering a self-paced mastery of accounting and taxation. It prepares learners to unlock opportunities in high-growth finance sectors through practical, student-led training.
-Accounting Curriculum: Includes comprehensive learning of Financial Accounting, Cost Accounting, and Management Accounting.
-Taxation Training: Covers Direct Tax laws and the computation of income for individuals, firms, and companies.
-Tally Proficiency: Full training in Tally user interface, company management, ledgers, payment vouchers, and financial reports.
-Co-curricular Participation: Students manage student councils, maintain health and hygiene, and engage in sports and recreational field visits.
 
 
-### GROUP: SOSC - SCHOOL OF SECOND CHANCES
-The School of Second Chances (SOSC) is a trauma-informed residential program specifically designed for women survivors of abuse, violence, or incarceration. It provides a safe 12-18 month environment for women to rebuild their lives, gain vocational skills, and achieve complete independence.
-Vocational Skills: Training in culinary arts (Super Chef), textile techniques (Future Textile Designer), and digital literacy.
-Support System: Focused on dignity, safety, and peer mentorship within a trauma-informed framework.
-Volunteer Opportunities: Roles available in Business Development (Food Truck), Social Media, Mentorship, and Creative Facilitation.
-Primary Location: This program primarily operates out of the Pune campus.
+## 📄 Career Pathways & Duration
+
+Career path ways & Duration -
+
+Bachelors of Computer Applications -  
+Duration - 3 Years  
+Career - Software Engineer, Fullstack Developer, Product developer, Web Developer  
+
+School Of Finance -  
+Duration - 1 Year  
+Career - Jr/Sr Accountant, Finance Analyst  
+
+School Of Business -  
+Duration - 1.5 Years  
+Career - CRM Associate, HR Associate, Operations Associate, SEO required roles  
+
+School Of Education-  
+Duration - 1.5 Years  
+Career - Edupreneurs, L&D, Facilitator, Project coordinators  
+
+School Of Programming -  
+Duration - 2 Years  
+Career - Web Developer, Software Developer, Quality Analyst  
+
+School Of Second Chance (Textile & Design) -  
+Duration - 1.5 Years  
+Career - Earning independently as assistant to Fashion designer, start own boutique  
+
+School Of Second Chance (Super Chef) -  
+Duration - 1.5 Years  
+Career - Earning independently as home cooks, chefs, and restaurateurs  
+
+
+---
+
+## 📝 Note
+
+Note - BCA is a degree course hence in order to get a degree students have to be on campus for three years. Apart from that all the courses have flexible duration which means that as soon as they finish the modules they can appear for the placement. Students with a quick learning pace are able to get placed in 8-9 months as well.
+
+
+---
+
+## 📍 Location
+
+Location -
+
+Bachelors of Computer Applications - Baru Sahib, Himachal Pradesh  
+
+School Of Finance - Pune, & Dantewada  
+
+School Of Business - Pune, Banglore, Dantewada, Jashpur, & Dharamshala  
+
+School Of Education- Pune  
+
+School Of Programming - Pune, Banglore, Dantewada, Raigad, Jashpur, Kishanganj, & Dharamshala  
+
+School Of Second Chance (Textile & Design) - Bangalore  
+
+School Of Second Chance (Super Chef) - Pune  
+
+
+Pan India students can join Pune, Bangalore and Himachal Pradesh campus for other campuses they need to have domicile of that state.
+
+
+---
+
+## 🏫 Campuses for Girls & Boys
+
+Campuses for Girls - Pune, Bangalore, Jashpur, (Baru Sahib) Himachal Pradesh, Raigad, Kishanganj  
+
+Campus for Boys - Dharamshala  
+
+Co-ed Campus - Dantewada  
+
+
+---
+
+## 💼 Placement
+
+1500+ Students placed with salaries in ₹2.4 LPA to ₹8.5 LPA range  
+
+120+ Hiring partners with alumni placed at Thoughtworks, Mindtree, FiveS Digital, Wadhwani AI, Cloudthat and leading startups  
+
+52+ Crore in annual collective alumni income and lifetime support for jobs & growth  
+
+
+---
+
+## 🔄 Placement Process
+
+Placement Process -
+
+Our dedicated placement team partners and coordinates with hiring companies to gather job requirements and share them with eligible students. Interested students apply by submitting their CVs. Shortlisted candidates are invited for interviews, and successful candidates receive offer letters upon clearing the interview process.
+
+
+---
+
+## 🎯 Preparation for Placement
+
+Preparation for placement -
+
+CV preparation, Linkedin profile creation  
+
+Mock interviews - General and field/role specific  
+
+Activities - Role plays, communication improvement, assignments  
+
+
+---
+
+## 📊 Completion Success rate
+
+Completion Success rate -
+
+70% of our students get placed after completing all the modules in the course. All programs except BCA degree have flexible duration. BCA is a three year program, a student has to complete 3 years to get the degree and hence placement. For the rest of the programs it depends upon their learning speed and pace. As soon as they complete modules they can appear for the interview. Their job readiness gets identified by the module completion, english speaking level and pre-placement preparation.
+
+
+
+## SOSC School of second chance Future Textile Designer Programme
+Creating Climate-Responsive Livelihoods for Women Survivors
+
+1. Sneak Peek into the Future Textile Designer Programme
+The Future Textile Designer Programme is a residential, future-skills livelihood initiative tailored for women from highly vulnerable backgrounds—survivors of violence, trafficking, wrongful incarceration, and women living with HIV.
+The programme moves beyond traditional tailoring by equipping participants with advanced textile, design, digital, and business skills that open pathways to dignified and sustainable employment.
+Programme Outcomes
+Each graduate should be able to:
+Secure stable employment earning at least ₹20,000 per month
+Form a self-help group
+Establish an independent design-led enterprise
+
+### 2. Why School of Second chance  Programme?
+Conventional tailoring training often leads to low-wage and unpredictable jobs.
+At the same time, the fashion industry is rapidly shifting toward:
+Sustainability
+Upcycling
+Responsible production
+Digital commerce
+These fields require new technical and creative capabilities.
+This programme addresses this gap by preparing women for roles in the emerging circular economy, while building long-term financial resilience and confidence.
+
+### 3. Programme Structure of sosc
+Duration: 12–18 months (self-paced)
+Format: Residential
+The programme includes:
+Food and accommodation
+Digital devices
+English language support
+Psychosocial care
+Peer learning environment
+Internship with ethical brands or enterprises
+
+### 4. Key Curriculum Components of SOSC
+A. Technical & Product Development Skills
+Participants learn to move beyond basic tailoring and conceptualize original products.
+Skills Covered
+Advanced sewing and finishing
+Commercial-level product construction
+Pattern-making
+Sampling and prototyping
+Quality control and industry standards
+These skills build a strong technical foundation suitable for design studios and sustainable fashion enterprises.
+
+B. Design Thinking & Creative Development
+Participants develop creative and design capabilities through:
+Fundamentals of product and textile design
+Trend research
+Material exploration
+Creating market-ready accessories, garments, and home products
+
+C. Upcycling & Circular Textile Innovation (Programme’s Core Innovation)
+This module focuses on sustainability and responsible production.
+Key Learning Areas
+Understanding textile waste streams
+Techniques to transform post-consumer and post-production waste
+Designing functional and desirable upcycled products
+Waste mapping and responsible sourcing
+This prepares women for the fashion industry’s transition toward circularity, waste reduction, and climate-aligned manufacturing, helping them stand apart from their contemporaries.
+
+D. Business, Financial & Entrepreneurial Skills
+Participants gain practical business skills such as:
+Costing and pricing
+Negotiation and order management
+Budgeting
+Micro-enterprise planning
+Understanding market cycles and customer needs
+These skills enable women to:
+Secure fair job opportunities
+Launch their own ventures
+Lead negotiations confidently to ensure fair and equitable pay
+
+E. Digital Skills & Communication
+Participants build digital literacy and communication skills including:
+Digital marketing and online sales platforms
+Social media storytelling
+Basic product photography
+Portfolio creation
+English language and communication skills
+Digital fluency helps graduates:
+Reach wider markets
+Become future-job ready
+Build economic resilience
+
+5. Climate Lens & Adaptive Livelihood Strategy
+The programme integrates a strong climate-resilience approach.
+Strengthening Adaptive Capacity Through Education
+By training women in upcycling, sustainable design, and digital tools, the curriculum builds long-term adaptive capacity, ensuring women remain employable as the fashion industry transforms.
+
+Future Skills for a Circular Economy
+As brands and markets embrace circular practices, skills such as:
+Waste repurposing
+Product redesign
+Low-impact manufacturing
+become essential.
+The programme positions women as valuable contributors to this transition.
+
+Social Inclusion as Climate Justice
+Engaging survivors—often excluded from mainstream economic systems—ensures that climate action is socially inclusive, equitable, and empowering.
+
+6. Livelihood Pathways
+Employment
+Graduates can work in roles such as:
+Junior designer
+Sampling assistant
+Upcycling artisan
+Production coordinator
+Digital craft worker
+With the potential to earn a minimum of ₹20,000 per month.
+
+Entrepreneurship
+Women may:
+Launch micro-boutiques
+Produce small-batch upcycled collections
+Run home-based manufacturing units
+
+Collective Enterprises
+Participants can:
+Form self-help groups
+Build producer collectives
+Fulfil bulk orders
+Collaborate with ethical brands
+Access financial schemes
+
+7. Holistic Residential Environment
+The residential model provides stability, safety, and space for healing and learning.
+Participants benefit from:
+Secure accommodation and meals
+Digital devices and connectivity
+Emotional and peer support
+Structured routines and mentorship
+This environment allows women to focus on:
+Learning
+Rebuilding confidence
+Preparing for economic independence
+
+It is not just a training course—it is a powerful step toward economic independence, social inclusion, and a regenerative textile future led by resilient women.
+The Future Textile Designer Programme is a transformative pathway for women survivors to build dignified, future-ready livelihoods. By combining advanced textile skills, circular design knowledge, business education, and digital empowerment, the programme places them at the forefront of sustainable fashion and climate-responsive entrepreneurship.
+
+### Contact of SOSC
+Reach out to us at:
+sosc@navgurukul.com
+sanjanaswaroop@navgurukul.org
+shabnam@navgurukul.org
+
+
+
+Culinary Empowerment Program: Complete Structure
+For Young Women Transitioning to Financial Independence
+
+Program Overview
+Target Learners: Young women aged 16-22 from shelter homes
+ Duration: 6 months (flexible, extendable based on individual progress)
+ Core Philosophy: Learn by doing, peer-led growth, metacognition-focused
+ End Goal: Job readiness in culinary arts OR entrepreneurship in food business
+
+### Admission Process of SOSC
+Stage 1: Initial Interview
+Purpose: Assess willingness to learn, community living ability, and program need
+Admission Criteria:
+Willingness to learn and grow
+Ability to live harmoniously in a community setting
+Demonstrated need for the program (vulnerability and marginalization factors)
+Interview Questions:
+Tell us about yourself - where are you from? What do you like about that place?
+Who is in your family (chosen and given family)?
+Who are your friends?
+What makes you the most happy?
+What makes you the most angry?
+What's your favorite movie? Describe the plot
+"Bade hoke ek baar toh karna hi hai" - what's that one thing?
+Tell us about your typical day schedule
+Program description: Give honest, even challenging description of program intensity to gauge reaction
+Stage 2: Logic & Learning Willingness Assessment
+Purpose: Assess cognitive ability, willingness to learn, and comfort with technology
+Activities:
+Online or offline puzzles (e.g., tic-tac-toe, name-place-animal-thing)
+YouTube voice command tasks (following instructions from videos)
+Observing problem-solving approach and persistence
+Stage 3: Baseline Assessment (First 2 Weeks)
+Purpose: Understand starting point and personalize learning journey
+Data Collection:
+Medical history
+Legal history
+Bank account status
+ID documentation
+Mother tongue and literacy level
+English literacy level
+Body language observation (eye contact, posture, gait)
+Wellness vision scale check
+Cognitive assessment (logic, memory, reasoning)
+Big 5 personality model (OCEAN) - to guide career pathway choices
+Baseline cooking skills assessment (no judgment, just understanding)
+Student Register Created: Detailed profile with monthly performance update capability
+
+### Program Structure by Phase of sosc
+MONTHS 1-2: INDUCTION & CULINARY FOUNDATIONS
+Learning Focus: Module 1 - Culinary Foundations (Complete)
+1.1 Kitchen Grooming & Professional Standards
+Personal hygiene protocols
+Handwashing techniques, nail care, hair management
+Clean uniforms and protective gear
+Kitchen safety basics
+Preventing cuts, burns, slips
+Emergency procedures
+Professional presentation
+Plating aesthetics, color theory, garnishing
+Food photography basics for social media
+Packaging for takeaway/delivery
+1.2 Standard Operating Procedures (SOPs)
+Waste management
+Composting, recycling, reducing food waste
+Upcycling ingredients (using peels, stems, etc.)
+Inventory management
+FIFO (First In, First Out) method
+Stock taking, labeling, dating
+Budget tracking for ingredients
+Storage protocols
+Refrigeration temperatures, dry storage
+Cross-contamination prevention
+Shelf-life knowledge
+1.3 Essential Tools & Techniques
+Knife Skills:
+Knife types and their uses
+Basic cuts: julienne, dice, chop, mince, chiffonade
+Sharpening and maintenance
+Measurements & Precision:
+Volume vs. weight measurements
+Scaling recipes up/down
+Temperature control
+Cooking Methods:
+Boiling, simmering, poaching
+Pressure cooking (dal, rice, meat)
+Frying (shallow, deep, stir-fry)
+Steaming, blanching
+Roasting, grilling, baking
+Sautéing, braising
+1.4 Appliance Mastery
+Oven (baking, roasting, broiling)
+Slow cooker/crockpot
+Coffee machines (espresso, filter, French press)
+Toaster, sandwich maker
+Mixer, grinder, food processor
+Microwave techniques beyond reheating
+Rice cooker, induction cooktop
+
+English Input: Rigorous practice through regular exposure and usage (focus on input, not output pressure)
+Projects: 2 projects chosen by student in discussion with facilitator from:
+Project 1: Cuisine Specialization
+Project 3: Food Entrepreneurship
+Project 5: Large-Scale Kitchen Management
+Project 6: AI Learning Tool Design
+Hackathons: 2 hackathons chosen from:
+H1: No Oil, No Boil Challenge
+H2: Seva Kitchen (Service Cooking)
+H3: Mystery Box Challenge
+H4: Micro-Greens to Table
+H5: Homemade vs Store-Bought
+H6: Content Creator Challenge
+Digital Literacy Integration: Continuous - all work done through laptops, using AI tools, creating digital portfolios
+Minor Subject Launch: Students choose personal interest area (singing, dancing, beauty, art, etc.) and design self-directed learning journey
+
+MONTHS 3-4: NUTRITION MASTERY
+Learning Focus: Module 2 - Nutrition Science & Dietary Planning (Complete)
+2.1 Nutrition Fundamentals
+Macronutrients:
+Carbohydrates: types, sources, portion sizes
+Proteins: complete vs incomplete, daily requirements
+Fats: healthy vs unhealthy, importance
+Micronutrients:
+Essential vitamins and minerals
+Food sources for common deficiencies (iron, B12, vitamin D)
+Hydration & Fiber
+2.2 Therapeutic & Lifestyle Diets
+Medical Conditions:
+Diabetes management (glycemic index, portion control)
+Anemia (iron-rich foods, absorption enhancers)
+PCOD/PCOS (low GI, anti-inflammatory foods)
+Pregnancy nutrition (folate, calcium, protein needs)
+Hypertension (low sodium cooking)
+Dietary Restrictions:
+Gluten-free cooking (flours, binders, contamination)
+Dairy-free alternatives (plant-based milk, cheese, yogurt)
+Nut-free cooking (alternative proteins and fats)
+Dietary Preferences:
+Vegan (plant-based protein combinations)
+Vegetarian variations
+High-protein diets (for fitness, recovery)
+Low-carb/keto basics
+
+### English Input: Continued rigorous practice
+Projects: 2 projects chosen by student in discussion with facilitator (from remaining options or repeating with different focus)
+Hackathons: 2 hackathons chosen from remaining options
+Digital Literacy Integration: Continues seamlessly
+Minor Subject: Continued self-directed progress with peer presentations
+
+### MONTHS 5-6: INTERNSHIP & REAL-WORLD APPLICATION
+Structure: Team of Teams Model
+Internship Placement Options:
+Internal - SOSC Team: Attached to SOSC team members for shadowing and hands-on work
+Internal - Comeback Kitchen: Work in organizational kitchen operations
+Internal - NavGurukul Roles: Support roles within NavGurukul organization
+External Employers: Placements with hotels, restaurants, catering companies, cafes, bakeries, or food businesses
+Operational Structure:
+Shadow and work hands-on with professionals
+Timing flexible based on internship requirements (may replace or run parallel to classroom)
+No fixed class timetable during full internship periods
+Weekly check-ins with facilitator to track learning and address challenges
+Parallel Activities (when not in internship):
+Complete remaining projects (minimum 5 out of 7 total for certification)
+Participate in remaining hackathons (minimum 4 total)
+Portfolio building and refinement
+Job application preparation
+Final project presentations
+Project 3: Food Entrepreneurship - Ideally attempted during this phase
+Minor Subject: Culminating project or performance
+
+### Daily Timetable of SOSC (Months 1-4, Non-Internship Days)
+Monday - Friday
+9:00 AM - 12:00 PM: English + Concept Theory
+English language immersion
+Theoretical concepts for the day/week
+Video learning, reading materials
+Flipped classroom preparation
+Resource: English learning materials repository
+12:00 PM - 1:00 PM: Chit-Chat/Roleplay/Soft Skills
+Spoken English practice through natural conversation
+Life skills discussions: understanding the world, relationships, self-care, right vs wrong
+Age-relevant topics: mobile phone use and distractions, healthy relationships, sex education, navigating shame, consent, boundaries, peer pressure
+Debate and discussion on ethical dilemmas
+Professional communication scenarios
+Resource: Chit-chat session guides
+1:00 PM - 2:00 PM: Lunch Break
+2:00 PM - 4:00 PM: Kitchen Practicals
+Hands-on cooking practice
+Learning station rotations
+Peer teaching sessions
+Project work time
+4:00 PM - 5:00 PM: English Activity OR Individual Support
+Regular English reinforcement activities
+OR one-on-one support based on individual needs
+Facilitator check-ins
+Skill remediation as needed
+5:00 PM - 6:30 PM: Break/Personal Time
+6:30 PM - 7:00 PM: Mindfulness Activity
+Art, music, theatre sessions
+Wellness practices
+Community building
+Resource: Creative arts session plans
+7:00 PM - 7:30 PM: Closure & Reflection
+Daily journaling (voice, text, or video format)
+Reflection prompts
+Next day preparation
+Peer sharing circles
+7:30 PM - 8:30 PM: Minors/Games/Movie or Show
+Self-directed learning in chosen Minor subject
+Community games and bonding
+Entertainment and relaxation
+Resource: Minor subject design templates
+Saturdays
+Weekly Presentations OR Hackathons:
+If no hackathon scheduled: Students present what they learned through the week, project progress presentations, peer feedback sessions
+If hackathon scheduled: Intensive challenge competitions and team-based problem solving
+Evening: Movie Nights & Community Activities
+Relaxation and bonding
+Cultural exposure through films
+Discussion and reflection
+Sundays
+Rest day
+Optional: Farmer's market visits, community kitchen service, self-study
+
+### Assessment & Progress Tracking
+Ongoing (Formative)
+Daily activity log (slot-wise documentation by student mentor)
+Daily skill practice logs (self-assessment)
+Peer observation checklists
+Weekly reflections in journals
+Recipe testing and tasting
+Course completion tracker (concepts, hackathons, projects)
+Milestone-Based (Summative)
+Module completion tests (practical + knowledge)
+Project presentations (5 out of 7 required)
+Portfolio reviews
+Monthly performance updates in student register
+Self-assessment against job-readiness rubric
+Monthly Check-ins
+One-on-one with facilitator (every 2 weeks)
+Learning circle discussions
+Progress review against goals
+Adjustments to learning plan as needed
+Endline Assessment (Final)
+Comprehensive skills demonstration
+Portfolio review
+Honest, heartfelt Job Description created for student
+Personal "Wheel of Life" type report
+Translation into CV and personal bio note
+Reference letters from facilitators and mentors
+
+### Job Readiness Indicators
+A student is considered job ready when they have:
+✅ Completed Module 1 (Culinary Foundations)
+ ✅ Completed Module 2 (Nutrition Science & Dietary Planning)
+ ✅ Demonstrated proficiency in at least 30 recipes across multiple cuisines
+ ✅ Completed 5 out of 7 projects
+ ✅ Participated in at least 4 hackathons
+ ✅ Built a professional portfolio (digital)
+ ✅ Created a resume and LinkedIn profile
+ ✅ Digital literacy demonstrated through consistent laptop usage and AI tool utilization
+ ✅ Can articulate their skills and experience confidently
+ ✅ Has references (from facilitators, mentors, or project partners)
+ ✅ Demonstrates problem-solving, teamwork, and communication skills
+ ✅ Shows consistent reflection and metacognitive growth in journals
+ ✅ Completed internship with positive feedback
+
+### Pedagogical Approach
+Self-Paced, Peer-Led Learning
+Students progress through modules at their own pace
+Advanced students become peer teachers
+Flexible timelines with extension options
+Competency-based (not time-based) progression
+Flipped Classroom Model
+Theory learned independently through videos/reading
+Class time for practice, questions, collaboration
+Facilitators as coaches, not lecturers
+Learning Stations
+Physical skill stations in kitchen
+Self-guided instruction
+Peer experts manage stations after mastery
+Project-Based Learning (PBL)
+Real-world, student-driven projects
+Student choice in topic and timeline
+Regular check-ins, not daily supervision
+Technology as Equalizer
+All work done through laptops
+AI tools (ChatGPT, Claude, NotebookLM, Perplexity) as 24/7 tutors
+Digital portfolio building from day one
+Google Classroom for organization
+Metacognition Through Minors
+Self-designed learning journey in area of personal interest
+Builds agency and planning skills
+Keeps motivation high
+Demonstrates transferable learning skills
+
+### Project Menu
+PROJECT 1: Cuisine Specialization
+Master 6 signature dishes: 3 from 3 different Indian states + 3 from 3 different international cuisines
+Present the cultural context and techniques
+PROJECT 2: Professional Networking
+Create LinkedIn profile
+Connect with 20 relevant food industry profiles
+Introduce yourself to each connection
+Document learnings from interactions
+PROJECT 3: Food Entrepreneurship
+Develop a business plan for a small food venture (stall, online store, etc.)
+Create branding (name, logo, packaging)
+Calculate costs and pricing
+Run pilot and earn profit
+Document sales, profits, and customer feedback
+PROJECT 4: Nutrition as Medicine
+Research a specific health condition
+Create 7-day therapeutic meal plan with recipes
+Calculate nutritional content
+Prepare 3 meals from the plan
+Present findings with taste samples
+PROJECT 5: Large-Scale Kitchen Management
+Consult with a NavGurukul campus kitchen
+Assess current operations and suggest improvements
+Create or refine SOPs for the operation
+Document challenges and solutions
+Present cost analysis and recommendations
+PROJECT 6: AI Learning Tool Design
+Identify a learning challenge (for self or peers)
+Design an AI-assisted solution (prompt engineering, tool combination)
+Test with peers
+Create a guide for others to use the tool
+Present impact and feedback
+PROJECT 7: Job Application Portfolio
+Create professional resume/CV
+Build comprehensive portfolio (photos, recipes, certificates)
+Apply to 10 relevant positions (jobs/internships)
+Prepare for and complete 3 interviews
+Document the process and learnings
+
+### Hackathon Menu
+H1: No Oil, No Boil Challenge
+Create 5 dishes without oil or boiling
+Focus on raw, steamed, baked, roasted methods
+H2: Seva Kitchen (Service Cooking)
+Cook for community event (100+ people)
+Focus on affordability and nutrition
+Reflection on service experience
+H3: Mystery Box Challenge
+Random ingredients provided
+2 hours to create complete meal
+"Chopped" style competition
+H4: Micro-Greens to Table
+Grow micro-greens from seed (2-3 weeks)
+Document growing process
+Create 3 recipes featuring the greens
+H5: Homemade vs Store-Bought
+Recreate packaged foods
+Compare cost, nutrition, taste
+Create healthier versions
+H6: Content Creator Challenge
+Create 10 cooking videos (Shorts/Reels format)
+Edit and upload
+Present analytics and learnings
+
+### Resources Required
+Administrative
+Student Register (detailed profiles + monthly updates)
+Daily activity log (slot-wise class documentation)
+Course completion tracker (concepts, hackathons, projects)
+Attendance and participation records
+Physical Resources
+Kitchen with learning stations
+Laptops for each student
+Cooking equipment and appliances
+Ingredients and supplies
+Portfolio building materials (cameras, props)
+Digital Resources
+Google Classroom setup
+AI tool accounts (ChatGPT, Claude, NotebookLM)
+LinkedIn accounts
+Video learning platform subscriptions
+Cloud storage for portfolios
+Human Resources
+Facilitators/Coaches
+SOSC team members (for internship shadowing)
+Guest speakers and mentors
+Peer teaching coordinators
+
+### Success Metrics
+Student Level
+Skills acquisition (measured through assessments)
+Project completion rates
+Job placement or business launch within 6 months of completion
+Student confidence and self-efficacy (surveys/reflections)
+Digital literacy proficiency
+Program Level
+Retention rate (students completing program)
+Employer/customer satisfaction with graduates
+Alumni network strength and engagement
+Students returning as mentors or facilitators
+Social Impact
+Financial independence achieved
+Reduced reliance on shelter homes
+Community leadership and advocacy
+Breaking cycles of poverty and dependence
+
+### Flexibility & Extensions
+Students can extend beyond 6 months if they:
+Need more time to complete required projects
+Want to deepen expertise in specific areas
+Are balancing other responsibilities
+Require additional support in foundational skills
+Extension Options:
+Continue with additional projects
+Take on advanced specializations
+Begin entrepreneurship ventures with program support
+Mentor newer students while completing own requirements
+
+### Core Principles
+✨ Progress over perfection
+ ✨ Compassion alongside rigor
+ ✨ Center students' voices, choices, and dreams
+ ✨ Technology as equalizer, not barrier
+ ✨ Community as classroom
+ ✨ Every skill mastered is a step toward independence
+
+This program isn't just about teaching cooking - it's about building agency, confidence, and independence. Every recipe mastered, every project completed, and every connection made is a step toward a self-determined future.
+
+
+---
+
+
+
+
+## 💻 School of Programming (SOP): A Complete Overview
+### 📝 Introduction
+The School of Programming (SOP) at NavGurukul is a practical learning program designed to help students become skilled software developers from scratch.
+
+The curriculum focuses on learning by building real projects, solving problems, and understanding how modern software systems work.
+
+Students start with basic web development and gradually move towards advanced programming, AI integration, backend systems, and real-world projects.
+
+The goal of SOP is to help learners:
+
+Build strong programming fundamentals
+
+Develop problem-solving ability
+
+Learn modern web technologies
+
+Build real applications
+
+Work with AI tools
+
+Become job-ready developers
+
+The entire program follows a "learning by doing" approach, where students continuously practice through projects, mini-projects, and practical assignments.
+
+### 🧠 Learning Philosophy
+The School of Programming is based on a few important learning principles:
+
+Learning by Doing: Students learn best when they build things themselves. Instead of only studying theory, learners build projects from day one.
+
+AI as a Learning Partner: Students are encouraged to use AI tools to support their learning, helping them explore ideas, debug code, and experiment.
+
+Anyone Can Learn Programming: The program is designed for beginners. Even students without prior coding knowledge can learn step-by-step.
+
+Peer Learning: Students learn together by discussing problems, explaining concepts, and reviewing each other's work. Teaching others helps deepen understanding.
+
+Daily Planning & Discipline: Students learn to manage their learning through daily planning and consistent practice.
+
+### 🏗️ Program Structure
+The SOP curriculum is divided into multiple learning phases, where each phase focuses on new concepts and technologies. Students gradually move from:
+Basic Web Development → JavaScript → Backend → Databases → AI → Full-stack projects.
+
+📅 Program Phases
+🔹 Induction Phase
+Duration: ~30 days
+
+This phase prepares students for the learning journey.
+
+Students learn: How to learn programming effectively, problem-solving mindset, number systems, flowcharts, logic building, and daily learning habits.
+
+Goal: To build thinking ability before coding.
+
+## 🔹 Phase 1 — HTML Foundations
+Project: Student Profile & Course Portal
+
+Students build a multi-page website using only HTML to understand structure.
+
+Pages: Home, Profile, Courses, Feedback, Grades table, and Contact page.
+
+Topics: HTML structure, headings, paragraphs, lists, links, images, tables, forms, and semantic HTML.
+
+Activity: Students record videos explaining their code to demonstrate understanding.
+
+## 🔹 Phase 2 — CSS (Styling Websites)
+Students make websites visually attractive by applying CSS to the Phase 1 project.
+
+Topics: CSS syntax, selectors, colors, fonts, spacing (margin, padding), borders, box model, and layout systems.
+
+Modern Tools: Flexbox and CSS Grid.
+
+Skill: Responsive design for mobile and desktop devices.
+
+## 🔹 Phase 3 — JavaScript Fundamentals
+Makes websites interactive.
+
+Project: Interactive Quiz Application (Start quiz, dynamic questions, scoring, results, restart).
+
+Topics: Variables, data types, operators, arrays, objects, loops, functions, conditional statements, DOM manipulation, and event handling.
+
+## 🔹 Phase 4 — AI-Powered Content Generator
+Students start working with Artificial Intelligence APIs.
+
+They build a web application that generates content using Gemini AI.
+
+Topics: JavaScript ES6 features, API integration, sending requests to AI models, and displaying responses.
+
+## 🔹 Phase 5 — AI Chat Application (Node.js Backend)
+Project: "Ask Gemini" Web App
+
+Students learn backend development using Node.js and Express.js.
+
+Topics: Backend server creation, API routes, request/response handling, and connecting frontend with backend.
+
+## 🔹 Phase 6 — Databases
+Students learn how to store and manage data using MongoDB and Mongoose.
+
+Project: Student Feedback Manager
+
+Topics: Database concepts, data storage, schema design, CRUD operations, and connecting backend with database.
+
+## 🔹 Phase 7 — React Bootcamp
+Students learn React, a modern frontend framework used in industry.
+
+Topics: React components, state management, props, UI building, and frontend architecture.
+
+## 🔹 Final Project
+Students build an open-ended project (Real product, social impact solution, or a paid project).
+
+Goal: Apply everything learned during the program.
+
+🛠️ Skills Students Gain
+Programming: JavaScript, problem solving, logic building.
+
+Web Development: HTML, CSS, responsive design, React.
+
+Backend Development: Node.js, Express.js, API development.
+
+Databases: MongoDB, data management.
+
+AI Integration: AI APIs, building AI-powered applications.
+
+Software Engineering: Debugging, project building, explaining code, teamwork, and documentation.
+
+## 📖 Learning Methods Used in SOP
+Project Based Learning: Real projects in every phase.
+
+Concept Videos: Explaining concepts through recorded videos.
+
+Mini Projects: Reinforcing concepts.
+
+Peer Learning: Collaboration and support.
+
+Assessments: Evaluated using rubrics focusing on understanding, code structure, and communication.
+
+## 🏆 Outcome of the Program
+After completion, students will be able to:
+
+Build complete web applications
+
+Write clean JavaScript code
+
+Create responsive websites
+
+Develop backend APIs
+
+Store and manage data
+
+Integrate AI into applications
+
+Build real-world projects
+
+## 👥 Who Should Join SOP
+Beginners who want to learn programming
+
+Students interested in web development
+
+Learners curious about AI and modern technology
+
+People who enjoy a practical "building" approach
+
+Note: No prior coding experience is required.
+
+---
+
+
+## 📚 School of Business (SOB): Detailed Course Curriculum
+🛠️ Course 1: Google Suite
+Basic Google Sheet: Module 1
+
+Advance Sheet: Module 1
+
+### ☁️ Course 2: Introduction to CRM and Salesforce
+Sales and CRM Overview: Module 1
+
+Configuring Salesforce for Marketing and Sales: Module 1
+
+Salesforce for Customer Service: Module 1
+
+Reports and Dashboards: Module 1
+
+### 📈 Course 3: Digital Marketing
+Module 1: Introduction to Digital Marketing
+
+Module 2: Website building, Google Analytics and Google Search Console
+
+Module 3: Search Engine Optimization (SEO)
+
+Module 4: Search Engine Marketing (SEM) and Google Ads
+
+Module 5: Social Media Marketing and Facebook/Instagram Ads
+
+### 🔗 Digital Marketing References & Certifications
+Coursera Certification: Facebook Social Media Marketing
+
+Google Analytics for Beginners: Google Academy
+
+YouTube SEO Guide: SEO Playlist
+
+Official Google Ads Help: Support Page
+
+Wordstream Guide: How Google Ads Work
+
+Semrush Blog: Google Keyword Planner Guide
+
+Meta Study Guide: Digital Marketing Associate Guide
+
+### 📊 Course 4: Basic Data Analytics
+Statistics Introduction: Fundamentals of data analysis.
+
+SQL Queries: Database management and data retrieval.
+
+Business Insights with Tableau: Data visualization and business intelligence.
+
+
+
+### 🎓 ETERNAL UNIVERSITY: BCA (Hons. with Research)
+(2024-2028 Study Scheme & Syllabus)
+
+## 🏫 Department Overview
+Department: Computer Science and Engineering
+
+College: Akal College of Engineering & Technology, Eternal University
+
+Location: Baru Sahib, Sirmaur, H.P.
+
+Implementation: Academic Session 2024-2025
+
+## 📊 Definition of Credit
+1 Hr. Lecture (L) per week: 1 Credit
+
+1 Hr. Tutorial (T) per week: 1 Credit
+
+1 Hr. Practical (P) per week: 0.5 Credit
+
+2 Hrs. Practical (P) per week: 1 Credit
+
+🛠️ Course Nature & Definitions
+PCC: Professional core courses
+
+PEC: Professional Elective courses
+
+AECC: Ability Enhancement Compulsory Courses
+
+SEC: Skill Enhancement Courses
+
+PROJ: Project work, seminar, and internship in industry or elsewhere
+
+GP: General Proficiency
+
+## 🗓️ Curriculum Credit Outline (Semester 1 to 6)
+Semester 1 (Total Credits: 22)
+BCA 101: Foundations of IT (Credits: 4)
+
+BCA 102: Mathematics for Computer Science (Credits: 4)
+
+BCA 103: Database Management System (Credits: 5)
+
+BCA 104: Problem Solving and Programming Fundamentals 1 (Credits: 5)
+
+BCA 105: Environmental Studies for Technology (Credits: 2)
+
+BCA 106: New Age Life Skills 1 (Credits: 2)
+
+Semester 2 (Total Credits: 22)
+BCA 107: Problem Solving and Programming Fundamentals 2 (Credits: 5)
+
+BCA 108: Agile Software Development Life Cycle (Credits: 4)
+
+BCA 109: Web Development Frontend 1 - HTML-CSS (Credits: 5)
+
+BCA 110: New Age Life Skills 2 (Credits: 3)
+
+BCA 111: Introduction to Generative AI (Credits: 5)
+
+Semester 3 (Total Credits: 22)
+BCA 201: Web Development Frontend 2 - JS React (Credits: 5)
+
+BCA 202: Operating System Fundamentals (Credits: 4)
+
+BCA 203: Computer Network (Credits: 3)
+
+BCA 204: Data Structures and Algorithms (Problem Solving 3) (Credits: 5)
+
+BCA 205: New Age Life Skills 3 (Credits: 2)
+
+BCA 206: Introduction to ChatGPT (Credits: 3)
+
+Semester 4 (Total Credits: 22)
+BCA 207: Web Development Backend 1 (Credits: 5)
+
+BCA 208: Web Development Backend (Deployment, Security, and Scalability) (Credits: 6)
+
+BCA 209: System Design (Low level) (Credits: 4)
+
+BCA 210: New Age Life Skills 4 (Credits: 2)
+
+BCA 211: Introduction to Cloud Computing (Credits: 5)
+
+Semester 5 & 6 (Total Credits: 44)
+Semester 5: AI Fundamentals, Competitive Programming, Prompt Engineering, and Major Project/Internship.
+
+Semester 6: Python for Data Science & AI, NCC/NSS, and Major Project/Internship.
+
+## 🎯 Program Outcomes (PO)
+PO1: Core Computing Competency
+
+PO2: Analytical and Solution Design Expertise
+
+PO3: Applied Project Development Skills
+
+PO4: Research Mindset and Technological Innovation
+
+PO5: Professional Communication and Collaborative Leadership
+
+PO6: Adaptability and Continuous Learning
+
+PO7: Social, Ethical, and Environmental Awareness
+
+PO8: Entrepreneurial and Industry Readiness
+
+## 🌟 NavGurukul × Eternal University: Program Overview
+Pedagogy Framework
+We follow a "Learning by Doing", Project-Based, and Experiential Learning pedagogy.
+
+The syllabus is divided into projects.
+
+Concepts are embedded within those projects.
+
+Evaluation happens through demonstrated understanding, project presentations, and conceptual videos.
+
+Phase-Based Evaluation
+Progression (Phase Movement) depends on:
+
+Completion of projects.
+
+Quality of conceptual explanation videos.
+
+Project presentation and video analysis.
+
+Mentor evaluation.
+
+## 👥 Program Leadership & Academic Team
+Leadership
+Program Lead: Mubin
+
+Scrum & Academic Coordination: Meenakshi Parihar
+
+Life Skills Associates
+Karuna Lakra
+
+Chhakuli Pote
+
+Academic Associates
+Shubham Keshari
+
+Abhishek Mishra
+
+Rinki Nisha
+
+Pratiksha Shapane
+
+Vedwati Pradhan
+
+Ashwini Yadav
+
+## 🤝 Role of Mentors
+Mentors act as facilitators, not lecturers.
+
+Guide students when they are stuck.
+
+Conduct regular pair programming (daily support and weekly focused sessions).
+
+Evaluate presentations and conceptual depth.
+
+Focus on building independent, self-driven learners.
+
+
+### 🧾 SOF - Certificate Program in Accounting, Costing, Taxation & Digital Accounting Tools
+## 📋 1. PROGRAM OVERVIEW
+Program Duration: 13–15 Months (Approx. 12 months of structured learning + revision & assessments)
+
+Eligibility: 12th Pass (Any Stream)
+
+Pedagogical Flow: Concept → Task → Games → Case → Reflection
+
+## 🎯 Core Objectives
+Develop strong accounting and financial interpretation skills
+
+Build advanced Excel and digital accounting tool proficiency
+
+Enable students to read, analyze, and interpret financial statements
+
+Develop communication, analytical, and self-learning skills
+
+Encourage AI-assisted learning, reading of amendments, case laws, and financial news
+
+## 🏫 Teaching Methodology
+Peer-to-peer learning & Mentor–mentee learning
+
+Case studies (corporate, NGO, MSME) & Group assignments
+
+Simulations and games
+
+Tool-based practical learning (Excel, Tally, Zoho Books)
+
+## 🏆 Program Learning Outcome
+By the end of the program, students will be able to:
+
+Read and interpret financial statements of companies, firms, and non-profits
+
+Apply accounting concepts in real-life business scenarios
+
+Prepare and analyze financial, cost, and management reports
+
+Use Tally and digital tools confidently
+
+Understand tax implications for individuals, firms, and companies
+
+## 📖 Module 1: Foundations of Financial Accounting
+Objective: Build strong conceptual clarity of accounting principles and recording mechanisms.
+
+1.1 Introduction to Accounting: Meaning, scope, objectives, advantages & limitations; Book-keeping vs accounting; Users of accounting information.
+
+1.2 Accounting Concepts & Principles: Business entity, money measurement, going concern; Accrual, prudence, consistency, cost concept.
+
+1.3 Accounting Terminology & Accounting Equation: Assets, liabilities, capital, drawings; Accounting equation and its applications.
+
+1.4 Double Entry System & Journal: Golden rules of accounting; Cash and credit transactions; Journal entries from day-to-day business activities.
+
+## 📖 Module 2: Recording, Classification & Control of Accounts
+Objective: Enable students to record transactions systematically and ensure accounting accuracy.
+
+2.1 Ledger & Balancing: Posting journal entries to ledger; Balancing of ledger accounts.
+
+2.2 Subsidiary Books: Cash book, purchase book, sales book; Practical classification through activities and games.
+
+2.3 Trial Balance: Meaning, objectives, preparation, and limitations.
+
+2.4 Errors & Rectification: Types of accounting errors; Rectification of errors and suspense account.
+
+2.5 Bank Reconciliation Statement (BRS): Cash book vs pass book; Preparation of BRS and common reconciliation items.
+
+## 📖 Module 3: Final Accounts & Business Accounting
+Objective: Develop ability to prepare and interpret financial statements of different business forms.
+
+3.1 Final Accounts – Sole Proprietor: Trading account; Profit & loss account with adjustments; Balance sheet preparation.
+
+3.2 Partnership Accounting: Partnership deed and profit-sharing ratio; Admission, retirement, goodwill, and revaluation.
+
+3.3 Company Accounts: Types of companies; Share capital and basic share issue concepts; Preparation of company financial statements; Introduction to cash flow statement.
+
+## 📖 Module 4: Management & Cost Accounting
+Objective: Strengthen managerial decision-making and cost control skills.
+
+4.1 Management Accounting Fundamentals: Nature, scope, objectives; Financial accounting vs management accounting.
+
+4.2 Financial Statement Analysis: Comparative statements; Common size statements; Trend analysis.
+
+4.3 Ratio Analysis: Liquidity, profitability, solvency, and activity ratios; Interpretation using real company data.
+
+4.4 Working Capital & Capital Budgeting: Operating cycle and working capital management; Capital budgeting techniques (Payback, NPV, IRR).
+
+4.5 Cost Accounting Basics: Classification and elements of cost; Material costing and inventory control; Labour costing and overheads; Introduction to standard costing and variance analysis.
+
+## 📖 Module 5: Taxation – Income Tax & GST
+Objective: Enable learners to understand tax laws, compute taxes, and ensure compliance.
+
+5.1 Introduction to Income Tax: Assessee, assessment year, previous year; Residential status and scope of total income.
+
+5.2 Heads of Income: Salary, House property, PGBP (Profits and gains of business or profession), Capital gains, and Income from other sources.
+
+5.3 Deductions & Computation: Deductions under Chapter VI-A (80C, 80D, 80E, etc.); Step-by-step computation of total income.
+
+5.4 Introduction to GST: Concept and objectives; Indirect taxes before GST overview; CGST, SGST, IGST meaning and applicability.
+
+5.5 GST Compliance: Registration process and thresholds; Input Tax Credit (ITC) concept; Overview of GST returns (GSTR-1, GSTR-3B); Basic GST compliance from an accounting perspective.
+
+## 📖 Module 6: Digital Accounting Tools – Tally Prime
+Objective: Provide hands-on experience in computerized and GST-enabled accounting.
+
+6.1 Introduction: Installation, interface, company creation, and basic configuration.
+
+6.2 Masters Setup: Creation of ledgers and groups; GST-related ledger configuration.
+
+6.3 Accounting Vouchers: Payment, receipt, contra, and journal vouchers; Recording GST transactions.
+
+6.4 Reports & Reconciliation: Day book, trial balance, P&L account, balance sheet, and bank reconciliation in Tally; GST reports overview.
+
+🏁 Overall Program Outcomes
+Maintain manual and computerized books of accounts.
+
+Prepare and analyze financial statements.
+
+Apply cost and management accounting tools for decision-making.
+
+Compute income tax and understand GST compliance.
+
+Use Tally Prime confidently for accounting and GST-enabled transactions.
+
+
+### 🔗 Reference Links & Tools
+Accounting Principles: https://www.investopedia.com/terms/a/accounting-principles.asp
+
+Financial Statements: https://www.investopedia.com/terms/f/financial-statements.asp
+
+Ratio Analysis: https://www.investopedia.com/terms/r/ratioanalysis.asp
+
+Cost Accounting: https://www.investopedia.com/terms/c/cost-accounting.asp
+
+Working Capital: https://www.investopedia.com/terms/w/workingcapital.asp
+
+Income Tax: https://www.investopedia.com/terms/i/incometax.asp
+
+CBIC GST Resources: https://www.cbic.gov.in/resources//htdocs-cbec/gst/index.html
+
+Tally Solutions: https://www.tallysolutions.com
+
+
+
+### 🔮 Future of Education & Educators (Vision Document)
+## 1 Let’s begin with the end in mind 
+What will education look like in the next 10 years?
+
+Educators role
+
+Educators will transition from becoming primary sources of knowledge to facilitators of learning who will guide students in exploring and constructing their own knowledge.
+
+AI/tech Savvy people
+
+Facilitators of learning who will design/build experiences and not just transfer content
+
+Connecting/Motivating/guiding/inspiring students
+
+Being role models. well centered people who can set right example for all the traits that we would want to build in children with their own unique passion apart from education
+
+What will Learners do?
+How would learning for learner happen in the next 10 years in education space
+
+Building Metacognition/learning how to learn.
+
+Focus on Life Skills - adaptability, empathy, ability to navigate through failures, entrepreneur mindset etc
+
+Personalised content learning (IMO - people will need to build much deeper understanding than they have right now in something- strong passion for 1 thing)
+
+What will education spaces look like?
+
+Personalised Ai guided learning with the educator becoming a guide to unlock a child's potential.
+
+Projects that build real life - life skills/help students explore their passion
+
+## 2 Envisioning some possibilities for us/our educators in the next 2 years
+From day 1 educators will explore different pathways, volunteer, learn, experience and work with the outside world. While We(NG) will be facilitators and enablers of their journey supporting them unlock next levels of learning/ opportunities etc for them, the educators will be expected to also take charge and carve their own path
+
+For Profit pathways
+(We can build whatever! Coop or for profit entity where we divert earning from here or space that supports both categories)
+
+After school Project centers(Online/offline Pods): Ai, robotics, tech, coaching centers from traditional subjects with explorations through projects like entrepreneurship, lifeskills,arts yoga, music etc
+
+Building our own schools/ learning pods?
+
+Providing services to for profit spaces? Like - App + teacher training (Build a better lead school? / Cooperative that does what whitehat did)
+
+Random thought: Building apps for high end for profit schools can be a good venture for samyarth/ SOP students. Why? Because we are uniquely placed at the intersection of education and tech.
+
+Not for profit pathways
+
+We can ask for grants for models for government Schools transformation like how KSRF foundation does or how we are doing in blue-dantewada.
+
+Specific pathways like career planning/lifeskills/ AVPN space
+
+We can tie up with Places like Akanksha foundation/TFI and more to see how they can absorb educators from us.
+
+Build fellowship programs like gandhi fellows
+
+Creating their own journeys
+Our Educators will self apply/do their own career planning, figure out what they want to do from possibilities and take charge of those verticals with us or with the external world. While we become facilitators of their journeys.
+
+If they decide to do it with us: they start owning their verticals and act as entrepreneur / getting support/ growth while achieving outcomes that we set together
+
+If they decide to work with external world: they consistently do their own career planning spending 2 hours a week from day 1 (will detail out an explore/experience, reflect and build/align ducks in the row plan)
+
+## 3 Why do I think we are the right people for this?
+Most really good people that I know out in the field are either excellent facilitators, and bring in amazing facilitation skills or are great at tech and lack human skills. IMO we are uniquely placed to understand and support educators who might on one end be great facilitators, with high empathy and ability to connect while also being AI/tech savvy
+
+Again Uniquely placed:
+a From a not for profit Perspective, NG supports higher education - hence establishing our value/ intentions/ability to work with schools might not be very challenging.
+b I also to some extent understand for profit spaces. And opening spaces like after school for profit programs for robotics/ programming etc might not require degrees/affiliations etc.
+
+## 4 What will the learning experience for this space look like?
+Each educator will have to be a vipassana practitioner and should have done seva for at least 1 teenage course. I will do so too and focus on being better human beings through awareness. (if not Moksh :P)
+
+The day for educators will start with meditation followed by some happy songs.
+
+Once this is done, we will have a 30 minute slot where in pods of 20 they will plan their own day, share it with the group and build accountability/ connection. People can also share their challenges/things they are excited about etc.
+
+Next they will do their modules/experiences - in pairs/ groups etc.
+
+The learning experience will have 2 things: a planned mandatory series of challenges that they will have to unlock while another set of challenges that they will define for themselves for their own goals.
+
+They will be encouraged to include individual deep work and working with others/ building with others/ supporting others through leadership projects etc.
+
+Projects over Modules:
+Students will work on projects. I was wondering if we can call these projects and not modules? This will actively change the way we will plan/ design these! Instead of creating modules with learning outcomes we will define real life challenges that we can start with (The journey will not be linear- Multiple things can be done in parallel we can define prereq for different things in case we feel like something will need some order as we chart the pathways). I think it will take at least 6 months.
+
+Key Learning Focus:
+
+Understanding how learning happens: A module focused on unlearning traditional ways of learning through reading/ explorations (visiting, volunteering/connecting online with 5 different spaces that offer unique/ futuristic ways of education/connecting with people and reflection.
+
+AI/tech focus for personalised learning: building/utilising AI/ tech tools effectively to enhance learning
+
+Designing and facilitating experiences: from activities/ hackathons to at least week long experiences/ projects etc) in 3 of your areas of interest
+
+Connecting/inspiring/guiding students.
+
+Mastering 1 area of interest: (both content specific skills and facilitation) Do we want to keep this tech or build a wider scope?
+
+Unlocking the leader in you + entrepreneurship mindset
+
+Students will contextualise challenges from these modules based on their interests/career choices + We will cocreate some challenges/ modules based on their strengths as we build various pathways.
+The day ends with deep reflection on learning for the day/ discussing growth/ challenges/possibilities etc followed by meditation
+
+## 5 How do we start? (The Pilot)
+We build a pilot :P
+
+How many students? As a pilot: We start with a batch of 20 educators (Students) + AVPN (AVPN educators can select modules and go to the ground based on their needs. We can define modules and close)
+
+Composition of students: 15 degree students + 5 non degree students who are passionate about something! (Teenagers with strong passion in something yoga? Tech? Meditation? dance? Sex ed? Something). We start actively building partnerships/writing for grants and we keep adding more to the cohort once we are able to see clear financial independence enabling pathways emerge. (Right now I think reaching 200 students in next 1 years would be a good goal to achieve but is not an educated guess 
+
+Degrees? B ed? I think there are enough opportunities that we will be able to crack without bed to start with. If students aspire, we can also support partial costs or enable them to get paid projects/ internships etc that can enable them to pursue B ed. While planning for their career, we get them to think from the POV that they should do all that is needed for their dream career once they have explored enough :) While we figure out a way to build B.Ed kind of credibility as we go 
+
+Where? Pune? POV:
+
+Priyanka will be stationed at Pune for next 6 months hence I will have a better control there. (Priyanka ko I have got her to dream of running a school. Honestly, Abhi I cannot afford her attention being diverted from program but I can keep her in loop - uska proximity high rahega toh that might help us later)
+
+The exposure for students from a for profit and not for profit pathway both is high
+
+I will have higher accessibility to the campus as surat and chennai are both easily accessible.
+
+I have been planning to settle down in/outskirts of Pune possibly in the next 2 years (Not confirmed, just remote possibility hai abhi. Toh our decision cannot be based on this)
+
+1st batch selection: 1st batch of students we select from the existing cohort/ next joinees? - I will have to think through thoda sa here but right now thinking of a mix of both?  will put together some pre work for existing student and some criteria for new students this week
+
+
+
+
+
+### 🎓 School of Education (SOE): Program & Curriculum
+## 1. Why SOE?
+Education is shifting: AI and personalised tech are redefining how people learn; educators must evolve from information‑givers to facilitators of learning.
+
+Human skills matter more than ever: empathy, reflection, adaptability, and ethical leadership are core to thriving in the next decade.
+
+SOE exists to blend both worlds, nurturing tech‑savvy, self‑aware facilitators who can design transformative learning experiences.
+
+### 2. What Is SOE?
+An intensive 18‑month Learning period hosted at NavGurukul–Pune that equips graduate learners to become next‑generation educators through:
+
+Project‑based “Challenges” instead of traditional modules.
+
+Daily meditation & reflection to cultivate awareness and resilience.
+
+Hands‑on exposure to NGOs, alternative schools, and real learners.
+
+## 3. How You Will Learn
+Daily Rhythm
+
+Dawn meditation & happy songs
+
+30‑min planning pod (20 learners)
+
+Project sprints (pairs / groups)
+
+Facilitation practice
+
+Evening deep reflection
+
+Core Challenge Strands
+
+Learning Science & Metacognition
+
+AI Tools for Personalised Learning
+
+Experience & Curriculum Design
+
+Leadership & Entrepreneurship
+
+## 4. Your Role as an Educator‑in‑Training
+Design & run sessions, hackathons, or week‑long projects for real learners.
+
+Volunteer with partner schools/NGOs; document insights.
+
+Act as a role model – centred, ethical, and growth‑oriented.
+
+## 5. Future Pathways (0‑2 Years After SOE)
+For‑Profit: After‑school AI/Robotics pods • Ed‑tech app & training services • Micro‑schools / learning pods.
+
+Not‑For‑Profit: Govt‑school transformation projects • Fellowships • NGO partnerships.
+
+Entrepreneurial: Own a vertical inside NavGurukul or launch an independent venture.
+
+## 6. Eligibility & Selection
+Graduate (any stream) or equivalent proven passion for facilitation.
+
+Completed ≥1 Vipassana teen course + seva (or commitment to do so).
+
+Ready to relocate to Pune & commit ~50 hrs/week for 6 months.
+
+Basic tech comfort; curiosity to master AI tools.
+
+## 7. Pilot Cohort – August 2025
+20 educators: 10 degree‑holders + 10 non‑degree passionate youth.
+
+Support: accommodation, stipend, laptop.
+
+Goal: each learner delivers one capstone project impacting ≥50 students.
+
+## 🛠️ What Will SOE Students Do?
+Students will work on projects. I was wondering if we can call these projects and not modules? This will actively change the way we will plan/ design these! Instead of creating modules with learning outcomes we will define real life challenges) that we can start with (The journey will not be linear- Multiple things can be done in parallel we can define prereq for different things in case we feel like something will need some order as we chart the pathways). I think it will take at least 6 months.
+
+Understanding how learning happens: A module focused on unlearning traditional ways of learning through reading/ explorations (visiting, volunteering/connecting online with 5 different spaces that offer unique/ futuristic ways of education/connecting with people and reflection.
+
+AI/tech focus for personalised learning: building/utilising AI/ tech tools effectively to enhance learning
+
+Designing and facilitating experiences: from activities/ hackathons to at least week long experiences/ projects etc) in 3 of your areas of interest
+
+Connecting/inspiring/guiding students.
+
+Mastering 1 area of interest: (both content specific skills and facilitation) Do we want to keep this tech or build a wider scope?
+
+Unlocking the leader in you + entrepreneurship mindset Students will contextualise challenges from these modules based on their interests/career choices + We will cocreate some challenges/ modules based on their strengths as we build various pathways. The day ends with deep reflection on learning for the day/ discussing growth/ challenges/possibilities etc followed by meditation.
+
+## 🎥 AI-Powered Video Creation Challenge
+Task: Create 5–10 image clips (5s each); use CapCut/RunwayML; add overlay or voice; merge into a 1-minute video.
+
+Purpose: Promotes storytelling, creativity, and synthesis using AI tools to express personal insights.
+
+Outcome: Final video should clearly communicate an idea; others should understand it easily.
+
+Reflection Questions: Did the video communicate what you intended? How did the process of merging voice, image, and text help you understand storytelling better? Where did AI exceed or fall short?
+
+## 🗓️ Rough Plan for SOE Partners – Next One Month
+Warm Welcome: Begin with a warm and friendly welcome to help them feel comfortable and settled in the space.
+
+Day 1 & 2 – Settling In: Provide space and time for them to relax, interact, and settle into the environment at their own pace.
+
+Exposure Visits: Introduce them to different NGOs and alternate education schools to broaden their perspective and understanding of various learning spaces.
+
+Active Engagement: Once they are familiar with the space, engage them in deeper activities such as:
+
+Exploring new places
+
+Trekking and nature walks
+
+Visiting schools
+
+Facilitating or attending sessions
+
+Attend Seminar in Pune: Plan a visit to attend a seminar in Pune with the SOE partners as part of their professional and learning exposure.
+
+AI Challenge – Explorer Phase: They will begin working on the AI Challenges shared by Abhishek to dive deeper into critical thinking and innovation.
+
+Daily Campus Culture: Maintain a vibrant and reflective environment through daily reflections, meditation sessions, energizers, and engaging activities.
+
+Goal: Fostering a space where students are excited and curious every day: "Kal kya hone wala hai?" ✨
+
+
+
 ### TEAM & CONTACT INFORMATION : 
 The School of Second Chances (SOSC) is led by dedicated practitioners focused on trauma-informed growth and sustainable futures.
 #### KEY MEMBERS:
@@ -108,14 +2924,6 @@ Sanjana Swaroop (Entrepreneur in Residence, SoSC Future Textiles Program): A cor
 For anyone seeking support, wanting to volunteer, or having questions regarding the School of Second Chances (SOSC), the following contact channels are available:
 - Phone: +91 9878657667
 - Email: sosc@navgurukul.org
-
-
-
-### GROUP: SOE - SCHOOL OF EDUCATION
-The School of Education (SOE) focuses on preparing the next generation of educators. It provides dedicated courses and pedagogical training for students interested in making a career in the field of teaching and education.
-Availability: Currently offered at the NavGurukul Sarjapur (Bangalore) and Pune campuses.
-Purpose: Specialized training in educational methods and classroom management.
-
 
 
 
@@ -131,6 +2939,7 @@ Zuvy is NavGurukul’s digital initiative that provides intelligent learning sol
     * 83% Cost Reduction compared to enterprise LMS platforms.
     * 18+ States reached with low-bandwidth optimization.
     * 120+ Hiring Partners providing job and internship opportunities.
+
 
 #### ZUVY SOLUTIONS & PATHS:
 1. For Learners (Zuvy Finishing School): 
@@ -231,202 +3040,6 @@ AI Learning Labs focuses on researching how AI transforms education by leveragin
 
 
 
-
-
-### GROUP: OUR PARTNERS & ECOSYSTEM
-NavGurukul’s work is strengthened through collaborations with global corporations, national government departments, and a diverse range of non-profit organizations. This robust ecosystem provides the institutional credibility needed to co-create curricula and skilling frameworks at a national scale. By influencing state-level education reform and redefining access, these partnerships provide direct pathways for underserved learners to transition into high-growth careers.
-
-1. DONORS & CORPORATE PARTNERS:
-These organizations provide essential financial support and strategic mentorship to keep NavGurukul programs fully-funded.
-
-Major Donors: Amazon, Accenture, KPMG, Macquarie, and the Harish & Bina Shah Foundation.
-
-Strategic Partners: DXC Technology, ARES, Affle, AVPN, and The/Nudge Institute.
-
-2. PLACEMENT PARTNERS (COMPANIES HIRING FROM NAVGURUKUL):
-These companies actively recruit talent from NavGurukul, recognizing the quality of their industry-ready skills and professional training.
-
-Tech & Financial Giants: Amazon, Accenture, NatWest, CloudThat, and Macquarie.
-
-Social Sector & Impact: Teach For India (TFI).
-
-Open Source & Technology: Frappe (identified by the 'F' logo).
-
-3. GOVERNMENT PARTNERS:
-NavGurukul works in close collaboration with various state and national government bodies to implement large-scale educational initiatives.
-
-Key Collaborations: Government of Telangana, Government of Haryana, and Government of Delhi.
-
-4. NON-PROFIT & MOBILIZATION PARTNERS:
-These partners are crucial for identifying talent in remote areas and supporting the overall student journey.
-
-Ecosystem Partners: Sattva, Educate Girls, Project Potential, and Vidya Bhawan Society (Udaipur).
-
-Mobilization Support: Miloon, Alohomora, Akanksha, and Ibtada.
-
-
-
-
-
-### GROUP: CAREER AT NAVGURUKUL
-Working at NavGurukul means making a tangible impact by empowering students from underserved communities to build aspirational careers. We invest in professional growth through continuous learning and leadership opportunities within a collaborative, supportive team passionate about our shared mission. We imagine an equitable higher education alternative where students learn the right skills and mindsets to thrive in the world.
-
-1. WHY JOIN NAVGURUKUL?
-Make a Tangible Impact: Your work directly helps students from marginalized communities hold the same jobs and live lives of similar possibilities as those at the top of the pyramid.
-
-Grow With a Purpose: Continuous learning and leadership opportunities for all team members.
-
-Culture that Cares: A mission-driven environment focused on profound transformation and inclusion.
-
-2. OPEN FULL-TIME ROLES & DEPARTMENTS:
-NavGurukul offers various roles across multiple departments, mostly in Remote or Hybrid settings.
-
-Tech & AI: ML Engineer, AI Engineer, Full Stack Developer.
-
-Leadership & Strategy: Chief of Staff, Special Projects & Strategic Operations (CEO’s Office), CXO roles, Entrepreneur in Residence (EIR).
-
-People & Culture: Sr. People & Culture Associate, People Operations & Systems Lead.
-
-Placements & Fundraising: Placements Lead, Placement Manager, Fundraising Manager, Fundraising Lead, Partnership Lead.
-
-Specialized Programs: Code India Fellowship, English & Twenty-first Century (ETC) Skills Specialist, Accounts Executive.
-
-Initiatives (SAMA & SOSC): Founding Team Member (SAMA), Community Projects (SOSC), Build Businesses That Matter.
-
-3. APPLICATION & VOLUNTEERING:
-If you are interested in working or volunteering with NavGurukul, you can explore and apply for roles through the official portal.
-
-Official Job Portal: https://recruiterflow.com/navgurukul/jobs
-
-Volunteering: Opportunities available with the School of Second Chances (Pune/Hybrid) and Sama Social.
-
-Interest Form: General working/volunteering interest forms are available on the portal.
-
-
-
-
-### GROUP: NGVERSE - ENTREPRENEUR IN RESIDENCE (EIR) PROGRAM
-The Entrepreneur in Residence (EIR) program is the creative engine behind NavGurukul's rapid expansion, known as NGVerse. It is designed for entrepreneurs to build and scale new social initiatives without the typical struggles of starting an NGO from scratch.
-
-1. SUCCESS STORIES OF THE EIR PROGRAM:
-Many of NavGurukul's major initiatives were born through this program in the last three years:
-
-Zuvy: Achieved ₹6 Crores in revenue in a very short time—a milestone that took NavGurukul 8 years to reach.
-
-Sama: Reached over 3,00,000+ learners in just 4 months.
-
-Other Initiatives: School of Second Chances (SOSC), AI Learning Labs, and NAVigo were all incubated through the EIR model.
-
-2. WHY THIS PROGRAM WAS BUILT:
-NavGurukul created this incubator to solve the common problems new non-profits face in India:
-
-Support System: Instead of working alone, entrepreneurs get a supportive ecosystem.
-
-Operations Support: Founders don't have to spend years on backend operations, compliance paperwork, or balancing budgets.
-
-Speed to Impact: Entrepreneurs can go from "zero to impact" in months rather than years.
-
-NGO Survival: It addresses the fact that nearly 30% of new non-profits in India close within 24 months due to tough conditions.
-
-
-
-
-
-
-### GROUP: DONATE & SUPPORT NAVGURUKUL
-Donations to NavGurukul help transform underprivileged students into skilled coders and professionals. All contributions made by Indian citizens are eligible for tax exemption under Section 80G.
-
-1. DONATION OPTIONS:
-Monthly Payment: Options include ₹100, ₹500, ₹1000, ₹2500, ₹5000, or ₹10000.
-
-One-Time Payment: Any amount can be donated as a one-time contribution.
-
-Payment Gateway Note: A 2% charge is levied for using the online payment gateway.
-
-Eligibility: Separate portals are available for Indian Citizens and Foreign Citizens.
-
-2. BANK TRANSFER DETAILS:
-Direct transfers can be made using the following official details:
-
-UPI ID: navgurukulf@kotak
-
-Account Name: Navgurukul Foundation for Social Welfare
-
-Account Number: 0512251778
-
-IFSC Code: KKBK0004260
-
-3. MANDATORY DETAILS FOR DONORS:
-After making a donation, donors must email the following details to donate@navgurukul.org to process the transaction and 80G certificate:
-
-Full Name and Contact Number.
-
-Email Address and Transaction ID.
-
-Amount Donated and Residential Address (if available).
-
-
-
-
-
-
-### GROUP: NAVGURUKUL QUICK FACTS & HISTORY
-This section contains key historical milestones and general organizational data used for internal quizzes and student awareness.
-
-1. FOUNDATION & FIRST CAMPUS:
-Establishment Date: NavGurukul was officially started on November 23, 2016.
-
-First Campus: The first residential campus was established in Dharamshala specifically for boys.
-
-2. ORGANIZATIONAL SCALE:
-Total Employees: The organization currently has between 250 to 254 total employees.
-
-Current Campuses: NavGurukul has a total of 9 campuses.
-
-3. FIRST BATCH & GENDER FOCUS:
-Initial Batch Size: In the very first batch of NavGurukul, there were a total of 9 girls.
-
-Inclusion Strategy: Six out of seven current flagship campuses are dedicated only to girl students to ensure gender inclusion.
-
-4. CORE INITIATIVES (NGVERSE):
-Current Major Initiatives: NavGurukul currently operates several initiatives including NAVigo (NVGO), Sama, and the School of Second Chances (SOSC).
-
-Other Digital Initiatives: Meraki, Zuvy, and Samyarth.
-
-
-
-
-
-
-
-
-### GROUP: NAVGURUKUL ETERNAL UNIVERSITY CAMPUS (BCA PROGRAM - HIMACHAL PRADESH)
-Located in Himachal Pradesh, NavGurukul, in collaboration with Eternal University, offers a unique 3-year fully residential Bachelor of Computer Applications (BCA) degree program. This campus serves as a dedicated space for young women from underprivileged backgrounds to earn a recognized academic degree while gaining deep technical expertise.
-
-1. KEY FEATURES OF THE BCA PROGRAM:
-Degree with Industry Integration: Students earn a recognized BCA degree with a curriculum strictly aligned to current industry needs.
-
-One-Year Internship: The final year includes a dedicated 1-year internship to ensure hands-on work experience before graduation.
-
-Holistic Development: Beyond technology, the program focuses on leadership, critical thinking, and communication skills.
-
-Financial Assistance: Students only pay an admission fee of ₹23,500, while the remaining costs are covered by NavGurukul.
-
-2. PROGRAM BENEFITS:
-Location: Situated in the serene environment of Eternal University, Himachal Pradesh.
-
-Recognition: Provides a formal academic degree from a recognized university.
-
-Exposure: Includes summer internships and a structured final-year internship for real-world industry exposure.
-
-Target Audience: Specifically empowering women to thrive in the competitive tech industry with both a degree and practical skills.
-
-
-
-
-
-
-
 ### GROUP: SAMYARTH - DIGITAL INNOVATION FOR SOCIAL IMPACT
 The Samyarth team at NavGurukul focuses on building digital solutions that address systemic challenges in education, agriculture, and rural development. Their work ranges from adult literacy and student tracking to AI-powered interview tools and farmer-market connectivity.
 
@@ -471,10 +3084,6 @@ Pilot Scope: An initial 8-week pilot is planned for 10-20 schools, targeting 1,0
 Build Together: Developing a Glycemic Load Tracker and a Student Reflection AI Tool.
 
 Igatpuri Meetup: A milestone gathering focused on fostering team cohesion and future collaborations.
-
-
-
-
 
 
 
@@ -654,27 +3263,6 @@ Non-Reimbursable: Meat products, intoxicants, fines/challans, aur personal asset
 IT & Mobile: Recharge reimbursement basic plans (1GB/day) ke liye available hai. Laptop repair IT admin ke through hota hai.
 
 
-### GROUP: CHALLENGES IN HIGHER EDUCATION vs NG APPROACH
-Our program addresses the failures of the current education system where ~97% of engineers lack required startup skills.
-
-Affordability: Private colleges are unaffordable; NavGurukul is accessible to marginalized backgrounds.
-
-Employability: Traditional curriculum is outdated; NG uses industry-aligned pedagogy.
-
-Language Barrier: Content is often only in English; NG provides vernacular support.
-
-Unique Pedagogy: Mentorship-based (seniors guide juniors), self-paced digital learning, and peer-learning environment.
-
-### GROUP: ECOVERSITY & SUSTAINABLE CAMPUS
-Ecoversity is a self-sustainable, environment-friendly campus built from scratch.
-
-Vision: A template for wholesome education encompassing livelihoods, community, and ecology.
-
-Food: Organically generated on-land for learners, staff, and volunteers.
-
-Water: Contributes to the water table through rainwater harvesting and afforestation.
-
-Electricity: Minimized needs through natural cooling and solar energy.
 
 ### GROUP: Meraki 
 Meraki is an important initiative by NavGurukul that focuses on making programming and digital skills accessible, especially to learners from underserved communities. It's designed to be a readiness program that can open doors to job opportunities or further training in the IT sector.
@@ -887,63 +3475,6 @@ Fellowships: Hiring 10 Code India Fellows and 2 Innovation Fellows.
 HR Systems: Launching a new AT (Attendance/Salary) tracker (currently 50% done).
 
 Employee Appraisal: December appraisals to be based on competencies.
-
-
-
-
-
-
-
-
-
-### GROUP: ADMISSION PROCESS & ELIGIBILITY (SOP, SOB, SOE, SOF, SOD)
-NavGurukul follows a multi-stage selection process to find students with a strong willingness to learn, regardless of their prior coding experience.
-
-1. ELIGIBILITY CRITERIA:
-Target Group: Primarily girls and trans individuals.
-
-Age: 17 years or older.
-
-Education: Minimum completion of 12th grade.
-
-Financial Background: Family income must be less than ₹5 Lacs per annum.
-
-Documentation: Requires valid ID proof, age proof, and residential proof.
-
-2. SELECTION STEPS:
-Step 1: Online Assessment: A test focusing on basic mathematics and logical reasoning.
-
-Step 2: English Interview: A 30-minute phone call to assess basic communication skills.
-
-Step 3: Algebra/Logic Interview: A 1-hour WhatsApp video call to test problem-solving abilities.
-
-Step 4: Culture Fit Round: A 30-minute phone discussion to evaluate alignment with residential, community-based learning.
-
-Step 5: Offer Letter: Selected candidates receive an official offer via email.
-
-Step 6: Enrollment: Coordination for travel to the campus for boarding and lodging.
-
-3. IMPORTANT PROGRAM NOTES:
-Cost: Training, boarding, and lodging are free, funded through scholarships/partnerships.
-
-Commitment: One-year, intensive, and fully residential program; students must live on campus.
-
-Admission Link: https://admissions.navgurukul.org/students
-
-## GROUP: ADMISSION PROCESS FOR SOSC (SUPPORTIVE ADMISSIONS)
-The SOSC program focuses on students from vulnerable backgrounds (tribals, HIV+, abuse victims, etc.) and follows a more sensitive, supportive approach.
-
-1. APPLICATION & SCREENING:
-Initial Screening: A supportive conversation to understand the candidate's background, circumstances, and motivation.
-
-Sensitive Approach: The process is designed to be supportive given the students' past experiences.
-
-2. READINESS & EMPOWERMENT:
-Culture Fit Discussion: Evaluates alignment with community values, self-reliance, and readiness for a transformative residential experience.
-
-Focus on Independence: Assessment looks for a genuine desire for independence and developing practical life skills.
-
-Safe Environment: The entire admission and program emphasis is on providing a safe space for healing and growth.
 
 
 
@@ -1369,6 +3900,56 @@ Academic & Disciplinary: Can lead to warnings, project delays, or point deductio
 
 
 
+
+
+
+# NAVGURUKUL CAMPUSES
+
+## Dantewada Campus
+Location: Dantewada, Chhattisgarh  
+Programs: SOP, SOB, SOF  
+Capacity: 150  
+Contact: 8103248471  
+
+---
+
+## Pune Campus
+Location: Pune, Maharashtra  
+Programs: SOP, SOE, SOB, SOF, SOSC (Super Chef)  
+Capacity: 150  
+Contact: 7249455166  
+
+---
+
+## Dharamshala Campus
+Location: Dharamshala, Himachal Pradesh  
+Programs: SOP  
+Capacity: 56  
+Contact: 9317081599  
+
+---
+
+## Sarjapur Campus
+Location: Sarjapur (Bangalore), Karnataka  
+Programs: SOP, SOB, SOSC (Design & Textile)  
+Capacity: 150  
+Contact: 8861553413  
+
+---
+
+## Kishanganj Campus
+Location: Kishanganj, Bihar  
+Programs: SOP, SOB (SOB guided remotely)  
+Capacity: 100  
+Contact: 9340419688  
+
+---
+
+## Eternal University Campus
+Location: Baru Sahib, Himachal Pradesh  
+Programs: BCA  
+Capacity: 90  
+Contact: 8219562717  
 
 
 
