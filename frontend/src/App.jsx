@@ -275,43 +275,64 @@ export default function App() {
   }
 
   return (
-    <div className="app-layout">
-      <aside id="sidebar" className={sidebarOpen ? 'sidebar-open' : 'sidebar-closed'}>
+  <div className="app-layout">
+    {/* Sidebar Block: Yahan humne toggle button andar daal diya hai */}
+    <aside id="sidebar" className={sidebarOpen ? 'sidebar-open' : 'sidebar-closed'}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
         <div className="sidebar-brand">{t.navGurukul}</div>
-        <button className="new-chat-btn" onClick={startNewChat}><FiPlus /> {t.newChat}</button>
-        <div className="history-list">
-          {history.length === 0 && <div className="history-empty">{t.noHistory}</div>}
-          {history.map((item) => (
-            <div key={item.id} className="history-card" onClick={() => loadThread(item.id)}>{(item.title || '').slice(0, 50)}...</div>
-          ))}
-        </div>
-      </aside>
+        {/* Sidebar ke andar wala close button */}
+        <button 
+          className="icon-btn" 
+          onClick={() => setSidebarOpen(false)} 
+          style={{ color: 'white', fontSize: '20px' }}
+        >
+          <FiMenu />
+        </button>
+      </div>
 
-      <main id="main-content">
-        <header>
-          <div className="header-left">
-            {selectedRole && <button className="toggle-sidebar-btn" onClick={() => setSidebarOpen(!sidebarOpen)}><FiMenu /></button>}
-            <div className="brand-name-header">NaviAI <span>✨</span></div>
+      <button className="new-chat-btn" onClick={startNewChat}><FiPlus /> {t.newChat}</button>
+      <div className="history-list">
+        {history.length === 0 && <div className="history-empty">{t.noHistory}</div>}
+        {history.map((item) => (
+          <div key={item.id} className="history-card" onClick={() => loadThread(item.id)}>{(item.title || '').slice(0, 50)}...</div>
+        ))}
+      </div>
+    </aside>
+
+    <main id="main-content">
+      <header>
+        <div className="header-left">
+          {/* Header wala button: Ye sirf tab dikhega jab sidebar band ho */}
+          {!sidebarOpen && selectedRole && (
+            <button className="toggle-sidebar-btn" onClick={() => setSidebarOpen(true)}>
+              <FiMenu />
+            </button>
+          )}
+          <div className="brand-name-header">NaviAI <span>✨</span></div>
+        </div>
+        
+        {/* ... baaki header ka code (Language selection, user-info) same rahega ... */}
+        <div className="header-right">
+          <div className="language-selector" ref={languageDropdownRef}>
+            <button className="language-toggle" onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}><FiGlobe /> {language.toUpperCase()}</button>
+            {showLanguageDropdown && (
+              <div className="language-dropdown">
+                {['en', 'hi', 'mr'].map(l => (
+                  <button key={l} className={`language-option ${language === l ? 'active' : ''}`} onClick={() => {setLanguage(l); setShowLanguageDropdown(false)}}>
+                    {l === 'en' ? '🇬🇧 English' : l === 'hi' ? '🇮🇳 हिंदी' : '🇮🇳 मराठी'}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
-          <div className="header-right">
-            <div className="language-selector" ref={languageDropdownRef}>
-              <button className="language-toggle" onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}><FiGlobe /> {language.toUpperCase()}</button>
-              {showLanguageDropdown && (
-                <div className="language-dropdown">
-                  {['en', 'hi', 'mr'].map(l => (
-                    <button key={l} className={`language-option ${language === l ? 'active' : ''}`} onClick={() => {setLanguage(l); setShowLanguageDropdown(false)}}>
-                      {l === 'en' ? '🇬🇧 English' : l === 'hi' ? '🇮🇳 हिंदी' : '🇮🇳 मराठी'}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-          <div className="user-info">
-            <span className="role-badge">{roleOptions(language).find(r => r.key === selectedRole)?.label || t.selectRoleButton}</span>
-            <a href="/logout">{t.logout}</a>
-          </div>
-        </header>
+        </div>
+        <div className="user-info">
+          <span className="role-badge">{roleOptions(language).find(r => r.key === selectedRole)?.label || t.selectRoleButton}</span>
+          <a href="/logout">{t.logout}</a>
+        </div>
+      </header>
+
+      {/* ... baaki ka chat-window aur input-container same rahega ... */}
 
         <div id="chat-window" ref={chatRef}>
           {messages.length === 0 ? (

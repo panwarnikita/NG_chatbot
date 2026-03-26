@@ -1,28 +1,17 @@
-
-
-
-
-
-
-
-
 ### 🏢 1. What is NavGurukul?
 NavGurukul is a technology-driven non-profit organization based in Gurugram, Haryana, India, dedicated to empowering underserved youth — with a strong focus on women and girls — through high-quality, fully-funded tech education. It offers residential programs that train students in software engineering, design, media, finance, and management, with a guaranteed pathway to aspirational employment in the IT sector.
-
 NavGurukul operates as a meaningful alternative to conventional college education. Students from humble economic backgrounds receive free residential training, food, and learning resources, and are only expected to pay back a nominal fee (in installments) once they secure a job.
 
 
 ## 🎯 2. Mission and Vision
 Mission: To provide underserved youth — especially women and girls from rural India, scheduled castes and tribes, and economically disadvantaged communities — free, high-quality education and skills training that creates pathways to aspirational, well-paying careers.
-
 Vision: To create an equitable higher education alternative where students from underserved communities can learn skills to build aspirational careers and thrive in the world. NavGurukul envisions a world where affordable, world-class education empowers every individual to reach their highest potential.
 
 
 
 
-## 👨‍💻 3. Founders
+## 👨‍💻 3. Founder of Navgurukul
 NavGurukul was co-founded by:
-
 Abhishek Gupta: An alumnus of IIT Delhi, Forbes India 30 Under 30. Abhishek had previously co-founded two startups before volunteering with Delhi government’s education department. Witnessing firsthand how talented students from humble backgrounds lacked access to quality education motivated him to build NavGurukul.
 
 
