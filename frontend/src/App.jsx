@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { marked } from 'marked'
 import { FiMenu, FiMic, FiMicOff, FiPaperclip, FiPlus, FiGlobe, FiSquare } from 'react-icons/fi'
 import { IoSend } from 'react-icons/io5'
+import speechService from './services/speechService'
 
 const translations = {
   en: {
@@ -137,7 +138,6 @@ export default function App() {
   const [language, setLanguage] = useState(() => localStorage.getItem('appLanguage') || 'en')
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false)
   const chatRef = useRef(null)
-  const recognitionRef = useRef(null)
   const languageDropdownRef = useRef(null)
 
   const userInitial = useMemo(() => 'G', [])
@@ -146,6 +146,15 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem('appLanguage', language)
   }, [language])
+
+  // Initialize TTS on component mount
+  useEffect(() => {
+    speechService.initTTS().catch(err => console.error('TTS init error:', err))
+    
+    return () => {
+      speechService.dispose()
+    }
+  }, [])
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -166,23 +175,28 @@ export default function App() {
     setTimeout(scrollToBottom, 0)
   }
 
-  // TTS Logic with Stop tracking
+  // TTS Logic with Stop tracking - Using Piper TTS
   const stopSpeaking = () => {
-    window.speechSynthesis.cancel();
+    speechService.stopSpeaking();
     setIsSpeaking(false);
   };
 
-  const speakText = (text, lang) => {
+  const speakText = async (text, lang) => {
     stopSpeaking();
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = (lang === 'hi' || lang === 'mr') ? 'hi-IN' : 'en-IN';
-    utterance.rate = 1.0;
     
-    utterance.onstart = () => setIsSpeaking(true);
-    utterance.onend = () => setIsSpeaking(false);
-    utterance.onerror = () => setIsSpeaking(false);
-
-    window.speechSynthesis.speak(utterance);
+    // Map language code to lang param for speechService
+    const langMap = {
+      'en': 'en',
+      'hi': 'hi',
+      'mr': 'mr'
+    };
+    
+    await speechService.speak(
+      text, 
+      langMap[lang] || 'en',
+      () => setIsSpeaking(true),
+      () => setIsSpeaking(false)
+    );
   };
 
   const sendMessage = async (presetQuery, wasVoice = false) => {
@@ -229,25 +243,35 @@ export default function App() {
 
   const handleVoice = () => {
     if (!selectedRole || loading) return;
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if (!SpeechRecognition) return alert('Speech Recognition not supported.');
 
-    if (isListening && recognitionRef.current) {
-      recognitionRef.current.stop();
+    if (isListening) {
+      speechService.stopSTT();
+      setIsListening(false);
       return;
     }
 
-    const recognition = new SpeechRecognition();
-    recognition.lang = language === 'hi' ? 'hi-IN' : language === 'mr' ? 'mr-IN' : 'en-IN';
-    recognition.onstart = () => setIsListening(true);
-    recognition.onresult = (event) => {
-      const transcript = (event.results?.[0]?.[0]?.transcript || '').trim();
-      if (transcript) sendMessage(transcript, true); 
+    // Map language to Web Speech API format
+    const langMap = {
+      'en': 'en-IN',
+      'hi': 'hi-IN',
+      'mr': 'mr-IN'
     };
-    recognition.onerror = () => setIsListening(false);
-    recognition.onend = () => setIsListening(false);
-    recognitionRef.current = recognition;
-    recognition.start();
+
+    speechService.startSTT(
+      langMap[language] || 'en-IN',
+      (transcript) => {
+        if (transcript.trim()) {
+          setIsListening(false);
+          sendMessage(transcript, true);
+        }
+      },
+      (error) => {
+        console.error('STT Error:', error);
+        setIsListening(false);
+      }
+    );
+    
+    setIsListening(true);
   }
 
   const startNewChat = () => {
@@ -275,43 +299,64 @@ export default function App() {
   }
 
   return (
-    <div className="app-layout">
-      <aside id="sidebar" className={sidebarOpen ? 'sidebar-open' : 'sidebar-closed'}>
+  <div className="app-layout">
+    {/* Sidebar Block: Yahan humne toggle button andar daal diya hai */}
+    <aside id="sidebar" className={sidebarOpen ? 'sidebar-open' : 'sidebar-closed'}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
         <div className="sidebar-brand">{t.navGurukul}</div>
-        <button className="new-chat-btn" onClick={startNewChat}><FiPlus /> {t.newChat}</button>
-        <div className="history-list">
-          {history.length === 0 && <div className="history-empty">{t.noHistory}</div>}
-          {history.map((item) => (
-            <div key={item.id} className="history-card" onClick={() => loadThread(item.id)}>{(item.title || '').slice(0, 50)}...</div>
-          ))}
-        </div>
-      </aside>
+        {/* Sidebar ke andar wala close button */}
+        <button 
+          className="icon-btn" 
+          onClick={() => setSidebarOpen(false)} 
+          style={{ color: 'white', fontSize: '20px' }}
+        >
+          <FiMenu />
+        </button>
+      </div>
 
-      <main id="main-content">
-        <header>
-          <div className="header-left">
-            {selectedRole && <button className="toggle-sidebar-btn" onClick={() => setSidebarOpen(!sidebarOpen)}><FiMenu /></button>}
-            <div className="brand-name-header">NaviAI <span>✨</span></div>
+      <button className="new-chat-btn" onClick={startNewChat}><FiPlus /> {t.newChat}</button>
+      <div className="history-list">
+        {history.length === 0 && <div className="history-empty">{t.noHistory}</div>}
+        {history.map((item) => (
+          <div key={item.id} className="history-card" onClick={() => loadThread(item.id)}>{(item.title || '').slice(0, 50)}...</div>
+        ))}
+      </div>
+    </aside>
+
+    <main id="main-content">
+      <header>
+        <div className="header-left">
+          {/* Header wala button: Ye sirf tab dikhega jab sidebar band ho */}
+          {!sidebarOpen && selectedRole && (
+            <button className="toggle-sidebar-btn" onClick={() => setSidebarOpen(true)}>
+              <FiMenu />
+            </button>
+          )}
+          <div className="brand-name-header">NaviAI <span>✨</span></div>
+        </div>
+        
+        {/* ... baaki header ka code (Language selection, user-info) same rahega ... */}
+        <div className="header-right">
+          <div className="language-selector" ref={languageDropdownRef}>
+            <button className="language-toggle" onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}><FiGlobe /> {language === 'en' ? 'English' : language === 'hi' ? 'हिंदी' : 'मराठी'}</button>
+            {showLanguageDropdown && (
+              <div className="language-dropdown">
+                {['en', 'hi', 'mr'].map(l => (
+                  <button key={l} className={`language-option ${language === l ? 'active' : ''}`} onClick={() => {setLanguage(l); setShowLanguageDropdown(false)}}>
+                    {l === 'en' ? '🇬🇧 English' : l === 'hi' ? '🇮🇳 हिंदी' : '🇮🇳 मराठी'}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
-          <div className="header-right">
-            <div className="language-selector" ref={languageDropdownRef}>
-              <button className="language-toggle" onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}><FiGlobe /> {language.toUpperCase()}</button>
-              {showLanguageDropdown && (
-                <div className="language-dropdown">
-                  {['en', 'hi', 'mr'].map(l => (
-                    <button key={l} className={`language-option ${language === l ? 'active' : ''}`} onClick={() => {setLanguage(l); setShowLanguageDropdown(false)}}>
-                      {l === 'en' ? '🇬🇧 English' : l === 'hi' ? '🇮🇳 हिंदी' : '🇮🇳 मराठी'}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-          <div className="user-info">
-            <span className="role-badge">{roleOptions(language).find(r => r.key === selectedRole)?.label || t.selectRoleButton}</span>
-            <a href="/logout">{t.logout}</a>
-          </div>
-        </header>
+        </div>
+        <div className="user-info">
+          <span className="role-badge">{roleOptions(language).find(r => r.key === selectedRole)?.label || t.selectRoleButton}</span>
+          <a href="/logout">{t.logout}</a>
+        </div>
+      </header>
+
+      {/* ... baaki ka chat-window aur input-container same rahega ... */}
 
         <div id="chat-window" ref={chatRef}>
           {messages.length === 0 ? (
