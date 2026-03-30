@@ -3,6 +3,9 @@
 .env.local
 *.env.local
 .env.example
+.env.backup
+.env.*.backup
+
 # Python
 venv/
 .venv/
@@ -41,15 +44,18 @@ htmlcov/
 # Node & Frontend
 frontend/node_modules/
 frontend/dist/
+frontend/build/
 npm-debug.log
 npm-error.log
 yarn-error.log
 package-lock.json.lock
+.pnpm-debug.log*
 
 # Backend
 backend/vectorstore/
 backend/__pycache__/
 backend/*.pyc
+backend/data/*.log
 
 # IDE & Editor
 .vscode/
@@ -63,6 +69,7 @@ backend/*.pyc
 .settings/
 *.sublime-project
 *.sublime-workspace
+*.code-workspace
 
 # OS
 .DS_Store
@@ -78,3 +85,42 @@ Thumbs.db
 local_settings.py
 *.pem
 *.key
+*.crt
+
+# TTS Models & Cache (Piper WASM models)
+frontend/public/models/
+*.onnx
+*.onnx.json
+piper-models-cache-v*
+.cache/
+.wasm-cache/
+
+# Web API Cache
+caches/
+cache/
+
+# Build & Runtime artifacts
+*.log
+*.pid
+*.seed
+dist/
+build/
+.next/
+out/
+
+# Database backups
+*.db
+*.sqlite
+*.sqlite3
+dump.rdb
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+.tmp*/
+
+# Browser storage
+localStorage/
+sessionStorage/
+indexedDB/

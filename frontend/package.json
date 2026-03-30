@@ -11,6 +11,7 @@
   "dependencies": {
     "marked": "^15.0.12",
     "onnxruntime-web": "^1.24.3",
+    "piper-wasm": "^0.1.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.6.0",

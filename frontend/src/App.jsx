@@ -3,6 +3,9 @@ import { marked } from 'marked'
 import { FiMenu, FiMic, FiMicOff, FiPaperclip, FiPlus, FiGlobe, FiSquare } from 'react-icons/fi'
 import { IoSend } from 'react-icons/io5'
 import speechService from './services/speechService'
+import { useSTT } from './hooks/useSTT'
+import { useTTS } from './hooks/useTTS'
+import { useTTSPiper } from './hooks/useTTSPiper'
 
 const translations = {
   en: {
@@ -133,28 +136,78 @@ export default function App() {
   const [selectedRole, setSelectedRole] = useState('')
   const [loading, setLoading] = useState(false)
   const [sidebarOpen, setSidebarOpen] = useState(false)
-  const [isListening, setIsListening] = useState(false)
-  const [isSpeaking, setIsSpeaking] = useState(false) // Tracking if AI is speaking
   const [language, setLanguage] = useState(() => localStorage.getItem('appLanguage') || 'en')
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false)
+  const [voiceType, setVoiceType] = useState('hindi') // 'hindi' or 'english'
+  
   const chatRef = useRef(null)
   const languageDropdownRef = useRef(null)
 
   const userInitial = useMemo(() => 'G', [])
   const t = translations[language]
 
+  // Get TTS and STT configurations from speechService
+  const ttsConfig = useMemo(() => speechService.getTTSConfig(voiceType), [voiceType])
+  const sttConfig = useMemo(() => speechService.getSTTConfig(
+    language === 'en' ? 'en-IN' : language === 'hi' ? 'hi-IN' : 'mr-IN'
+  ), [language])
+
+  // Initialize STT Hook
+  const {
+    isListening,
+    transcript,
+    interimTranscript,
+    startListening,
+    stopListening,
+    resetTranscript,
+    error: sttError
+  } = useSTT(sttConfig)
+
+  // Initialize TTS Hook - Use different hooks based on language
+  const {
+    speak: speakHindi,
+    isPlaying: isPlayingHindi,
+    isReady: ttsReadyHindi,
+    isLoading: ttsLoadingHindi,
+    error: ttsErrorHindi,
+    downloadProgress: downloadProgressHindi
+  } = useTTS(voiceType === 'hindi' ? ttsConfig : null)
+
+  const {
+    speak: speakEnglish,
+    isReady: ttsReadyEnglish,
+    isSpeaking: ttsPlayingEnglish,
+    error: ttsErrorEnglish
+  } = useTTSPiper()
+
+  // Unified speak function that routes to the correct TTS system
+  const speak = async (text) => {
+    try {
+      if (voiceType === 'hindi' && speakHindi) {
+        return await speakHindi(text)
+      } else if (voiceType === 'english' && speakEnglish) {
+        return await speakEnglish(text)
+      } else {
+        console.warn('TTS not ready for', voiceType)
+      }
+    } catch (err) {
+      console.error('Speak error:', err)
+      throw err
+    }
+  }
+
+  // Unified TTS state for UI indicators
+  const ttsReady = voiceType === 'hindi' ? ttsReadyHindi : ttsReadyEnglish
+  const ttsLoading = voiceType === 'hindi' ? ttsLoadingHindi : false
+  const ttsError = voiceType === 'hindi' ? ttsErrorHindi : ttsErrorEnglish
+  const isPlaying = voiceType === 'hindi' ? isPlayingHindi : ttsPlayingEnglish
+  const downloadProgress = downloadProgressHindi || 0
+
   useEffect(() => {
     localStorage.setItem('appLanguage', language)
+    // Update voice type based on language
+    setVoiceType(language === 'hi' ? 'hindi' : 'english')
   }, [language])
-
-  // Initialize TTS on component mount
-  useEffect(() => {
-    speechService.initTTS().catch(err => console.error('TTS init error:', err))
-    
-    return () => {
-      speechService.dispose()
-    }
-  }, [])
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -170,40 +223,76 @@ export default function App() {
     if (chatRef.current) chatRef.current.scrollTop = chatRef.current.scrollHeight
   }
 
+  // Process response into sentences with Hindi/English punctuation support
+  // यह voice_assistant_demo से लिया गया optimization है!
+  const processSentencesForTTS = (text) => {
+    if (!text) return [];
+
+    const sentences = [];
+    let buffer = text;
+
+    // Support Hindi (।॥), English (.!?) and comma punctuation
+    const sentenceEndings = /[.!?।॥]+\s+/;
+
+    while (buffer.length > 0) {
+      const match = buffer.match(sentenceEndings);
+
+      if (match && match.index !== undefined) {
+        // Include punctuation with the sentence
+        const splitIndex = match.index + match[0].length;
+        const sentence = buffer.slice(0, splitIndex).trim();
+        const remainder = buffer.slice(splitIndex);
+
+        if (sentence) {
+          sentences.push(sentence);
+        }
+        buffer = remainder;
+      } else {
+        // Last remaining part (no ending punctuation)
+        if (buffer.trim()) {
+          sentences.push(buffer.trim());
+        }
+        break;
+      }
+    }
+
+    return sentences.length > 0 ? sentences : [text]; // Fallback to whole text if no splits found
+  };
+
   const addMessage = (role, content) => {
     setMessages((prev) => [...prev, { role, content }])
     setTimeout(scrollToBottom, 0)
   }
 
-  // TTS Logic with Stop tracking - Using Piper TTS
-  const stopSpeaking = () => {
-    speechService.stopSpeaking();
-    setIsSpeaking(false);
-  };
+  // Handle transcript when speech is recognized
+  useEffect(() => {
+    if (transcript && transcript.trim()) {
+      sendMessage(transcript, true)
+      resetTranscript()
+    }
+  }, [transcript])
 
-  const speakText = async (text, lang) => {
-    stopSpeaking();
-    
-    // Map language code to lang param for speechService
-    const langMap = {
-      'en': 'en',
-      'hi': 'hi',
-      'mr': 'mr'
-    };
-    
-    await speechService.speak(
-      text, 
-      langMap[lang] || 'en',
-      () => setIsSpeaking(true),
-      () => setIsSpeaking(false)
-    );
-  };
+  // Handle STT errors
+  useEffect(() => {
+    if (sttError) {
+      console.error('STT Error:', sttError)
+    }
+  }, [sttError])
+
+  // Handle TTS errors
+  useEffect(() => {
+    if (ttsError) {
+      console.error('TTS Error:', ttsError)
+    }
+  }, [ttsError])
 
   const sendMessage = async (presetQuery, wasVoice = false) => {
     const queryText = (presetQuery ?? input).trim();
     if (!queryText || loading || !selectedRole) return;
 
-    stopSpeaking(); // Naya message send karte hi voice stop karein
+    // Stop any speaking when new message is sent
+    // (TTS hook will handle this internally if needed)
+    
     addMessage('User', queryText);
     setInput(''); // Always clear input after sending message
     setLoading(true);
@@ -226,8 +315,17 @@ export default function App() {
 
       addMessage('AI', data.response || 'No response from server');
       
-      if (wasVoice) {
-        speakText(data.response, language);
+      // Auto-speak AI response if user sent voice message
+      if (wasVoice && data.response) {
+        // Split response into sentences for FAST incremental voice synthesis
+        const sentences = processSentencesForTTS(data.response);
+        
+        // Speak sentences one by one with minimal delay
+        sentences.forEach((sentence, index) => {
+          setTimeout(() => {
+            speak(sentence).catch(err => console.error('TTS Error:', err));
+          }, index * 200); // 200ms delay between sentences
+        });
       }
 
       if (!currentChatId && data.chat_id) {
@@ -245,41 +343,20 @@ export default function App() {
     if (!selectedRole || loading) return;
 
     if (isListening) {
-      speechService.stopSTT();
-      setIsListening(false);
+      stopListening();
       return;
     }
 
-    // Map language to Web Speech API format
-    const langMap = {
-      'en': 'en-IN',
-      'hi': 'hi-IN',
-      'mr': 'mr-IN'
-    };
-
-    speechService.startSTT(
-      langMap[language] || 'en-IN',
-      (transcript) => {
-        if (transcript.trim()) {
-          setIsListening(false);
-          sendMessage(transcript, true);
-        }
-      },
-      (error) => {
-        console.error('STT Error:', error);
-        setIsListening(false);
-      }
-    );
-    
-    setIsListening(true);
-  }
+    // Start listening for speech
+    startListening();
+  };
 
   const startNewChat = () => {
     setCurrentChatId(null);
     setMessages([]);
     setInput('');
     setSelectedRole('');
-    stopSpeaking();
+    resetTranscript();
   }
 
   const handleRoleSelect = (role) => {
@@ -389,21 +466,21 @@ export default function App() {
             <label htmlFor="file-upload" className="icon-btn" title="Add file"><FiPaperclip /><input type="file" id="file-upload" style={{ display: 'none' }} /></label>
             <input type="text" id="user-input" placeholder={selectedRole ? t.askAnything : t.selectRoleFirst} value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && sendMessage(input, false)} disabled={!selectedRole} />
             
-            {/* AGAR AI BOL RAHA HAI TOH STOP BUTTON DIKHEGA, WARNA MIC ICON */}
-            {isSpeaking ? (
+            {/* AGAR AI BOL RAHA HAI TOH SPEAKER ICON WITH LOADING, WARNA MIC ICON */}
+            {isPlaying ? (
               <button 
-                className="icon-btn stop-btn" 
-                onClick={stopSpeaking} 
-                title="Stop Reading"
+                className="icon-btn speak-btn" 
+                title="AI Speaking"
+                disabled
               >
-                <FiSquare style={{ color: 'red' }} />
+                <FiMic style={{ color: '#4CAF50', animation: 'pulse 1s infinite' }} />
               </button>
             ) : (
               <button 
                 className={`icon-btn mic-btn ${isListening ? 'mic-btn-active' : ''}`} 
                 onClick={handleVoice} 
                 title={isListening ? t.stopVoice : t.voiceInput} 
-                disabled={!selectedRole || loading}
+                disabled={!selectedRole || loading || ttsLoading}
               >
                 {isListening ? <FiMicOff /> : <FiMic />}
               </button>
@@ -411,6 +488,15 @@ export default function App() {
 
             <button className="send-btn" onClick={() => sendMessage(input, false)} disabled={!selectedRole || loading || !input.trim()}><IoSend /><span>{t.send}</span></button>
           </div>
+
+          {/* TTS Status Indicator */}
+          {ttsLoading && (
+            <div className="tts-status" style={{ fontSize: '12px', color: '#888', marginTop: '8px', textAlign: 'center' }}>
+              {downloadProgress 
+                ? `Loading voice model: ${Math.round((downloadProgress.loaded / downloadProgress.total) * 100)}%`
+                : 'Initializing voice...'}
+            </div>
+          )}
         </div>
       </main>
     </div>

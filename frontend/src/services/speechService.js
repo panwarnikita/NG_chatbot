@@ -1,202 +1,114 @@
-import { TTSLogic, sharedAudioPlayer } from 'speech-to-speech';
+/**
+ * Speech Service - Integrates STT (Web Speech API) and TTS (Piper WASM)
+ * This service provides a bridge between React components and voice hooks
+ * Used for configuration and global state management
+ */
 
 class SpeechService {
   constructor() {
-    this.tts = null;
-    this.isInitializing = false;
-    this.isSpeaking = false;
-    this.recognitionRef = null;
+    this.ttsConfig = null;
+    this.sttConfig = null;
+    this.currentLanguage = 'en-IN';
+    this.currentVoiceType = 'english'; // 'english' or 'hindi'
   }
 
-  // Initialize TTS (Piper)
-  async initTTS() {
-    if (this.tts || this.isInitializing) return;
+  /**
+   * Get TTS configuration for specific voice model
+   * @param {string} voiceType - 'hindi' or 'english'
+   * @returns {Object} Configuration object for useTTS/useTTSPiper hook
+   */
+  getTTSConfig(voiceType = 'hindi') {
+    const voiceModels = {
+      hindi: {
+        // Local ONNX model - High-quality (63MB but worth it!)
+        type: 'local-onnx',
+        voiceModelUrl: '/models/hi_IN-priyamvada-medium.onnx',
+        voiceConfigUrl: '/models/hi_IN-priyamvada-medium.json',
+        warmupText: 'नमस्ते',
+      },
+      english: {
+        // Piper TTS via speech-to-speech library
+        type: 'piper',
+        voiceId: 'en_US-hfc_female-medium', // Female, natural, medium quality
+        warmupText: 'Hello',
+        // Alternative voices available:
+        // en_US-hfc_female-medium - Female, natural ✓ DEFAULT
+        // en_US-lessac-medium - Neutral, medium
+        // en_US-lessac-high - Neutral, high quality (larger)
+        // en_US-lessac-low - Neutral, low quality (faster)
+      },
+    };
 
-    try {
-      this.isInitializing = true;
-      
-      // Configure shared audio player
-      sharedAudioPlayer.configure({
-        autoPlay: true,
-        volume: 1.0,
-      });
-
-      // Initialize Piper TTS
-      this.tts = new TTSLogic({
-        voiceId: 'en_US-hfc_female-medium', // Default voice
-        warmUp: true,
-        enableWasmCache: true,
-      });
-
-      await this.tts.initialize();
-      console.log('TTS initialized successfully');
-    } catch (error) {
-      console.error('TTS initialization failed:', error);
-      this.tts = null;
-    } finally {
-      this.isInitializing = false;
-    }
+    this.currentVoiceType = voiceType;
+    this.ttsConfig = voiceModels[voiceType] || voiceModels.english;
+    return this.ttsConfig;
   }
 
-  // STT using Web Speech API
-  startSTT(language = 'en-IN', onResult, onError) {
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    
-    if (!SpeechRecognition) {
-      onError?.('Speech Recognition not supported in your browser');
-      return;
-    }
-
-    const recognition = new SpeechRecognition();
-    recognition.lang = language;
-    recognition.continuous = false;
-    recognition.interimResults = true;
-
-    recognition.onstart = () => {
-      console.log('STT started listening...');
+  /**
+   * Get STT configuration for specific language
+   * @param {string} language - Language code like 'en-IN', 'hi-IN'
+   * @returns {Object} Configuration object for useSTT hook
+   */
+  getSTTConfig(language = 'en-IN') {
+    this.currentLanguage = language;
+    this.sttConfig = {
+      lang: language,
+      continuous: true,
+      silenceTimeout: 2000, // Auto-stop after 2 seconds of silence
     };
-
-    recognition.onresult = (event) => {
-      let interimTranscript = '';
-      let finalTranscript = '';
-
-      for (let i = event.resultIndex; i < event.results.length; i++) {
-        const transcript = event.results[i][0].transcript;
-        if (event.results[i].isFinal) {
-          finalTranscript += transcript;
-        } else {
-          interimTranscript += transcript;
-        }
-      }
-
-      if (finalTranscript) {
-        onResult?.(finalTranscript.trim());
-        this.recognitionRef = null;
-      }
-    };
-
-    recognition.onerror = (error) => {
-      console.error('STT error:', error);
-      onError?.(error.error);
-    };
-
-    recognition.onend = () => {
-      console.log('STT ended');
-      this.recognitionRef = null;
-    };
-
-    this.recognitionRef = recognition;
-    recognition.start();
+    return this.sttConfig;
   }
 
-  // Stop STT
-  stopSTT() {
-    if (this.recognitionRef) {
-      this.recognitionRef.stop();
-      this.recognitionRef = null;
-    }
+  /**
+   * Check browser support for required APIs
+   */
+  checkBrowserSupport() {
+    const supportsSpeechRecognition = !!(window.SpeechRecognition || window.webkitSpeechRecognition);
+    const supportsAudioContext = !!(window.AudioContext || window.webkitAudioContext);
+    const supportsWorkers = !!window.Worker;
+    const supportsCache = !!window.caches;
+
+    return {
+      speechRecognition: supportsSpeechRecognition,
+      audioContext: supportsAudioContext,
+      workers: supportsWorkers,
+      cache: supportsCache,
+      allSupported: supportsSpeechRecognition && supportsAudioContext && supportsWorkers && supportsCache,
+    };
   }
 
-  // TTS - Speak text using Piper
-  async speak(text, language = 'en', onStart, onEnd) {
-    if (!this.tts) {
-      await this.initTTS();
-    }
+  /**
+   * Get current settings
+   */
+  getSettings() {
+    return {
+      currentLanguage: this.currentLanguage,
+      currentVoiceType: this.currentVoiceType,
+      ttsConfig: this.ttsConfig,
+      sttConfig: this.sttConfig,
+    };
+  }
 
-    if (!this.tts) {
-      console.error('TTS not initialized');
+  /**
+   * Send speech data for processing (example usage)
+   */
+  processSpeechInput(text, callbacks = {}) {
+    const { onStart, onProcess, onEnd, onError } = callbacks;
+
+    if (!text || text.trim().length === 0) {
+      onError?.('Empty text');
       return;
     }
 
     try {
-      this.isSpeaking = true;
       onStart?.();
-
-      // Set up audio player callbacks
-      sharedAudioPlayer.setPlayingChangeCallback((isPlaying) => {
-        if (!isPlaying && this.isSpeaking) {
-          this.isSpeaking = false;
-          onEnd?.();
-        }
-      });
-
-      // For long responses, split into sentences
-      const sentences = text
-        .split(/(?<=[.!?])\s+/)
-        .filter((s) => s.trim().length > 0);
-
-      // Synthesize and queue audio
-      for (const sentence of sentences) {
-        try {
-          const result = await this.tts.synthesize(sentence);
-          sharedAudioPlayer.addAudioIntoQueue(result.audio, result.sampleRate);
-        } catch (error) {
-          console.error('Error synthesizing sentence:', error);
-        }
-      }
-
-      // Wait for queue to complete
-      await sharedAudioPlayer.waitForQueueCompletion();
-      this.isSpeaking = false;
+      // Actual processing happens in React components using hooks
+      onProcess?.(text);
       onEnd?.();
     } catch (error) {
-      console.error('TTS error:', error);
-      this.isSpeaking = false;
-      onEnd?.();
+      console.error('Speech processing error:', error);
+      onError?.(error.message);
     }
-  }
-
-  // Stop speaking
-  stopSpeaking() {
-    try {
-      sharedAudioPlayer.stopAndClearQueue();
-      this.isSpeaking = false;
-    } catch (error) {
-      console.error('Error stopping audio:', error);
-    }
-  }
-
-  // Get speaking status
-  getSpeakingStatus() {
-    return this.isSpeaking;
-  }
-
-  // Change TTS voice
-  async changeVoice(voiceId) {
-    if (this.tts) {
-      try {
-        this.stopSpeaking();
-        await this.tts.dispose();
-        this.tts = null;
-
-        this.tts = new TTSLogic({
-          voiceId,
-          warmUp: true,
-          enableWasmCache: true,
-        });
-
-        await this.tts.initialize();
-        console.log(`Voice changed to ${voiceId}`);
-      } catch (error) {
-        console.error('Error changing voice:', error);
-      }
-    }
-  }
-
-  // Cleanup
-  async dispose() {
-    this.stopSTT();
-    this.stopSpeaking();
-    
-    if (this.tts) {
-      try {
-        await this.tts.dispose();
-      } catch (error) {
-        console.error('Error disposing TTS:', error);
-      }
-    }
-    
-    this.tts = null;
   }
 }
 
