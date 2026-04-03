@@ -9,6 +9,11 @@ A full-stack AI chatbot application for NavGurukul using FastAPI/Flask backend w
 - **Chat History**: Persistent chat storage with MongoDB
 - **Real-time Responses**: Streaming chat responses with chat history context
 - **Modern UI**: React-based responsive frontend with real-time chat interface
+- **🎤 Speech-to-Text (STT)**: Hindi, English, and Marathi voice input using Web Speech API
+- **🔊 Text-to-Speech (TTS)**: 
+  - **Hindi**: High-quality neural voice (Piper ONNX model)
+  - **English**: Natural-sounding female voice via Piper TTS
+- **Voice-Based Chat**: Full voice interaction - speak to chat, hear AI responses
 
 ## 📋 Prerequisites
 
@@ -50,7 +55,27 @@ cd frontend
 npm install
 ```
 
-### 4. Environment Configuration
+### 4. Setup Voice Models (Optional but Recommended)
+
+For high-quality Hindi TTS, download the voice model:
+
+```bash
+# From project root
+python check_models.py    # Check if models exist
+```
+
+**Download Hindi Model Files:**
+1. Create `frontend/public/models/` directory
+2. Download from Hugging Face:
+   - Model: https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/hi/hi_IN/priyamvada/medium/model.onnx (~60MB)
+   - Config: https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/hi/hi_IN/priyamvada/medium/model.json
+3. Save as:
+   - `frontend/public/models/hi_IN-priyamvada-medium.onnx`
+   - `frontend/public/models/hi_IN-priyamvada-medium.json`
+
+**Without models**: Hindi TTS uses browser's native speech synthesis (works fine but different voice).
+
+### 5. Environment Configuration
 
 Create `.env` file in the root `NG_chatbot` directory (copy from `.env.example`):
 
@@ -66,7 +91,7 @@ Fill in your credentials:
 - `QDRANT_API_KEY` - Your Qdrant API key
 - `QDRANT_COLLECTION` - Vector collection name (default: navgurukul_docs)
 
-### 5. Run the Application
+### 6. Run the Application
 
 **Terminal 1 - Backend (from `backend/` directory):**
 ```bash
@@ -98,12 +123,29 @@ NG_chatbot/
 │   ├── package.json           # npm dependencies
 │   ├── vite.config.js         # Vite build configuration
 │   ├── index.html             # React entry point
+│   ├── public/
+│   │   ├── models/            # Voice model files (optional)
+│   │   │   ├── hi_IN-priyamvada-medium.onnx
+│   │   │   ├── hi_IN-priyamvada-medium.json
+│   │   │   └── ort*.* files   # ONNX Runtime libraries
+│   │   └── piper-wasm/        # TTS WASM worker files
 │   └── src/
 │       ├── App.jsx            # Main React component
 │       ├── main.jsx           # React DOM entry
-│       └── styles.css         # Application styles
+│       ├── styles.css         # Application styles
+│       ├── hooks/
+│       │   ├── useSTT.jsx     # Speech-to-Text hook
+│       │   ├── useTTS.jsx     # Hindi TTS hook
+│       │   └── useTTSPiper.jsx # English TTS hook
+│       ├── services/
+│       │   └── speechService.js # Voice configuration
+│       └── utils/
+│           └── modelCache.js  # Browser caching for models
 ├── .env.example               # Environment variables template
 ├── ROLE_SYSTEM.md             # System prompt documentation
+├── VOICE_SETUP_GUIDE.md       # Voice features guide
+├── DOWNLOAD_MODELS.md         # Model download instructions
+├── check_models.py            # Model validation script
 └── README.md                  # This file
 ```
 
@@ -135,6 +177,35 @@ Retrieve full chat history.
 
 ### POST `/logout`
 Logout user session.
+
+## 🎤 Voice Features
+
+### Speech-to-Text (STT)
+- **Languages**: Hindi (hi-IN), English (en-IN), Marathi (mr-IN)
+- **Technology**: Web Speech API (built-in browser support)
+- **Features**: 
+  - Real-time transcription with interim results
+  - Auto-stop after 2 seconds of silence
+  - Language auto-detection
+
+### Text-to-Speech (TTS)
+**Hindi:**
+- Uses neural Piper model for natural-sounding voice
+- Fallback to browser's native Hindi voice if model unavailable
+- Model size: ~60MB (downloaded once, cached in browser)
+
+**English:**
+- High-quality Piper TTS with female voice (en_US-hfc_female-medium)
+- Optimized for low-latency synthesis
+- Auto-downloads model on first use
+
+### Using Voice Features
+1. Click the **🎤 Mic button** to start speaking
+2. Say your question in Hindi or English
+3. AI responds with both text and voice
+4. Hear the answer played automatically
+
+See [VOICE_SETUP_GUIDE.md](./VOICE_SETUP_GUIDE.md) for detailed voice setup.
 
 ## 🤖 Role System
 
@@ -170,6 +241,8 @@ The application uses Qdrant for semantic search over NavGurukul knowledge base:
 - React 18+ with hooks
 - CSS for styling (includes marked.js for markdown rendering)
 - Proxy to backend at `http://localhost:5000` (see `vite.config.js`)
+- Voice hooks: `useSTT`, `useTTS`, `useTTSPiper` for voice integration
+- Web Workers for Piper WASM processing (non-blocking synthesis)
 
 ### Building for Production
 
@@ -201,6 +274,8 @@ gunicorn -w 4 app.main:app
 - Vite - Build tool
 - React Icons - Icon library
 - Marked.js - Markdown parsing
+- **speech-to-speech** - English TTS via Piper WASM
+- **onnxruntime-web** - Neural network inference for Hindi TTS models
 
 ## 🔐 Security Notes
 
