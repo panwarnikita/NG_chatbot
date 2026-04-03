@@ -2,100 +2,33 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { marked } from 'marked'
 import { FiMenu, FiMic, FiMicOff, FiPaperclip, FiPlus, FiGlobe, FiSquare } from 'react-icons/fi'
 import { IoSend } from 'react-icons/io5'
+import { usePiper } from './hooks/text-to-speech_hook' 
+
+// --- Nayi Library Imports (Sirf English ke liye) ---
+import { TTSLogic, sharedAudioPlayer, cleanTextForTTS } from "speech-to-speech";
 
 const translations = {
   en: {
-    navGurukul: 'NaviAI ✨',
-    newChat: 'New Chat',
-    noChatYet: 'No chats yet',
-    role: 'Role',
-    guest: 'Guest User',
-    logout: 'Logout',
-    hiGuest: 'Hi Guest User,',
-    selectRole: 'Please select your role to continue.',
-    assistantHello: 'I am the NavGurukul AI Assistant. How can I help you today?',
-    selectRoleButton: 'Select Role',
-    noHistory: 'No chats yet',
-    thinking: 'Thinking...',
-    askAnything: 'Ask NaviAI anything...',
-    selectRoleFirst: 'Select role first...',
-    voiceInput: 'Voice Input',
-    stopVoice: 'Stop Voice Input',
-    listening: 'Listening...',
-    send: 'Send',
-    student: 'Student',
-    studentDesc: 'Simple, clear and step-by-step admission help.',
-    parent: 'Parent',
-    parentDesc: 'Safety, eligibility and outcomes with trust-focused guidance.',
-    partner: 'Partner',
-    partnerDesc: 'Professional info for NGO, government and teachers.',
-    whatIsNavGurukul: 'What is NavGurukul?',
-    admissionProcess: 'Tell me about Admission process',
-    successStories: 'Show me success stories',
-    etiocracy: 'Explain Etiocracy',
-    language: 'Language'
+    navGurukul: 'AI ✨', newChat: 'New Chat', noChatYet: 'No chats yet', role: 'Role', guest: 'Guest User', logout: 'Logout', hiGuest: 'Hi User,',
+    selectRole: 'Please select your role to continue.', assistantHello: 'I am the AI Assistant. How can I help you today?', selectRoleButton: 'Select Role',
+    noHistory: 'No chats yet', thinking: 'Thinking...', askAnything: 'Ask AI anything...', selectRoleFirst: 'Select role first...',
+    voiceInput: 'Voice Input', stopVoice: 'Stop Voice Input', listening: 'Listening...', send: 'Send',
+    student: 'Student', studentDesc: 'Simple, clear and step-by-step admission help.',
+    parent: 'Parent', parentDesc: 'Safety, eligibility and outcomes with trust-focused guidance.',
+    partner: 'Partner', partnerDesc: 'Professional info for NGO, government and teachers.',
+    whatIsNavGurukul: 'What is NavGurukul?', admissionProcess: 'Tell me about Admission process',
+    successStories: 'Show me success stories', etiocracy: 'Explain Etiocracy', language: 'Language'
   },
   hi: {
-    navGurukul: 'NaviAI ✨',
-    newChat: 'नई चैट',
-    noChatYet: 'अभी कोई चैट नहीं',
-    role: 'भूमिका',
-    guest: 'अतिथि उपयोगकर्ता',
-    logout: 'लॉग आउट',
-    hiGuest: 'नमस्ते अतिथि उपयोगकर्ता,',
-    selectRole: 'जारी रखने के लिए कृपया अपनी भूमिका चुनें।',
-    assistantHello: 'मैं NavGurukul AI सहायक हूँ। मैं आपकी आज कैसे मदद कर सकता हूँ?',
-    selectRoleButton: 'भूमिका चुनें',
-    noHistory: 'अभी कोई चैट नहीं',
-    thinking: 'सोच रहा हूँ...',
-    askAnything: 'NaviAI से कुछ भी पूछें...',
-    selectRoleFirst: 'पहले भूमिका चुनें...',
-    voiceInput: 'वॉयस इनपुट',
-    stopVoice: 'वॉयस इनपुट बंद करें',
-    listening: 'सुन रहा हूँ...',
-    send: 'भेजें',
-    student: 'छात्र',
-    studentDesc: 'सरल, स्पष्ट और चरण-दर-चरण प्रवेश सहायता।',
-    parent: 'माता-पिता',
-    parentDesc: 'सुरक्षा, पात्रता और विश्वास-केंद्रित मार्गदर्शन के साथ परिणाम।',
-    partner: 'भागीदार',
-    partnerDesc: 'एनजीओ, सरकार और शिक्षकों के लिए पेशेवर जानकारी।',
-    whatIsNavGurukul: 'NavGurukul क्या है?',
-    admissionProcess: 'प्रवेश प्रक्रिया के बारे में बताएं',
-    successStories: 'सफलता की कहानियां दिखाएं',
-    etiocracy: 'Etiocracy समझाएं',
-    language: 'भाषा'
-  },
-  mr: {
-    navGurukul: 'NaviAI ✨',
-    newChat: 'नवीन गप्पा',
-    noChatYet: 'अजून कधीही गप नाही',
-    role: 'भूमिका',
-    guest: 'अतिथी वापरकर्ता',
-    logout: 'लॉग आउट करा',
-    hiGuest: 'नमस्कार अतिथी वापरकर्ता,',
-    selectRole: 'सुरू ठेवण्याचे नाते कृपया आपली भूमिका निवडा।',
-    assistantHello: 'मी NavGurukul AI सहायक आहे. मी आज आपली कशी मदत करू शकतो?',
-    selectRoleButton: 'भूमिका निवडा',
-    noHistory: 'अजून कधीही गप नाही',
-    thinking: 'विचार करत आहे...',
-    askAnything: 'NaviAI ला कसेही विचारा...',
-    selectRoleFirst: 'प्रथम भूमिका निवडा...',
-    voiceInput: 'व्हॉईस इनपुट',
-    stopVoice: 'व्हॉईस इनपुट थांबवा',
-    listening: 'ऐकत आहे...',
-    send: 'पाठवा',
-    student: 'विद्यार्थी',
-    studentDesc: 'सोपे, स्पष्ट आणि चरण-दर-चरण प्रवेश सहायता।',
-    parent: 'पालक',
-    parentDesc: 'सुरक्षा, पात्रता आणि विश्वास-केंद्रित मार्गदर्शन।',
-    partner: 'भागीदार',
-    partnerDesc: 'NGO, सरकार आणि शिक्षकांसाठी व्यावसायिक माहिती।',
-    whatIsNavGurukul: 'NavGurukul म्हणजे काय?',
-    admissionProcess: 'प्रवेश प्रक्रिया सांगा',
-    successStories: 'यशस्वी कहाणी दाखवा',
-    etiocracy: 'Etiocracy समजावून सांगा',
-    language: 'भाषा'
+    navGurukul: 'AI ✨', newChat: 'नई चैट', noChatYet: 'अभी कोई चैट नहीं', role: 'भूमिका', guest: 'अतिथि उपयोगकर्ता', logout: 'लॉग आउट', hiGuest: 'नमस्ते उपयोगकर्ता,',
+    selectRole: 'जारी रखने के लिए कृपया अपनी भूमिका चुनें।', assistantHello: 'मैं AI सहायक हूँ। मैं आपकी आज कैसे मदद कर सकता हूँ?', selectRoleButton: 'भूमिका चुनें',
+    noHistory: 'अभी कोई चैट नहीं', thinking: 'सोच रहा हूँ...', askAnything: 'AI से कुछ भी पूछें...', selectRoleFirst: 'पहले भूमिका चुनें...',
+    voiceInput: 'वॉयस इनपुट', stopVoice: 'वॉयस इनपुट बंद करें', listening: 'सुन रहा हूँ...', send: 'भेजें',
+    student: 'छात्र', studentDesc: 'सरल, स्पष्ट और चरण-दर-चरण प्रवेश सहायता।',
+    parent: 'माता-पिता', parentDesc: 'सुरक्षा, पात्रता और विश्वास-केंद्रित मार्गदर्शन।',
+    partner: 'भागीदार', partnerDesc: 'एनजीओ, सरकार और शिक्षकों के लिए पेशेवर जानकारी।',
+    whatIsNavGurukul: 'NavGurukul क्या है?', admissionProcess: 'प्रवेश प्रक्रिया के बारे में बताएं',
+    successStories: 'सफलता की कहानियां दिखाएं', etiocracy: 'Etiocracy समझाएं', language: 'भाषा'
   }
 }
 
@@ -107,21 +40,9 @@ const quickPrompts = (lang) => [
 ]
 
 const roleOptions = (lang) => [
-  {
-    key: 'student',
-    label: translations[lang].student,
-    description: translations[lang].studentDesc
-  },
-  {
-    key: 'parent',
-    label: translations[lang].parent,
-    description: translations[lang].parentDesc
-  },
-  {
-    key: 'partner',
-    label: translations[lang].partner,
-    description: translations[lang].partnerDesc
-  }
+  { key: 'student', label: translations[lang].student, description: translations[lang].studentDesc },
+  { key: 'parent', label: translations[lang].parent, description: translations[lang].parentDesc },
+  { key: 'partner', label: translations[lang].partner, description: translations[lang].partnerDesc }
 ]
 
 export default function App() {
@@ -133,19 +54,49 @@ export default function App() {
   const [loading, setLoading] = useState(false)
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [isListening, setIsListening] = useState(false)
-  const [isSpeaking, setIsSpeaking] = useState(false) // Tracking if AI is speaking
   const [language, setLanguage] = useState(() => localStorage.getItem('appLanguage') || 'en')
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false)
+  
+  // --- English TTS States ---
+  const [isEnglishTTSReady, setIsEnglishTTSReady] = useState(false);
+  const englishTTSRef = useRef(null);
+
   const chatRef = useRef(null)
   const recognitionRef = useRef(null)
   const languageDropdownRef = useRef(null)
 
-  const userInitial = useMemo(() => 'G', [])
+  const userInitial = "N"
   const t = translations[language]
+
+  // --- 1. HINDI TTS (Aapka Purana Hook) ---
+  const piperConfig = useMemo(() => ({
+    voiceModelUrl: '/models/hi_IN-priyamvada-medium.onnx',
+    voiceConfigUrl: '/models/hi_IN-priyamvada-medium.json',
+    warmupText: 'नमस्ते'
+  }), []);
+
+  const { speak, isReady, isPlaying: isTTSPlaying, resetTTS, isLoading: isModelLoading } = usePiper(piperConfig);
+
+  // --- 2. ENGLISH TTS (Nayi Library Setup) ---
+  useEffect(() => {
+    async function initEnglishTTS() {
+      try {
+        sharedAudioPlayer.configure({ autoPlay: true });
+        const tts = new TTSLogic({ voiceId: "en_US-hfc_female-medium" });
+        await tts.initialize();
+        englishTTSRef.current = tts;
+        setIsEnglishTTSReady(true);
+      } catch (err) {
+        console.error("English TTS Load Error:", err);
+      }
+    }
+    initEnglishTTS();
+  }, []);
 
   useEffect(() => {
     localStorage.setItem('appLanguage', language)
-  }, [language])
+    resetTTS();
+  }, [language, resetTTS])
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -161,90 +112,100 @@ export default function App() {
     if (chatRef.current) chatRef.current.scrollTop = chatRef.current.scrollHeight
   }
 
-  const addMessage = (role, content) => {
-    setMessages((prev) => [...prev, { role, content }])
-    setTimeout(scrollToBottom, 0)
-  }
-
-  // TTS Logic with Stop tracking
   const stopSpeaking = () => {
-    window.speechSynthesis.cancel();
-    setIsSpeaking(false);
+    resetTTS(); // Hindi stop
+    sharedAudioPlayer.stopAndClearQueue(); // English stop
   };
 
-  const speakText = (text, lang) => {
-    stopSpeaking();
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = (lang === 'hi' || lang === 'mr') ? 'hi-IN' : 'en-IN';
-    utterance.rate = 1.0;
-    
-    utterance.onstart = () => setIsSpeaking(true);
-    utterance.onend = () => setIsSpeaking(false);
-    utterance.onerror = () => setIsSpeaking(false);
-
-    window.speechSynthesis.speak(utterance);
+  // --- 3. UPDATED SPEAK LOGIC (Hybrid) ---
+  const speakText = async (text) => {
+    if (language === 'en') {
+      // English Logic
+      if (isEnglishTTSReady && englishTTSRef.current) {
+        const clean = cleanTextForTTS(text);
+        const sentences = clean.split(/(?<=[.!?।])\s+/).filter(s => s.trim());
+        for (const sentence of sentences) {
+          const result = await englishTTSRef.current.synthesize(sentence);
+          sharedAudioPlayer.addAudioIntoQueue(result.audio, result.sampleRate);
+        }
+      }
+    } else {
+      // Hindi Logic (Aapka Purana)
+      if (isReady) {
+        const cleanHindi = text.replace(/[*#\-_]/g, " ");
+        const sentences = cleanHindi.match(/[^.!?।]+[.!?।]+/g) || [cleanHindi];
+        sentences.forEach(s => { if (s.trim().length > 0) speak(s.trim()); });
+      }
+    }
   };
 
   const sendMessage = async (presetQuery, wasVoice = false) => {
     const queryText = (presetQuery ?? input).trim();
     if (!queryText || loading || !selectedRole) return;
 
-    stopSpeaking(); // Naya message send karte hi voice stop karein
-    addMessage('User', queryText);
+    stopSpeaking(); 
     if (!presetQuery) setInput('');
+    setMessages(prev => [...prev, { role: 'User', content: queryText }]);
     setLoading(true);
 
-    const langInstructions = {
-        en: "Reply strictly in English.",
-        hi: "Reply strictly in Hindi using Devanagari script (हिंदी) only. Do NOT use English alphabets or Hinglish.",
-        mr: "Reply strictly in Marathi using Devanagari script (मराठी) only. Do NOT use English alphabets."
-    };
-
-    const finalPrompt = `IMPORTANT: ${langInstructions[language]}\n\nUser Message: ${queryText}`;
+    setMessages(prev => [...prev, { role: 'AI', content: '...' }]);
+    let fullAiResponse = "";
 
     try {
-      const res = await fetch('/ask', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: finalPrompt, chat_id: currentChatId, role: selectedRole })
-      });
-      const data = await res.json();
+    const res = await fetch('/ask', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ 
+        query: queryText, 
+        role: selectedRole,
+        language: language,
+        // Pehle message par true baki sab par false
+        is_first: messages.length === 0, 
+        // Purane messages ko string bana kar bhej do (optional)
+        history: messages.map(m => `${m.role}: ${m.content}`).join("\n")
+    })
+});
 
-      addMessage('AI', data.response || 'No response from server');
-      
-      if (wasVoice) {
-        speakText(data.response, language);
-      }
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
 
-      if (!currentChatId && data.chat_id) {
-        setCurrentChatId(data.chat_id);
-        setHistory((prev) => [{ id: data.chat_id, title: queryText }, ...prev]);
-      }
+        while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            const chunk = decoder.decode(value);
+            if (fullAiResponse === "") fullAiResponse = chunk;
+            else fullAiResponse += chunk;
+
+            setMessages(prev => {
+                const newMessages = [...prev];
+                newMessages[newMessages.length - 1].content = fullAiResponse;
+                return newMessages;
+            });
+            scrollToBottom();
+        }
+        if (wasVoice) speakText(fullAiResponse);
     } catch (error) {
-      addMessage('AI', `Error: ${error.message}`);
+        console.error("Streaming Error:", error);
     } finally {
-      setLoading(false);
+        setLoading(false);
     }
-  };
+};
 
   const handleVoice = () => {
     if (!selectedRole || loading) return;
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!SpeechRecognition) return alert('Speech Recognition not supported.');
-
     if (isListening && recognitionRef.current) {
       recognitionRef.current.stop();
       return;
     }
-
     const recognition = new SpeechRecognition();
-    recognition.lang = language === 'hi' ? 'hi-IN' : language === 'mr' ? 'mr-IN' : 'en-IN';
+    recognition.lang = language === 'hi' ? 'hi-IN' : 'en-IN';
     recognition.onstart = () => setIsListening(true);
     recognition.onresult = (event) => {
       const transcript = (event.results?.[0]?.[0]?.transcript || '').trim();
-      if (transcript) sendMessage(transcript, true); 
+      if (transcript) sendMessage(transcript, true);
     };
-    recognition.onerror = () => setIsListening(false);
     recognition.onend = () => setIsListening(false);
     recognitionRef.current = recognition;
     recognition.start();
@@ -267,74 +228,63 @@ export default function App() {
     const isAI = msg.role === 'AI'
     return (
       <div key={idx} className={`message-wrapper ${isAI ? '' : 'user-wrapper'}`}>
-        <div className={`avatar ${isAI ? 'ai-avatar' : 'user-avatar'}`}>{isAI ? 'Navi' : userInitial}</div>
-        <div className={`bubble ${isAI ? 'ai-bubble' : 'user-bubble'}`} 
-             dangerouslySetInnerHTML={{ __html: isAI ? marked.parse(msg.content || '') : msg.content }} />
+        <div className={`avatar ${isAI ? 'ai-avatar' : 'user-avatar'}`}>{isAI ? 'AI' : userInitial}</div>
+        <div className={`bubble ${isAI ? 'ai-bubble' : 'user-bubble'}`}
+          dangerouslySetInnerHTML={{ __html: isAI ? marked.parse(msg.content || '') : msg.content }} />
       </div>
     )
   }
 
   return (
-  <div className="app-layout">
-    {/* Sidebar Block: Yahan humne toggle button andar daal diya hai */}
-    <aside id="sidebar" className={sidebarOpen ? 'sidebar-open' : 'sidebar-closed'}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-        <div className="sidebar-brand">{t.navGurukul}</div>
-        {/* Sidebar ke andar wala close button */}
-        <button 
-          className="icon-btn" 
-          onClick={() => setSidebarOpen(false)} 
-          style={{ color: 'white', fontSize: '20px' }}
-        >
-          <FiMenu />
-        </button>
-      </div>
-
-      <button className="new-chat-btn" onClick={startNewChat}><FiPlus /> {t.newChat}</button>
-      <div className="history-list">
-        {history.length === 0 && <div className="history-empty">{t.noHistory}</div>}
-        {history.map((item) => (
-          <div key={item.id} className="history-card" onClick={() => loadThread(item.id)}>{(item.title || '').slice(0, 50)}...</div>
-        ))}
-      </div>
-    </aside>
-
-    <main id="main-content">
-      <header>
-        <div className="header-left">
-          {/* Header wala button: Ye sirf tab dikhega jab sidebar band ho */}
-          {!sidebarOpen && selectedRole && (
-            <button className="toggle-sidebar-btn" onClick={() => setSidebarOpen(true)}>
-              <FiMenu />
-            </button>
-          )}
-          <div className="brand-name-header">NaviAI <span>✨</span></div>
+    <div className="app-layout">
+      <aside id="sidebar" className={sidebarOpen ? 'sidebar-open' : 'sidebar-closed'}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+          <div className="sidebar-brand">{t.navGurukul}</div>
+          <button className="icon-btn" onClick={() => setSidebarOpen(false)} style={{ color: 'white', fontSize: '20px' }}><FiMenu /></button>
         </div>
-        
-        {/* ... baaki header ka code (Language selection, user-info) same rahega ... */}
-        <div className="header-right">
-          <div className="language-selector" ref={languageDropdownRef}>
-            <button className="language-toggle" onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}><FiGlobe /> {language.toUpperCase()}</button>
-            {showLanguageDropdown && (
-              <div className="language-dropdown">
-                {['en', 'hi', 'mr'].map(l => (
-                  <button key={l} className={`language-option ${language === l ? 'active' : ''}`} onClick={() => {setLanguage(l); setShowLanguageDropdown(false)}}>
-                    {l === 'en' ? '🇬🇧 English' : l === 'hi' ? '🇮🇳 हिंदी' : '🇮🇳 मराठी'}
-                  </button>
-                ))}
-              </div>
-            )}
+        <button className="new-chat-btn" onClick={startNewChat}><FiPlus /> {t.newChat}</button>
+        <div className="history-list">
+          {history.length === 0 && <div className="history-empty">{t.noHistory}</div>}
+          {history.map((item) => (
+            <div key={item.id} className="history-card">{item.title.slice(0, 30)}...</div>
+          ))}
+        </div>
+      </aside>
+
+      <main id="main-content">
+        <header>
+          <div className="header-left">
+            {!sidebarOpen && selectedRole && <button className="toggle-sidebar-btn" onClick={() => setSidebarOpen(true)}><FiMenu /></button>}
+            <div className="brand-name-header">AI <span>✨</span></div>
           </div>
-        </div>
-        <div className="user-info">
-          <span className="role-badge">{roleOptions(language).find(r => r.key === selectedRole)?.label || t.selectRoleButton}</span>
-          <a href="/logout">{t.logout}</a>
-        </div>
-      </header>
-
-      {/* ... baaki ka chat-window aur input-container same rahega ... */}
+          <div className="header-right">
+            <div className="language-selector" ref={languageDropdownRef}>
+              <button className="language-toggle" onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}>
+                <FiGlobe /> {language === 'en' ? 'English' :  'हिंदी'}
+              </button>
+              {showLanguageDropdown && (
+                <div className="language-dropdown">
+                  {['en', 'hi'].map(l => (
+                    <button key={l} className={`language-option ${language === l ? 'active' : ''}`} onClick={() => { setLanguage(l); setShowLanguageDropdown(false); }}>
+                      {l === 'en' ? '🇬🇧 English' : '🇮🇳 हिंदी' }
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+          <div className="user-info">
+            <span className="role-badge">{roleOptions(language).find(r => r.key === selectedRole)?.label || t.selectRoleButton}</span>
+            <a href="/logout" onClick={(e) => e.preventDefault()}>{t.logout}</a>
+          </div>
+        </header>
 
         <div id="chat-window" ref={chatRef}>
+          {/* Dono models ke liye loader check */}
+          {(language === 'hi' ? isModelLoading : !isEnglishTTSReady) && (
+            <div className="model-loader">{language === 'hi' ? 'Hindi' : 'English'} Voice Loading... Please wait</div>
+          )}
+          
           {messages.length === 0 ? (
             <div id="landing-container">
               <div className="welcome-text"><h1 className="gradient-text">{t.hiGuest}</h1><h2>{selectedRole ? t.assistantHello : t.selectRole}</h2></div>
@@ -352,12 +302,7 @@ export default function App() {
                 </div>
               )}
             </div>
-          ) : (
-            <>
-              {messages.map(renderBubble)}
-              {loading && <div className="message-wrapper"><div className="avatar ai-avatar">Navi</div><div className="bubble ai-bubble italic">{t.thinking}</div></div>}
-            </>
-          )}
+          ) : messages.map(renderBubble)}
         </div>
 
         <div className="input-container">
@@ -365,26 +310,15 @@ export default function App() {
             <label htmlFor="file-upload" className="icon-btn" title="Add file"><FiPaperclip /><input type="file" id="file-upload" style={{ display: 'none' }} /></label>
             <input type="text" id="user-input" placeholder={selectedRole ? t.askAnything : t.selectRoleFirst} value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && sendMessage(input, false)} disabled={!selectedRole} />
             
-            {/* AGAR AI BOL RAHA HAI TOH STOP BUTTON DIKHEGA, WARNA MIC ICON */}
-            {isSpeaking ? (
-              <button 
-                className="icon-btn stop-btn" 
-                onClick={stopSpeaking} 
-                title="Stop Reading"
-              >
-                <FiSquare style={{ color: 'red' }} />
-              </button>
+            {/* Audio Stop Button Logic */}
+            {(isTTSPlaying || sharedAudioPlayer.isPlaying) ? (
+              <button className="icon-btn stop-btn" onClick={stopSpeaking} title="Stop Reading"><FiSquare style={{ color: 'red' }} /></button>
             ) : (
-              <button 
-                className={`icon-btn mic-btn ${isListening ? 'mic-btn-active' : ''}`} 
-                onClick={handleVoice} 
-                title={isListening ? t.stopVoice : t.voiceInput} 
-                disabled={!selectedRole || loading}
-              >
+              <button className={`icon-btn mic-btn ${isListening ? 'mic-btn-active' : ''}`} onClick={handleVoice} title={isListening ? t.stopVoice : t.voiceInput} disabled={!selectedRole || loading}>
                 {isListening ? <FiMicOff /> : <FiMic />}
               </button>
             )}
-
+            
             <button className="send-btn" onClick={() => sendMessage(input, false)} disabled={!selectedRole || loading || !input.trim()}><IoSend /><span>{t.send}</span></button>
           </div>
         </div>
@@ -392,3 +326,5 @@ export default function App() {
     </div>
   )
 }
+
+

@@ -78,3 +78,8 @@ Thumbs.db
 local_settings.py
 *.pem
 *.key
+
+
+frontend/public/models/
+frontend/public/piper-wasm/
+node_modules/

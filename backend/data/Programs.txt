@@ -1,0 +1,991 @@
+### Total programs of Navgurukul - SOP (School of Programming), SOB(School of Business), SOF(School of Finance), SOE(School of Education), SOSC(School of Seconf Chance) or BCA, students learn programming, business operations, finance and accounting, educator facilitation skills, or computer applications as well as cooking.
+
+## ⏳ Duration of the Programs
+1. SOB - 1 - 1.5 years  
+2. SOF - 1 Year  
+3. SOP - 1.5 - 2 years  
+4. BCA - 3 years  
+5. SOE - 1 - 1.5 years  
+6. SoSc - 1 - 1.5 years  
+
+
+## 💰 Fee Structure of NavGurukul Programmes
+
+Most programmes at NavGurukul are fully funded. This means students do not have to pay any course fees.  
+
+The following schools are fully funded programmes:
+- School of Education  
+- School of Programming  
+- School of Business  
+- School of Finance  
+- School of Second Chance  
+
+Students who join these schools do not need to pay any fees, as the programme is supported and funded by NavGurukul. It’s a scholarship you can get after clearing the test and interviews through the admission process.  
+
+---
+
+
+
+## 📍 Location
+
+Location -
+
+Bachelors of Computer Applications - Baru Sahib, Himachal Pradesh  
+
+Location of SOF - School Of Finance - Pune, & Dantewada 
+
+School Of Business - Pune, Banglore, Dantewada, Jashpur, & Dharamshala  
+
+School Of Education- Pune  
+
+School Of Programming - Pune, Banglore, Dantewada, Raigad, Jashpur, Kishanganj, & Dharamshala  
+
+School Of Second Chance (Textile & Design) - Bangalore  
+
+School Of Second Chance (Super Chef) - Pune  
+
+
+## 💻 School of Programming (SOP): A Complete Overview
+### 📝 Introduction - The School of Programming (SOP) at NavGurukul is a practical learning program designed to help students become skilled software developers from scratch.
+The curriculum focuses on learning by building real projects, solving problems, and understanding how modern software systems work.
+Students start with basic web development and gradually move towards advanced programming, AI integration, backend systems, and real-world projects.
+The goal of SOP is to help learners:
+Build strong programming fundamentals
+Develop problem-solving ability
+Learn modern web technologies
+Build real applications
+Work with AI tools
+Become job-ready developers
+The entire program follows a "learning by doing" approach, where students continuously practice through projects, mini-projects, and practical assignments.
+
+### 🧠 Learning Philosophy of SOP
+The School of Programming is based on a few important learning principles:
+
+Learning by Doing: Students learn best when they build things themselves. Instead of only studying theory, learners build projects from day one.
+
+AI as a Learning Partner: Students are encouraged to use AI tools to support their learning, helping them explore ideas, debug code, and experiment.
+
+Anyone Can Learn Programming: The program is designed for beginners. Even students without prior coding knowledge can learn step-by-step.
+
+Peer Learning: Students learn together by discussing problems, explaining concepts, and reviewing each other's work. Teaching others helps deepen understanding.
+
+Daily Planning & Discipline: Students learn to manage their learning through daily planning and consistent practice.
+
+### 🏗️ Program Structure of School of Programming
+The SOP curriculum is divided into multiple learning phases, where each phase focuses on new concepts and technologies. Students gradually move from:
+Basic Web Development → JavaScript → Backend → Databases → AI → Full-stack projects.
+
+📅 Program Phases
+🔹 Induction Phase
+Duration: ~30 days
+
+This phase prepares students for the learning journey.
+
+Students learn: How to learn programming effectively, problem-solving mindset, number systems, flowcharts, logic building, and daily learning habits.
+
+Goal: To build thinking ability before coding.
+
+## 🔹 Phase 1 — HTML Foundations
+Project: Student Profile & Course Portal
+
+Students build a multi-page website using only HTML to understand structure.
+
+Pages: Home, Profile, Courses, Feedback, Grades table, and Contact page.
+
+Topics: HTML structure, headings, paragraphs, lists, links, images, tables, forms, and semantic HTML.
+
+Activity: Students record videos explaining their code to demonstrate understanding.
+
+## 🔹 Phase 2 — CSS (Styling Websites)
+Students make websites visually attractive by applying CSS to the Phase 1 project.
+
+Topics: CSS syntax, selectors, colors, fonts, spacing (margin, padding), borders, box model, and layout systems.
+
+Modern Tools: Flexbox and CSS Grid.
+
+Skill: Responsive design for mobile and desktop devices.
+
+## 🔹 Phase 3 — JavaScript Fundamentals
+Makes websites interactive.
+
+Project: Interactive Quiz Application (Start quiz, dynamic questions, scoring, results, restart).
+
+Topics: Variables, data types, operators, arrays, objects, loops, functions, conditional statements, DOM manipulation, and event handling.
+
+## 🔹 Phase 4 — AI-Powered Content Generator
+Students start working with Artificial Intelligence APIs.
+
+They build a web application that generates content using Gemini AI.
+
+Topics: JavaScript ES6 features, API integration, sending requests to AI models, and displaying responses.
+
+## 🔹 Phase 5 — AI Chat Application (Node.js Backend)
+Project: "Ask Gemini" Web App
+
+Students learn backend development using Node.js and Express.js.
+
+Topics: Backend server creation, API routes, request/response handling, and connecting frontend with backend.
+
+## 🔹 Phase 6 — Databases
+Students learn how to store and manage data using MongoDB and Mongoose.
+
+Project: Student Feedback Manager
+
+Topics: Database concepts, data storage, schema design, CRUD operations, and connecting backend with database.
+
+## 🔹 Phase 7 — React Bootcamp
+Students learn React, a modern frontend framework used in industry.
+
+Topics: React components, state management, props, UI building, and frontend architecture.
+
+## 🔹 Final Project
+Students build an open-ended project (Real product, social impact solution, or a paid project).
+
+Goal: Apply everything learned during the program.
+
+🛠️ Skills Students Gain
+Programming: JavaScript, problem solving, logic building.
+
+Web Development: HTML, CSS, responsive design, React.
+
+Backend Development: Node.js, Express.js, API development.
+
+Databases: MongoDB, data management.
+
+AI Integration: AI APIs, building AI-powered applications.
+
+Software Engineering: Debugging, project building, explaining code, teamwork, and documentation.
+
+## 📖 Learning Methods Used in SOP
+Project Based Learning: Real projects in every phase.
+
+Concept Videos: Explaining concepts through recorded videos.
+
+Mini Projects: Reinforcing concepts.
+
+Peer Learning: Collaboration and support.
+
+Assessments: Evaluated using rubrics focusing on understanding, code structure, and communication.
+
+## 🏆 Outcome of the Program
+After completion, students will be able to:
+
+Build complete web applications
+
+Write clean JavaScript code
+
+Create responsive websites
+
+Develop backend APIs
+
+Store and manage data
+
+Integrate AI into applications
+
+Build real-world projects
+
+## 👥 Who Should Join SOP
+Beginners who want to learn programming
+
+Students interested in web development
+
+Learners curious about AI and modern technology
+
+People who enjoy a practical "building" approach
+
+Note: No prior coding experience is required.
+
+---
+
+
+
+
+
+## 📚 School of Business (SOB): Our student led, self-paced business course includes:
+Introduction to Google Suite: Learning advanced Google Sheets, slides, and forms
+Introduction: Customer Relationship Management & Salesforce
+Digital Marketing: Website building, Social media marketing & SEO
+Data Analytics: Statistics, SQL queries, Tableau
+Co-curricular Activities: Apart from core subject learning student get to participate in voting for student council, running student councils, maintaining health & hygiene, cooking, sports, recreational & field visits
+
+Career Paths of SOB - Students will get 100% assistance for securing jobs in roles such as Customer Relationship Representative, CRM Associate, Salesforce Associate & Operations Associate
+
+## Detailed Course Curriculum of School of Business
+🛠️ Course 1: Google Suite
+Basic Google Sheet: Module 1
+
+Advance Sheet: Module 1
+
+### ☁️ Course 2: Introduction to CRM and Salesforce
+Sales and CRM Overview: Module 1
+
+Configuring Salesforce for Marketing and Sales: Module 1
+
+Salesforce for Customer Service: Module 1
+
+Reports and Dashboards: Module 1
+
+### 📈 Course 3: Digital Marketing
+Module 1: Introduction to Digital Marketing
+
+Module 2: Website building, Google Analytics and Google Search Console
+
+Module 3: Search Engine Optimization (SEO)
+
+Module 4: Search Engine Marketing (SEM) and Google Ads
+
+Module 5: Social Media Marketing and Facebook/Instagram Ads
+
+### 🔗 Digital Marketing References & Certifications
+Coursera Certification: Facebook Social Media Marketing
+
+Google Analytics for Beginners: Google Academy
+
+YouTube SEO Guide: SEO Playlist
+
+Official Google Ads Help: Support Page
+
+Wordstream Guide: How Google Ads Work
+
+Semrush Blog: Google Keyword Planner Guide
+
+Meta Study Guide: Digital Marketing Associate Guide
+
+### 📊 Course 4: Basic Data Analytics
+Statistics Introduction: Fundamentals of data analysis.
+
+SQL Queries: Database management and data retrieval.
+
+Business Insights with Tableau: Data visualization and business intelligence.
+
+
+
+
+
+## School of Finance - Students Master the arts of Accounting, Taxation, and Tally to unlock new opportunities in the finance sector
+Our student-led, self-paced finance course includes:
+Financial Accounting: Learning accounting, cost accounting, management accounting
+Learning Taxation: Learning Direct Tax, computation of income of individual, firm & company
+Learning Tally: User interface and company management, ledgers, payment voucher & financial reports
+Co-curricular Activities: Apart from core subject learning student get to participate in voting for student council, running student councils, maintaining health & hygiene, cooking, sports, recreational & field visits
+Career Paths of SOF - Students will get 100% assistance for securing jobs in finance roles such as accountants and analysts
+
+### Certificate Program in Accounting, Costing, Taxation & Digital Accounting Tools
+## 📋 1. PROGRAM OVERVIEW
+Program Duration: 13–15 Months (Approx. 12 months of structured learning + revision & assessments)
+
+Eligibility: 12th Pass (Any Stream)
+
+Pedagogical Flow: Concept → Task → Games → Case → Reflection
+
+## 🎯 Core Objectives
+Develop strong accounting and financial interpretation skills
+
+Build advanced Excel and digital accounting tool proficiency
+
+Enable students to read, analyze, and interpret financial statements
+
+Develop communication, analytical, and self-learning skills
+
+Encourage AI-assisted learning, reading of amendments, case laws, and financial news
+
+## 🏫 Teaching Methodology
+Peer-to-peer learning & Mentor–mentee learning
+
+Case studies (corporate, NGO, MSME) & Group assignments
+
+Simulations and games
+
+Tool-based practical learning (Excel, Tally, Zoho Books)
+
+## 🏆 Program Learning Outcome
+By the end of the program, students will be able to:
+
+Read and interpret financial statements of companies, firms, and non-profits
+
+Apply accounting concepts in real-life business scenarios
+
+Prepare and analyze financial, cost, and management reports
+
+Use Tally and digital tools confidently
+
+Understand tax implications for individuals, firms, and companies
+
+## 📖 Module 1: Foundations of Financial Accounting
+Objective: Build strong conceptual clarity of accounting principles and recording mechanisms.
+
+1.1 Introduction to Accounting: Meaning, scope, objectives, advantages & limitations; Book-keeping vs accounting; Users of accounting information.
+
+1.2 Accounting Concepts & Principles: Business entity, money measurement, going concern; Accrual, prudence, consistency, cost concept.
+
+1.3 Accounting Terminology & Accounting Equation: Assets, liabilities, capital, drawings; Accounting equation and its applications.
+
+1.4 Double Entry System & Journal: Golden rules of accounting; Cash and credit transactions; Journal entries from day-to-day business activities.
+
+## 📖 Module 2: Recording, Classification & Control of Accounts
+Objective: Enable students to record transactions systematically and ensure accounting accuracy.
+
+2.1 Ledger & Balancing: Posting journal entries to ledger; Balancing of ledger accounts.
+
+2.2 Subsidiary Books: Cash book, purchase book, sales book; Practical classification through activities and games.
+
+2.3 Trial Balance: Meaning, objectives, preparation, and limitations.
+
+2.4 Errors & Rectification: Types of accounting errors; Rectification of errors and suspense account.
+
+2.5 Bank Reconciliation Statement (BRS): Cash book vs pass book; Preparation of BRS and common reconciliation items.
+
+## 📖 Module 3: Final Accounts & Business Accounting
+Objective: Develop ability to prepare and interpret financial statements of different business forms.
+
+3.1 Final Accounts – Sole Proprietor: Trading account; Profit & loss account with adjustments; Balance sheet preparation.
+
+3.2 Partnership Accounting: Partnership deed and profit-sharing ratio; Admission, retirement, goodwill, and revaluation.
+
+3.3 Company Accounts: Types of companies; Share capital and basic share issue concepts; Preparation of company financial statements; Introduction to cash flow statement.
+
+## 📖 Module 4: Management & Cost Accounting
+Objective: Strengthen managerial decision-making and cost control skills.
+
+4.1 Management Accounting Fundamentals: Nature, scope, objectives; Financial accounting vs management accounting.
+
+4.2 Financial Statement Analysis: Comparative statements; Common size statements; Trend analysis.
+
+4.3 Ratio Analysis: Liquidity, profitability, solvency, and activity ratios; Interpretation using real company data.
+
+4.4 Working Capital & Capital Budgeting: Operating cycle and working capital management; Capital budgeting techniques (Payback, NPV, IRR).
+
+4.5 Cost Accounting Basics: Classification and elements of cost; Material costing and inventory control; Labour costing and overheads; Introduction to standard costing and variance analysis.
+
+## 📖 Module 5: Taxation – Income Tax & GST
+Objective: Enable learners to understand tax laws, compute taxes, and ensure compliance.
+
+5.1 Introduction to Income Tax: Assessee, assessment year, previous year; Residential status and scope of total income.
+
+5.2 Heads of Income: Salary, House property, PGBP (Profits and gains of business or profession), Capital gains, and Income from other sources.
+
+5.3 Deductions & Computation: Deductions under Chapter VI-A (80C, 80D, 80E, etc.); Step-by-step computation of total income.
+
+5.4 Introduction to GST: Concept and objectives; Indirect taxes before GST overview; CGST, SGST, IGST meaning and applicability.
+
+5.5 GST Compliance: Registration process and thresholds; Input Tax Credit (ITC) concept; Overview of GST returns (GSTR-1, GSTR-3B); Basic GST compliance from an accounting perspective.
+
+## 📖 Module 6: Digital Accounting Tools – Tally Prime
+Objective: Provide hands-on experience in computerized and GST-enabled accounting.
+
+6.1 Introduction: Installation, interface, company creation, and basic configuration.
+
+6.2 Masters Setup: Creation of ledgers and groups; GST-related ledger configuration.
+
+6.3 Accounting Vouchers: Payment, receipt, contra, and journal vouchers; Recording GST transactions.
+
+6.4 Reports & Reconciliation: Day book, trial balance, P&L account, balance sheet, and bank reconciliation in Tally; GST reports overview.
+
+🏁 Overall Program Outcomes
+Maintain manual and computerized books of accounts.
+
+Prepare and analyze financial statements.
+
+Apply cost and management accounting tools for decision-making.
+
+Compute income tax and understand GST compliance.
+
+Use Tally Prime confidently for accounting and GST-enabled transactions.
+
+
+### 🔗 Reference Links & Tools for SOF
+Accounting Principles: https://www.investopedia.com/terms/a/accounting-principles.asp
+
+Financial Statements: https://www.investopedia.com/terms/f/financial-statements.asp
+
+Ratio Analysis: https://www.investopedia.com/terms/r/ratioanalysis.asp
+
+Cost Accounting: https://www.investopedia.com/terms/c/cost-accounting.asp
+
+Working Capital: https://www.investopedia.com/terms/w/workingcapital.asp
+
+Income Tax: https://www.investopedia.com/terms/i/incometax.asp
+
+CBIC GST Resources: https://www.cbic.gov.in/resources//htdocs-cbec/gst/index.html
+
+Tally Solutions: https://www.tallysolutions.com
+
+
+
+### 🔮 Future of Education & Educators (Vision Document)
+## 1 Let’s begin with the end in mind 
+What will education look like in the next 10 years?
+
+Educators role
+
+Educators will transition from becoming primary sources of knowledge to facilitators of learning who will guide students in exploring and constructing their own knowledge.
+
+AI/tech Savvy people
+
+Facilitators of learning who will design/build experiences and not just transfer content
+
+Connecting/Motivating/guiding/inspiring students
+
+Being role models. well centered people who can set right example for all the traits that we would want to build in children with their own unique passion apart from education
+
+What will Learners do?
+How would learning for learner happen in the next 10 years in education space
+
+Building Metacognition/learning how to learn.
+
+Focus on Life Skills - adaptability, empathy, ability to navigate through failures, entrepreneur mindset etc
+
+Personalised content learning (IMO - people will need to build much deeper understanding than they have right now in something- strong passion for 1 thing)
+
+What will education spaces look like?
+
+Personalised Ai guided learning with the educator becoming a guide to unlock a child's potential.
+
+Projects that build real life - life skills/help students explore their passion
+
+## 2 Envisioning some possibilities for us/our educators in the next 2 years
+From day 1 educators will explore different pathways, volunteer, learn, experience and work with the outside world. While We(NG) will be facilitators and enablers of their journey supporting them unlock next levels of learning/ opportunities etc for them, the educators will be expected to also take charge and carve their own path
+
+For Profit pathways
+(We can build whatever! Coop or for profit entity where we divert earning from here or space that supports both categories)
+
+After school Project centers(Online/offline Pods): Ai, robotics, tech, coaching centers from traditional subjects with explorations through projects like entrepreneurship, lifeskills,arts yoga, music etc
+
+Building our own schools/ learning pods?
+
+Providing services to for profit spaces? Like - App + teacher training (Build a better lead school? / Cooperative that does what whitehat did)
+
+Random thought: Building apps for high end for profit schools can be a good venture for samyarth/ SOP students. Why? Because we are uniquely placed at the intersection of education and tech.
+
+Not for profit pathways
+
+We can ask for grants for models for government Schools transformation like how KSRF foundation does or how we are doing in blue-dantewada.
+
+Specific pathways like career planning/lifeskills/ AVPN space
+
+We can tie up with Places like Akanksha foundation/TFI and more to see how they can absorb educators from us.
+
+Build fellowship programs like gandhi fellows
+
+Creating their own journeys
+Our Educators will self apply/do their own career planning, figure out what they want to do from possibilities and take charge of those verticals with us or with the external world. While we become facilitators of their journeys.
+
+If they decide to do it with us: they start owning their verticals and act as entrepreneur / getting support/ growth while achieving outcomes that we set together
+
+If they decide to work with external world: they consistently do their own career planning spending 2 hours a week from day 1 (will detail out an explore/experience, reflect and build/align ducks in the row plan)
+
+## 3 Why do I think we are the right people for this?
+Most really good people that I know out in the field are either excellent facilitators, and bring in amazing facilitation skills or are great at tech and lack human skills. IMO we are uniquely placed to understand and support educators who might on one end be great facilitators, with high empathy and ability to connect while also being AI/tech savvy
+
+Again Uniquely placed:
+a From a not for profit Perspective, NG supports higher education - hence establishing our value/ intentions/ability to work with schools might not be very challenging.
+b I also to some extent understand for profit spaces. And opening spaces like after school for profit programs for robotics/ programming etc might not require degrees/affiliations etc.
+
+## 4 What will the learning experience for this space look like?
+Each educator will have to be a vipassana practitioner and should have done seva for at least 1 teenage course. I will do so too and focus on being better human beings through awareness. (if not Moksh :P)
+
+The day for educators will start with meditation followed by some happy songs.
+
+Once this is done, we will have a 30 minute slot where in pods of 20 they will plan their own day, share it with the group and build accountability/ connection. People can also share their challenges/things they are excited about etc.
+
+Next they will do their modules/experiences - in pairs/ groups etc.
+
+The learning experience will have 2 things: a planned mandatory series of challenges that they will have to unlock while another set of challenges that they will define for themselves for their own goals.
+
+They will be encouraged to include individual deep work and working with others/ building with others/ supporting others through leadership projects etc.
+
+Projects over Modules:
+Students will work on projects. I was wondering if we can call these projects and not modules? This will actively change the way we will plan/ design these! Instead of creating modules with learning outcomes we will define real life challenges that we can start with (The journey will not be linear- Multiple things can be done in parallel we can define prereq for different things in case we feel like something will need some order as we chart the pathways). I think it will take at least 6 months.
+
+Key Learning Focus:
+
+Understanding how learning happens: A module focused on unlearning traditional ways of learning through reading/ explorations (visiting, volunteering/connecting online with 5 different spaces that offer unique/ futuristic ways of education/connecting with people and reflection.
+
+AI/tech focus for personalised learning: building/utilising AI/ tech tools effectively to enhance learning
+
+Designing and facilitating experiences: from activities/ hackathons to at least week long experiences/ projects etc) in 3 of your areas of interest
+
+Connecting/inspiring/guiding students.
+
+Mastering 1 area of interest: (both content specific skills and facilitation) Do we want to keep this tech or build a wider scope?
+
+Unlocking the leader in you + entrepreneurship mindset
+
+Students will contextualise challenges from these modules based on their interests/career choices + We will cocreate some challenges/ modules based on their strengths as we build various pathways.
+The day ends with deep reflection on learning for the day/ discussing growth/ challenges/possibilities etc followed by meditation
+
+## 5 How do we start? (The Pilot)
+We build a pilot :P
+
+How many students? As a pilot: We start with a batch of 20 educators (Students) + AVPN (AVPN educators can select modules and go to the ground based on their needs. We can define modules and close)
+
+Composition of students: 15 degree students + 5 non degree students who are passionate about something! (Teenagers with strong passion in something yoga? Tech? Meditation? dance? Sex ed? Something). We start actively building partnerships/writing for grants and we keep adding more to the cohort once we are able to see clear financial independence enabling pathways emerge. (Right now I think reaching 200 students in next 1 years would be a good goal to achieve but is not an educated guess 
+
+Degrees? B ed? I think there are enough opportunities that we will be able to crack without bed to start with. If students aspire, we can also support partial costs or enable them to get paid projects/ internships etc that can enable them to pursue B ed. While planning for their career, we get them to think from the POV that they should do all that is needed for their dream career once they have explored enough :) While we figure out a way to build B.Ed kind of credibility as we go 
+
+Where? Pune? POV:
+Priyanka will be stationed at Pune for next 6 months hence I will have a better control there. (Priyanka ko I have got her to dream of running a school. Honestly, Abhi I cannot afford her attention being diverted from program but I can keep her in loop - uska proximity high rahega toh that might help us later)
+The exposure for students from a for profit and not for profit pathway both is high
+I will have higher accessibility to the campus as surat and chennai are both easily accessible.
+I have been planning to settle down in/outskirts of Pune possibly in the next 2 years (Not confirmed, just remote possibility hai abhi. Toh our decision cannot be based on this)
+1st batch selection: 1st batch of students we select from the existing cohort/ next joinees? - I will have to think through thoda sa here but right now thinking of a mix of both?  will put together some pre work for existing student and some criteria for new students this week
+
+
+
+
+### 🎓 School of Education (SOE): Program & Curriculum
+## 1. Why SOE?
+Education is shifting: AI and personalised tech are redefining how people learn; educators must evolve from information‑givers to facilitators of learning.
+Human skills matter more than ever: empathy, reflection, adaptability, and ethical leadership are core to thriving in the next decade.
+SOE exists to blend both worlds, nurturing tech‑savvy, self‑aware facilitators who can design transformative learning experiences.
+
+### 2. What Is SOE?
+An intensive 18‑month Learning period hosted at NavGurukul–Pune that equips graduate learners to become next‑generation educators through:
+Project‑based “Challenges” instead of traditional modules.
+Daily meditation & reflection to cultivate awareness and resilience.
+Hands‑on exposure to NGOs, alternative schools, and real learners.
+
+## 3. How You Will Learn in SOE
+Daily Rhythm
+Dawn meditation & happy songs
+30‑min planning pod (20 learners)
+Project sprints (pairs / groups)
+Facilitation practice
+Evening deep reflection
+Core Challenge Strands
+Learning Science & Metacognition
+AI Tools for Personalised Learning
+Experience & Curriculum Design
+Leadership & Entrepreneurship
+
+## 4. Your Role as an Educator‑in‑Training
+Design & run sessions, hackathons, or week‑long projects for real learners.
+Volunteer with partner schools/NGOs; document insights.
+Act as a role model – centred, ethical, and growth‑oriented.
+
+## 5. Future Pathways (0‑2 Years After SOE)
+For‑Profit: After‑school AI/Robotics pods • Ed‑tech app & training services • Micro‑schools / learning pods.
+Not‑For‑Profit: Govt‑school transformation projects • Fellowships • NGO partnerships.
+Entrepreneurial: Own a vertical inside NavGurukul or launch an independent venture.
+
+## 6. Eligibility & Selection
+Graduate (any stream) or equivalent proven passion for facilitation.
+Completed ≥1 Vipassana teen course + seva (or commitment to do so).
+Ready to relocate to Pune & commit ~50 hrs/week for 6 months.
+Basic tech comfort; curiosity to master AI tools.
+
+## 7. Pilot Cohort – August 2025
+20 educators: 10 degree‑holders + 10 non‑degree passionate youth.
+Support: accommodation, stipend, laptop.
+Goal: each learner delivers one capstone project impacting ≥50 students.
+
+## 🛠️ What Will SOE Students Do?
+Students will work on projects. I was wondering if we can call these projects and not modules? This will actively change the way we will plan/ design these! Instead of creating modules with learning outcomes we will define real life challenges) that we can start with (The journey will not be linear- Multiple things can be done in parallel we can define prereq for different things in case we feel like something will need some order as we chart the pathways). I think it will take at least 6 months.
+Understanding how learning happens: A module focused on unlearning traditional ways of learning through reading/ explorations (visiting, volunteering/connecting online with 5 different spaces that offer unique/ futuristic ways of education/connecting with people and reflection.
+AI/tech focus for personalised learning: building/utilising AI/ tech tools effectively to enhance learning
+Designing and facilitating experiences: from activities/ hackathons to at least week long experiences/ projects etc) in 3 of your areas of interest
+Connecting/inspiring/guiding students.
+Mastering 1 area of interest: (both content specific skills and facilitation) Do we want to keep this tech or build a wider scope?
+Unlocking the leader in you + entrepreneurship mindset Students will contextualise challenges from these modules based on their interests/career choices + We will cocreate some challenges/ modules based on their strengths as we build various pathways. The day ends with deep reflection on learning for the day/ discussing growth/ challenges/possibilities etc followed by meditation.
+
+## 🎥 AI-Powered Video Creation Challenge
+Task: Create 5–10 image clips (5s each); use CapCut/RunwayML; add overlay or voice; merge into a 1-minute video.
+Purpose: Promotes storytelling, creativity, and synthesis using AI tools to express personal insights.
+Outcome: Final video should clearly communicate an idea; others should understand it easily.
+Reflection Questions: Did the video communicate what you intended? How did the process of merging voice, image, and text help you understand storytelling better? Where did AI exceed or fall short?
+
+## 🗓️ Rough Plan for SOE Partners – Next One Month
+Warm Welcome: Begin with a warm and friendly welcome to help them feel comfortable and settled in the space.
+Day 1 & 2 – Settling In: Provide space and time for them to relax, interact, and settle into the environment at their own pace.
+Exposure Visits: Introduce them to different NGOs and alternate education schools to broaden their perspective and understanding of various learning spaces.
+Active Engagement: Once they are familiar with the space, engage them in deeper activities such as:
+Exploring new places
+Trekking and nature walks
+Visiting schools
+Facilitating or attending sessions
+Attend Seminar in Pune: Plan a visit to attend a seminar in Pune with the SOE partners as part of their professional and learning exposure.
+AI Challenge – Explorer Phase: They will begin working on the AI Challenges shared by Abhishek to dive deeper into critical thinking and innovation.
+Daily Campus Culture: Maintain a vibrant and reflective environment through daily reflections, meditation sessions, energizers, and engaging activities.
+Goal: Fostering a space where students are excited and curious every day: "Kal kya hone wala hai?" ✨
+
+
+
+
+## SOSC (School of second chance) Future Textile Designer Programme
+Creating Climate-Responsive Livelihoods for Women Survivors
+1. Sneak Peek into the Future Textile Designer Programme
+The Future Textile Designer Programme is a residential, future-skills livelihood initiative tailored for women from highly vulnerable backgrounds—survivors of violence, trafficking, wrongful incarceration, and women living with HIV.
+The programme moves beyond traditional tailoring by equipping participants with advanced textile, design, digital, and business skills that open pathways to dignified and sustainable employment.
+Programme Outcomes
+Each graduate should be able to:
+Secure stable employment earning at least ₹20,000 per month
+Form a self-help group
+Establish an independent design-led enterprise
+
+### 2. Why School of Second chance  Programme?
+Conventional tailoring training often leads to low-wage and unpredictable jobs.
+At the same time, the fashion industry is rapidly shifting toward:
+Sustainability
+Upcycling
+Responsible production
+Digital commerce
+These fields require new technical and creative capabilities.
+This programme addresses this gap by preparing women for roles in the emerging circular economy, while building long-term financial resilience and confidence.
+
+### 3. Programme Structure of sosc
+Duration: 12–18 months (self-paced)
+Format: Residential
+The programme includes:
+Food and accommodation
+Digital devices
+English language support
+Psychosocial care
+Peer learning environment
+Internship with ethical brands or enterprises
+
+### 4. Key Curriculum Components of SOSC
+A. Technical & Product Development Skills
+Participants learn to move beyond basic tailoring and conceptualize original products.
+Skills Covered
+Advanced sewing and finishing
+Commercial-level product construction
+Pattern-making
+Sampling and prototyping
+Quality control and industry standards
+These skills build a strong technical foundation suitable for design studios and sustainable fashion enterprises.
+
+B. Design Thinking & Creative Development
+Participants develop creative and design capabilities through:
+Fundamentals of product and textile design
+Trend research
+Material exploration
+Creating market-ready accessories, garments, and home products
+
+C. Upcycling & Circular Textile Innovation (Programme’s Core Innovation)
+This module focuses on sustainability and responsible production.
+Key Learning Areas
+Understanding textile waste streams
+Techniques to transform post-consumer and post-production waste
+Designing functional and desirable upcycled products
+Waste mapping and responsible sourcing
+This prepares women for the fashion industry’s transition toward circularity, waste reduction, and climate-aligned manufacturing, helping them stand apart from their contemporaries.
+
+D. Business, Financial & Entrepreneurial Skills
+Participants gain practical business skills such as:
+Costing and pricing
+Negotiation and order management
+Budgeting
+Micro-enterprise planning
+Understanding market cycles and customer needs
+These skills enable women to:
+Secure fair job opportunities
+Launch their own ventures
+Lead negotiations confidently to ensure fair and equitable pay
+
+E. Digital Skills & Communication
+Participants build digital literacy and communication skills including:
+Digital marketing and online sales platforms
+Social media storytelling
+Basic product photography
+Portfolio creation
+English language and communication skills
+Digital fluency helps graduates:
+Reach wider markets
+Become future-job ready
+Build economic resilience
+
+5. Climate Lens & Adaptive Livelihood Strategy
+The programme integrates a strong climate-resilience approach.
+Strengthening Adaptive Capacity Through Education
+By training women in upcycling, sustainable design, and digital tools, the curriculum builds long-term adaptive capacity, ensuring women remain employable as the fashion industry transforms.
+
+Future Skills for a Circular Economy
+As brands and markets embrace circular practices, skills such as:
+Waste repurposing
+Product redesign
+Low-impact manufacturing
+become essential.
+The programme positions women as valuable contributors to this transition.
+
+Social Inclusion as Climate Justice
+Engaging survivors—often excluded from mainstream economic systems—ensures that climate action is socially inclusive, equitable, and empowering.
+
+
+### Contact of SOSC
+Reach out to us at:
+sosc@navgurukul.com
+sanjanaswaroop@navgurukul.org
+shabnam@navgurukul.org
+
+
+Culinary Empowerment Program: Complete Structure
+For Young Women Transitioning to Financial Independence
+
+Program Overview of SOSC
+Target Learners: Young women aged 16-22 from shelter homes
+ Duration: 6 months (flexible, extendable based on individual progress)
+ Core Philosophy: Learn by doing, peer-led growth, metacognition-focused
+ End Goal: Job readiness in culinary arts OR entrepreneurship in food business
+
+### Admission Process of SOSC
+Stage 1: Initial Interview
+Purpose: Assess willingness to learn, community living ability, and program need
+Admission Criteria:
+Willingness to learn and grow
+Ability to live harmoniously in a community setting
+Demonstrated need for the program (vulnerability and marginalization factors)
+Interview Questions:
+Tell us about yourself - where are you from? What do you like about that place?
+Who is in your family (chosen and given family)?
+Who are your friends?
+What makes you the most happy?
+What makes you the most angry?
+What's your favorite movie? Describe the plot
+"Bade hoke ek baar toh karna hi hai" - what's that one thing?
+Tell us about your typical day schedule
+Program description: Give honest, even challenging description of program intensity to gauge reaction
+Stage 2: Logic & Learning Willingness Assessment
+Purpose: Assess cognitive ability, willingness to learn, and comfort with technology
+Activities:
+Online or offline puzzles (e.g., tic-tac-toe, name-place-animal-thing)
+YouTube voice command tasks (following instructions from videos)
+Observing problem-solving approach and persistence
+Stage 3: Baseline Assessment (First 2 Weeks)
+Purpose: Understand starting point and personalize learning journey
+Data Collection:
+Medical history
+Legal history
+Bank account status
+ID documentation
+Mother tongue and literacy level
+English literacy level
+Body language observation (eye contact, posture, gait)
+Wellness vision scale check
+Cognitive assessment (logic, memory, reasoning)
+Big 5 personality model (OCEAN) - to guide career pathway choices
+Baseline cooking skills assessment (no judgment, just understanding)
+Student Register Created: Detailed profile with monthly performance update capability
+
+### Program Structure by Phase of sosc
+MONTHS 1-2: INDUCTION & CULINARY FOUNDATIONS
+Learning Focus: Module 1 - Culinary Foundations (Complete)
+1.1 Kitchen Grooming & Professional Standards
+Personal hygiene protocols
+Handwashing techniques, nail care, hair management
+Clean uniforms and protective gear
+Kitchen safety basics
+Preventing cuts, burns, slips
+Emergency procedures
+Professional presentation
+Plating aesthetics, color theory, garnishing
+Food photography basics for social media
+Packaging for takeaway/delivery
+1.2 Standard Operating Procedures (SOPs)
+Waste management
+Composting, recycling, reducing food waste
+Upcycling ingredients (using peels, stems, etc.)
+Inventory management
+FIFO (First In, First Out) method
+Stock taking, labeling, dating
+Budget tracking for ingredients
+Storage protocols
+Refrigeration temperatures, dry storage
+Cross-contamination prevention
+Shelf-life knowledge
+1.3 Essential Tools & Techniques
+Knife Skills:
+Knife types and their uses
+Basic cuts: julienne, dice, chop, mince, chiffonade
+Sharpening and maintenance
+Measurements & Precision:
+Volume vs. weight measurements
+Scaling recipes up/down
+Temperature control
+Cooking Methods:
+Boiling, simmering, poaching
+Pressure cooking (dal, rice, meat)
+Frying (shallow, deep, stir-fry)
+Steaming, blanching
+Roasting, grilling, baking
+Sautéing, braising
+1.4 Appliance Mastery
+Oven (baking, roasting, broiling)
+Slow cooker/crockpot
+Coffee machines (espresso, filter, French press)
+Toaster, sandwich maker
+Mixer, grinder, food processor
+Microwave techniques beyond reheating
+Rice cooker, induction cooktop
+
+English Input: Rigorous practice through regular exposure and usage (focus on input, not output pressure)
+Projects: 2 projects chosen by student in discussion with facilitator from:
+Project 1: Cuisine Specialization
+Project 3: Food Entrepreneurship
+Project 5: Large-Scale Kitchen Management
+Project 6: AI Learning Tool Design
+Hackathons: 2 hackathons chosen from:
+H1: No Oil, No Boil Challenge
+H2: Seva Kitchen (Service Cooking)
+H3: Mystery Box Challenge
+H4: Micro-Greens to Table
+H5: Homemade vs Store-Bought
+H6: Content Creator Challenge
+Digital Literacy Integration: Continuous - all work done through laptops, using AI tools, creating digital portfolios
+Minor Subject Launch: Students choose personal interest area (singing, dancing, beauty, art, etc.) and design self-directed learning journey
+
+MONTHS 3-4: NUTRITION MASTERY
+Learning Focus: Module 2 - Nutrition Science & Dietary Planning (Complete)
+2.1 Nutrition Fundamentals
+Macronutrients:
+Carbohydrates: types, sources, portion sizes
+Proteins: complete vs incomplete, daily requirements
+Fats: healthy vs unhealthy, importance
+Micronutrients:
+Essential vitamins and minerals
+Food sources for common deficiencies (iron, B12, vitamin D)
+Hydration & Fiber
+2.2 Therapeutic & Lifestyle Diets
+Medical Conditions:
+Diabetes management (glycemic index, portion control)
+Anemia (iron-rich foods, absorption enhancers)
+PCOD/PCOS (low GI, anti-inflammatory foods)
+Pregnancy nutrition (folate, calcium, protein needs)
+Hypertension (low sodium cooking)
+Dietary Restrictions:
+Gluten-free cooking (flours, binders, contamination)
+Dairy-free alternatives (plant-based milk, cheese, yogurt)
+Nut-free cooking (alternative proteins and fats)
+Dietary Preferences:
+Vegan (plant-based protein combinations)
+Vegetarian variations
+High-protein diets (for fitness, recovery)
+Low-carb/keto basics
+
+### English Input: Continued rigorous practice
+Projects: 2 projects chosen by student in discussion with facilitator (from remaining options or repeating with different focus)
+Hackathons: 2 hackathons chosen from remaining options
+Digital Literacy Integration: Continues seamlessly
+Minor Subject: Continued self-directed progress with peer presentations
+
+### MONTHS 5-6: INTERNSHIP & REAL-WORLD APPLICATION
+Structure: Team of Teams Model
+Internship Placement Options:
+Internal - SOSC Team: Attached to SOSC team members for shadowing and hands-on work
+Internal - Comeback Kitchen: Work in organizational kitchen operations
+Internal - NavGurukul Roles: Support roles within NavGurukul organization
+External Employers: Placements with hotels, restaurants, catering companies, cafes, bakeries, or food businesses
+Operational Structure:
+Shadow and work hands-on with professionals
+Timing flexible based on internship requirements (may replace or run parallel to classroom)
+No fixed class timetable during full internship periods
+Weekly check-ins with facilitator to track learning and address challenges
+Parallel Activities (when not in internship):
+Complete remaining projects (minimum 5 out of 7 total for certification)
+Participate in remaining hackathons (minimum 4 total)
+Portfolio building and refinement
+Job application preparation
+Final project presentations
+Project 3: Food Entrepreneurship - Ideally attempted during this phase
+Minor Subject: Culminating project or performance
+
+
+This program isn't just about teaching cooking - it's about building agency, confidence, and independence. Every recipe mastered, every project completed, and every connection made is a step toward a self-determined future.
+
+---
+
+
+
+
+
+
+### 🎓 BCA - ETERNAL UNIVERSITY: BCA (Hons. with Research)
+
+## 🏫 Department Overview of BCA
+Department: Computer Science and Engineering
+
+College: Akal College of Engineering & Technology, Eternal University
+
+Location: Baru Sahib, Sirmaur, H.P.
+
+Implementation: Academic Session 2024-2025
+
+
+🛠️ Course Nature & Definitions
+PCC: Professional core courses
+
+PEC: Professional Elective courses
+
+AECC: Ability Enhancement Compulsory Courses
+
+SEC: Skill Enhancement Courses
+
+PROJ: Project work, seminar, and internship in industry or elsewhere
+
+GP: General Proficiency
+
+## 🗓️ Curriculum Credit Outline (Semester 1 to 6)
+Semester 1 (Total Credits: 22)
+BCA 101: Foundations of IT (Credits: 4)
+BCA 102: Mathematics for Computer Science (Credits: 4)
+BCA 103: Database Management System (Credits: 5)
+BCA 104: Problem Solving and Programming Fundamentals 1 (Credits: 5)
+BCA 105: Environmental Studies for Technology (Credits: 2)
+BCA 106: New Age Life Skills 1 (Credits: 2)
+
+Semester 2 (Total Credits: 22)
+BCA 107: Problem Solving and Programming Fundamentals 2 (Credits: 5)
+BCA 108: Agile Software Development Life Cycle (Credits: 4)
+BCA 109: Web Development Frontend 1 - HTML-CSS (Credits: 5)
+BCA 110: New Age Life Skills 2 (Credits: 3)
+BCA 111: Introduction to Generative AI (Credits: 5)
+
+Semester 3 (Total Credits: 22)
+BCA 201: Web Development Frontend 2 - JS React (Credits: 5)
+BCA 202: Operating System Fundamentals (Credits: 4)
+BCA 203: Computer Network (Credits: 3)
+BCA 204: Data Structures and Algorithms (Problem Solving 3) (Credits: 5)
+BCA 205: New Age Life Skills 3 (Credits: 2)
+BCA 206: Introduction to ChatGPT (Credits: 3)
+
+Semester 4 (Total Credits: 22)
+BCA 207: Web Development Backend 1 (Credits: 5)
+BCA 208: Web Development Backend (Deployment, Security, and Scalability) (Credits: 6)
+BCA 209: System Design (Low level) (Credits: 4)
+BCA 210: New Age Life Skills 4 (Credits: 2)
+BCA 211: Introduction to Cloud Computing (Credits: 5)
+
+Semester 5 & 6 (Total Credits: 44)
+Semester 5: AI Fundamentals, Competitive Programming, Prompt Engineering, and Major Project/Internship.
+Semester 6: Python for Data Science & AI, NCC/NSS, and Major Project/Internship.
+
+
+## 👥 Program Leadership & Academic Team of BCA program
+Leadership
+Program Lead: Mubin
+
+Scrum & Academic Coordination: Meenakshi Parihar
+
+Life Skills Associates
+Karuna Lakra
+
+Chhakuli Pote
+
+Academic Associates
+Shubham Keshari
+
+Abhishek Mishra
+
+Rinki Nisha
+
+Pratiksha Shapane
+
+Vedwati Pradhan
+
+Ashwini Yadav
+
+
+
+
+## 📝 Note
+
+Note - BCA is a degree course hence in order to get a degree students have to be on campus for three years. Apart from that all the courses have flexible duration which means that as soon as they finish the modules they can appear for the placement. Students with a quick learning pace are able to get placed in 8-9 months as well.

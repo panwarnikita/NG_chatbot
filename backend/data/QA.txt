@@ -1,0 +1,1041 @@
+### 🏢 1. What is NavGurukul?
+NavGurukul is a technology-driven non-profit organization based in Gurugram, Haryana, India, dedicated to empowering underserved youth — with a strong focus on women and girls — through high-quality, fully-funded tech education. It offers residential programs that train students in software engineering, design, media, finance, and management, with a guaranteed pathway to aspirational employment in the IT sector.
+NavGurukul operates as a meaningful alternative to conventional college education. Students from humble economic backgrounds receive free residential training, food, and learning resources, and are only expected to pay back a nominal fee (in installments) once they secure a job.
+
+
+## 🎯 2. Mission and Vision
+Mission: To provide underserved youth — especially women and girls from rural India, scheduled castes and tribes, and economically disadvantaged communities — free, high-quality education and skills training that creates pathways to aspirational, well-paying careers.
+Vision: To create an equitable higher education alternative where students from underserved communities can learn skills to build aspirational careers and thrive in the world. NavGurukul envisions a world where affordable, world-class education empowers every individual to reach their highest potential.
+
+
+
+
+## 👨‍💻 3. Founder of Navgurukul
+NavGurukul was co-founded by:
+Abhishek Gupta: An alumnus of IIT Delhi, Forbes India 30 Under 30. Abhishek had previously co-founded two startups before volunteering with Delhi government’s education department. Witnessing firsthand how talented students from humble backgrounds lacked access to quality education motivated him to build NavGurukul.
+
+
+
+## 💡 5. What Problem Does NavGurukul Solve?
+NavGurukul addresses several interconnected problems in India’s higher education and employment landscape:
+
+Access Gap: Quality higher education is a distant dream for youth from rural India, scheduled castes/tribes, religious minorities, and economically disadvantaged families.
+
+Employability Crisis: Conventional colleges often fail to deliver practical skills. Thousands of graduates remain unemployed because they lack market-relevant capabilities.
+
+Gender Inequality in Tech: Women from marginalized backgrounds face extra economic and social barriers.
+
+Digital Poverty: Lack of devices and internet. NavGurukul addresses this through Meraki and Sama (refurbishing laptops).
+
+NavGurukul solves these problems through:
+
+Fully-funded, free residential campuses (no cost to learners)
+
+A peer-learning, self-paced model with no traditional teachers or exams
+
+Open-source learning platform (Meraki) accessible via smartphone
+
+Income-sharing model: students pay back only after securing jobs
+
+English language and personality development training
+
+Programs like: School of Second Chances, Zuvy, Code India Fellowship, and AI-powered tools.
+
+
+
+
+
+## 🎓 NavGurukul Campus Pedagogy
+NavGurukul follows a modern and student-centered learning pedagogy that focuses on practical skills, self-learning, and community-based education. The goal is to help students become independent learners, strong problem solvers, and job-ready professionals.
+
+1. Self-Learning (Student-Driven Learning)
+Students learn through online learning platforms, projects, and exercises. Instead of traditional classroom teaching, students take responsibility for their own learning.
+
+Example:
+
+Students study coding modules online
+
+They practice assignments daily
+
+They solve problems on their own first
+
+2. Peer Learning
+Students learn from each other.
+
+Example:
+
+If one student understands a concept well, they help others.
+
+Students do group discussions and doubt sessions.
+
+Learning happens through collaboration.
+
+3. Mentorship Support
+Mentors and facilitators are available to guide students when they get stuck.
+
+Example:
+
+Mentors explain difficult concepts
+
+They help students with projects
+
+They support students in career preparation
+
+4. Project-Based Learning
+Students learn by building real projects.
+
+Example:
+
+Web development projects
+
+Coding challenges
+
+Real-world problem solving
+
+This helps students gain practical experience.
+
+5. Holistic Development
+NavGurukul focuses not only on coding but also on overall personality development.
+Students learn:
+
+Communication skills
+
+English speaking
+
+Problem solving
+
+Leadership
+
+Teamwork
+
+6. Community Living
+Students live together in the campus which helps them learn:
+
+Discipline
+
+Responsibility
+
+Collaboration
+
+Community values
+
+### 🔄 Re-Test Information (Detailed)
+1. Purpose of the Re-Test
+The re-test is provided to give students another opportunity if they were unable to clear the Screening test (previous) test or want to improve their performance. It helps students prepare better and demonstrate their learning ability.
+
+2. When Can a Student Take a Re-Test?
+A student can request a re-test if:
+
+They did not pass the Pre-Test / ST Test
+
+They missed the test due to technical issues
+
+They want to improve their score
+
+They were unable to complete the test due to network or device problems
+
+3. Re-Test Eligibility Criteria
+Students may be eligible for a re-test if they:
+
+Completed the first test honestly
+
+Show interest in continuing the admission process
+
+Follow the admission team instructions
+
+4. Re-Test Topics
+The re-test will include questions from similar topics such as:
+
+Math: Patterns, Percentages, Profit and Loss, Simple Interest, Time and Work.
+
+Reasoning: Logical reasoning, Basic problem solving.
+
+5. Preparation Tips for Students
+Before taking the re-test, students should:
+
+Practice basic math questions
+
+Solve pattern and reasoning problems
+
+Revise previous test topics
+
+Ensure stable internet connection and proper device
+
+6. Re-attempt for LR Scheduling
+Receiving a test link through WhatsApp or email.
+
+7. Re-Test Rules
+Students must follow these rules:
+
+Do not take help from others
+
+Do not use external resources during the test
+
+Complete the test within the given time
+
+Maintain honesty and integrity
+
+8. What Happens After the Re-Test?
+After completing the re-test:
+
+The admission team will review the results
+
+If the student clears the test, they will move to the next round (LR Round)
+
+If not selected, the student may apply again in future after few days
+
+
+# NAVGURUKUL OVERVIEW
+
+## Question: What is NavGurukul?
+Answer:
+NavGurukul is a technology-driven non-profit organization based in Gurugram, Haryana, India.
+
+---
+
+## Question: What does NavGurukul do?
+Answer:
+The organization empowers underserved youth through high-quality, fully funded technology education.
+
+---
+
+## Question: Who does NavGurukul help?
+Answer:
+NavGurukul focuses especially on women and girls from underserved communities.
+
+---
+
+## Question: What kind of education does NavGurukul provide?
+Answer:
+NavGurukul offers residential programs that train students in technology and professional skills.
+
+---
+
+## Question: What subjects do students study at NavGurukul?
+Answer:
+Programs include software engineering, design, media, finance, and management.
+
+---
+
+## Question: What happens after completing NavGurukul programs?
+Answer:
+Students receive support to secure aspirational employment opportunities in the IT sector.
+
+---
+
+## Question: Is NavGurukul different from traditional colleges?
+Answer:
+Yes. NavGurukul operates as an alternative to conventional college education.
+
+---
+
+## Question: Who can join NavGurukul?
+Answer:
+Students from humble economic backgrounds can join the programs.
+
+---
+
+## Question: Is NavGurukul free?
+Answer:
+Students receive free residential training, food, and learning resources during the program.
+
+---
+
+## Question: Do students pay fees?
+Answer:
+Students pay only a nominal fee in installments after securing a job.
+
+---
+
+# FOUNDER INFORMATION
+
+## Question: Who founded NavGurukul?
+Answer:
+NavGurukul was co-founded by Abhishek Gupta.
+
+---
+
+## Question: What is Abhishek Gupta’s background?
+Answer:
+Abhishek Gupta is an alumnus of IIT Delhi and Harvard.
+
+---
+
+## Question: Has the founder received recognition?
+Answer:
+Abhishek Gupta was featured in Forbes India 30 Under 30.
+
+---
+
+## Question: What did the founder do before NavGurukul?
+Answer:
+He co-founded two startups before working with the Delhi government’s education department.
+
+---
+
+## Question: Why did Abhishek Gupta start NavGurukul?
+Answer:
+He saw talented students from humble backgrounds lacking access to quality education.
+
+---
+
+## Question: What motivated the creation of NavGurukul?
+Answer:
+This experience motivated him to build NavGurukul to provide equal access to quality education.
+
+---
+
+# ORGANIZATION HISTORY
+
+## Question: When was NavGurukul founded?
+Answer:
+NavGurukul was founded in November 2016.
+
+---
+
+## Question: How many campuses were there initially?
+Answer:
+The organization started with 2 campuses.
+
+---
+
+## Question: Has NavGurukul expanded since then?
+Answer:
+Yes. NavGurukul has expanded to multiple residential campuses across India.
+
+---
+
+## Question: How many campuses exist today?
+Answer:
+Currently NavGurukul operates around 8 campuses.
+
+---
+
+## Question: Where are the campuses located?
+Answer:
+Campuses are located in Bangalore, Pune, Dharamshala, Bihar, Chhattisgarh, and Himachal Pradesh.
+
+---
+
+# PROBLEMS NAVGURUKUL SOLVES
+
+## Question: What problem does NavGurukul solve?
+Answer:
+NavGurukul addresses multiple challenges in higher education and employment in India.
+
+---
+
+## Question: What is the access gap in education?
+Answer:
+Many students from rural India and marginalized communities cannot access quality higher education.
+
+---
+
+## Question: Which groups face these challenges?
+Answer:
+Groups include scheduled castes, tribes, religious minorities, and economically disadvantaged families.
+
+---
+
+## Question: Why are traditional colleges not enough?
+Answer:
+Many colleges require high fees and often fail to teach practical job skills.
+
+---
+
+## Question: Why are many graduates unemployed?
+Answer:
+Many graduates lack market-relevant skills needed by employers.
+
+---
+
+## Question: How does this affect technology careers?
+Answer:
+Students often lack practical technical skills required for jobs in the technology sector.
+
+---
+
+## Question: What gender barriers exist in tech?
+Answer:
+Women and girls from marginalized communities face social and economic barriers entering tech careers.
+
+---
+
+## Question: What is digital poverty?
+Answer:
+Many students lack devices, internet access, and digital tools needed for learning.
+
+---
+
+# HOW NAVGURUKUL SOLVES THESE
+
+## Question: How does NavGurukul solve these problems?
+Answer:
+NavGurukul provides fully funded residential campuses with no cost to learners.
+
+---
+
+## Question: How is learning structured?
+Answer:
+NavGurukul follows a peer-learning and self-paced education model.
+
+---
+
+## Question: Does NavGurukul use traditional exams?
+Answer:
+The learning model avoids traditional teachers and exams.
+
+---
+
+## Question: What is Meraki?
+Answer:
+Meraki is NavGurukul’s open-source learning platform accessible through smartphones.
+
+---
+
+## Question: How do students repay the program cost?
+Answer:
+Students pay back only after securing a job through an income-sharing model.
+
+---
+
+## Question: Does NavGurukul teach soft skills?
+Answer:
+Programs include English language training and personality development.
+
+---
+
+# INITIATIVES
+
+## Question: What is the School of Second Chances program?
+Answer:
+This program supports women survivors and helps them rebuild careers and confidence.
+
+---
+
+## Question: What is Zuvy?
+Answer:
+Zuvy is an online learning initiative by NavGurukul.
+
+---
+
+## Question: What is the Code India Fellowship?
+Answer:
+It is a program that trains individuals to support education and learning initiatives.
+
+---
+
+## Question: Does NavGurukul use AI in learning?
+Answer:
+NavGurukul also develops AI-powered learning tools to support education.
+
+---
+
+# IMPACT
+
+## Question: How many students study in residential centers?
+Answer:
+More than 1,100 students currently study in NavGurukul residential campuses.
+
+---
+
+## Question: How many alumni success stories exist?
+Answer:
+NavGurukul has over 630 alumni success stories.
+
+---
+
+## Question: How many students have been placed?
+Answer:
+More than 1,500 students have secured job placements.
+
+---
+
+## Question: What is the combined annual earnings of alumni?
+Answer:
+Alumni collectively earn more than INR 50 Crore annually.
+
+---
+
+## Question: How many learners use the Meraki platform?
+Answer:
+Over 50,000 learners study through the Meraki platform.
+
+---
+
+## Question: How many teachers have been trained using Meraki?
+Answer:
+More than 1,000 teachers have been trained through Meraki.
+
+---
+
+## Question: In how many cities does NavGurukul operate?
+Answer:
+NavGurukul operates campuses across 8+ cities in India.
+
+---
+
+## Question: Does NavGurukul work with governments?
+Answer:
+NavGurukul partners with governments in states like Chhattisgarh and Himachal Pradesh.
+
+---
+
+## Question: How long has NavGurukul been operating?
+Answer:
+NavGurukul has been operating since November 2016.
+
+---
+
+# FUNDING
+
+## Question: Who supports NavGurukul financially?
+Answer:
+NavGurukul receives support from organizations and philanthropic partners.
+
+---
+
+## Question: Which organizations support NavGurukul?
+Answer:
+Supporters include MIT Solve, Microsoft, Capgemini, Accenture, Social Alpha, and N/Core.
+
+
+
+
+
+# CURRICULUM OVERVIEW
+
+## Question: What is the curriculum at NavGurukul?
+Also asked as: What do students study?
+
+Answer:
+NavGurukul programs focus on practical and industry-relevant learning combined with personal development.
+
+---
+
+## Question: Programms in Navgurukul?
+Answer:
+Depending on the program such as SOP, SOB, SOF, SOE, SOSC or BCA, students learn programming, business operations, finance and accounting, educator facilitation skills, or computer applications.
+
+---
+
+## Question: Do students learn soft skills at NavGurukul?
+Answer:
+Along with technical skills, students also learn professional English, communication, teamwork, leadership, and problem-solving.
+
+---
+
+# SOP (School of Programming)
+
+## Question: What is taught in SOP?
+Answer:
+The School of Programming curriculum focuses on computational thinking and software development skills.
+
+---
+
+## Question: What programming languages do students learn in SOP?
+Answer:
+Students learn programming using JavaScript and Python.
+
+---
+
+## Question: Do students learn frontend development in SOP?
+Answer:
+Yes. Students learn HTML, CSS, and React.js for frontend development.
+
+---
+
+## Question: Do students learn backend development in SOP?
+Answer:
+Students learn backend development using Node.js and Python.
+
+---
+
+## Question: Do students learn APIs?
+Answer:
+Students learn how to work with REST APIs in web applications.
+
+---
+
+## Question: Do students learn system design?
+Answer:
+Students learn the basics of system architecture and how applications are structured.
+
+---
+
+## Question: Do students build projects in SOP?
+Answer:
+Students build applications, complete clone projects, and develop professional software portfolios.
+
+---
+
+# SOB (School of Business)
+
+## Question: What do students learn in SOB?
+Answer:
+The School of Business prepares students for business operations and digital marketing roles.
+
+---
+
+## Question: Do students learn business operations?
+Answer:
+Students learn business operations, process management, and project tracking.
+
+---
+
+## Question: Do students learn digital marketing?
+Answer:
+Students learn digital marketing fundamentals and social media management.
+
+---
+
+## Question: Do students learn customer support processes?
+Answer:
+Students learn customer support workflows and content operations.
+
+---
+
+## Question: Do students learn SEO?
+Answer:
+Students learn SEO basics and analytics interpretation.
+
+---
+
+## Question: Do students learn workplace communication?
+Answer:
+Students learn professional communication, email writing, and workplace documentation.
+
+---
+
+# SOF (School of Finance)
+
+## Question: What do students learn in SOF?
+Answer:
+The School of Finance prepares students for accounting and finance roles.
+
+---
+
+## Question: Do students learn accounting?
+Answer:
+Students learn accounting fundamentals and bookkeeping.
+
+---
+
+## Question: Do students learn ledgers and financial statements?
+Answer:
+Students learn ledger maintenance and financial statements preparation.
+
+---
+
+## Question: Do students learn GST and taxes?
+Answer:
+Students learn GST basics and income tax fundamentals.
+
+---
+
+## Question: Do students learn payroll processing?
+Answer:
+Students learn payroll processing and statutory compliance.
+
+---
+
+## Question: What tools do students use in SOF?
+Answer:
+Students learn accounting software such as Tally and use spreadsheets for reporting.
+
+---
+
+## Question: Do students learn reporting skills?
+Answer:
+Students learn professional financial reporting skills.
+
+---
+
+# SOE (School of Educators)
+
+## Question: What do students learn in SOE?
+Answer:
+The School of Educators focuses on facilitation and teaching support skills.
+
+---
+
+## Question: Do students learn learning psychology?
+Answer:
+Students learn how learners understand concepts and how to support learning.
+
+---
+
+## Question: Do students learn lesson planning?
+Answer:
+Students learn how to design structured lesson plans and sessions.
+
+---
+
+## Question: Do students learn facilitation skills?
+Answer:
+Students learn group facilitation and learner engagement techniques.
+
+---
+
+## Question: Do students learn mentoring?
+Answer:
+Students learn mentoring methods and feedback techniques.
+
+---
+
+## Question: Do students learn classroom management?
+Answer:
+Students learn classroom management and communication skills.
+
+---
+
+# BCA PROGRAM
+
+## Question: What subjects are included in the BCA program?
+Answer:
+The BCA program teaches computer applications and core computer science subjects.
+
+---
+
+## Question: Do BCA students learn programming?
+Answer:
+Students learn programming concepts and coding fundamentals.
+
+---
+
+## Question: Do students learn databases?
+Answer:
+Students learn database systems and data management.
+
+---
+
+## Question: Do students learn operating systems?
+Answer:
+Students learn operating systems and system fundamentals.
+
+---
+
+## Question: Do students learn data structures?
+Answer:
+Students learn data structures used in software development.
+
+---
+
+## Question: Do students learn networking?
+Answer:
+Students study computer networks and communication systems.
+
+---
+
+## Question: Do students learn software engineering?
+Answer:
+Students learn software engineering fundamentals.
+
+---
+
+## Question: How is learning supported in BCA?
+Answer:
+BCA also includes project-based learning, peer learning, and professional skill development supported by NavGurukul.
+
+---
+
+# LEARNING STYLE
+
+## Question: Is learning theoretical or practical?
+Answer:
+NavGurukul follows a practical and project-based learning model.
+
+---
+
+## Question: Do students learn by building projects?
+Answer:
+Students learn by building projects and solving real-world problems.
+
+---
+
+## Question: Do students participate in hackathons?
+Answer:
+Students may participate in hackathons and collaborative challenges.
+
+---
+
+## Question: Do students present their work?
+Answer:
+Students present their work and explain concepts to peers to strengthen understanding.
+
+---
+
+# CAMPUS
+
+## Question: Where are NavGurukul campuses located?
+Answer:
+NavGurukul has multiple residential campuses across India.
+
+---
+
+## Question: In which cities does NavGurukul have campuses?
+Answer:
+Campuses are located in Bengaluru (Karnataka), Pune (Maharashtra), Dharamshala (Himachal Pradesh), Dantewada (Chhattisgarh), Jashpur (Chhattisgarh), Raipur (Chhattisgarh), Kishanganj (Bihar), and Baru Sahib (Himachal Pradesh).
+
+---
+
+# RESIDENTIAL PROGRAM
+
+## Question: What is the NavGurukul residential program?
+Answer:
+NavGurukul runs fully funded residential programs where students live and study on campus.
+
+---
+
+## Question: What facilities are provided in the residential program?
+Answer:
+Students receive accommodation, meals, internet access, structured learning schedules, learning spaces, laptops, and learning materials.
+
+---
+
+## Question: Do residential students receive mentoring?
+Answer:
+Yes. Students receive mentoring support and professional development guidance.
+
+---
+
+## Question: Do students live in a learning community?
+Answer:
+Yes. Students live in peer learning communities where they collaborate and support each other.
+
+---
+
+## Question: Why is the program residential?
+Answer:
+The residential model helps students focus fully on learning.
+
+---
+
+## Question: Why does NavGurukul provide housing and meals?
+Answer:
+This model removes barriers such as housing, food, travel, and unstable environments.
+
+---
+
+## Question: How does the residential environment help students?
+Answer:
+It creates a safe and structured learning environment for long-term skill development.
+
+
+
+
+
+
+
+
+# NAVGURUKUL OUTREACH
+
+## Question: What is NavGurukul outreach?, What is the outreach program?
+Answer:
+NavGurukul outreach programs are awareness sessions conducted with NGOs and communities to inform students about NavGurukul’s fully funded residential education programs and career opportunities.
+
+---
+
+## Question: Why does NavGurukul conduct outreach programs?
+Answer:
+Outreach programs help students from underserved communities learn about NavGurukul programs, eligibility, admission process, and career opportunities.
+
+---
+
+## Question: What happens in NavGurukul seminars?, What is discussed in outreach seminars?
+Answer:
+Outreach seminars explain NavGurukul programs, admission process, eligibility criteria, courses available, and how students can apply for the screening test.
+
+---
+
+## Question: Does NavGurukul work with NGOs?
+Answer:
+Yes, NavGurukul collaborates with partner NGOs to conduct outreach programs and reach students from marginalized communities.
+
+---
+
+## Question: Can my NGO partner with NavGurukul?
+Answer:
+Yes, NGOs can collaborate with NavGurukul for outreach activities to help students learn about educational opportunities.
+
+---
+
+## Question: How do NGOs appear in the interest form?
+Answer:
+If your NGO is already partnered with NavGurukul, you can select the NGO name from the list provided in the form.
+
+---
+
+## Question: What if my NGO is not listed in the form?
+Answer:
+If your NGO name does not appear in the list, you can manually write the name of your NGO in the provided field.
+
+---
+
+## Question: How can I register for a NavGurukul seminar?
+Answer:
+Students can register for outreach seminars by filling the NavGurukul Google Interest Form.
+
+---
+
+## Question: How do I join an outreach session?
+Answer:
+To join an outreach session, students need to submit the interest form with their contact details. The outreach team may contact them with further information.
+
+---
+
+## Question: What is the NavGurukul interest form?
+Answer:
+The NavGurukul Interest Form is a Google form where students can register their interest in NavGurukul programs and receive information about admissions and seminars.
+
+---
+
+## Question: Where can I fill the NavGurukul interest form?
+Answer:
+Students can fill the Google Interest Form to register their interest in NavGurukul programs and outreach events.
+
+---
+
+## Question: Why does the form ask for email?
+Answer:
+The email address is collected so the NavGurukul team can communicate updates about admissions and outreach programs.
+
+---
+
+## Question: Why do I need to enter my name?
+Answer:
+The name field helps the NavGurukul team identify and communicate with applicants.
+
+---
+
+## Question: Why does the form ask for contact number?
+Answer:
+The contact number helps the outreach team contact students for further information or guidance about the program.
+
+---
+
+## Question: Why does the form ask about NGO?
+Answer:
+The form asks whether the student is associated with any NGO to understand outreach partnerships and community connections.
+
+---
+
+## Question: What courses can I choose in the interest form?
+Answer:
+Students can select from several programs including BCA, SOP, SOB, SOF, SOE, or choose “Not Sure” if they need guidance.
+
+---
+
+## Question: Can I apply for BCA?
+Answer:
+Yes, students can select the BCA program in the interest form if they are interested in a formal degree program supported by NavGurukul.
+
+---
+
+## Question: What is SOP in the form?
+Answer:
+SOP stands for School of Programming where students learn software development skills and coding.
+
+---
+
+## Question: What is SOB in the form?
+Answer:
+SOB stands for School of Business where students learn business operations, communication, and management skills.
+
+---
+
+## Question: What is SOF in the form?
+Answer:
+SOF stands for School of Finance where students learn accounting, financial tools, and finance-related skills.
+
+---
+
+## Question: What is SOE in the form?
+Answer:
+SOE stands for School of Educators or Entrepreneurship depending on the program. It focuses on leadership, facilitation, and education roles.
+
+---
+
+## Question: Do I need graduation for SOP?
+Answer:
+In the interest form, SOP is listed as requiring graduation as a mandatory qualification.
+
+---
+
+## Question: Do I need graduation for SOE?
+Answer:
+Yes, SOE is listed in the form as requiring graduation as a mandatory qualification.
+
+---
+
+## Question: What if I don’t know which course to choose?
+Answer:
+Students can select “Not Sure” in the form, and the NavGurukul team will guide them in choosing the right program.
+
+---
+
+## Question: How do I take the NavGurukul test?
+Answer:
+From NavGurukul's website you can check for residential programs, then students can click the admission test link to take the screening test by choosing the school they want to do SOP, SOB, SOF, BCA etc.
+
+---
+
+## Question: Where do I find the test link?
+Answer:
+The admission test link is provided directly in the interest form so students can access the screening test.
+
+---
+
+## Question: Does NavGurukul provide exam preparation help?
+Answer:
+Yes, NavGurukul provides videos explaining how students can prepare for and crack the screening exam.
+
+---
+
+## Question: Is there an English video for exam preparation?
+Answer:
+Yes, NavGurukul provides a full English video explaining how to prepare for the NavGurukul exam.
+
+---
+
+## Question: Is there a Hindi video for exam preparation?
+Answer:
+Yes, NavGurukul provides a Hindi video explaining how to prepare for the NavGurukul exam.
+
+---
+
+## Question: Who is the outreach program designed for?
+Answer:
+The outreach program mainly targets girls and women from underprivileged backgrounds who are looking for fully funded education and job opportunities.
+
+---
+
+## Question: What benefits do outreach programs provide?
+Answer:
+Outreach programs help students learn about NavGurukul education opportunities, admission process, and available career pathways.
+
+---
+
+## Question: Who manages outreach queries?
+Answer:
+Outreach queries are handled by the NavGurukul outreach team.
+
+---
+
+## Question: Who are the outreach coordinators?
+Answer:
+Outreach support is managed by team members including ----------
+
+---
+
+## Question: How will the outreach team contact me?
+Answer:
+After submitting the interest form, the outreach team may contact students through phone or email for further communication.
+
+---
+
+## Question: How can I contact the outreach team?
+Answer:
+Students can reach out through the email mentioned in the form or through official NavGurukul communication channels.
+
+---

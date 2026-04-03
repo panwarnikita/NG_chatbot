@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "onnxruntime-web": "^1.24.3",
+    "speech-to-speech": "^0.1.4"
+  }
+}

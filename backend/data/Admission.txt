@@ -1,0 +1,298 @@
+
+# 🏫 NAVGURUKUL ADMISSION PROCESS 
+First, visit the NavGurukul website at https://www.navgurukul.org/.
+Check for the residential programs that NavGurukul offers.
+Click on the admission test link to take the screening test.
+Choose the school you want to apply for, such as SOP, SOB, SOF, or BCA.
+Fill out the interest form, which will provide you with the admission test link.
+Use this link to access the screening test.
+Additionally, NavGurukul provides videos to help you prepare for and crack the screening exam. If you're not selected, you can apply again in the future after a few days
+
+---
+
+## 📅 Admission Timeline
+
+- Applications: Open throughout the year (Rolling admissions) for fully funded campuses.  
+- Application for BCA: According to UGC, tentatively close by Aug-Sep.  
+
+
+## 📩 Contact & Application Links
+
+### Resource Details
+
+- Website: https://www.navgurukul.org/  
+- Application Link: https://admissions.navgurukul.org/partnerLanding/navgurukul  
+- Email: admissions@navgurukul.org  
+- Helpline: 8891300300  
+- Social Media: NavGurukul Instagram | LinkedIn  
+
+---
+
+## 📍 Next Steps After Selection
+
+- Counselling: A call with the team to discuss campus allocation.  
+- Documentation: Submission of ID proof, income certificate, and educational mark sheets.  
+- Travel: Students receive instructions on how to reach their assigned campus.  
+
+---
+
+## 📘 Screening Test Structure
+
+### School of Programming (SOP) & BCA
+
+S. No.  
+Concepts  
+#No. of Qs  
+Easy  
+Medium  
+Hard  
+Total Weightage  
+
+1  
+Patterns  
+4  
+1  
+2  
+1  
+8  
+
+2  
+Percentage  
+3  
+1  
+1  
+1  
+6  
+
+3  
+Time and Work  
+3  
+1  
+2  
+0  
+5  
+
+4  
+Linear Equation  
+6  
+2  
+1  
+3  
+13  
+
+
+Total  
+16  
+5  
+6  
+5  
+32  
+
+---
+
+### School of Business (SOB) & School of Finance (SOF)
+
+S. No.  
+Concepts  
+#No. of Qs  
+Easy  
+Medium  
+Hard  
+Total Weightage  
+
+1  
+Patterns  
+4  
+1  
+2  
+1  
+8  
+
+2  
+Percentage  
+4  
+1  
+2  
+1  
+8  
+
+3  
+Profit & Loss  
+4  
+1  
+2  
+1  
+8  
+
+4  
+Simple Interest  
+4  
+1  
+2  
+1  
+8  
+
+
+Total  
+16  
+4  
+8  
+4  
+32  
+
+---
+
+## 🎯 Difficulty Level
+
+Easy  
+Medium  
+Hard  
+
+Marks  
+1  
+2  
+3  
+
+---
+
+## 🆕 Screening Test Format – Version 3
+
+As NavGurukul expanded its programmes into different schools, the Screening Test (ST) has been redesigned to better match the learning requirements of each school.  
+
+Earlier, there was one common Screening Test used to evaluate students for all programmes.  
+
+Now, there are two different Screening Tests, designed specifically for different schools:  
+
+ST for School of Programming (SOP) & BCA  
+ST for School of Business (SOB) & School of Finance (SOF)  
+
+Each test focuses on concepts that are most relevant to the learning path of that school.  
+
+---
+
+## 📊 Screening Test – School of Programming (SOP) & BCA
+
+### Concepts and Questions
+
+1. Number Patterns  
+Total questions: 4  
+Difficulty: 1 Easy, 2 Medium, 1 Hard  
+
+2. Percentages  
+Total questions: 3  
+Difficulty: 1 Easy, 1 Medium, 1 Hard  
+
+3. Work & Time  
+Total questions: 3  
+Difficulty: 1 Easy, 2 Medium  
+
+4. Linear Equations (Two Variables)  
+Total questions: 6  
+Difficulty: 2 Easy, 2 Medium, 2 Hard  
+
+---
+
+## 📊 Screening Test – School of Business (SOB) & School of Finance (SOF)
+
+### Concepts and Questions
+
+1. Number Patterns  
+Total questions: 4  
+Difficulty: 1 Easy, 2 Medium, 1 Hard  
+
+2. Percentages  
+Total questions: 4  
+Difficulty: 1 Easy, 2 Medium, 1 Hard  
+
+3. Profit & Loss  
+Total questions: 4  
+Difficulty: 1 Easy, 2 Medium, 1 Hard  
+
+4. Simple Interest  
+Total questions: 4  
+Difficulty: 1 Easy, 2 Medium, 1 Hard  
+
+---
+
+## 📄 Question Paper Summary (New Format)
+
+Total questions: 16 MCQs  
+
+Marks are based on difficulty level:  
+Easy question: 1 mark  
+Medium question: 2 marks  
+Hard question: 3 marks  
+
+Total marks: 32  
+
+---
+
+## 📉 Cut-off Marks (New Format)
+
+School of Programming: 21 marks  
+School of Business: 11 marks  
+School of Finance: 13 marks  
+
+---
+
+## 🧠 Screening Test
+
+The screening test broadly filters the students based on their aptitude for different concepts. For each program, there is a cut-off.  
+
+The Screening Test is the first step for the student. This test is conducted both in online and offline formats. Offline seminars are conducted in regions that are remote with low internet/device availability. For example, Dantewada, Jashpur, etc. It is a paper-and-pencil test. The majority of students come through an online screening test available on the website.  
+
+The duration of the test is 90 minutes, which is 1.5 hours.  
+
+Online students just have to select the option and move next, for offline, they will be given an OMR sheet and which gets scanned and evaluated by the ZipGrade app.  
+
+The passing criteria of this test to move on to the next round, which is the Learning Round is also depend on the schools that we are offering, about which you will know further in the doc in detail.  
+
+---
+
+## ⚠️ Things to Remember
+
+The same paper is to be administered for the offline and online tests.  
+
+WHY: All the students have the same/similar paper (fairness). Secondly, for the team that is taking the learning round, it becomes simple to handle one paper.  
+
+All the sets will be different. They will be generated by the back-end.  
+
+WHY: To avoid copying, cheating, and rote memorization of the paper.  
+
+All the questions are going to be MCQ:  
+
+WHY: We can do OMR only through MCQ questions. And OMR is the only way right now to do the checking of papers quickly. A paper manually would take around 20-30 minutes. OMR scanning would take less than a minute.  
+
+---
+
+## 🎥 Learning Support
+
+Students who take the Screening Test through any partner organization are provided with our Learning Video, which explains the key concepts covered in the Screening Test.  
+
+Students who apply through “No Partner” come to NavGurukul on their own and take the test independently. For many of them, this is the first point of contact with NavGurukul.  
+
+Once a student comes in touch with us through the Screening Test, whether they clear the test or not, we share the Learning Video with them. Students who do not clear the test can use the video to practice and re-attempt the Screening Test. Students who clear the test can use the same video to prepare better for the next stage, called the Learning Round (LR).  
+
+The Learning Round includes questions similar to those explained in the Learning Video. More details about the Learning Round (LR) are shared later in this document.  
+
+---
+
+## 🔁 Learning Round
+
+When a student attempts and clear the Screening Test, we provide a Learning Round practice video. In this video, we explain the concepts covered in the Screening Test, which will also be covered in the Learning Round. This helps the student prepare well. If the student has any doubts, they can clear them by understanding the concepts through the video.  
+
+You might think, Why are we taking the Learning Round?, in which we are asking similar concepts and questions that the student already attempted and passed in the Screening test? The simple answer is, it is for ensuring integrity in the screening process and to be able to identify students who might have good logical thinking skills and a high effort attitude, and were close to clearing the cut-off for the priority schools, like SOP, and give them a chance.  
+
+---
+
+## 🔍 Traits to Observe
+
+Hunger in the belly: Shows interest, puts effort into solving problems, and genuinely wants to figure things out.  
+
+Comprehension: Ability to understand questions clearly and respond accordingly. Listens carefully and understands what is being asked.  
+
+Logical Reasoning Ability: Shows strong analytical thinking and problem-solving skills.  
+
+Aptitude: Has a natural ability to work with numbers, patterns, and basic problem-solving concepts.  
+
+Learning Ability: Able to grasp new concepts, learn from explanations, and improve with guidance and feedback. 
