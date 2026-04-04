@@ -119,22 +119,38 @@ export default function App() {
 
   // --- 3. UPDATED SPEAK LOGIC (Hybrid) ---
   const speakText = async (text) => {
+    console.log("speakText called with:", text, "Language:", language);
     if (language === 'en') {
       // English Logic
       if (isEnglishTTSReady && englishTTSRef.current) {
+        console.log("English TTS - synthesizing");
         const clean = cleanTextForTTS(text);
         const sentences = clean.split(/(?<=[.!?।])\s+/).filter(s => s.trim());
         for (const sentence of sentences) {
           const result = await englishTTSRef.current.synthesize(sentence);
           sharedAudioPlayer.addAudioIntoQueue(result.audio, result.sampleRate);
         }
+      } else {
+        console.log("English TTS not ready:", { isEnglishTTSReady, hasRef: !!englishTTSRef.current });
       }
     } else {
       // Hindi Logic (Aapka Purana)
+      console.log("Hindi TTS - isReady:", isReady);
       if (isReady) {
-        const cleanHindi = text.replace(/[*#\-_]/g, " ");
-        const sentences = cleanHindi.match(/[^.!?।]+[.!?।]+/g) || [cleanHindi];
-        sentences.forEach(s => { if (s.trim().length > 0) speak(s.trim()); });
+        // Remove markdown formatting: **text**, *text*, # , ## etc
+        const cleanHindi = text
+          .replace(/\*\*/g, "")      // Remove **
+          .replace(/\*/g, "")        // Remove *
+          .replace(/#{1,6}\s/g, "")  // Remove #, ##, etc
+          .replace(/`/g, "")         // Remove backticks
+          .replace(/\[([^\]]+)\]\([^\)]+\)/g, "$1") // Convert [text](url) to text
+          .replace(/[<>~_]/g, " ");  // Remove other markdown chars
+        
+        const sentences = cleanHindi.match(/[^.!?।\n]+[.!?।\n]+/g) || [cleanHindi];
+        console.log("Hindi sentences to speak:", sentences);
+        sentences.forEach(s => { if (s.trim().length > 0) { console.log("Speaking:", s.trim()); speak(s.trim()); } });
+      } else {
+        console.log("Hindi TTS not ready - model still loading");
       }
     }
   };

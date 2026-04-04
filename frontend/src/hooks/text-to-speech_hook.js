@@ -73,7 +73,8 @@ export const usePiper = (config) => {
                     piperPhonemizeJsUrl: '/piper-wasm/piper_phonemize.js',
                     piperPhonemizeWasmUrl: '/piper-wasm/piper_phonemize.wasm',
                     piperPhonemizeDataUrl: '/piper-wasm/piper_phonemize.data',
-                    onnxruntimeUrl: window.location.origin + '/',
+                    // onnxruntimeUrl: window.location.origin + '/',
+                    onnxruntimeUrl: 'https://cdn.jsdelivr.net/npm/onnxruntime-web@1.24.3/dist/',
                     blobs: {},
                 });
 
@@ -121,7 +122,7 @@ export const usePiper = (config) => {
                 piperPhonemizeJsUrl: '/piper-wasm/piper_phonemize.js',
                 piperPhonemizeWasmUrl: '/piper-wasm/piper_phonemize.wasm',
                 piperPhonemizeDataUrl: '/piper-wasm/piper_phonemize.data',
-                onnxruntimeUrl: window.location.origin + '/',
+                onnxruntimeUrl: 'https://cdn.jsdelivr.net/npm/onnxruntime-web@1.24.3/dist/',
                 blobs: {},
             });
         });
@@ -174,12 +175,16 @@ export const usePiper = (config) => {
                 const text = synthesisQueueRef.current.shift();
                 if (text) {
                     try {
+                        console.log("Synthesizing text:", text);
                         const startTime = performance.now();
                         const blob = await synthesize(text);
                         const endTime = performance.now();
                         console.log(`Time to synthesize: ${(endTime - startTime).toFixed(2)}ms for sentence: "${text}"`);
+                        console.log("Blob received:", blob);
                         audioQueueRef.current.push(blob);
+                        console.log("Audio queue length:", audioQueueRef.current.length);
                         if (!processingRef.current) {
+                            console.log("Starting playQueue");
                             playQueue();
                         }
                     } catch (err) {
