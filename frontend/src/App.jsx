@@ -237,24 +237,9 @@ export default function App() {
 
   return (
     <div className="app-layout">
-      <aside id="sidebar" className={sidebarOpen ? 'sidebar-open' : 'sidebar-closed'}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-          <div className="sidebar-brand">{t.navGurukul}</div>
-          <button className="icon-btn" onClick={() => setSidebarOpen(false)} style={{ color: 'white', fontSize: '20px' }}><FiMenu /></button>
-        </div>
-        <button className="new-chat-btn" onClick={startNewChat}><FiPlus /> {t.newChat}</button>
-        <div className="history-list">
-          {history.length === 0 && <div className="history-empty">{t.noHistory}</div>}
-          {history.map((item) => (
-            <div key={item.id} className="history-card">{item.title.slice(0, 30)}...</div>
-          ))}
-        </div>
-      </aside>
-
       <main id="main-content">
         <header>
           <div className="header-left">
-            {!sidebarOpen && selectedRole && <button className="toggle-sidebar-btn" onClick={() => setSidebarOpen(true)}><FiMenu /></button>}
             <div className="brand-name-header">AI <span>✨</span></div>
           </div>
           <div className="header-right">
