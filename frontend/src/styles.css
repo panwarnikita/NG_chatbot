@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --gradient-primary: linear-gradient(
     135deg,
     hsl(338 83% 51%),
@@ -553,7 +553,7 @@ header {
 }
 
 
-/* Blink animation for the dots */
+
 .ai-bubble:contains('...') {
   animation: blink 1.5s infinite;
 }
@@ -562,4 +562,366 @@ header {
   0% { opacity: 0.2; }
   50% { opacity: 1; }
   100% { opacity: 0.2; }
+} */
+
+
+
+
+
+:root {
+  --zoe-green: #2d5a27;
+  --zoe-light: #f1f8f1;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body { 
+  margin: 0; 
+  background: var(--zoe-light); 
+  font-family: 'Quicksand', 'Inter', sans-serif; 
+  height: 100vh;
+  overflow: hidden; 
+}
+
+.zoe-container { 
+  height: 100vh; 
+  display: flex; 
+  flex-direction: column; 
+}
+
+/* --- Header Section --- */
+.zoe-header { 
+  display: flex; 
+  justify-content: space-between; 
+  padding: 12px 30px; 
+  background: var(--white); 
+  align-items: center; 
+  border-bottom: 1px solid #ddd;
+  z-index: 10;
+}
+
+.zoe-header .brand {
+  font-size: 1.4rem;
+  color: var(--zoe-green);
+  font-weight: 800;
+}
+
+.zoe-header button {
+  background: var(--zoe-green);
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.zoe-header button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* --- Main Stages Container --- */
+.stage { 
+  flex: 1; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  padding: 20px;
+  position: relative;
+}
+
+/* --- IMAGE SIZE FIX (Bohot Zaroori) --- */
+.zoe-avatar-static img, 
+.zoe-img-idle {
+  width: 140px !important;  /* Screenshot jaisa chota size */
+  height: 140px !important;
+  max-width: 140px !important;
+  max-height: 140px !important;
+  object-fit: contain !important;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.ai-visual-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* --- Role Selection Grid --- */
+.role-grid { 
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px; 
+  max-width: 900px; 
+  width: 100%;
+  margin-top: 30px;
+}
+
+.zoe-card { 
+  background: var(--white); 
+  padding: 20px; 
+  border-radius: 15px; 
+  border: 2px solid transparent; 
+  cursor: pointer; 
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.zoe-card:hover { 
+  border-color: var(--zoe-green); 
+  transform: translateY(-5px);
+}
+
+.zoe-card h3 { color: var(--zoe-green); margin-bottom: 8px; font-size: 1.1rem; }
+.zoe-card p { font-size: 0.9rem; color: #555; line-height: 1.4; }
+
+/* --- Setup / Test Stage --- */
+.test-grid { display: flex; gap: 30px; margin: 30px 0; }
+.test-card { 
+  background: white; 
+  padding: 20px; 
+  border-radius: 15px; 
+  border: 1px solid #ddd; 
+  width: 140px; 
+  text-align: center;
+  cursor: pointer;
+}
+.test-card svg { font-size: 2rem; color: var(--zoe-green); margin-bottom: 10px; }
+
+.primary-btn { 
+  background: var(--zoe-green); 
+  color: white; 
+  border: none; 
+  padding: 15px 45px; 
+  border-radius: 10px; 
+  font-weight: bold; 
+  font-size: 1rem;
+  cursor: pointer; 
+}
+
+/* --- Chat Interface --- */
+.chat-history {
+  flex: 1;
+  width: 100%;
+  max-width: 800px;
+  overflow-y: auto; /* Invisible scroll */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  scrollbar-width: none; /* Firefox */
+}
+
+.chat-history::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+
+.msg-bubble { 
+  padding: 12px 20px; 
+  border-radius: 20px; 
+  max-width: 75%; 
+  font-size: 1rem; 
+  line-height: 1.5;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.msg-bubble.user { 
+  align-self: flex-end; 
+  background: var(--zoe-green); 
+  color: white; 
+  border-bottom-right-radius: 4px;
+}
+
+.msg-bubble.ai { 
+  align-self: flex-start; 
+  background: white; 
+  color: #333; 
+  border: 1px solid #eee;
+  border-bottom-left-radius: 4px;
+}
+
+/* --- Input Area at Bottom --- */
+.zoe-input-section {
+  width: 100%;
+  padding: 15px 0 25px;
+  display: flex;
+  justify-content: center;
+  background: var(--zoe-light);
+}
+
+.input-pill { 
+  background: white; 
+  padding: 6px 10px 6px 25px; 
+  border-radius: 40px; 
+  display: flex; 
+  align-items: center;
+  width: 90%; 
+  max-width: 700px; 
+  border: 2px solid var(--zoe-green);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.input-pill input { 
+  flex: 1; 
+  border: none; 
+  outline: none; 
+  padding: 12px 0; 
+  font-size: 1rem; 
+}
+
+.mic-circle { 
+  border: none; 
+  background: #f0f0f0; 
+  border-radius: 50%; 
+  width: 45px; 
+  height: 45px; 
+  cursor: pointer; 
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.mic-circle.active {
+  background: #ea4335;
+  color: white;
+  animation: assistant-pulse 1.2s infinite;
+}
+
+@keyframes assistant-pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(234, 67, 53, 0.6); }
+  70% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(234, 67, 53, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(234, 67, 53, 0); }
+}
+
+.send-circle { 
+  border: none; 
+  background: var(--zoe-green); 
+  color: white; 
+  border-radius: 50%; 
+  width: 45px; 
+  height: 45px; 
+  cursor: pointer; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+
+
+/* --- ONLY CHAT STAGE FIXES --- */
+
+/* 1. Main Chat Stage Container */
+.stage.chat {
+  display: flex !important;
+  flex-direction: column !important;
+  height: calc(100vh - 70px) !important; /* Header ke niche ka poora area */
+  justify-content: space-between !important;
+  padding: 10px 20px !important;
+  overflow: hidden !important; /* Screen scroll nahi hogi */
+}
+
+/* 2. Avatar Area (Top fixed) */
+.stage.chat .ai-visual-container {
+  flex-shrink: 0 !important;
+  margin-bottom: 10px !important;
+  display: flex;
+  justify-content: center;
+}
+
+/* 3. Scrollable Chat History (Middle area) */
+.stage.chat .chat-history {
+  flex: 1 !important; /* Jitni space hai sirf ye lega */
+  width: 100% !important;
+  max-width: 750px !important;
+  margin: 0 auto !important; /* Center align */
+  overflow-y: auto !important; /* Scroll yahan hoga */
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 15px !important;
+  padding: 10px 15px !important;
+  
+  /* Scrollbar hide logic */
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE/Edge */
+}
+
+.stage.chat .chat-history::-webkit-scrollbar {
+  display: none !important; /* Chrome/Safari */
+}
+
+/* 4. Input Bar Container (Bottom fixed) */
+.stage.chat .zoe-input-section {
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  padding: 15px 0 25px 0 !important;
+  background: var(--zoe-light) !important;
+  margin-top: auto !important;
+}
+
+/* 5. Input Pill Style */
+.stage.chat .input-pill {
+  width: 95% !important;
+  max-width: 700px !important;
+  background: white !important;
+  border: 2px solid var(--zoe-green) !important;
+  border-radius: 40px !important;
+  padding: 5px 10px 5px 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08) !important;
+}
+
+/* 6. Message Bubbles Fix */
+.stage.chat .msg-bubble {
+  padding: 12px 18px !important;
+  border-radius: 18px !important;
+  max-width: 80% !important;
+  word-wrap: break-word !important;
+}
+
+.stage.chat .msg-bubble.user {
+  align-self: flex-end !important;
+  background: var(--zoe-green) !important;
+  color: white !important;
+}
+
+.stage.chat .msg-bubble.ai {
+  align-self: flex-start !important;
+  background: white !important;
+  border: 1px solid #ddd !important;
+}
+
+
+
+/* Jab AI bol raha ho, Mic ka color badal do (visual hint) */
+.mic-circle.ai-speaking {
+  background: var(--zoe-green) !important;
+  color: white !important;
+  border: 2px solid #fff !important;
+  box-shadow: 0 0 10px rgba(45, 90, 39, 0.5);
+  animation: pulse-slow 1.5s infinite;
+}
+
+@keyframes pulse-slow {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
 }
