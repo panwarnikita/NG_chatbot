@@ -767,7 +767,7 @@ export default function App() {
               m.role === 'AI' ? (
                 <div key={m.id || i} className="ai-msg-row">
                   <div className="ai-msg-avatar" aria-hidden="true">
-                    <img src="/zoe-character.png" alt="" className="ai-msg-avatar-img" />
+                    <img src="/zoe-talking 1.svg" alt="" className="ai-msg-avatar-img" />
                   </div>
                   <div className="msg-bubble ai">
                     <div dangerouslySetInnerHTML={{ __html: marked.parse(m.content) }} />
