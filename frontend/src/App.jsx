@@ -343,47 +343,87 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { marked } from 'marked';
-import { FiMic, FiGlobe, FiChevronLeft, FiCheckCircle, FiVolume2 } from 'react-icons/fi';
+import { FiMic, FiGlobe, FiChevronLeft, FiCheckCircle, FiVolume2, FiBookOpen, FiUsers, FiBriefcase } from 'react-icons/fi';
 import { IoSend } from 'react-icons/io5';
 import { usePiper } from './hooks/text-to-speech_hook';
 import { TTSLogic, sharedAudioPlayer, cleanTextForTTS } from "speech-to-speech";
+import { MascotClips } from './components/MascotClips';
 
 // --- Translations & Content ---
 const translations = {
   en: {
-    navGurukul: 'NavGurukul AI ✨', hiGuest: 'Hi User,', selectRole: 'Please select your role to continue.', 
+    navGurukul: 'AI ✨', hiGuest: 'Hi Guest user,', selectRole: 'Please select your role to continue your botanical journey.', 
     startBtn: 'Start Chatting', loading: 'Loading Voices...', back: 'Back', 
     student: 'Student', studentDesc: 'Simple, clear and step-by-step admission help.',
     parent: 'Parent', parentDesc: 'Safety, eligibility and outcomes with trust-focused guidance.',
     partner: 'Partner', partnerDesc: 'Professional info for NGO, government and teachers.',
     testMic: 'Test Microphone', testSpk: 'Test Speaker', micOk: 'Mic Access Granted', spkOk: 'Sound Working?',
-    askAnything: 'Ask AI anything...'
+    askAnything: 'Ask AI anything...',
+    whatIsNavGurukul: 'What is NavGurukul?',
+    admissionProcess: 'Tell me about admission process',
+    successStories: 'Show me success stories',
+    etiocracy: 'Explain Etiocracy'
   },
   hi: {
-    navGurukul: 'NavGurukul एआई ✨', hiGuest: 'नमस्ते उपयोगकर्ता,', selectRole: 'जारी रखने के लिए कृपया अपनी भूमिका चुनें।',
+    navGurukul: 'AI ✨', hiGuest: 'नमस्ते उपयोगकर्ता,', selectRole: 'जारी रखने के लिए कृपया अपनी भूमिका चुनें।',
     startBtn: 'बातचीत शुरू करें', loading: 'आवाज़ें लोड हो रही हैं...', back: 'पीछे', 
     student: 'छात्र', studentDesc: 'सरल, स्पष्ट और चरण-दर-चरण प्रवेश सहायता।',
     parent: 'माता-पिता', parentDesc: 'सुरक्षा, पात्रता और विश्वास-केंद्रित मार्गदर्शन।',
     partner: 'भागीदार', partnerDesc: 'एनजीओ, सरकार और शिक्षकों के लिए पेशेवर जानकारी।',
     testMic: 'माइक टेस्ट करें', testSpk: 'स्पीकर टेस्ट करें', micOk: 'माइक चालू है', spkOk: 'आवाज़ आई?',
-    askAnything: 'AI से कुछ भी पूछें...'
+    askAnything: 'AI से कुछ भी पूछें...',
+    whatIsNavGurukul: 'NavGurukul क्या है?',
+    admissionProcess: 'प्रवेश प्रक्रिया के बारे में बताएं',
+    successStories: 'सफलता की कहानियां दिखाएं',
+    etiocracy: 'Etiocracy समझाएं'
+  },
+  mr: {
+    navGurukul: 'AI ✨', hiGuest: 'नमस्कार वापरकर्ता,', selectRole: 'पुढे जाण्यासाठी कृपया तुमची भूमिका निवडा.',
+    startBtn: 'चॅट सुरू करा', loading: 'आवाज लोड होत आहेत...', back: 'मागे',
+    student: 'विद्यार्थी', studentDesc: 'सोपे, स्पष्ट आणि टप्प्याटप्प्याने प्रवेश मार्गदर्शन.',
+    parent: 'पालक', parentDesc: 'सुरक्षा, पात्रता आणि विश्वासावर आधारित मार्गदर्शन.',
+    partner: 'भागीदार', partnerDesc: 'एनजीओ, सरकार आणि शिक्षकांसाठी व्यावसायिक माहिती.',
+    testMic: 'माइक चाचणी', testSpk: 'स्पीकर चाचणी', micOk: 'माइक सुरू आहे', spkOk: 'आवाज येतोय?',
+    askAnything: 'AI ला काहीही विचारा...',
+    whatIsNavGurukul: 'NavGurukul म्हणजे काय?',
+    admissionProcess: 'प्रवेश प्रक्रियेबद्दल सांगा',
+    successStories: 'यशोगाथा दाखवा',
+    etiocracy: 'Etiocracy समजावून सांगा'
   }
 };
+
+const LANGUAGE_OPTIONS = [
+  { value: 'en', label: 'English' },
+  { value: 'hi', label: 'हिन्दी' },
+  { value: 'mr', label: 'मराठी' }
+];
+
+const quickPrompts = (lang) => ([
+  { text: (translations[lang] || translations.en).whatIsNavGurukul, icon: '🏫' },
+  { text: (translations[lang] || translations.en).admissionProcess, icon: '📝' },
+  { text: (translations[lang] || translations.en).successStories, icon: '🌟' },
+  { text: (translations[lang] || translations.en).etiocracy, icon: '💡' }
+]);
 
 export default function App() {
   const [appStage, setAppStage] = useState('selection'); 
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
-  const [selectedRole, setSelectedRole] = useState('student');
+  const [selectedRole, setSelectedRole] = useState('');
   const [loading, setLoading] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [language, setLanguage] = useState('en'); 
   const [micTested, setMicTested] = useState(false);
+  const [showJumpToLatest, setShowJumpToLatest] = useState(false);
+  const [showRoleMenu, setShowRoleMenu] = useState(false);
 
   const chatRef = useRef(null);
+  const inputRef = useRef(null);
+  const roleMenuRef = useRef(null);
+  const shouldAutoScrollRef = useRef(true);
   const englishTTSRef = useRef(null);
   const [isEnglishTTSReady, setIsEnglishTTSReady] = useState(false);
-  const t = translations[language];
+  const t = translations[language] || translations.en;
 
   // --- TTS Hook Config ---
   const piperConfig = useMemo(() => ({
@@ -410,10 +450,45 @@ export default function App() {
     }
   }, [appStage, language]);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (roleMenuRef.current && !roleMenuRef.current.contains(event.target)) {
+        setShowRoleMenu(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const handleChatScroll = () => {
+    if (!chatRef.current) return;
+    const el = chatRef.current;
+    const distanceFromBottom = el.scrollHeight - el.scrollTop - el.clientHeight;
+    // Keep auto-follow only if user is already near the latest message.
+    shouldAutoScrollRef.current = distanceFromBottom < 120;
+    setShowJumpToLatest(distanceFromBottom > 140);
+  };
+
+  const scrollToLatest = () => {
+    if (!chatRef.current) return;
+    shouldAutoScrollRef.current = true;
+    chatRef.current.scrollTo({ top: chatRef.current.scrollHeight, behavior: 'smooth' });
+    setShowJumpToLatest(false);
+  };
+
   // --- Auto Scroll Chat ---
   useEffect(() => {
-    if (chatRef.current) chatRef.current.scrollTop = chatRef.current.scrollHeight;
+    if (chatRef.current && shouldAutoScrollRef.current) {
+      chatRef.current.scrollTop = chatRef.current.scrollHeight;
+      setShowJumpToLatest(false);
+    }
   }, [messages]);
+
+  const stopSpeaking = () => {
+    resetTTS();
+    sharedAudioPlayer.stopAndClearQueue();
+  };
 
   // --- Speak Logic ---
   const speakText = async (text) => {
@@ -423,7 +498,7 @@ export default function App() {
         const res = await englishTTSRef.current.synthesize(s);
         sharedAudioPlayer.addAudioIntoQueue(res.audio, res.sampleRate);
       }
-    } else if (language === 'hi' && isReady) {
+    } else if ((language === 'hi' || language === 'mr') && isReady) {
       const sentences = text.replace(/[*#\-_]/g, " ").match(/[^.!?।\n]+[.!?।\n]+/g) || [text];
       sentences.forEach(s => speak(s.trim()));
     }
@@ -431,30 +506,53 @@ export default function App() {
 
   // --- Send Message Logic ---
   const sendMessage = async (queryText = input, wasVoice = false) => {
-    if (!queryText.trim() || loading) return;
-    
-    resetTTS(); 
-    sharedAudioPlayer.stopAndClearQueue();
-    
+    const normalizedQuery = queryText.trim();
+    if (!normalizedQuery || loading) return;
+
+    stopSpeaking();
+
+    const aiMessageId = `ai-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+
     // User Message
-    setMessages(prev => [...prev, { role: 'User', content: queryText }]);
+    setMessages(prev => [
+      ...prev,
+      { role: 'User', content: normalizedQuery },
+      { id: aiMessageId, role: 'AI', content: '...' }
+    ]);
     setInput('');
     setLoading(true);
-
-    // AI Placeholder
-    setMessages(prev => [...prev, { role: 'AI', content: '...' }]);
 
     try {
       const res = await fetch('/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
-          query: queryText, 
+          query: normalizedQuery,
           role: selectedRole, 
           language,
           history: messages.slice(-5).map(m => `${m.role}: ${m.content}`).join("\n") 
         })
       });
+
+      if (!res.ok) {
+        const errText = await res.text();
+        setMessages(prev => prev.map((m) => (
+          m.id === aiMessageId
+            ? { ...m, content: errText || 'Server error. Please try again.' }
+            : m
+        )));
+        return;
+      }
+
+      if (!res.body) {
+        const fallbackText = await res.text();
+        setMessages(prev => prev.map((m) => (
+          m.id === aiMessageId
+            ? { ...m, content: fallbackText || 'No response received from server.' }
+            : m
+        )));
+        return;
+      }
 
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
@@ -463,19 +561,32 @@ export default function App() {
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
-        fullResponse += decoder.decode(value);
-        
-        setMessages(prev => {
-          const newMsg = [...prev];
-          newMsg[newMsg.length - 1].content = fullResponse;
-          return newMsg;
-        });
+        fullResponse += decoder.decode(value, { stream: true });
+
+        setMessages(prev => prev.map((m) => (
+          m.id === aiMessageId ? { ...m, content: fullResponse } : m
+        )));
+      }
+
+      fullResponse += decoder.decode();
+
+      if (!fullResponse.trim()) {
+        setMessages(prev => prev.map((m) => (
+          m.id === aiMessageId
+            ? { ...m, content: 'Empty response. Please try again.' }
+            : m
+        )));
       }
       
       if (wasVoice) speakText(fullResponse);
 
     } catch (e) {
       console.error("Fetch Error:", e);
+      setMessages(prev => prev.map((m) => (
+        m.id === aiMessageId
+          ? { ...m, content: 'Cannot connect to backend. Start Flask server on port 5000 and try again.' }
+          : m
+      )));
     } finally {
       setLoading(false);
     }
@@ -487,38 +598,115 @@ export default function App() {
     if (!SpeechRecognition) return alert("Browser does not support Speech Recognition.");
     
     const recognition = new SpeechRecognition();
-    recognition.lang = language === 'hi' ? 'hi-IN' : 'en-US';
+    recognition.lang = language === 'hi' ? 'hi-IN' : language === 'mr' ? 'mr-IN' : 'en-US';
     recognition.onstart = () => setIsListening(true);
     recognition.onresult = (e) => sendMessage(e.results[0][0].transcript, true);
     recognition.onend = () => setIsListening(false);
     recognition.start();
   };
 
+  const resetChatState = () => {
+    stopSpeaking();
+    setMessages([]);
+    setInput('');
+    setLoading(false);
+    setIsListening(false);
+    setShowJumpToLatest(false);
+    shouldAutoScrollRef.current = true;
+  };
+
+  const handleSelectRoleAction = () => {
+    resetChatState();
+    setMicTested(false);
+    setAppStage('selection');
+    setShowRoleMenu(false);
+  };
+
+  const handleLogout = () => {
+    resetChatState();
+    setSelectedRole('');
+    setMicTested(false);
+    setAppStage('selection');
+    setShowRoleMenu(false);
+  };
+
+  const handleRolePick = (role) => {
+    resetChatState();
+    setSelectedRole(role);
+    setMicTested(false);
+    setShowRoleMenu(false);
+    setAppStage('setup');
+  };
+
   return (
     <div className="zoe-container">
       <header className="zoe-header">
-        <button onClick={() => setAppStage('selection')} className="back-btn"><FiChevronLeft /> {t.back}</button>
         <h2 className="brand">{t.navGurukul}</h2>
-        <button onClick={() => setLanguage(l => l === 'en' ? 'hi' : 'en')} className="lang-btn">
-          <FiGlobe /> {language === 'en' ? 'English' : 'हिन्दी'}
-        </button>
+        <div className="lang-select-wrap">
+          <FiGlobe />
+          <select className="lang-select" value={language} onChange={(e) => setLanguage(e.target.value)}>
+            {LANGUAGE_OPTIONS.map((opt) => (
+              <option key={opt.value} value={opt.value}>{opt.label}</option>
+            ))}
+          </select>
+        </div>
+        {appStage === 'selection' && (
+          <div className="header-actions">
+            <button type="button" className="header-ghost-btn" onClick={() => setShowRoleMenu(v => !v)}>
+              {selectedRole ? t[selectedRole] : 'Select role'}
+            </button>
+            <button type="button" className="header-ghost-btn" onClick={handleLogout}>Logout</button>
+          </div>
+        )}
       </header>
+
+      {appStage !== 'selection' && (
+        <div className="back-row">
+          <button onClick={() => setAppStage('selection')} className="back-btn"><FiChevronLeft /> {t.back}</button>
+        </div>
+      )}
+
+      {appStage === 'selection' && showRoleMenu && (
+        <div className="role-menu" ref={roleMenuRef}>
+          <button type="button" className="role-menu-item" onClick={() => handleRolePick('student')}>
+            {t.student}
+          </button>
+          <button type="button" className="role-menu-item" onClick={() => handleRolePick('parent')}>
+            {t.parent}
+          </button>
+          <button type="button" className="role-menu-item" onClick={() => handleRolePick('partner')}>
+            {t.partner}
+          </button>
+        </div>
+      )}
 
       {/* --- STAGE 1: SELECTION --- */}
       {appStage === 'selection' && (
         <div className="stage selection">
-          <div className="zoe-avatar-static">
-            <img src="/zoe-character.png" alt="Zoe Main" />
-          </div>
+          <MascotClips />
           <h1>{t.hiGuest}</h1>
           <p>{t.selectRole}</p>
           <div className="role-grid">
             {['student', 'parent', 'partner'].map(role => (
               <div key={role} className="zoe-card" onClick={() => { setSelectedRole(role); setAppStage('setup'); }}>
-                <h3>{translations[language][role]}</h3>
+                <h3>
+                  <span className="role-icon-box">
+                    {role === 'student' && <FiBookOpen />}
+                    {role === 'parent' && <FiUsers />}
+                    {role === 'partner' && <FiBriefcase />}
+                  </span>
+                  {translations[language][role]}
+                </h3>
                 <p>{translations[language][role + 'Desc']}</p>
               </div>
             ))}
+          </div>
+          <div className="selection-input-wrap">
+            <div className="selection-input-pill">
+              <input value="" readOnly placeholder="Select role first..." />
+              <button type="button" disabled><IoSend /></button>
+            </div>
+            <p className="selection-helper">You must select a role before you can start interacting with the AI assistant.</p>
           </div>
         </div>
       )}
@@ -554,21 +742,55 @@ export default function App() {
       
       {appStage === 'chat' && (
         <div className="stage chat">
-          <div className="ai-visual-container">
-            <img src="/zoe-character.png" alt="Zoe" className="zoe-img-idle" />
+          <div className="quick-prompts-panel quick-prompts-top">
+            <div className="quick-prompts-title">Tap a NavGurukul question to ask it</div>
+            <div className="quick-prompts-row">
+              {quickPrompts(language).map((prompt) => (
+                <button
+                  key={prompt.text}
+                  type="button"
+                  className="quick-prompt-chip"
+                  onClick={() => {
+                    setInput(prompt.text);
+                    requestAnimationFrame(() => inputRef.current?.focus());
+                  }}
+                >
+                  <span className="quick-prompt-icon">{prompt.icon}</span>
+                  <span>{prompt.text}</span>
+                </button>
+              ))}
+            </div>
           </div>
 
-          <div className="chat-history" ref={chatRef}>
+          <div className="chat-history" ref={chatRef} onScroll={handleChatScroll}>
             {messages.map((m, i) => (
-              <div key={i} className={`msg-bubble ${m.role.toLowerCase()}`}>
-                <div dangerouslySetInnerHTML={{ __html: marked.parse(m.content) }} />
-              </div>
+              m.role === 'AI' ? (
+                <div key={m.id || i} className="ai-msg-row">
+                  <div className="ai-msg-avatar" aria-hidden="true">
+                    <img src="/zoe-talking 1.svg" alt="" className="ai-msg-avatar-img" />
+                  </div>
+                  <div className="msg-bubble ai">
+                    <div dangerouslySetInnerHTML={{ __html: marked.parse(m.content) }} />
+                  </div>
+                </div>
+              ) : (
+                <div key={m.id || i} className="msg-bubble user">
+                  <div dangerouslySetInnerHTML={{ __html: marked.parse(m.content) }} />
+                </div>
+              )
             ))}
           </div>
+
+          {showJumpToLatest && messages.length > 0 && (
+            <button type="button" className="jump-latest-btn" onClick={scrollToLatest}>
+              Jump to latest
+            </button>
+          )}
 
           <div className="zoe-input-section">
             <div className="input-pill">
               <input 
+                ref={inputRef}
                 value={input} 
                 onChange={e => setInput(e.target.value)} 
                 onKeyDown={e => e.key === 'Enter' && sendMessage(input, false)} 

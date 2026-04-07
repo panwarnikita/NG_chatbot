@@ -64,6 +64,9 @@ def ask():
     if user_lang == 'hi':
         greeting_msg = "नमस्ते! मैं नवगुरुकुल एआई सहायक हूँ।"
         lang_instruction = "Respond ONLY in Hindi (Devanagari script)."
+    elif user_lang == 'mr':
+        greeting_msg = "नमस्कार! मी नवगुरुकुल एआय सहाय्यक आहे."
+        lang_instruction = "Respond ONLY in Marathi (Devanagari script)."
     else:
         greeting_msg = "Hello! I am NavGurukul AI assistant."
         lang_instruction = "Respond ONLY in English."
