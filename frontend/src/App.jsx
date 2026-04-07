@@ -360,7 +360,7 @@ const translations = {
     askAnything: 'Ask AI anything...'
   },
   hi: {
-    navGurukul: 'NavGurukul एआई ✨', hiGuest: 'नमस्ते उपयोगकर्ता,', selectRole: 'जारी रखने के लिए कृपया अपनी भूमिका चुनें।',
+    navGurukul: 'NavGurukul AI ✨', hiGuest: 'नमस्ते उपयोगकर्ता,', selectRole: 'जारी रखने के लिए कृपया अपनी भूमिका चुनें।',
     startBtn: 'बातचीत शुरू करें', loading: 'आवाज़ें लोड हो रही हैं...', back: 'पीछे', 
     student: 'छात्र', studentDesc: 'सरल, स्पष्ट और चरण-दर-चरण प्रवेश सहायता।',
     parent: 'माता-पिता', parentDesc: 'सुरक्षा, पात्रता और विश्वास-केंद्रित मार्गदर्शन।',
