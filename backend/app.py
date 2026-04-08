@@ -63,10 +63,10 @@ def ask():
     # 1. LANGUAGE LOGIC
     if user_lang == 'hi':
         greeting_msg = "नमस्ते! मैं नवगुरुकुल एआई सहायक हूँ।"
-        lang_instruction = "Respond ONLY in Hindi (Devanagari script)."
+        lang_instruction = "आप हमेशा और केवल हिंदी में ही जवाब दें। कभी भी अंग्रेजी का प्रयोग न करें।"
     else:
         greeting_msg = "Hello! I am NavGurukul AI assistant."
-        lang_instruction = "Respond ONLY in English."
+        lang_instruction = "You MUST respond ONLY and ALWAYS in English. NEVER use Hindi or any other language."
 
     # 2. DYNAMIC GREETING RULE
     if is_first_message:
@@ -79,8 +79,8 @@ def ask():
     context = "\n".join([d.page_content for d in docs])[:RAG_MAX_CONTEXT_CHARS]
 
     system_prompt = (
+        f"⚠️ CRITICAL - LANGUAGE RULE: {lang_instruction}\n\n"
         f"{ROLE_PROMPTS.get(selected_role, ROLE_PROMPTS['student'])}\n\n"
-        f"STRICT LANGUAGE: {lang_instruction}\n"
         f"GREETING RULE: {greeting_rule}\n\n"
         "CORE RULES:\n"
         "1. NO REPETITION: Don't repeat greetings in a continuous chat.\n"
@@ -88,6 +88,8 @@ def ask():
         "3. KNOWLEDGE: Answer questions about SOE, Nagpur, etc., using the context below.\n\n"
         f"Context:\n{context}"
     )
+
+    print(f"[DEBUG] User Language: {user_lang}, Lang Instruction: {lang_instruction}")
 
     try:
         # Note: MongoDB nahi hai toh hum history frontend se hi as string mangwa sakte hain agar zaroorat ho
