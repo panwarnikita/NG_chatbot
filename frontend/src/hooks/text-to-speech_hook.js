@@ -112,7 +112,7 @@ worker.postMessage({
     piperPhonemizeJsUrl: '/piper-wasm/piper_phonemize.js',
     piperPhonemizeWasmUrl: '/piper-wasm/piper_phonemize.wasm',
     piperPhonemizeDataUrl: '/piper-wasm/piper_phonemize.data',
-    onnxruntimeUrl: '/piper-wasm/', 
+    onnxruntimeUrl: '/piper-wasm/dist/', 
     
     // SABSE ZAROORI: Ye line memory conflict ko bypass karegi
     blobs: { "ort-wasm-simd-threaded.wasm": true }, 
@@ -161,7 +161,7 @@ worker.postMessage({
                 piperPhonemizeJsUrl: '/piper-wasm/piper_phonemize.js',
                 piperPhonemizeWasmUrl: '/piper-wasm/piper_phonemize.wasm',
                 piperPhonemizeDataUrl: '/piper-wasm/piper_phonemize.data',
-                onnxruntimeUrl: '/piper-wasm/',
+                onnxruntimeUrl: '/piper-wasm/dist/',
                 blobs: { "ort-wasm-simd-threaded.wasm": true },
             });
         });

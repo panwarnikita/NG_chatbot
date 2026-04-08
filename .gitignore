@@ -50,7 +50,7 @@ package-lock.json.lock
 backend/vectorstore/
 backend/__pycache__/
 backend/*.pyc
-
+backend/data
 # IDE & Editor
 .vscode/
 .idea/

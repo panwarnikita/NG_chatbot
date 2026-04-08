@@ -4,14 +4,23 @@ A full-stack AI chatbot application for NavGurukul using FastAPI/Flask backend w
 
 ## 🎯 Features
 
-- **🎤 Voice Input (STT)**: Multilingual speech-to-text for Hindi, English, and Marathi
-- **🔊 Voice Output (TTS)**: Natural-sounding text-to-speech responses
-- **Role-Based Responses**: Different AI personas for students, parents, and partners
-- **RAG System**: Retrieves relevant context from NavGurukul knowledge base before generating responses
-- **Real-time Streaming**: Streaming responses with dynamic LLM output
-- **Multilingual Support**: English, Hindi (हिंदी), and Marathi (मराठी)
-- **Modern UI**: React + Vite responsive frontend with real-time chat interface
-- **Stateless API**: No session storage, clean RESTful design
+- **🎤 Voice Input (STT)**: Real-time speech-to-text for Hindi and English with browser Web Speech API
+- **🔊 Voice Output (TTS)**: 
+  - English: High-quality Piper WASM (en_US-hfc_female-medium)
+  - Hindi: Local ONNX neural voices with multiple speaker options
+  - Stop/Pause button to control playback
+- **🎬 Dynamic Video Avatars**: Animated characters that respond to AI state:
+  - 🎨 Idle: `ballbounce.mp4` animation
+  - 🎤 Listening: `listening.mp4` when user speaks
+  - 💬 Speaking: `speaking-edited.mp4` when AI responds
+- **Role-Based AI Personalities**: Different responses for students, parents, and institutional partners
+- **RAG System**: Semantic search over NavGurukul knowledge base using Qdrant + NVIDIA embeddings
+- **Real-time Streaming**: Stream LLM responses chunk-by-chunk for instant feedback
+- **Bilingual UI**: Full English/हिंदी support with language switcher
+- **Fully Responsive Design**: Optimized for mobile (320px), tablet (480px), and desktop (1025px+)
+- **Modern Tech Stack**: React 18 + Vite with Tailwind-style utilities
+- **Stateless API**: No session storage, clean RESTful design with context passed per request
+- **Language Enforcement**: Strict system prompts ensure responses stay in user's selected language
 
 ## 📋 Prerequisites
 
@@ -94,34 +103,48 @@ The frontend automatically proxies API requests to the backend (see `vite.config
 NG_chatbot/
 ├── backend/
 │   ├── app.py                 # Flask main application (LLM + RAG)
+│   │   ├── POST /ask          # Streaming chat endpoint
+│   │   ├── RAG system         # Qdrant vector search
+│   │   └── Language rules     # Enforced language responses
 │   ├── ingest_now.py          # Vector DB ingestion script
 │   ├── requirements.txt        # Python dependencies
 │   └── data/
-│       └── about_ng.txt       # Training data for RAG
+│       ├── about_ng.txt       # NavGurukul knowledge base
+│       ├── Admission.txt      # Admission info
+│       ├── Programs.txt       # Program details
+│       └── QA.txt            # QA data
 ├── frontend/
-│   ├── package.json           # npm dependencies
-│   ├── vite.config.js         # Vite build configuration
 │   ├── index.html             # React entry point
+│   ├── package.json           # npm dependencies & scripts
+│   ├── vite.config.js         # Vite build + proxy config
 │   ├── public/
-│   │   ├── models/            # ONNX voice models (optional)
-│   │   └── piper-wasm/        # Piper TTS WebAssembly
+│   │   ├── glassadjustment.mp4    # Welcome video
+│   │   ├── ballbounce.mp4        # Idle avatar animation
+│   │   ├── listening.mp4         # STT active animation
+│   │   ├── speaking-edited.mp4   # TTS/Speaking animation
+│   │   ├── models/              # ONNX voice models for Hindi TTS
+│   │   │   ├── hi_IN-priyamvada-medium.onnx
+│   │   │   ├── hi_IN-priyamvada-medium.json
+│   │   │   └── [other voice models]
+│   │   └── piper-wasm/           # English TTS WebAssembly
+│   │       ├── piper_worker.js
+│   │       ├── piper_phonemize.js
+│   │       └── dist/
 │   └── src/
-│       ├── App.jsx            # Main React component
+│       ├── App.jsx            # Main React app (3-stage design)
+│       │   ├── Stage 1: Role Selection
+│       │   ├── Stage 2: Mic/Speaker Testing
+│       │   └── Stage 3: Chat Interface
 │       ├── main.jsx           # React DOM entry
-│       ├── styles.css         # Application styles
+│       ├── styles.css         # All styles + responsive media queries
 │       ├── hooks/
-│       │   ├── useSTT.jsx     # Speech-to-Text hook
-│       │   ├── useTTS.jsx     # Hindi TTS hook
-│       │   └── useTTSPiper.jsx# English TTS hook
-│       ├── services/
-│       │   └── speechService.js # Voice configuration service
+│       │   └── text-to-speech_hook.js  # Hindi TTS with Piper
 │       └── utils/
-│           ├── modelCache.js  # Voice model caching
-│           └── ...
+│           └── modelCache.js          # Voice model caching
+├── ROLE_SYSTEM.md             # Role-based prompt documentation
+├── GITHUB_PUSH_READY.md       # Deployment checklist
 ├── .env                       # Environment variables (NEVER commit)
 ├── .env.example               # Environment variables template
-├── ROLE_SYSTEM.md             # System prompt documentation
-├── VOICE_ARCHITECTURE.md      # Voice system details
 └── README.md                  # This file
 ```
 
@@ -207,20 +230,149 @@ python ingest_now.py
 - Vector DB: Qdrant Cloud with semantic search
 
 ### Frontend Development
-- **Vite** dev server with hot module replacement
-- **React 18** with hooks (useState, useEffect, useRef, useCallback)
-- **Real-time voice feedback** with STT/TTS integration
-- **Marked.js** for markdown rendering
-- **speech-to-speech** library for English TTS
-- **onnxruntime-web** for local ONNX model inference (Hindi TTS)
-- Proxy to backend at `http://localhost:5000` (see `vite.config.js`)
+
+**Architecture:**
+- **React 18** with hooks (useState, useEffect, useRef, useMemo)
+- **Vite** dev server with hot module replacement & instant updates
+- **3-Stage User Flow**:
+  1. **Role Selection**: Pick student/parent/partner role
+  2. **Mic & Speaker Testing**: Verify audio devices work
+  3. **Chat Interface**: Full conversation with dynamic avatars
+- **State Management**: Local React state, context passed to backend per message
+- **Real-time Features**:
+  - Live STT transcript as you speak
+  - Automatic message sending after silence
+  - Streaming UI updates as LLM generates response
+  - Dynamic video avatar changes based on app state
+
+**Key Components:**
+- `usePiper()` hook for Hindi TTS with ONNX models
+- `handleVoiceInput()` for Web Speech API integration
+- `speakText()` for dual-language voice output (English + Hindi)
+- Conditional video rendering based on `isListening` and `isTTSPlaying` states
+- Responsive CSS with @media queries for all screen sizes
+
+**Styling:**
+- Soft pink background (#FCE4EC) matching app theme
+- Green buttons (#2d5a27) for actions
+- Rounded elements (border-radius for modern feel)
+- Mobile-first responsive design
+- Hidden scrollbars for clean look
+
+**Proxy Configuration** (vite.config.js):
+```javascript
+proxy: {
+  '/ask': 'http://localhost:5000',
+  '/get_chat': 'http://localhost:5000',
+  '/logout': 'http://localhost:5000'
+}
+```
 
 ### Voice Implementation
-- **STT (Speech-to-Text)**: Web Speech API (browser-native, no server needed)
-- **TTS (Text-to-Speech)**: 
-  - English: Piper WASM via speech-to-speech library
-  - Hindi: Local ONNX models (optional, falls back to browser native TTS)
-- **Languages**: en-IN, hi-IN, mr-IN
+
+**Text-to-Speech (TTS):**
+- **English**: Piper WASM (en_US-hfc_female-medium) via speech-to-speech library
+  - High-quality neural voice
+  - Real-time browser processing (no server latency)
+  - Automatic playback when user uses voice input
+  - Stop button (red pause icon) to halt playback
+- **Hindi**: Local ONNX models (hi_IN-priyamvada-medium)
+  - Multiple speaker options available
+  - Falls back gracefully if model loading fails
+  - Downloads ~60MB models on first use
+  - Full Devanagari script support
+
+**Speech-to-Text (STT):**
+- **Web Speech API** built into modern browsers
+- **Real-time feedback**: Green italic text shows live transcript
+- **Languages**: 
+  - English (en-US)
+  - Hindi (hi-IN)
+- **Auto-send**: Message sends 2 seconds after silence detected
+- **Error handling**: Graceful fallback if browser doesn't support
+- **No server processing**: All speech recognition happens in browser
+
+**State Management:**
+- `isListening`: Triggers listening.mp4 video
+- `isTTSPlaying`: Triggers speaking-edited.mp4 video
+- `isEnglishTTSPlaying`: Tracks English TTS separately from Hindi
+- Automatic state cleanup after audio completes
+
+**Video Avatar Integration:**
+```
+User just opened app
+    ↓
+Video: glassadjustment.mp4 (welcome screen)
+    ↓
+Role selected, testing stage
+    ↓
+Chat starts - Idle video: ballbounce.mp4
+    ↓
+User clicks mic, speaks
+    ↓
+Video switches: listening.mp4
+    ↓
+AI generates response
+    ↓
+Video switches: speaking-edited.mp4 (plays during TTS)
+    ↓
+TTS completes
+    ↓
+Back to idle: ballbounce.mp4
+```
+
+### Development Commands
+
+```bash
+# Frontend
+npm run dev           # Start dev server with hot reload on :5173
+npm run build         # Create production build
+npm run preview       # Preview production build locally
+
+# Backend
+python app.py         # Run Flask development server on :5000
+python ingest_now.py  # Re-ingest knowledge base to Qdrant
+
+# Make sure you're in the correct directories:
+# Frontend commands run from: frontend/
+# Backend commands run from: backend/
+```
+
+**Testing Voice Features:**
+1. Open browser DevTools (F12)
+2. Go to Console tab
+3. Look for debug messages like `🎤 STT started`, `🔊 TTS playing`
+4. Check Network tab for Piper WASM file loading
+5. Use microphone to test voice input
+6. Check speaker for audio output
+
+### Key Files to Modify
+
+**Adding New Roles/Personas:**
+- File: [ROLE_SYSTEM.md](./ROLE_SYSTEM.md)
+- Action: Define new role prompt with English/Hindi versions
+- Note: Role is automatically used in system message when selected
+
+**Changing Colors/Styling:**
+- File: [frontend/src/styles.css](./frontend/src/styles.css)
+- Colors defined at top of file:
+  - `--zoe-green: #2d5a27` (buttons, accents)
+  - `--student-bg-soft: #FCE4EC` (background)
+- Media queries at bottom for responsive adjustments
+- Change and save to see hot reload immediately
+
+**Adding Training Data:**
+- Files: Create `.txt` files in [backend/data/](./backend/data/)
+- Command: Run `python ingest_now.py` to add to vector DB
+- Note: Existing data files auto-loaded on backend startup
+- Format: Plain text, one concept per line or paragraph
+
+**Adjusting LLM Behavior:**
+- File: [backend/app.py](./backend/app.py)
+- Find `temperature=0.1` parameter (search in file)
+- Lower values (0.0-0.2) = focused, consistent responses
+- Higher values (0.5-0.9) = creative, varied responses
+- Also adjust `max_tokens` if responses are too short/long
 
 ### Building for Production
 
@@ -234,8 +386,17 @@ npm run build
 **Backend:**
 Use a production WSGI server (gunicorn):
 ```bash
-gunicorn -w 4 app.main:app
+pip install gunicorn
+gunicorn -w 4 -b 0.0.0.0:5000 app:app
 ```
+
+**Environment Setup for Production:**
+1. Use strong, unique API keys
+2. Set `FLASK_ENV=production` in `.env`
+3. Set `REACT_ENV=production` in frontend
+4. Use HTTPS for all connections
+5. Consider using Docker for containerization
+6. Set up monitoring and error tracking (Sentry)
 
 ## 📦 Dependencies
 
@@ -289,6 +450,41 @@ Uses **Web Speech API** for real-time voice input:
 - **Auto-play**: AI responses automatically spoken if you used voice input
 - **No latency**: All processing happens in browser (WASM)
 
+---
+
+## 📱 Responsive Design
+
+The application is **fully responsive** and optimized for all devices:
+
+### Breakpoints & Adaptations
+
+| Device | Width | Grid | Video | Layout |
+|--------|-------|------|-------|--------|
+| **Phone** | 320-480px | 1 column | 100px | Stacked, full-width |
+| **Tablet** | 481-768px | 2 columns | 120px | Compact spacing |
+| **Small Desktop** | 769-1024px | 3 columns | 130px | Optimized |
+| **Large Desktop** | 1025px+ | 3 columns | 140px | Full featured |
+
+**Features That Scale:**
+- 📐 Role grid adapts: 1 column (mobile) → 3 columns (desktop)
+- 🎬 Video avatars: 100px (mobile) → 140px (desktop)
+- 📝 Chat bubbles: 85% width (mobile) → 75% width (desktop)
+- 🎙️ Input field: Full width (mobile) → max-width 700px (desktop)
+- 🔤 Font sizes: Scaled at each breakpoint
+- 🎯 Touch targets: Larger buttons on mobile
+
+**Testing:**
+```bash
+# Test responsive design
+1. Open frontend: http://localhost:5173
+2. Press F12 to open DevTools (Chrome/Firefox)
+3. Click device toggle (mobile icon)
+4. Test all devices from iPhone SE (375px) to Desktop (1920px)
+5. Check video sizes, button sizes, and text readability
+```
+
+---
+
 ## 🐛 Troubleshooting
 
 ### Backend won't start
@@ -305,24 +501,47 @@ Uses **Web Speech API** for real-time voice input:
 - Try hard refresh: `Ctrl+Shift+R` (Cmd+Shift+R on Mac)
 
 ### Voice Input (STT) Not Working
-- Check browser support: Open Console (F12), look for `✅ Speech Recognition API is supported`
+- Check browser support: Open Console (F12), look for `🎤` logs
 - Grant microphone permission when asked by browser
 - Ensure microphone is connected and working
 - Try different browser (Chrome has best support)
 - Check language is selected correctly
-- See [STT_DEBUGGING_GUIDE.md](./STT_DEBUGGING_GUIDE.md) for detailed troubleshooting
+- See browser console for detailed error messages
 
 ### Voice Output (TTS) Not Working
-- English TTS (Piper): Check browser console for WASM loading errors
-- Hindi TTS: Models must be manually downloaded to `frontend/public/models/`
+- **English TTS (Piper)**: Check browser console for WASM loading errors
+- **Hindi TTS**: Ensure models are in `frontend/public/models/`
 - Try reloading page or hard refresh (Ctrl+Shift+R)
-- Check browser console for specific error messages
+- Check Network tab in DevTools for failed model downloads
+- Verify `onnxruntime-web` is installed: `npm list onnxruntime-web`
 
-### Streaming Response Slow or Stuck
-- Check NVIDIA API key is valid
-- Verify Qdrant connection is stable
-- Check network latency
-- Try restarting backend: `python backend/app.py`
+### Video Avatars Not Showing
+- Verify video files exist in `frontend/public/`:
+  - `glassadjustment.mp4` (welcome)
+  - `ballbounce.mp4` (idle)
+  - `listening.mp4` (STT active)
+  - `speaking-edited.mp4` (TTS active)
+- Check Network tab for 404 errors on video files
+- Verify videos are valid MP4 format
+- Try different browser (some have codec restrictions)
+- Clear browser cache (Ctrl+Shift+Delete)
+
+### Responsive Design Issues
+- Page looks broken on mobile:
+  1. Hard refresh: Ctrl+Shift+R
+  2. Clear localStorage: `localStorage.clear()` in console
+  3. Check viewport meta tag in `index.html`: `<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+  4. Zoom should be 100% (check browser zoom level)
+  5. Test in Chrome DevTools mobile emulation
+
+### Language Responses Wrong
+- **Issue**: Asked in Hindi but got English response
+- **Fix**: 
+  1. Check backend console: Should show `[DEBUG] User Language: hi`
+  2. Verify language is being sent: Open Network tab → POST /ask → Request body
+  3. Verify system prompt contains Hindi instruction
+  4. Restart backend: `python app.py`
+  5. Hard refresh frontend: Ctrl+Shift+R
 
 ## 📝 Logging & Debugging
 
@@ -366,16 +585,29 @@ For issues and questions, please create an issue in the repository.
 
 ## 📊 Tech Stack Summary
 
-| Layer | Technology | Version |
+| Layer | Technology | Purpose |
 |-------|-----------|---------|
-| **Backend** | Flask + LangChain | Python 3.8+ |
-| **LLM** | Meta Llama 3.1 8B (NVIDIA) | Latest |
-| **Vector DB** | Qdrant Cloud + NVIDIA Embeddings | Latest |
-| **Frontend** | React + Vite | ^18.3 / ^5.4 |
-| **Voice In** | Web Speech API | Browser native |
-| **Voice Out** | Piper WASM (EN) + ONNX (HI) | WASM |
-| **Languages** | English, Hindi, Marathi | Multi-script |
-| **Format** | Streaming text + Voice | Real-time |
+| **Backend** | Flask + LangChain | REST API, LLM orchestration |
+| **LLM** | Meta Llama 3.1 8B (NVIDIA) | Conversational AI responses |
+| **Vector DB** | Qdrant Cloud + NVIDIA Embeddings | Semantic search & RAG |
+| **Frontend** | React 18 + Vite | Modern UI with hot reload |
+| **Speech Input** | Web Speech API | Browser-native STT |
+| **Speech Output (EN)** | Piper WASM | High-quality English TTS |
+| **Speech Output (HI)** | ONNX Models | Neural Hindi voices |
+| **Video Avatars** | MP4 animations | Dynamic character responses |
+| **Styling** | CSS 3 + Media Queries | Fully responsive design |
+| **Build Tool** | Vite | Lightning-fast bundling |
+| **Languages** | English, Hindi | Bilingual UI & responses |
+| **Responsive** | Mobile/Tablet/Desktop | 320px to 1920px+ support |
+| **Python** | 3.8+ | Backend runtime |
+| **Node.js** | 16+ | Frontend tooling |
+
+**Key Libraries:**
+- **langchain**: LLM chains and RAG workflows
+- **langchain-qdrant**: Vector database integration
+- **onnxruntime-web**: ONNX model inference in browser
+- **marked**: Markdown parsing for responses
+- **react-icons**: Icon library (FiMic, IoSend, etc.)
 
 ---
 
