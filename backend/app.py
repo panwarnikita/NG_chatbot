@@ -2,7 +2,7 @@ import os
 import uuid 
 from dotenv import load_dotenv
 from flask import Flask, request, jsonify, Response, stream_with_context
-# MongoDB ki lines hata di hain
+from flask_cors import CORS
 
 from langchain_qdrant import QdrantVectorStore
 from langchain_nvidia_ai_endpoints import ChatNVIDIA, NVIDIAEmbeddings 
@@ -10,6 +10,7 @@ from langchain_nvidia_ai_endpoints import ChatNVIDIA, NVIDIAEmbeddings
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)
 vector_db = None
 primary_llm = None
 RAG_TOP_K = 8

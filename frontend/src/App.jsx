@@ -5,6 +5,7 @@ import { IoSend } from 'react-icons/io5';
 import { usePiper } from './hooks/text-to-speech_hook';
 import { TTSLogic, sharedAudioPlayer, cleanTextForTTS } from "speech-to-speech";
 
+
 // --- Translations & Content ---
 const translations = {
   en: {
@@ -122,7 +123,7 @@ export default function App() {
     setMessages(prev => [...prev, { role: 'AI', content: '...' }]);
 
     try {
-      const res = await fetch('/ask', {
+      const res = await fetch('https://ng-chatbot-backend.onrender.com/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 

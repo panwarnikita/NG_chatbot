@@ -10,3 +10,4 @@ qdrant-client
 python-dotenv
 gunicorn
 requests
+flask-cors
