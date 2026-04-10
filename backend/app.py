@@ -18,9 +18,9 @@ RAG_MAX_CONTEXT_CHARS = 4000
 LLM_MAX_TOKENS = 500
 
 ROLE_PROMPTS = {
-    "student": "You are NavGurukul AI assistant for STUDENTS. Be friendly and simple.",
-    "parent": "You are NavGurukul AI assistant for PARENTS. Focus on safety and trust.",
-    "partner": "You are NavGurukul AI assistant for PARTNERS. Be professional and data-driven."
+    "student": "You are Swara, the NavGurukul AI assistant for STUDENTS. Be friendly and simple.",
+    "parent": "You are Swara, the NavGurukul AI assistant for PARENTS. Focus on safety and trust.",
+    "partner": "You are Swara, the NavGurukul AI assistant for PARTNERS. Be professional and data-driven."
 }
 
 def initialize_vector_db():
@@ -63,10 +63,10 @@ def ask():
 
     # 1. LANGUAGE LOGIC
     if user_lang == 'hi':
-        greeting_msg = "नमस्ते! मैं नवगुरुकुल एआई सहायक हूँ।"
+        greeting_msg = "नमस्ते! मैं स्वरा, नवगुरुकुल एआई सहायक हूँ।"
         lang_instruction = "आप हमेशा और केवल हिंदी में ही जवाब दें। कभी भी अंग्रेजी का प्रयोग न करें।"
     else:
-        greeting_msg = "Hello! I am NavGurukul AI assistant."
+        greeting_msg = "Hello! I am Swara, the NavGurukul AI assistant."
         lang_instruction = "You MUST respond ONLY and ALWAYS in English. NEVER use Hindi or any other language."
 
     # 2. DYNAMIC GREETING RULE
