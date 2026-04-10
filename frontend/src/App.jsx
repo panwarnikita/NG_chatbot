@@ -3,13 +3,12 @@ import { marked } from 'marked';
 import { FiMic, FiGlobe, FiChevronLeft, FiCheckCircle, FiVolume2, FiPause } from 'react-icons/fi';
 import { IoSend } from 'react-icons/io5';
 import { usePiper } from './hooks/text-to-speech_hook';
-import { TTSLogic, sharedAudioPlayer, cleanTextForTTS } from "speech-to-speech";
 
 
 // --- Translations & Content ---
 const translations = {
   en: {
-    navGurukul: 'NavGurukul AI ✨', hiGuest: "Hi, I'm NavGurukul AI", selectRole: 'Please select your role to continue.', 
+    navGurukul: 'Swara ✨', hiGuest: "Hi, I'm Swara", selectRole: 'Please select your role to continue.', 
     startBtn: 'Start Chatting', loading: 'Loading Voices...', back: 'Back', 
     student: 'Student', studentDesc: 'Simple, clear and step-by-step admission help.',
     parent: 'Parent', parentDesc: 'Safety, eligibility and outcomes with trust-focused guidance.',
@@ -22,7 +21,7 @@ const translations = {
     quickPrompt4: 'show me success stories'
   },
   hi: {
-    navGurukul: 'NavGurukul AI ✨', hiGuest: 'नमस्ते, मैं NavGurukul AI हूँ', selectRole: 'जारी रखने के लिए कृपया अपनी भूमिका चुनें।',
+    navGurukul: 'स्वरा ✨', hiGuest: 'नमस्ते, मैं स्वरा हूँ', selectRole: 'जारी रखने के लिए कृपया अपनी भूमिका चुनें।',
     startBtn: 'बातचीत शुरू करें', loading: 'आवाज़ें लोड हो रही हैं...', back: 'पीछे', 
     student: 'छात्र', studentDesc: 'सरल, स्पष्ट और चरण-दर-चरण प्रवेश सहायता।',
     parent: 'माता-पिता', parentDesc: 'सुरक्षा, पात्रता और विश्वास-केंद्रित मार्गदर्शन।',
@@ -36,6 +35,11 @@ const translations = {
   }
 };
 
+const welcomeMessages = {
+  en: "Hi, I'm Swara. I’ll help you in a warm, human tone. Ask me anything about NavGurukul.",
+  hi: 'नमस्ते, मैं स्वरा हूँ। मैं आपको एक सहज, मानवीय अंदाज़ में मदद करूँगी। आप NavGurukul के बारे में कुछ भी पूछ सकते हैं।'
+};
+
 export default function App() {
   const [appStage, setAppStage] = useState('selection'); 
   const [messages, setMessages] = useState([]);
@@ -45,36 +49,72 @@ export default function App() {
   const [isListening, setIsListening] = useState(false);
   const [language, setLanguage] = useState('en'); 
   const [micTested, setMicTested] = useState(false);
-  const [isEnglishTTSPlaying, setIsEnglishTTSPlaying] = useState(false);
 
   const chatRef = useRef(null);
-  const englishTTSRef = useRef(null);
-  const [isEnglishTTSReady, setIsEnglishTTSReady] = useState(false);
+  const welcomeAnnouncedRef = useRef(false);
+  const setupAnnouncedRef = useRef(false);
   const t = translations[language];
 
   // --- TTS Hook Config ---
-  const piperConfig = useMemo(() => ({
-    voiceModelUrl: '/models/hi_IN-priyamvada-medium.onnx',
-    voiceConfigUrl: '/models/hi_IN-priyamvada-medium.json',
-    warmupText: ''
-  }), []);
+  const piperConfig = useMemo(() => {
+    if (language === 'hi') {
+      return {
+        voiceModelUrl: '/models/hi_IN-priyamvada-medium.onnx',
+        voiceConfigUrl: '/models/hi_IN-priyamvada-medium.json',
+        warmupText: 'नमस्ते, मैं स्वरा हूँ।'
+      };
+    }
+
+    return {
+      voiceModelUrl: '/models/Indian_accent_1.onnx',
+      voiceConfigUrl: '/models/Indian_accent_1.json',
+      warmupText: "Hello, I'm Swara."
+    };
+  }, [language]);
 
   const { speak, isReady, isPlaying: isTTSPlaying, resetTTS, isLoading: isModelLoading } = usePiper(piperConfig);
 
-  // --- Initialize English TTS when stage is Setup ---
+  const speakWelcomeMessage = async (text) => {
+    await speakText(text);
+  };
+
   useEffect(() => {
-    if (appStage === 'setup' && language === 'en') {
-      const initEn = async () => {
-        try {
-          sharedAudioPlayer.configure({ autoPlay: true });
-          const tts = new TTSLogic({ voiceId: "en_US-hfc_female-medium" });
-          await tts.initialize();
-          englishTTSRef.current = tts;
-          setIsEnglishTTSReady(true);
-        } catch (e) { console.error("English TTS Error:", e); }
-      };
-      initEn();
+    if (appStage !== 'chat') {
+      welcomeAnnouncedRef.current = false;
     }
+  }, [appStage, language]);
+
+  useEffect(() => {
+    if (appStage !== 'setup' || setupAnnouncedRef.current) return;
+    setupAnnouncedRef.current = true;
+    const intro = language === 'hi'
+      ? 'नमस्ते, मैं स्वरा हूँ। चलिए माइक्रोफोन और स्पीकर टेस्ट करते हैं।'
+      : "Hi, I'm Swara. Let's test your microphone and speaker.";
+    speakText(intro).catch(() => {});
+  }, [appStage, language]);
+
+  useEffect(() => {
+    if (appStage !== 'setup') {
+      setupAnnouncedRef.current = false;
+    }
+  }, [appStage]);
+
+  useEffect(() => {
+    if (appStage !== 'chat' || welcomeAnnouncedRef.current) return;
+
+    welcomeAnnouncedRef.current = true;
+    const welcomeText = welcomeMessages[language] || welcomeMessages.en;
+
+    setMessages(prev => {
+      if (prev.some(message => message.isWelcome)) {
+        return prev;
+      }
+      return [...prev, { role: 'AI', content: welcomeText, isWelcome: true }];
+    });
+
+    speakWelcomeMessage(welcomeText).catch((error) => {
+      console.error('Initial greeting error:', error);
+    });
   }, [appStage, language]);
 
   // --- Auto Scroll Chat ---
@@ -84,28 +124,16 @@ export default function App() {
 
   // --- Speak Logic ---
   const speakText = async (text) => {
-    if (language === 'en' && isEnglishTTSReady) {
-      setIsEnglishTTSPlaying(true);
-      const sentences = cleanTextForTTS(text).split(/(?<=[.!?।])\s+/);
-      for (const s of sentences) {
-        const res = await englishTTSRef.current.synthesize(s);
-        sharedAudioPlayer.addAudioIntoQueue(res.audio, res.sampleRate);
-      }
-      // Set a timer to track when audio finishes
-      setTimeout(() => {
-        setIsEnglishTTSPlaying(false);
-      }, text.length * 50); // Rough estimate of audio duration
-    } else if (language === 'hi' && isReady) {
-      const sentences = text.replace(/[*#\-_]/g, " ").match(/[^.!?।\n]+[.!?।\n]+/g) || [text];
-      sentences.forEach(s => speak(s.trim()));
-    }
+    if (!text || !text.trim()) return;
+    if (!isReady) return;
+
+    const sentences = text.replace(/[*#\-_]/g, ' ').match(/[^.!?।\n]+[.!?।\n]+/g) || [text];
+    sentences.forEach((s) => speak(s.trim()));
   };
 
   // --- Stop TTS Logic ---
   const stopTTS = () => {
     resetTTS();
-    setIsEnglishTTSPlaying(false);
-    sharedAudioPlayer.stopAndClearQueue();
   };
 
   // --- Send Message Logic ---
@@ -130,7 +158,7 @@ export default function App() {
           query: queryText, 
           role: selectedRole, 
           language,
-          history: messages.slice(-5).map(m => `${m.role}: ${m.content}`).join("\n") 
+          history: messages.filter(m => !m.isWelcome).slice(-5).map(m => `${m.role}: ${m.content}`).join("\n") 
         })
       });
 
@@ -150,7 +178,7 @@ export default function App() {
         });
       }
       
-      if (wasVoice) speakText(fullResponse);
+      await speakText(fullResponse);
 
     } catch (e) {
       console.error("Fetch Error:", e);
@@ -226,7 +254,7 @@ export default function App() {
               <p>{t.testSpk}</p>
             </div> 
           </div>
-          <button className="primary-btn" onClick={() => setAppStage('chat')} disabled={isModelLoading}>
+           <button className="primary-btn" onClick={() => setAppStage('chat')} disabled={isModelLoading || !isReady}>
              {isModelLoading ? t.loading : t.startBtn}
           </button>
         </div>
@@ -239,7 +267,7 @@ export default function App() {
               <video autoPlay muted loop key="listening">
                 <source src="/listening.mp4" type="video/mp4" />
               </video>
-            ) : isTTSPlaying || isEnglishTTSPlaying ? (
+            ) : isTTSPlaying ? (
               <video autoPlay muted loop key="speaking">
                 <source src="/speaking-edited.mp4" type="video/mp4" />
               </video>
@@ -251,7 +279,7 @@ export default function App() {
           </div>
 
           <div className="chat-history" ref={chatRef}>
-            {messages.length === 0 && (
+            {(messages.length === 0 || (messages.length === 1 && messages[0].isWelcome)) && (
               <div className="quick-prompts-section">
                 <p className="quick-prompts-label">Quick Questions:</p>
                 <div className="quick-prompts-grid">
@@ -288,7 +316,7 @@ export default function App() {
               <button className={`mic-circle ${isListening ? 'active' : ''}`} onClick={handleVoiceInput}>
                 <FiMic />
               </button>
-              {isTTSPlaying || isEnglishTTSPlaying ? (
+              {isTTSPlaying ? (
                 <button className="send-circle stop-btn" onClick={stopTTS} title="Stop Audio">
                   <FiPause />
                 </button>
