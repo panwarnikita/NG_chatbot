@@ -55,47 +55,54 @@ def ask():
 
     data = request.json
     query = data.get("query", "").strip()
-    user_lang = data.get("language", "en")
     selected_role = (data.get("role") or "student").lower()
-    
-    # FRONTEND se hum ek flag bhejenge 'is_first' taaki greeting handle ho sake
     is_first_message = data.get("is_first", False)
 
-    # 1. LANGUAGE LOGIC
-    if user_lang == 'hi':
-        greeting_msg = "नमस्ते! मैं स्वरा, नवगुरुकुल एआई सहायक हूँ।"
-        lang_instruction = "आप हमेशा और केवल हिंदी में ही जवाब दें। कभी भी अंग्रेजी का प्रयोग न करें।"
-    else:
-        greeting_msg = "Hello! I am Swara, the NavGurukul AI assistant."
-        lang_instruction = "You MUST respond ONLY and ALWAYS in English. NEVER use Hindi or any other language."
+    is_hindi_script = any('\u0900' <= char <= '\u097f' for char in query)
+    hinglish_words = ['kaise', 'kya', 'hai', 'kab', 'kon', 'kaha', 'tha', 'rahe', 'aap', 'mein', 'ko']
+    is_hinglish = any(word in query.lower().split() for word in hinglish_words)
 
-    # 2. DYNAMIC GREETING RULE
-    if is_first_message:
-        greeting_rule = f"START your response with: '{greeting_msg} How can I help you today?'"
+    if is_hindi_script or is_hinglish:
+        target_lang = "PURE HINDI"
+        lang_instruction = (
+            "STRICT SCRIPT RULE: You MUST respond in Devanagari (Hindi) script ONLY. "
+            "NEVER use English/Roman letters for Hindi words. "
+            "STRICT VOCABULARY: Do not use English words like 'Admission', 'Campus', 'Process'. "
+            "Use 'प्रवेश', 'परिसर', 'प्रक्रिया', 'साक्षात्कार' instead."
+        )
+        final_nudge = "Respond ONLY in Hindi Devanagari script. No English letters allowed."
     else:
-        greeting_rule = "DO NOT greet. DO NOT say Hello/Namaste. Directly answer the question."
+        target_lang = "ENGLISH"
+        lang_instruction = "STRICT RULE: Respond ONLY in English. Do not use any Hindi script."
+        final_nudge = "Respond ONLY in English."
 
-    # 3. RAG CONTEXT (Vector DB se Nagpur/SOE info uthana)
+  
     docs = vector_db.similarity_search(query, k=RAG_TOP_K) if vector_db else []
     context = "\n".join([d.page_content for d in docs])[:RAG_MAX_CONTEXT_CHARS]
 
+   
     system_prompt = (
-        f"⚠️ CRITICAL - LANGUAGE RULE: {lang_instruction}\n\n"
-        f"{ROLE_PROMPTS.get(selected_role, ROLE_PROMPTS['student'])}\n\n"
-        f"GREETING RULE: {greeting_rule}\n\n"
+        f"Identity: {ROLE_PROMPTS.get(selected_role, ROLE_PROMPTS['student'])}\n\n"
         "CORE RULES:\n"
-        "1. NO REPETITION: Don't repeat greetings in a continuous chat.\n"
-        "2. NO SYMBOLS: Use 1. 2. 3. for lists. NEVER use * or # or -.\n"
-        "3. KNOWLEDGE: Answer questions about SOE, Nagpur, etc., using the context below.\n\n"
-        f"Context:\n{context}"
+        f"- {lang_instruction}\n"
+        "- CONVERSATIONAL TONE: Keep it short (3-4 lines). Talk like a warm, helpful friend.\n"
+        "- KNOWLEDGE BOUNDARY: Only answer about NavGurukul using the context. If the question is outside "
+        "NavGurukul's scope (like general history or unknown places), politely say: "
+        "'क्षमा करें, मुझे इस बारे में जानकारी नहीं है। मैं केवल नवगुरुकुल से जुड़ी आपकी सहायता कर सकती हूँ।'\n"
+        "- NO SYMBOLS: Never use * or # or -. Use 1. 2. 3. for lists.\n"
+        f"{'Start with a warm greeting in the target script.' if is_first_message else 'Start the answer directly.'}\n\n"
+        f"Context Data:\n{context}"
     )
 
-    print(f"[DEBUG] User Language: {user_lang}, Lang Instruction: {lang_instruction}")
-
     try:
-        # Note: MongoDB nahi hai toh hum history frontend se hi as string mangwa sakte hain agar zaroorat ho
         history_from_frontend = data.get("history", "")
-        full_message = f"{system_prompt}\n\n[HISTORY]\n{history_from_frontend}\nUser Question: {query}\nAI:"
+        full_message = (
+            f"{system_prompt}\n\n"
+            f"[HISTORY]\n{history_from_frontend}\n"
+            f"User Question: {query}\n"
+            f"Instruction: {final_nudge}\n"
+            f"Swara:"
+        )
         
         def generate():
             for chunk in primary_llm.stream(full_message):

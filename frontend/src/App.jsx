@@ -5,14 +5,13 @@ import { IoSend } from 'react-icons/io5';
 import { usePiper } from './hooks/text-to-speech_hook';
 
 
-// --- Translations & Content ---
 const translations = {
   en: {
-    navGurukul: 'Swara ✨', hiGuest: "Hi, I'm Swara", selectRole: 'Please select your role to continue.', 
+    navGurukul: 'Swara', hiGuest: "Hi, I'm Swara", selectRole: 'Please select your role to continue.', 
     startBtn: 'Start Chatting', loading: 'Loading Voices...', back: 'Back', 
-    student: 'Student', studentDesc: 'Simple, clear and step-by-step admission help.',
-    parent: 'Parent', parentDesc: 'Safety, eligibility and outcomes with trust-focused guidance.',
-    partner: 'Partner', partnerDesc: 'Professional info for NGO, government and teachers.',
+    student: 'I am Student', studentDesc: 'Simple, clear and step-by-step admission help.',
+    parent: 'I am Parent', parentDesc: 'Safety, eligibility and outcomes with trust-focused guidance.',
+    partner: 'I am Partner', partnerDesc: 'Professional info for NGO, government and teachers.',
     testMic: 'Test Microphone', testSpk: 'Test Speaker', micOk: 'Mic Access Granted', spkOk: 'Sound Working?',
     askAnything: 'Ask AI anything...',
     quickPrompt1: 'What is NavGurukul?',
@@ -21,11 +20,11 @@ const translations = {
     quickPrompt4: 'show me success stories'
   },
   hi: {
-    navGurukul: 'स्वरा ✨', hiGuest: 'नमस्ते, मैं स्वरा हूँ', selectRole: 'जारी रखने के लिए कृपया अपनी भूमिका चुनें।',
+    navGurukul: 'स्वरा', hiGuest: 'नमस्ते, मैं स्वरा हूँ', selectRole: 'जारी रखने के लिए कृपया अपनी भूमिका चुनें।',
     startBtn: 'बातचीत शुरू करें', loading: 'आवाज़ें लोड हो रही हैं...', back: 'पीछे', 
-    student: 'छात्र', studentDesc: 'सरल, स्पष्ट और चरण-दर-चरण प्रवेश सहायता।',
-    parent: 'माता-पिता', parentDesc: 'सुरक्षा, पात्रता और विश्वास-केंद्रित मार्गदर्शन।',
-    partner: 'भागीदार', partnerDesc: 'एनजीओ, सरकार और शिक्षकों के लिए पेशेवर जानकारी।',
+    student: 'मैं छात्र  हूँ', studentDesc: 'सरल, स्पष्ट और चरण-दर-चरण प्रवेश सहायता।',
+    parent: 'मैं माता-पिता  हूँ', parentDesc: 'सुरक्षा, पात्रता और विश्वास-केंद्रित मार्गदर्शन।',
+    partner: 'मैं भागीदार  हूँ', partnerDesc: 'एनजीओ, सरकार और शिक्षकों के लिए पेशेवर जानकारी।',
     testMic: 'माइक टेस्ट करें', testSpk: 'स्पीकर टेस्ट करें', micOk: 'माइक चालू है', spkOk: 'आवाज़ आई?',
     askAnything: 'AI से कुछ भी पूछें...',
     quickPrompt1: 'NavGurukul क्या है?',
@@ -35,9 +34,10 @@ const translations = {
   }
 };
 
+
 const welcomeMessages = {
-  en: "Hi, I'm Swara. I’ll help you in a warm, human tone. Ask me anything about NavGurukul.",
-  hi: 'नमस्ते, मैं स्वरा हूँ। मैं आपको एक सहज, मानवीय अंदाज़ में मदद करूँगी। आप NavGurukul के बारे में कुछ भी पूछ सकते हैं।'
+  en: "Hi, I'm Swara. I can help you with any information about NavGurukul. What would you like to know today?",
+  hi: 'नमस्ते! मैं स्वरा हूँ। मैं नवगुरुकुल के बारे में आपकी किसी भी प्रकार की सहायता कर सकती हूँ। बताइए, आज आप क्या जानना चाहेंगे?'
 };
 
 export default function App() {
@@ -47,7 +47,7 @@ export default function App() {
   const [selectedRole, setSelectedRole] = useState('student');
   const [loading, setLoading] = useState(false);
   const [isListening, setIsListening] = useState(false);
-  const [language, setLanguage] = useState('en'); 
+  const [language, setLanguage] = useState('hi'); 
   const [micTested, setMicTested] = useState(false);
 
   const chatRef = useRef(null);
@@ -55,7 +55,7 @@ export default function App() {
   const setupAnnouncedRef = useRef(false);
   const t = translations[language];
 
-  // --- TTS Hook Config ---
+ 
   const piperConfig = useMemo(() => {
     if (language === 'hi') {
       return {
@@ -117,12 +117,11 @@ export default function App() {
     });
   }, [appStage, language]);
 
-  // --- Auto Scroll Chat ---
+
   useEffect(() => {
     if (chatRef.current) chatRef.current.scrollTop = chatRef.current.scrollHeight;
   }, [messages]);
 
-  // --- Speak Logic ---
   const speakText = async (text) => {
     if (!text || !text.trim()) return;
     if (!isReady) return;
@@ -131,27 +130,27 @@ export default function App() {
     sentences.forEach((s) => speak(s.trim()));
   };
 
-  // --- Stop TTS Logic ---
+
   const stopTTS = () => {
     resetTTS();
   };
 
-  // --- Send Message Logic ---
+ 
   const sendMessage = async (queryText = input, wasVoice = false) => {
     if (!queryText.trim() || loading) return;
     
     stopTTS();
     
-    // User Message
+   
     setMessages(prev => [...prev, { role: 'User', content: queryText }]);
     setInput('');
     setLoading(true);
 
-    // AI Placeholder
+
     setMessages(prev => [...prev, { role: 'AI', content: '...' }]);
 
     try {
-      const res = await fetch('https://ng-chatbot-backend.onrender.com/ask', {
+      const res = await fetch('/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -187,7 +186,6 @@ export default function App() {
     }
   };
 
-  // --- Voice Input Logic ---
   const handleVoiceInput = () => {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!SpeechRecognition) return alert("Browser does not support Speech Recognition.");
@@ -203,14 +201,12 @@ export default function App() {
   return (
     <div className="zoe-container">
       <header className="zoe-header">
-        {/* <button onClick={() => setAppStage('selection')} className="back-btn"><FiChevronLeft /> {t.back}</button> */}
         <h2 className="brand">{t.navGurukul}</h2>
         <button onClick={() => setLanguage(l => l === 'en' ? 'hi' : 'en')} className="lang-btn">
           <FiGlobe /> {language === 'en' ? 'English' : 'हिन्दी'}
         </button>
       </header>
 
-      {/* --- STAGE 1: SELECTION --- */}
       {appStage === 'selection' && (
         <div className="stage selection">
           <div className="zoe-avatar-static">
@@ -231,7 +227,6 @@ export default function App() {
         </div>
       )}
 
-      {/* --- STAGE 2: SETUP --- */}
       {appStage === 'setup' && (
         <div className="stage setup">
           <h2>Test your mic and speaker</h2>
