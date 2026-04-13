@@ -15,6 +15,7 @@ const translations = {
     partner: 'Partner', partnerDesc: 'Professional info for NGO, government and teachers.',
     testMic: 'Test Microphone', testSpk: 'Test Speaker', micOk: 'Mic Access Granted', spkOk: 'Sound Working?',
     askAnything: 'Ask AI anything...',
+    tapToBegin: 'Tap to begin',
     quickPrompt1: 'What is NavGurukul?',
     quickPrompt2: 'Tell me about Admission Process',
     quickPrompt3: 'Tell me about Schools in NavGurukul',
@@ -28,16 +29,12 @@ const translations = {
     partner: 'भागीदार', partnerDesc: 'एनजीओ, सरकार और शिक्षकों के लिए पेशेवर जानकारी।',
     testMic: 'माइक टेस्ट करें', testSpk: 'स्पीकर टेस्ट करें', micOk: 'माइक चालू है', spkOk: 'आवाज़ आई?',
     askAnything: 'AI से कुछ भी पूछें...',
+    tapToBegin: 'शुरू करने के लिए टैप करें',
     quickPrompt1: 'NavGurukul क्या है?',
     quickPrompt2: 'प्रवेश प्रक्रिया बताएं',
     quickPrompt3: 'NavGurukul में स्कूलों के बारे में बताएं',
     quickPrompt4: 'मुझे सफलता के कहानियाँ दिखाएं'
   }
-};
-
-const welcomeMessages = {
-  en: "Hi, I'm Swara. I’ll help you in a warm, human tone. Ask me anything about NavGurukul.",
-  hi: 'नमस्ते, मैं स्वरा हूँ। मैं आपको एक सहज, मानवीय अंदाज़ में मदद करूँगी। आप NavGurukul के बारे में कुछ भी पूछ सकते हैं।'
 };
 
 export default function App() {
@@ -47,12 +44,13 @@ export default function App() {
   const [selectedRole, setSelectedRole] = useState('student');
   const [loading, setLoading] = useState(false);
   const [isListening, setIsListening] = useState(false);
-  const [language, setLanguage] = useState('en'); 
+  const [language, setLanguage] = useState('hi');
   const [micTested, setMicTested] = useState(false);
+  const [hasUserGesture, setHasUserGesture] = useState(false);
 
   const chatRef = useRef(null);
-  const welcomeAnnouncedRef = useRef(false);
   const setupAnnouncedRef = useRef(false);
+  const selectionAnnouncedRef = useRef(false);
   const t = translations[language];
 
   // --- TTS Hook Config ---
@@ -74,22 +72,12 @@ export default function App() {
 
   const { speak, isReady, isPlaying: isTTSPlaying, resetTTS, isLoading: isModelLoading } = usePiper(piperConfig);
 
-  const speakWelcomeMessage = async (text) => {
-    await speakText(text);
-  };
-
-  useEffect(() => {
-    if (appStage !== 'chat') {
-      welcomeAnnouncedRef.current = false;
-    }
-  }, [appStage, language]);
-
   useEffect(() => {
     if (appStage !== 'setup' || setupAnnouncedRef.current) return;
     setupAnnouncedRef.current = true;
     const intro = language === 'hi'
-      ? 'नमस्ते, मैं स्वरा हूँ। चलिए माइक्रोफोन और स्पीकर टेस्ट करते हैं।'
-      : "Hi, I'm Swara. Let's test your microphone and speaker.";
+      ? 'चलिए माइक्रोफोन और स्पीकर टेस्ट करते हैं।'
+      : "Let's test your microphone and speaker.";
     speakText(intro).catch(() => {});
   }, [appStage, language]);
 
@@ -100,22 +88,23 @@ export default function App() {
   }, [appStage]);
 
   useEffect(() => {
-    if (appStage !== 'chat' || welcomeAnnouncedRef.current) return;
+    if (appStage === 'selection') {
+      selectionAnnouncedRef.current = false;
+    }
+  }, [language]);
 
-    welcomeAnnouncedRef.current = true;
-    const welcomeText = welcomeMessages[language] || welcomeMessages.en;
-
-    setMessages(prev => {
-      if (prev.some(message => message.isWelcome)) {
-        return prev;
-      }
-      return [...prev, { role: 'AI', content: welcomeText, isWelcome: true }];
-    });
-
-    speakWelcomeMessage(welcomeText).catch((error) => {
-      console.error('Initial greeting error:', error);
-    });
-  }, [appStage, language]);
+  useEffect(() => {
+    if (appStage !== 'selection') {
+      selectionAnnouncedRef.current = false;
+      return;
+    }
+    if (!hasUserGesture || !isReady || selectionAnnouncedRef.current) return;
+    selectionAnnouncedRef.current = true;
+    const greeting = language === 'hi'
+      ? 'नमस्ते! मैं स्वरा हूँ। आगे बढ़ने के लिए कृपया बताइए — क्या आप छात्र हैं, माता-पिता हैं, या पार्टनर?'
+      : "Hi, I'm Swara. To get started, please tell me — are you a student, a parent, or a partner?";
+    speakText(greeting).catch(() => {});
+  }, [appStage, isReady, language, hasUserGesture]);
 
   // --- Auto Scroll Chat ---
   useEffect(() => {
@@ -151,14 +140,14 @@ export default function App() {
     setMessages(prev => [...prev, { role: 'AI', content: '...' }]);
 
     try {
-      const res = await fetch('https://ng-chatbot-backend.onrender.com/ask', {
+      const res = await fetch('/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
           query: queryText, 
           role: selectedRole, 
           language,
-          history: messages.filter(m => !m.isWelcome).slice(-5).map(m => `${m.role}: ${m.content}`).join("\n") 
+          history: messages.slice(-10).map(m => `${m.role}: ${m.content}`).join("\n")
         })
       });
 
@@ -202,6 +191,28 @@ export default function App() {
 
   return (
     <div className="zoe-container">
+      {!hasUserGesture && (
+        <div
+          onClick={() => setHasUserGesture(true)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'rgba(252, 228, 236, 0.96)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 9999,
+            cursor: 'pointer',
+            textAlign: 'center',
+            padding: '24px',
+          }}
+        >
+          <div style={{ fontSize: '64px', marginBottom: '16px' }}>👋</div>
+          <h2 style={{ color: '#2d5a27', margin: '0 0 8px 0' }}>{t.hiGuest}</h2>
+          <p style={{ color: '#2d5a27', fontSize: '18px', margin: 0 }}>{t.tapToBegin}</p>
+        </div>
+      )}
       <header className="zoe-header">
         {/* <button onClick={() => setAppStage('selection')} className="back-btn"><FiChevronLeft /> {t.back}</button> */}
         <h2 className="brand">{t.navGurukul}</h2>
@@ -279,7 +290,7 @@ export default function App() {
           </div>
 
           <div className="chat-history" ref={chatRef}>
-            {(messages.length === 0 || (messages.length === 1 && messages[0].isWelcome)) && (
+            {messages.length === 0 && (
               <div className="quick-prompts-section">
                 <p className="quick-prompts-label">Quick Questions:</p>
                 <div className="quick-prompts-grid">
