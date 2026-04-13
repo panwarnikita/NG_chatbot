@@ -151,7 +151,7 @@ export default function App() {
     setMessages(prev => [...prev, { role: 'AI', content: '...' }]);
 
     try {
-      const res = await fetch('https://ng-chatbot-backend.onrender.com/ask', {
+      const res = await fetch('/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
