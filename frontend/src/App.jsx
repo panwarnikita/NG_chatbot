@@ -8,36 +8,39 @@ import { usePiper } from './hooks/text-to-speech_hook';
 // --- Translations & Content ---
 const translations = {
   en: {
-    navGurukul: 'Swara ✨', hiGuest: "Hi, I'm Swara", selectRole: 'Please select your role to continue.', 
+    navGurukul: 'Swara ', hiGuest: "Hi, I'm Swara", selectRole: 'Please select your role to continue.', 
     startBtn: 'Start Chatting', loading: 'Loading Voices...', back: 'Back', 
-    student: 'Student', studentDesc: 'Simple, clear and step-by-step admission help.',
-    parent: 'Parent', parentDesc: 'Safety, eligibility and outcomes with trust-focused guidance.',
-    partner: 'Partner', partnerDesc: 'Professional info for NGO, government and teachers.',
+    student: 'I am Student', studentDesc: 'Simple, clear and step-by-step admission help.',
+    parent: 'I am Parent', parentDesc: 'Safety, eligibility and outcomes with trust-focused guidance.',
+    partner: 'I am Partner', partnerDesc: 'Professional info for NGO, government and teachers.',
     testMic: 'Test Microphone', testSpk: 'Test Speaker', micOk: 'Mic Access Granted', spkOk: 'Sound Working?',
     askAnything: 'Ask AI anything...',
+    tapToBegin: 'Tap to begin',
     quickPrompt1: 'What is NavGurukul?',
     quickPrompt2: 'Tell me about Admission Process',
     quickPrompt3: 'Tell me about Schools in NavGurukul',
     quickPrompt4: 'show me success stories'
   },
   hi: {
-    navGurukul: 'स्वरा ✨', hiGuest: 'नमस्ते, मैं स्वरा हूँ', selectRole: 'जारी रखने के लिए कृपया अपनी भूमिका चुनें।',
+    navGurukul: 'स्वरा ', hiGuest: 'नमस्ते, मैं स्वरा हूँ', selectRole: 'जारी रखने के लिए कृपया अपनी भूमिका चुनें।',
     startBtn: 'बातचीत शुरू करें', loading: 'आवाज़ें लोड हो रही हैं...', back: 'पीछे', 
-    student: 'छात्र', studentDesc: 'सरल, स्पष्ट और चरण-दर-चरण प्रवेश सहायता।',
-    parent: 'माता-पिता', parentDesc: 'सुरक्षा, पात्रता और विश्वास-केंद्रित मार्गदर्शन।',
-    partner: 'भागीदार', partnerDesc: 'एनजीओ, सरकार और शिक्षकों के लिए पेशेवर जानकारी।',
+    student: 'मैं छात्र  हूँ', studentDesc: 'सरल, स्पष्ट और चरण-दर-चरण प्रवेश सहायता।',
+    parent: 'मैं माता-पिता हूँ', parentDesc: 'सुरक्षा, पात्रता और विश्वास-केंद्रित मार्गदर्शन।',
+    partner: 'मैं भागीदार हूँ', partnerDesc: 'एनजीओ, सरकार और शिक्षकों के लिए पेशेवर जानकारी।',
     testMic: 'माइक टेस्ट करें', testSpk: 'स्पीकर टेस्ट करें', micOk: 'माइक चालू है', spkOk: 'आवाज़ आई?',
     askAnything: 'AI से कुछ भी पूछें...',
-    quickPrompt1: 'NavGurukul क्या है?',
+    tapToBegin: 'शुरू करने के लिए टैप करें',
+    quickPrompt1: 'नवगुरुकुल क्या है?',
     quickPrompt2: 'प्रवेश प्रक्रिया बताएं',
-    quickPrompt3: 'NavGurukul में स्कूलों के बारे में बताएं',
+    quickPrompt3: 'नवगुरुकुल में स्कूलों के बारे में बताएं',
     quickPrompt4: 'मुझे सफलता के कहानियाँ दिखाएं'
   }
 };
 
+// --- Welcome Messages ---
 const welcomeMessages = {
-  en: "Hi, I'm Swara. I’ll help you in a warm, human tone. Ask me anything about NavGurukul.",
-  hi: 'नमस्ते, मैं स्वरा हूँ। मैं आपको एक सहज, मानवीय अंदाज़ में मदद करूँगी। आप NavGurukul के बारे में कुछ भी पूछ सकते हैं।'
+  en: "Hi, I'm Swara. I can help you with any information about NavGurukul. What would you like to know today?",
+  hi: 'नमस्ते! मैं स्वरा हूँ। मैं नवगुरुकुल के बारे में आपकी किसी भी प्रकार की सहायता कर सकती हूँ। बताइए, आज आप क्या जानना चाहेंगे?'
 };
 
 export default function App() {
@@ -47,12 +50,14 @@ export default function App() {
   const [selectedRole, setSelectedRole] = useState('student');
   const [loading, setLoading] = useState(false);
   const [isListening, setIsListening] = useState(false);
-  const [language, setLanguage] = useState('en'); 
+  const [language, setLanguage] = useState('hi');
   const [micTested, setMicTested] = useState(false);
+  const [hasUserGesture, setHasUserGesture] = useState(false);
 
   const chatRef = useRef(null);
-  const welcomeAnnouncedRef = useRef(false);
   const setupAnnouncedRef = useRef(false);
+  const selectionAnnouncedRef = useRef(false);
+  const chatWelcomeAnnouncedRef = useRef(false);
   const t = translations[language];
 
   // --- TTS Hook Config ---
@@ -74,22 +79,12 @@ export default function App() {
 
   const { speak, isReady, isPlaying: isTTSPlaying, resetTTS, isLoading: isModelLoading } = usePiper(piperConfig);
 
-  const speakWelcomeMessage = async (text) => {
-    await speakText(text);
-  };
-
-  useEffect(() => {
-    if (appStage !== 'chat') {
-      welcomeAnnouncedRef.current = false;
-    }
-  }, [appStage, language]);
-
   useEffect(() => {
     if (appStage !== 'setup' || setupAnnouncedRef.current) return;
     setupAnnouncedRef.current = true;
     const intro = language === 'hi'
-      ? 'नमस्ते, मैं स्वरा हूँ। चलिए माइक्रोफोन और स्पीकर टेस्ट करते हैं।'
-      : "Hi, I'm Swara. Let's test your microphone and speaker.";
+      ? 'चलिए माइक्रोफोन और स्पीकर टेस्ट करते हैं।'
+      : "Let's test your microphone and speaker.";
     speakText(intro).catch(() => {});
   }, [appStage, language]);
 
@@ -97,25 +92,32 @@ export default function App() {
     if (appStage !== 'setup') {
       setupAnnouncedRef.current = false;
     }
+    if (appStage === 'selection') {
+      selectionAnnouncedRef.current = false;
+      chatWelcomeAnnouncedRef.current = false;
+    }
   }, [appStage]);
 
   useEffect(() => {
-    if (appStage !== 'chat' || welcomeAnnouncedRef.current) return;
+    if (appStage === 'chat' && messages.length === 0 && !chatWelcomeAnnouncedRef.current && isReady) {
+      chatWelcomeAnnouncedRef.current = true;
+      const welcomeMsg = welcomeMessages[language];
+      speakText(welcomeMsg).catch(() => {});
+    }
+  }, [appStage, isReady, language]);
 
-    welcomeAnnouncedRef.current = true;
-    const welcomeText = welcomeMessages[language] || welcomeMessages.en;
-
-    setMessages(prev => {
-      if (prev.some(message => message.isWelcome)) {
-        return prev;
-      }
-      return [...prev, { role: 'AI', content: welcomeText, isWelcome: true }];
-    });
-
-    speakWelcomeMessage(welcomeText).catch((error) => {
-      console.error('Initial greeting error:', error);
-    });
-  }, [appStage, language]);
+  useEffect(() => {
+    if (appStage !== 'selection') {
+      selectionAnnouncedRef.current = false;
+      return;
+    }
+    if (!hasUserGesture || !isReady || selectionAnnouncedRef.current) return;
+    selectionAnnouncedRef.current = true;
+    const greeting = language === 'hi'
+      ? 'नमस्ते! मैं स्वरा हूँ। आगे बढ़ने के लिए कृपया बताइए — क्या आप छात्र हैं, माता-पिता हैं, या भागीदार हैं?'
+      : "Hi, I'm Swara. To get started, please tell me — are you a student, a parent, or a partner?";
+    speakText(greeting).catch(() => {});
+  }, [appStage, isReady, language, hasUserGesture]);
 
   // --- Auto Scroll Chat ---
   useEffect(() => {
@@ -158,7 +160,7 @@ export default function App() {
           query: queryText, 
           role: selectedRole, 
           language,
-          history: messages.filter(m => !m.isWelcome).slice(-5).map(m => `${m.role}: ${m.content}`).join("\n") 
+          history: messages.slice(-10).map(m => `${m.role}: ${m.content}`).join("\n")
         })
       });
 
@@ -202,6 +204,28 @@ export default function App() {
 
   return (
     <div className="zoe-container">
+      {!hasUserGesture && (
+        <div
+          onClick={() => setHasUserGesture(true)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'rgba(252, 228, 236, 0.96)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 9999,
+            cursor: 'pointer',
+            textAlign: 'center',
+            padding: '24px',
+          }}
+        >
+          <div style={{ fontSize: '64px', marginBottom: '16px' }}>👋</div>
+          <h2 style={{ color: '#2d5a27', margin: '0 0 8px 0' }}>{t.hiGuest}</h2>
+          <p style={{ color: '#2d5a27', fontSize: '18px', margin: 0 }}>{t.tapToBegin}</p>
+        </div>
+      )}
       <header className="zoe-header">
         {/* <button onClick={() => setAppStage('selection')} className="back-btn"><FiChevronLeft /> {t.back}</button> */}
         <h2 className="brand">{t.navGurukul}</h2>
@@ -214,8 +238,8 @@ export default function App() {
       {appStage === 'selection' && (
         <div className="stage selection">
           <div className="zoe-avatar-static">
-            <video autoPlay muted loop width="300" height="300">
-              <source src="/glassadjustment.mp4" type="video/mp4" />
+            <video autoPlay muted loop key={isTTSPlaying ? "speaking" : "idle"} width="300" height="300">
+              <source src={isTTSPlaying ? "/speaking-edited.mp4" : "/glassadjustment.mp4"} type="video/mp4" />
             </video>
           </div>
           <h1>{t.hiGuest}</h1>
@@ -279,7 +303,7 @@ export default function App() {
           </div>
 
           <div className="chat-history" ref={chatRef}>
-            {(messages.length === 0 || (messages.length === 1 && messages[0].isWelcome)) && (
+            {messages.length === 0 && (
               <div className="quick-prompts-section">
                 <p className="quick-prompts-label">Quick Questions:</p>
                 <div className="quick-prompts-grid">
