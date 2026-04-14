@@ -30,11 +30,16 @@ const translations = {
     testMic: 'माइक टेस्ट करें', testSpk: 'स्पीकर टेस्ट करें', micOk: 'माइक चालू है', spkOk: 'आवाज़ आई?',
     askAnything: 'AI से कुछ भी पूछें...',
     tapToBegin: 'शुरू करने के लिए टैप करें',
-    quickPrompt1: 'NavGurukul क्या है?',
+    quickPrompt1: 'नवगुरुकुल क्या है?',
     quickPrompt2: 'प्रवेश प्रक्रिया बताएं',
-    quickPrompt3: 'NavGurukul में स्कूलों के बारे में बताएं',
+    quickPrompt3: 'नवगुरुकुल में स्कूलों के बारे में बताएं',
     quickPrompt4: 'मुझे सफलता के कहानियाँ दिखाएं'
   }
+};
+
+const welcomeMessages = {
+  en: "Hi, I'm Swara. I can help you with any information about NavGurukul. What would you like to know today?",
+  hi: 'नमस्ते! मैं स्वरा हूँ। मैं नवगुरुकुल के बारे में आपकी किसी भी प्रकार की सहायता कर सकती हूँ। बताइए, आज आप क्या जानना चाहेंगे?'
 };
 
 export default function App() {
@@ -51,6 +56,7 @@ export default function App() {
   const chatRef = useRef(null);
   const setupAnnouncedRef = useRef(false);
   const selectionAnnouncedRef = useRef(false);
+  const chatWelcomeAnnouncedRef = useRef(false);
   const t = translations[language];
 
   // --- TTS Hook Config ---
@@ -94,6 +100,16 @@ export default function App() {
   }, [language]);
 
   useEffect(() => {
+    if (appStage !== 'chat') {
+      chatWelcomeAnnouncedRef.current = false;
+      return;
+    }
+    if (!isReady || chatWelcomeAnnouncedRef.current) return;
+    chatWelcomeAnnouncedRef.current = true;
+    speakText(welcomeMessages[language]).catch(() => {});
+  }, [appStage, isReady, language]);
+
+  useEffect(() => {
     if (appStage !== 'selection') {
       selectionAnnouncedRef.current = false;
       return;
@@ -101,11 +117,10 @@ export default function App() {
     if (!hasUserGesture || !isReady || selectionAnnouncedRef.current) return;
     selectionAnnouncedRef.current = true;
     const greeting = language === 'hi'
-      ? 'नमस्ते! मैं स्वरा हूँ। आगे बढ़ने के लिए कृपया बताइए — क्या आप छात्र हैं, माता-पिता हैं, या पार्टनर?'
+      ? 'नमस्ते! मैं स्वरा हूँ। आगे बढ़ने के लिए कृपया बताइए — क्या आप छात्र हैं, माता-पिता हैं, या भागीदार हैं?'
       : "Hi, I'm Swara. To get started, please tell me — are you a student, a parent, or a partner?";
     speakText(greeting).catch(() => {});
   }, [appStage, isReady, language, hasUserGesture]);
-
   // --- Auto Scroll Chat ---
   useEffect(() => {
     if (chatRef.current) chatRef.current.scrollTop = chatRef.current.scrollHeight;
