@@ -8,11 +8,11 @@ import { usePiper } from './hooks/text-to-speech_hook';
 // --- Translations & Content ---
 const translations = {
   en: {
-    navGurukul: 'Swara ✨', hiGuest: "Hi, I'm Swara", selectRole: 'Please select your role to continue.', 
+    navGurukul: 'Swara ', hiGuest: "Hi, I'm Swara", selectRole: 'Please select your role to continue.', 
     startBtn: 'Start Chatting', loading: 'Loading Voices...', back: 'Back', 
-    student: 'Student', studentDesc: 'Simple, clear and step-by-step admission help.',
-    parent: 'Parent', parentDesc: 'Safety, eligibility and outcomes with trust-focused guidance.',
-    partner: 'Partner', partnerDesc: 'Professional info for NGO, government and teachers.',
+    student: 'I am Student', studentDesc: 'Simple, clear and step-by-step admission help.',
+    parent: 'I am Parent', parentDesc: 'Safety, eligibility and outcomes with trust-focused guidance.',
+    partner: 'I am Partner', partnerDesc: 'Professional info for NGO, government and teachers.',
     testMic: 'Test Microphone', testSpk: 'Test Speaker', micOk: 'Mic Access Granted', spkOk: 'Sound Working?',
     askAnything: 'Ask AI anything...',
     tapToBegin: 'Tap to begin',
@@ -22,17 +22,17 @@ const translations = {
     quickPrompt4: 'show me success stories'
   },
   hi: {
-    navGurukul: 'स्वरा ✨', hiGuest: 'नमस्ते, मैं स्वरा हूँ', selectRole: 'जारी रखने के लिए कृपया अपनी भूमिका चुनें।',
+    navGurukul: 'स्वरा ', hiGuest: 'नमस्ते, मैं स्वरा हूँ', selectRole: 'जारी रखने के लिए कृपया अपनी भूमिका चुनें।',
     startBtn: 'बातचीत शुरू करें', loading: 'आवाज़ें लोड हो रही हैं...', back: 'पीछे', 
-    student: 'छात्र', studentDesc: 'सरल, स्पष्ट और चरण-दर-चरण प्रवेश सहायता।',
-    parent: 'माता-पिता', parentDesc: 'सुरक्षा, पात्रता और विश्वास-केंद्रित मार्गदर्शन।',
-    partner: 'भागीदार', partnerDesc: 'एनजीओ, सरकार और शिक्षकों के लिए पेशेवर जानकारी।',
+    student: 'मैं छात्र  हूँ', studentDesc: 'सरल, स्पष्ट और चरण-दर-चरण प्रवेश सहायता।',
+    parent: 'मैं माता-पिता हूँ', parentDesc: 'सुरक्षा, पात्रता और विश्वास-केंद्रित मार्गदर्शन।',
+    partner: 'मैं भागीदार हूँ', partnerDesc: 'एनजीओ, सरकार और शिक्षकों के लिए पेशेवर जानकारी।',
     testMic: 'माइक टेस्ट करें', testSpk: 'स्पीकर टेस्ट करें', micOk: 'माइक चालू है', spkOk: 'आवाज़ आई?',
     askAnything: 'AI से कुछ भी पूछें...',
     tapToBegin: 'शुरू करने के लिए टैप करें',
-    quickPrompt1: 'NavGurukul क्या है?',
+    quickPrompt1: 'नवगुरुकुल क्या है?',
     quickPrompt2: 'प्रवेश प्रक्रिया बताएं',
-    quickPrompt3: 'NavGurukul में स्कूलों के बारे में बताएं',
+    quickPrompt3: 'नवगुरुकुल में स्कूलों के बारे में बताएं',
     quickPrompt4: 'मुझे सफलता के कहानियाँ दिखाएं'
   }
 };
