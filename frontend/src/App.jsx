@@ -37,6 +37,12 @@ const translations = {
   }
 };
 
+// --- Welcome Messages ---
+const welcomeMessages = {
+  en: "Hi, I'm Swara. I can help you with any information about NavGurukul. What would you like to know today?",
+  hi: 'नमस्ते! मैं स्वरा हूँ। मैं नवगुरुकुल के बारे में आपकी किसी भी प्रकार की सहायता कर सकती हूँ। बताइए, आज आप क्या जानना चाहेंगे?'
+};
+
 export default function App() {
   const [appStage, setAppStage] = useState('selection'); 
   const [messages, setMessages] = useState([]);
@@ -51,6 +57,7 @@ export default function App() {
   const chatRef = useRef(null);
   const setupAnnouncedRef = useRef(false);
   const selectionAnnouncedRef = useRef(false);
+  const chatWelcomeAnnouncedRef = useRef(false);
   const t = translations[language];
 
   // --- TTS Hook Config ---
@@ -85,13 +92,19 @@ export default function App() {
     if (appStage !== 'setup') {
       setupAnnouncedRef.current = false;
     }
+    if (appStage === 'selection') {
+      selectionAnnouncedRef.current = false;
+      chatWelcomeAnnouncedRef.current = false;
+    }
   }, [appStage]);
 
   useEffect(() => {
-    if (appStage === 'selection') {
-      selectionAnnouncedRef.current = false;
+    if (appStage === 'chat' && messages.length === 0 && !chatWelcomeAnnouncedRef.current && isReady) {
+      chatWelcomeAnnouncedRef.current = true;
+      const welcomeMsg = welcomeMessages[language];
+      speakText(welcomeMsg).catch(() => {});
     }
-  }, [language]);
+  }, [appStage, isReady, language]);
 
   useEffect(() => {
     if (appStage !== 'selection') {
@@ -101,7 +114,7 @@ export default function App() {
     if (!hasUserGesture || !isReady || selectionAnnouncedRef.current) return;
     selectionAnnouncedRef.current = true;
     const greeting = language === 'hi'
-      ? 'नमस्ते! मैं स्वरा हूँ। आगे बढ़ने के लिए कृपया बताइए — क्या आप छात्र हैं, माता-पिता हैं, या पार्टनर?'
+      ? 'नमस्ते! मैं स्वरा हूँ। आगे बढ़ने के लिए कृपया बताइए — क्या आप छात्र हैं, माता-पिता हैं, या भागीदार हैं?'
       : "Hi, I'm Swara. To get started, please tell me — are you a student, a parent, or a partner?";
     speakText(greeting).catch(() => {});
   }, [appStage, isReady, language, hasUserGesture]);
@@ -225,8 +238,8 @@ export default function App() {
       {appStage === 'selection' && (
         <div className="stage selection">
           <div className="zoe-avatar-static">
-            <video autoPlay muted loop width="300" height="300">
-              <source src="/glassadjustment.mp4" type="video/mp4" />
+            <video autoPlay muted loop key={isTTSPlaying ? "speaking" : "idle"} width="300" height="300">
+              <source src={isTTSPlaying ? "/speaking-edited.mp4" : "/glassadjustment.mp4"} type="video/mp4" />
             </video>
           </div>
           <h1>{t.hiGuest}</h1>
