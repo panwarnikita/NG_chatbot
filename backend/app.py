@@ -4,9 +4,10 @@ import uuid
 from dotenv import load_dotenv
 from flask import Flask, request, jsonify, Response, stream_with_context
 from flask_cors import CORS
+from openai import OpenAI
 
 from langchain_qdrant import QdrantVectorStore
-from langchain_nvidia_ai_endpoints import ChatNVIDIA, NVIDIAEmbeddings 
+from langchain_nvidia_ai_endpoints import NVIDIAEmbeddings 
 
 load_dotenv()
 
@@ -47,13 +48,9 @@ def initialize_vector_db():
 def initialize_llms():
     global primary_llm
     if primary_llm is None:
-        primary_llm = ChatNVIDIA(
-            # model="meta/llama-3.1-8b-instruct", 
-            # model="meta/llama-3.1-70b-instruct",
-            # model="abacusai/dracarys-llama-3.1-70b-instruct",
-            model = "meta/llama-3.3-70b-instruct",
-            temperature=0.1, 
-            max_completion_tokens=LLM_MAX_TOKENS
+        primary_llm = OpenAI(
+            api_key=os.environ.get("DEEPSEEK_API_KEY"),
+            base_url="https://api.deepseek.com/v1"
         )
 
 @app.route('/ask', methods=['POST'])
@@ -162,14 +159,24 @@ def ask():
 
     try:
         if user_lang == 'hi':
-            full_message = f"{system_prompt}\n\n[इतिहास]\n{history_from_frontend}\nप्रश्न: {query}\nहिंदी में उत्तर:"
+            user_message = f"[इतिहास]\n{history_from_frontend}\n\nप्रश्न: {query}\nहिंदी में उत्तर:"
         else:
-            full_message = f"{system_prompt}\n\n[HISTORY]\n{history_from_frontend}\nUser Question: {query}\nAI:"
+            user_message = f"[HISTORY]\n{history_from_frontend}\n\nUser Question: {query}\nAI:"
         
         def generate():
-            for chunk in primary_llm.stream(full_message):
-                if chunk.content:
-                    yield chunk.content
+            response = primary_llm.chat.completions.create(
+                model="deepseek-chat",
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_message}
+                ],
+                temperature=0.1,
+                max_tokens=LLM_MAX_TOKENS,
+                stream=True
+            )
+            for chunk in response:
+                if chunk.choices[0].delta.content:
+                    yield chunk.choices[0].delta.content
 
         return Response(stream_with_context(generate()), mimetype='text/plain')
     except Exception as e: 
