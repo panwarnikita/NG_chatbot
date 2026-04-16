@@ -4,10 +4,10 @@ pymongo[srv]
 langchain
 langchain-community
 langchain-qdrant
-langchain-nvidia-ai-endpoints
 langchain-text-splitters
 qdrant-client
 python-dotenv
 gunicorn
 requests
 flask-cors
+openai
