@@ -139,17 +139,67 @@ export default function App() {
   };
 
   // --- Send Message Logic ---
+  // const sendMessage = async (queryText = input, wasVoice = false) => {
+  //   if (!queryText.trim() || loading) return;
+    
+  //   stopTTS();
+    
+  //   // User Message
+  //   setMessages(prev => [...prev, { role: 'User', content: queryText }]);
+  //   setInput('');
+  //   setLoading(true);
+
+  //   // AI Placeholder
+  //   setMessages(prev => [...prev, { role: 'AI', content: '...' }]);
+
+  //   try {
+  //     const res = await fetch('/ask', {
+  //       method: 'POST',
+  //       headers: { 'Content-Type': 'application/json' },
+  //       body: JSON.stringify({ 
+  //         query: queryText, 
+  //         role: selectedRole, 
+  //         language,
+  //         history: messages.slice(-10).map(m => `${m.role}: ${m.content}`).join("\n")
+  //       })
+  //     });
+
+  //     const reader = res.body.getReader();
+  //     const decoder = new TextDecoder();
+  //     let fullResponse = "";
+
+  //     while (true) {
+  //       const { done, value } = await reader.read();
+  //       if (done) break;
+  //       fullResponse += decoder.decode(value);
+        
+  //       setMessages(prev => {
+  //         const newMsg = [...prev];
+  //         newMsg[newMsg.length - 1].content = fullResponse;
+  //         return newMsg;
+  //       });
+  //     }
+      
+  //     await speakText(fullResponse);
+
+  //   } catch (e) {
+  //     console.error("Fetch Error:", e);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
+
+  // --- Updated Send Message Logic for Ultra-Fast Voice ---
   const sendMessage = async (queryText = input, wasVoice = false) => {
     if (!queryText.trim() || loading) return;
     
-    stopTTS();
+    stopTTS(); // Purani voice band karo
     
-    // User Message
+    // UI Update
     setMessages(prev => [...prev, { role: 'User', content: queryText }]);
     setInput('');
     setLoading(true);
-
-    // AI Placeholder
     setMessages(prev => [...prev, { role: 'AI', content: '...' }]);
 
     try {
@@ -167,23 +217,63 @@ export default function App() {
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
       let fullResponse = "";
+      let lastSpokenIndex = 0; 
 
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
-        fullResponse += decoder.decode(value);
         
+        const chunk = decoder.decode(value);
+        fullResponse += chunk;
+        
+        // 1. Update UI Text
         setMessages(prev => {
           const newMsg = [...prev];
           newMsg[newMsg.length - 1].content = fullResponse;
           return newMsg;
         });
+
+        // 2. Faster Voice Logic
+        const unsentPart = fullResponse.slice(lastSpokenIndex);
+        const words = unsentPart.trim().split(/\s+/);
+
+        // Terminate on punctuation OR if we reach 5 words
+        const terminators = /[.!?।\n]/;
+        const hasTerminator = terminators.test(unsentPart);
+        
+        if (hasTerminator || words.length >= 5) {
+          let boundaryIndex = unsentPart.search(terminators);
+          
+          // Agar punctuation nahi mila par 5 words ho gaye, toh last space dhoondo
+          if (boundaryIndex === -1) {
+            boundaryIndex = unsentPart.lastIndexOf(' ');
+          }
+
+          if (boundaryIndex !== -1) {
+            const textToSpeak = unsentPart.slice(0, boundaryIndex + 1).trim();
+            
+            // Sirf tab bole jab text valid ho
+            if (textToSpeak.length > 1) {
+              speak(textToSpeak);
+              lastSpokenIndex += (boundaryIndex + 1);
+            }
+          }
+        }
       }
-      
-      await speakText(fullResponse);
+
+      // Final Check: Bacha hua text (agar last mein punctuation na ho)
+      const remaining = fullResponse.slice(lastSpokenIndex).trim();
+      if (remaining.length > 0) {
+        speak(remaining);
+      }
 
     } catch (e) {
       console.error("Fetch Error:", e);
+      setMessages(prev => {
+        const newMsg = [...prev];
+        newMsg[newMsg.length - 1].content = "Sorry, something went wrong. Please try again.";
+        return newMsg;
+      });
     } finally {
       setLoading(false);
     }
@@ -230,7 +320,7 @@ export default function App() {
         {/* <button onClick={() => setAppStage('selection')} className="back-btn"><FiChevronLeft /> {t.back}</button> */}
         <h2 className="brand">{t.navGurukul}</h2>
         <button onClick={() => setLanguage(l => l === 'en' ? 'hi' : 'en')} className="lang-btn">
-          <FiGlobe /> {language === 'en' ? 'English' : 'हिन्दी'}
+          <FiGlobe /> {language === 'en' ? 'हिन्दी' : 'English'}
         </button>
       </header>
 

@@ -120,10 +120,10 @@ body {
 }
 
 .ai-visual-container video {
-  width: 140px;
-  height: 140px;
+  width: 300px;
+  height: 300px;
   object-fit: contain;
-  border-radius: 10px;
+  border-radius: 60%;
 }
 
 /* --- Role Selection Grid --- */
@@ -351,7 +351,7 @@ body {
   flex-direction: column !important;
   height: 100vh !important; /* Full viewport */
   padding-top: 70px !important; /* Header height */
-  justify-content: space-between !important;
+  justify-content: flex-start !important;
   overflow: hidden !important; /* Screen scroll nahi hogi */
   position: fixed !important;
   top: 0 !important;
@@ -363,8 +363,8 @@ body {
 /* 2. Avatar Area (Top fixed) */
 .stage.chat .ai-visual-container {
   flex-shrink: 0 !important;
-  margin-bottom: 10px !important;
-  margin-top: 70px !important; /* Account for header */
+  margin-bottom: 15px !important;
+  margin-top: 0 !important;
   display: flex;
   justify-content: center;
 }
@@ -499,8 +499,9 @@ body {
   }
 
   .ai-visual-container video {
-    width: 100px !important;
-    height: 100px !important;
+    width: 140px !important;
+    height: 140px !important;
+    border-radius: 50% !important;
   }
 
   /* Role grid - stack to 1 column */
@@ -619,8 +620,9 @@ body {
   }
 
   .ai-visual-container video {
-    width: 120px !important;
-    height: 120px !important;
+    width: 170px !important;
+    height: 170px !important;
+    border-radius: 50% !important;
   }
 
   /* Role grid - 2 columns */
@@ -719,8 +721,9 @@ body {
   }
 
   .ai-visual-container video {
-    width: 130px !important;
-    height: 130px !important;
+    width: 180px !important;
+    height: 180px !important;
+    border-radius: 50% !important;
   }
 
   /* Role grid - 3 columns */
@@ -796,8 +799,9 @@ body {
   }
 
   .ai-visual-container video {
-    width: 140px !important;
-    height: 140px !important;
+    width: 200px !important;
+    height: 200px !important;
+    border-radius: 50% !important;
   }
 
   /* Role grid - 3 columns */
