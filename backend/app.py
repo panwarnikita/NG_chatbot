@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
+import re
 import uuid
 from dotenv import load_dotenv
 
@@ -59,6 +60,24 @@ def initialize_llms():
             base_url="https://api.deepseek.com/v1"
         )
 
+_DEVANAGARI_RE = re.compile(r"[\u0900-\u097F]")
+_HINGLISH_MARKERS = {
+    "kya", "hai", "hain", "ho", "hota", "hoti", "raha", "rahi", "rahe",
+    "kaise", "kahan", "kaha", "kab", "kyun", "kyu", "kaun", "konsa", "kitna", "kitni",
+    "mera", "meri", "mere", "aap", "tum", "tumhara", "apka", "apke",
+    "kar", "karo", "karna", "karta", "karti", "karte",
+    "batao", "batana", "bataiye", "chahta", "chahti", "chahiye",
+    "mein", "ke", "ki", "ka", "ko", "se", "par", "aur", "ya", "bhi", "to", "jo",
+    "ye", "yeh", "wo", "woh", "nahi", "nahin", "accha", "theek",
+    "liye", "liya", "lena", "dena", "baare", "bare",
+}
+
+def _looks_like_english(query):
+    if _DEVANAGARI_RE.search(query):
+        return False
+    tokens = re.findall(r"[A-Za-z]+", query.lower())
+    return not any(t in _HINGLISH_MARKERS for t in tokens)
+
 def translate_hi_to_en_for_retrieval(client, hi_query):
     # Why: corpus is English + Hinglish (Roman script), but the embedding model
     # (nv-embedqa-e5-v5) is English-first. Devanagari queries end up cosine-far
@@ -68,11 +87,25 @@ def translate_hi_to_en_for_retrieval(client, hi_query):
     # English aligns its script/vocabulary with the corpus before retrieval.
     # The original Hindi query is still passed to the LLM so the user-facing
     # answer stays in Hindi.
+    if _looks_like_english(hi_query):
+        return hi_query
     try:
         resp = client.chat.completions.create(
             model="deepseek-chat",
             messages=[
-                {"role": "system", "content": "The user's question is in Hindi — written either in Devanagari (e.g. 'नवगुरुकुल का संस्थापक कौन है') or in Hinglish / Romanized Hindi (e.g. 'navGurukul ke baare mein batao'). Translate it into a concise English search query suitable for vector retrieval. Preserve proper nouns like NavGurukul as-is. Output only the English query text — no quotes, no prefix, no explanation."},
+                {"role": "system", "content": (
+                    "The user's query may be in Devanagari Hindi (e.g. 'नवगुरुकुल का संस्थापक कौन है'), "
+                    "Romanized Hinglish (e.g. 'navGurukul ke baare mein batao'), or already in English. "
+                    "If it is already English, return it unchanged. "
+                    "Otherwise, translate it into an English search query suitable for vector retrieval. "
+                    "Rules:\n"
+                    "1. Preserve the question form — if the user asked a question, output a question, not a bare topic phrase.\n"
+                    "2. Preserve proper nouns like NavGurukul as-is.\n"
+                    "3. If the term has a well-known NavGurukul acronym, include BOTH the acronym and the expansion. "
+                    "Known acronyms: SOE = School of Education, SOP = School of Programming, CM = Campus Manager. "
+                    "For example, 'स्कूल ऑफ़ एजूकेशन के बारे में बताओ' → 'Tell me about SOE (School of Education)'.\n"
+                    "Output only the query text — no quotes, no prefix, no explanation."
+                )},
                 {"role": "user", "content": hi_query}
             ],
             temperature=0.0,
@@ -114,13 +147,13 @@ def ask():
     else:
         rag_query = query
 
-    # Translate Devanagari queries to English before vector search. See
-    # translate_hi_to_en_for_retrieval() docstring for rationale (corpus is
-    # English/Hinglish, embedding model is English-first, so Hindi queries
-    # retrieve irrelevant docs).
-    if user_lang == 'hi':
-        original_rag_query = rag_query
-        rag_query = translate_hi_to_en_for_retrieval(primary_llm, rag_query)
+    # Normalize query to English for retrieval regardless of UI language.
+    # Users may type Hinglish even when user_lang=='en' (e.g. "navgurukul ke
+    # baare mein batao"). _looks_like_english() short-circuits pure-English
+    # queries so there's no LLM cost for them.
+    original_rag_query = rag_query
+    rag_query = translate_hi_to_en_for_retrieval(primary_llm, rag_query)
+    if rag_query != original_rag_query:
         print(f"[DEBUG] HI->EN rag_query: {original_rag_query[:120]} => {rag_query[:120]}", flush=True)
 
     docs = vector_db.similarity_search(rag_query, k=RAG_TOP_K) if vector_db else []
