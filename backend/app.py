@@ -59,6 +59,31 @@ def initialize_llms():
             base_url="https://api.deepseek.com/v1"
         )
 
+def translate_hi_to_en_for_retrieval(client, hi_query):
+    # Why: corpus is English + Hinglish (Roman script), but the embedding model
+    # (nv-embedqa-e5-v5) is English-first. Devanagari queries end up cosine-far
+    # from the Hinglish/English chunks, so similarity_search returns irrelevant
+    # docs and the LLM — grounded only on context — falls back to "I don't have
+    # that information" for every Hindi question. Translating the query to
+    # English aligns its script/vocabulary with the corpus before retrieval.
+    # The original Hindi query is still passed to the LLM so the user-facing
+    # answer stays in Hindi.
+    try:
+        resp = client.chat.completions.create(
+            model="deepseek-chat",
+            messages=[
+                {"role": "system", "content": "The user's question is in Hindi — written either in Devanagari (e.g. 'नवगुरुकुल का संस्थापक कौन है') or in Hinglish / Romanized Hindi (e.g. 'navGurukul ke baare mein batao'). Translate it into a concise English search query suitable for vector retrieval. Preserve proper nouns like NavGurukul as-is. Output only the English query text — no quotes, no prefix, no explanation."},
+                {"role": "user", "content": hi_query}
+            ],
+            temperature=0.0,
+            max_tokens=60,
+        )
+        en = (resp.choices[0].message.content or "").strip()
+        return en or hi_query
+    except Exception as e:
+        print(f"[WARN] HI->EN translation failed, falling back to original query: {e}", flush=True)
+        return hi_query
+
 @app.route('/ask', methods=['POST'])
 def ask():
     global vector_db
@@ -88,6 +113,15 @@ def ask():
         rag_query = f"{prev_user_line} {query}"
     else:
         rag_query = query
+
+    # Translate Devanagari queries to English before vector search. See
+    # translate_hi_to_en_for_retrieval() docstring for rationale (corpus is
+    # English/Hinglish, embedding model is English-first, so Hindi queries
+    # retrieve irrelevant docs).
+    if user_lang == 'hi':
+        original_rag_query = rag_query
+        rag_query = translate_hi_to_en_for_retrieval(primary_llm, rag_query)
+        print(f"[DEBUG] HI->EN rag_query: {original_rag_query[:120]} => {rag_query[:120]}", flush=True)
 
     docs = vector_db.similarity_search(rag_query, k=RAG_TOP_K) if vector_db else []
     context = "\n\n---\n\n".join([f"[Doc {i+1}] {d.page_content}" for i, d in enumerate(docs)])[:RAG_MAX_CONTEXT_CHARS]
