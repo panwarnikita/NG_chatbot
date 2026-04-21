@@ -203,7 +203,7 @@ export default function App() {
     setMessages(prev => [...prev, { role: 'AI', content: '...' }]);
 
     try {
-      const res = await fetch('/ask', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || ''}/ask`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
