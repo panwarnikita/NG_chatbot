@@ -427,6 +427,29 @@ gunicorn -w 4 -b 0.0.0.0:5000 app:app
 4. **HTTPS in Production** - Use HTTPS for all API calls
 5. **CORS** - Frontend proxy configured in `vite.config.js`
 
+## 🚀 Deploying the Backend
+
+Backend runs on EC2 as `gunicorn` behind `nginx`. Use the deploy script to push updates without manual SSH steps:
+
+```bash
+EC2_HOST=<public-ip-or-dns> ./scripts/deploy-backend.sh
+```
+
+**What it does** on the EC2 box:
+1. `git pull` the latest code on the configured branch (default `main`)
+2. `pip install -r backend/requirements.txt` inside the existing venv
+3. `kill -HUP` the gunicorn master → workers re-fork and re-read `.env`
+
+**Overridable env vars:**
+- `EC2_HOST` (required) — public IP or DNS of the EC2 instance
+- `EC2_USER` (default `ubuntu`) — SSH user
+- `APP_DIR` (default `/home/ubuntu/ng-chatbot`) — path to the checkout on the box
+- `DEPLOY_BRANCH` (default `main`) — branch to deploy
+
+**Prerequisite:** your laptop can `ssh ${EC2_USER}@${EC2_HOST}` (SSH key already configured in `~/.ssh/config` or agent).
+
+**What it does not do:** managing `.env` (update manually on the box) or running tests (none yet). Both stay deliberate until CI/CD lands.
+
 ## 🎤 Voice Features
 
 ### Speech-to-Text (STT)

@@ -76,6 +76,7 @@ Thumbs.db
 # Local development
 .env.*.local
 local_settings.py
+.secrets/
 *.pem
 *.key
 

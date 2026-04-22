@@ -275,7 +275,13 @@ def ask():
                 if chunk.choices[0].delta.content:
                     yield chunk.choices[0].delta.content
 
-        return Response(stream_with_context(generate()), mimetype='text/plain')
+        headers = {
+            "Content-Type": "text/event-stream",
+            "Cache-Control": "no-cache, no-transform",
+            "X-Accel-Buffering": "no",
+            "Connection": "keep-alive",
+        }
+        return Response(stream_with_context(generate()), headers=headers)
     except Exception as e: 
         return jsonify({"error": str(e)}), 500
 
