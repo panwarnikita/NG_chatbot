@@ -39,8 +39,8 @@ const translations = {
 
 // --- Welcome Messages ---
 const welcomeMessages = {
-  en: "Hi, I'm Swara. I can help you with any information about NavGurukul. What would you like to know today?",
-  hi: 'नमस्ते! मैं स्वरा हूँ मैं नवगुरुकुल के बारे में आपकी किसी भी प्रकार की सहायता कर सकती हूँ। बताइए, आज आप क्या जानना चाहेंगे?'
+  en: "Hi I'm Swara. I can help you with any information about NavGurukul. What would you like to know today?",
+  hi: 'नमस्ते मैं स्वरा हूँ मैं नवगुरुकुल के बारे में आपकी किसी भी प्रकार की सहायता कर सकती हूँ। बताइए, आज आप क्या जानना चाहेंगे?'
 };
 
 export default function App() {
@@ -114,8 +114,8 @@ export default function App() {
     if (!hasUserGesture || !isReady || selectionAnnouncedRef.current) return;
     selectionAnnouncedRef.current = true;
     const greeting = language === 'hi'
-      ? 'नमस्ते! मैं स्वरा हूँ आगे बढ़ने के लिए कृपया बताइए — क्या आप छात्र हैं, माता-पिता हैं, या भागीदार हैं?'
-      : "Hi, I'm Swara. To get started, please tell me — are you a student, a parent, or a partner?";
+      ? 'नमस्ते मैं स्वरा हूँ आगे बढ़ने के लिए कृपया बताइए — क्या आप छात्र हैं, माता-पिता हैं, या भागीदार हैं?'
+      : "Hi I'm Swara. To get started, please tell me — are you a student, a parent, or a partner?";
     speakText(greeting).catch(() => {});
   }, [appStage, isReady, language, hasUserGesture]);
 
