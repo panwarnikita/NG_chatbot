@@ -3,6 +3,8 @@ import { marked } from 'marked';
 import { FiMic, FiGlobe, FiChevronLeft, FiCheckCircle, FiVolume2, FiPause } from 'react-icons/fi';
 import { IoSend } from 'react-icons/io5';
 import { usePiper } from './hooks/text-to-speech_hook';
+import { staticPhrases } from './constants/staticPhrases';
+import { playCachedAudio } from './utils/cachedAudio';
 
 
 // --- Translations & Content ---
@@ -37,11 +39,7 @@ const translations = {
   }
 };
 
-// --- Welcome Messages ---
-const welcomeMessages = {
-  en: "Hi I'm Swara. I can help you with any information about NavGurukul. What would you like to know today?",
-  hi: 'नमस्ते मैं स्वरा हूँ मैं नवगुरुकुल के बारे में आपकी किसी भी प्रकार की सहायता कर सकती हूँ। बताइए, आज आप क्या जानना चाहेंगे?'
-};
+const welcomeMessages = staticPhrases.welcome;
 
 export default function App() {
   const [appStage, setAppStage] = useState('selection'); 
@@ -82,10 +80,9 @@ export default function App() {
   useEffect(() => {
     if (appStage !== 'setup' || setupAnnouncedRef.current) return;
     setupAnnouncedRef.current = true;
-    const intro = language === 'hi'
-      ? 'चलिए माइक्रोफोन और स्पीकर टेस्ट करते हैं।'
-      : "Let's test your microphone and speaker.";
-    speakText(intro).catch(() => {});
+    playCachedAudio('setup_intro', language).catch(() => {
+      speakText(staticPhrases.setup_intro[language]).catch(() => {});
+    });
   }, [appStage, language]);
 
   useEffect(() => {
@@ -99,11 +96,11 @@ export default function App() {
   }, [appStage]);
 
   useEffect(() => {
-    if (appStage === 'chat' && messages.length === 0 && !chatWelcomeAnnouncedRef.current && isReady) {
-      chatWelcomeAnnouncedRef.current = true;
-      const welcomeMsg = welcomeMessages[language];
-      speakText(welcomeMsg).catch(() => {});
-    }
+    if (appStage !== 'chat' || messages.length !== 0 || chatWelcomeAnnouncedRef.current) return;
+    chatWelcomeAnnouncedRef.current = true;
+    playCachedAudio('welcome', language).catch(() => {
+      if (isReady) speakText(welcomeMessages[language]).catch(() => {});
+    });
   }, [appStage, isReady, language]);
 
   useEffect(() => {
@@ -111,12 +108,11 @@ export default function App() {
       selectionAnnouncedRef.current = false;
       return;
     }
-    if (!hasUserGesture || !isReady || selectionAnnouncedRef.current) return;
+    if (!hasUserGesture || selectionAnnouncedRef.current) return;
     selectionAnnouncedRef.current = true;
-    const greeting = language === 'hi'
-      ? 'नमस्ते मैं स्वरा हूँ आगे बढ़ने के लिए कृपया बताइए — क्या आप छात्र हैं, माता-पिता हैं, या भागीदार हैं?'
-      : "Hi I'm Swara. To get started, please tell me — are you a student, a parent, or a partner?";
-    speakText(greeting).catch(() => {});
+    playCachedAudio('selection_intro', language).catch(() => {
+      if (isReady) speakText(staticPhrases.selection_intro[language]).catch(() => {});
+    });
   }, [appStage, isReady, language, hasUserGesture]);
 
   // --- Auto Scroll Chat ---

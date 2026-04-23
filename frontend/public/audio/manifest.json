@@ -1,0 +1,38 @@
+{
+  "welcome": {
+    "en": {
+      "text": "Hi I'm Swara. I can help you with any information about NavGurukul. What would you like to know today?",
+      "model": "Indian_accent_1",
+      "file": "welcome_en.wav"
+    },
+    "hi": {
+      "text": "नमस्ते मैं स्वरा हूँ मैं नवगुरुकुल के बारे में आपकी किसी भी प्रकार की सहायता कर सकती हूँ। बताइए, आज आप क्या जानना चाहेंगे?",
+      "model": "hi_IN-priyamvada-medium",
+      "file": "welcome_hi.wav"
+    }
+  },
+  "setup_intro": {
+    "en": {
+      "text": "Let's test your microphone and speaker.",
+      "model": "Indian_accent_1",
+      "file": "setup_intro_en.wav"
+    },
+    "hi": {
+      "text": "चलिए माइक्रोफोन और स्पीकर टेस्ट करते हैं।",
+      "model": "hi_IN-priyamvada-medium",
+      "file": "setup_intro_hi.wav"
+    }
+  },
+  "selection_intro": {
+    "en": {
+      "text": "Hi I'm Swara. To get started, please tell me — are you a student, a parent, or a partner?",
+      "model": "Indian_accent_1",
+      "file": "selection_intro_en.wav"
+    },
+    "hi": {
+      "text": "नमस्ते मैं स्वरा हूँ आगे बढ़ने के लिए कृपया बताइए — क्या आप छात्र हैं, माता-पिता हैं, या भागीदार हैं?",
+      "model": "hi_IN-priyamvada-medium",
+      "file": "selection_intro_hi.wav"
+    }
+  }
+}
