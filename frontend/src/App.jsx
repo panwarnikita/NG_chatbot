@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { marked } from 'marked';
-import { FiMic, FiGlobe, FiChevronLeft, FiCheckCircle, FiVolume2, FiPause } from 'react-icons/fi';
+import { FiMic, FiGlobe, FiPause } from 'react-icons/fi';
+import { FaGraduationCap, FaUsers, FaHandshake } from 'react-icons/fa';
 import { IoSend } from 'react-icons/io5';
 import { usePiper } from './hooks/text-to-speech_hook';
 
@@ -51,11 +52,9 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [language, setLanguage] = useState('hi');
-  const [micTested, setMicTested] = useState(false);
   const [hasUserGesture, setHasUserGesture] = useState(false);
 
   const chatRef = useRef(null);
-  const setupAnnouncedRef = useRef(false);
   const selectionAnnouncedRef = useRef(false);
   const chatWelcomeAnnouncedRef = useRef(false);
   const t = translations[language];
@@ -80,18 +79,6 @@ export default function App() {
   const { speak, isReady, isPlaying: isTTSPlaying, resetTTS, isLoading: isModelLoading } = usePiper(piperConfig);
 
   useEffect(() => {
-    if (appStage !== 'setup' || setupAnnouncedRef.current) return;
-    setupAnnouncedRef.current = true;
-    const intro = language === 'hi'
-      ? 'चलिए माइक्रोफोन और स्पीकर टेस्ट करते हैं।'
-      : "Let's test your microphone and speaker.";
-    speakText(intro).catch(() => {});
-  }, [appStage, language]);
-
-  useEffect(() => {
-    if (appStage !== 'setup') {
-      setupAnnouncedRef.current = false;
-    }
     if (appStage === 'selection') {
       selectionAnnouncedRef.current = false;
       chatWelcomeAnnouncedRef.current = false;
@@ -327,50 +314,47 @@ export default function App() {
       {/* --- STAGE 1: SELECTION --- */}
       {appStage === 'selection' && (
         <div className="stage selection">
-          <div className="zoe-avatar-static">
-            <video autoPlay muted loop key={isTTSPlaying ? "speaking" : "idle"} width="300" height="300">
-              <source src={isTTSPlaying ? "/speaking-edited.mp4" : "/glassadjustment.mp4"} type="video/mp4" />
-            </video>
-          </div>
-          <h1>{t.hiGuest}</h1>
-          <p>{t.selectRole}</p>
-          <div className="role-grid">
-            {['student', 'parent', 'partner'].map(role => (
-              <div key={role} className="zoe-card" onClick={() => { setSelectedRole(role); setAppStage('setup'); }}>
-                <h3>{translations[language][role]}</h3>
-                <p>{translations[language][role + 'Desc']}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* --- STAGE 2: SETUP --- */}
-      {appStage === 'setup' && (
-        <div className="stage setup">
-          <h2>Test your mic and speaker</h2>
-          <div className="test-grid">
-            <div className="test-card" onClick={async () => { 
-                try { await navigator.mediaDevices.getUserMedia({ audio: true }); setMicTested(true); } 
-                catch(e) { alert("Mic permission denied"); }
-              }}>
-              {micTested ? <FiCheckCircle color="green" /> : <FiMic />}
-              <p>{micTested ? t.micOk : t.testMic}</p>
+          <div className={`selection-shell ${language === 'hi' ? 'is-hi' : ''}`}>
+            <div className="selection-mascot" aria-hidden="true">
+              <video autoPlay muted loop key={isTTSPlaying ? 'speaking' : 'idle'} width="300" height="300">
+                <source src={isTTSPlaying ? '/speaking-edited.mp4' : '/glassadjustment.mp4'} type="video/mp4" />
+              </video>
             </div>
-            <div className="test-card" onClick={() => { 
-                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                const osc = audioContext.createOscillator();
-                osc.connect(audioContext.destination);
-                osc.start();
-                osc.stop(audioContext.currentTime + 0.3);
-              }}>
-              <FiVolume2 />
-              <p>{t.testSpk}</p>
-            </div> 
+            <h1 className="selection-title">{t.hiGuest}</h1>
+            <p className="selection-subtitle">{t.selectRole}</p>
+
+            <div className="selection-cards">
+              <button
+                className="feature-card"
+                onClick={() => {
+                  setSelectedRole('student');
+                  setAppStage('chat');
+                }}
+              >
+                <div className="feature-head">
+                  <div className="feature-icon"><FaGraduationCap /></div>
+                  <h3>{t.student}</h3>
+                </div>
+                <p>{t.studentDesc}</p>
+              </button>
+
+              <button className="feature-card" onClick={() => { setSelectedRole('parent'); setAppStage('chat'); }}>
+                <div className="feature-head">
+                  <div className="feature-icon"><FaUsers /></div>
+                  <h3>{t.parent}</h3>
+                </div>
+                <p>{t.parentDesc}</p>
+              </button>
+
+              <button className="feature-card" onClick={() => { setSelectedRole('partner'); setAppStage('chat'); }}>
+                <div className="feature-head">
+                  <div className="feature-icon"><FaHandshake /></div>
+                  <h3>{t.partner}</h3>
+                </div>
+                <p>{t.partnerDesc}</p>
+              </button>
+            </div>
           </div>
-           <button className="primary-btn" onClick={() => setAppStage('chat')} disabled={isModelLoading || !isReady}>
-             {isModelLoading ? t.loading : t.startBtn}
-          </button>
         </div>
       )}
       

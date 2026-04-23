@@ -880,3 +880,261 @@ body {
     font-size: 0.9rem;
   }
 }
+
+/* --- Selection Screen: Card Layout (Requested UI) --- */
+
+.brand-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-logo {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.brand-word {
+  color: #22313f;
+  font-weight: 700;
+  font-size: 1.12rem;
+  letter-spacing: 0.2px;
+}
+
+.brand-title {
+  text-align: center;
+  color: #1d2f4d;
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.stage.selection {
+  justify-content: flex-start;
+  align-items: stretch;
+  background: #f5f6f8;
+  padding: 90px 24px 24px;
+  overflow-y: auto;
+}
+
+.selection-shell {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.selection-mascot {
+  margin-top: -40px;
+  margin-bottom: 10px;
+}
+
+.selection-mascot img,
+.selection-mascot video {
+  width: 175px;
+  height: 175px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.selection-title {
+  font-size: 3rem;
+  line-height: 1.1;
+  color: #0f2347;
+  font-weight: 800;
+  margin: 2px 0 10px;
+}
+
+.selection-subtitle {
+  color: #657a95;
+  font-size: 1.2rem;
+  margin-bottom: 28px;
+}
+
+.selection-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.feature-card {
+  background: #ffffff;
+  border: 1px solid #e1e5ea;
+  border-radius: 14px;
+  text-align: left;
+  padding: 24px;
+  min-height: 252px;
+  box-shadow: 0 1px 0 rgba(14, 37, 66, 0.04);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-3px);
+  border-color: #c9d6e2;
+  box-shadow: 0 8px 24px rgba(16, 41, 71, 0.08);
+}
+
+.feature-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.feature-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  background: #ebf4ee;
+  color: #437150;
+  font-size: 1.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.feature-card h3 {
+  color: #1f344f;
+  font-size: 1.9rem;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.feature-card p {
+  color: #637894;
+  font-size: 1.22rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.selection-shell.is-hi .selection-title {
+  font-size: 2.55rem;
+  line-height: 1.2;
+}
+
+.selection-shell.is-hi .selection-subtitle {
+  font-size: 1.05rem;
+}
+
+.selection-shell.is-hi .feature-card h3 {
+  font-size: 1.45rem;
+  line-height: 1.25;
+}
+
+.selection-shell.is-hi .feature-card p {
+  font-size: 1.02rem;
+  line-height: 1.55;
+}
+
+.coming-soon-pill {
+  display: inline-block;
+  background: #f9ad39;
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 5px 12px;
+  margin: 0 0 12px;
+}
+
+.feature-card.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.95;
+}
+
+.feature-card.is-disabled:hover {
+  transform: none;
+  box-shadow: 0 1px 0 rgba(14, 37, 66, 0.04);
+}
+
+.browser-note {
+  margin: 26px auto 0;
+  background: #e7eef8;
+  border: 1px solid #d4dfed;
+  color: #2b65d8;
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  width: fit-content;
+}
+
+@media (max-width: 1024px) {
+  .selection-title {
+    font-size: 2.25rem;
+  }
+
+  .selection-subtitle {
+    font-size: 1.02rem;
+  }
+
+  .selection-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .brand-title {
+    font-size: 1rem;
+  }
+
+  .brand-word {
+    font-size: 0.95rem;
+  }
+
+  .selection-mascot img,
+  .selection-mascot video {
+    width: 130px;
+    height: 130px;
+  }
+
+  .selection-title {
+    font-size: 1.6rem;
+  }
+
+  .selection-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 18px;
+  }
+
+  .selection-cards {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .feature-card {
+    min-height: auto;
+    padding: 16px;
+  }
+
+  .feature-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .feature-card p {
+    font-size: 0.95rem;
+  }
+
+  .selection-shell.is-hi .selection-title {
+    font-size: 1.45rem;
+  }
+
+  .selection-shell.is-hi .selection-subtitle {
+    font-size: 0.88rem;
+  }
+
+  .selection-shell.is-hi .feature-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .browser-note {
+    width: 100%;
+    border-radius: 14px;
+    font-size: 0.86rem;
+    padding: 10px 12px;
+  }
+}
+
