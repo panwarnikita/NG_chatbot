@@ -5,6 +5,8 @@ import { IoSend } from 'react-icons/io5';
 import { usePiper } from './hooks/text-to-speech_hook';
 import { staticPhrases } from './constants/staticPhrases';
 import { playCachedAudio } from './utils/cachedAudio';
+import { isMobileDevice, detectNetworkSpeed } from './utils/deviceDetector';
+import { cleanupOldCache } from './utils/modelCache';
 
 
 // --- Translations & Content ---
@@ -51,12 +53,21 @@ export default function App() {
   const [language, setLanguage] = useState('hi');
   const [micTested, setMicTested] = useState(false);
   const [hasUserGesture, setHasUserGesture] = useState(false);
+  
+  // MOBILE OPTIMIZATION: Device detection
+  const isMobileDevice_check = useMemo(() => isMobileDevice(), []);
+  const networkSpeed_check = useMemo(() => detectNetworkSpeed(), []);
 
   const chatRef = useRef(null);
   const setupAnnouncedRef = useRef(false);
   const selectionAnnouncedRef = useRef(false);
   const chatWelcomeAnnouncedRef = useRef(false);
   const t = translations[language];
+
+  // MOBILE OPTIMIZATION: Run cache cleanup on app load
+  useEffect(() => {
+    cleanupOldCache().catch(err => console.warn('[Cache] Cleanup error:', err));
+  }, []);
 
   // --- TTS Hook Config ---
   const piperConfig = useMemo(() => {
@@ -199,16 +210,29 @@ export default function App() {
     setMessages(prev => [...prev, { role: 'AI', content: '...' }]);
 
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL || ''}/ask`, {
+      // MOBILE OPTIMIZATION: Adjust API timeout and chunk size based on network
+      const fetchTimeout = networkSpeed_check === 'slow' ? 120000 : 60000;
+      const wordThreshold = isMobileDevice_check ? 3 : 5; // Stream faster on mobile
+      
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), fetchTimeout);
+
+      const res = await fetch(`${import.meta.env.VITE_API_URL || ''}http://127.0.01:5002/ask`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
           query: queryText, 
           role: selectedRole, 
           language,
-          history: messages.slice(-10).map(m => `${m.role}: ${m.content}`).join("\n")
-        })
+          history: messages.slice(-10).map(m => `${m.role}: ${m.content}`).join("\n"),
+          // MOBILE OPTIMIZATION: Tell backend about mobile device
+          isMobile: isMobileDevice_check,
+          networkSpeed: networkSpeed_check
+        }),
+        signal: controller.signal
       });
+
+      clearTimeout(timeoutId);
 
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
@@ -229,18 +253,18 @@ export default function App() {
           return newMsg;
         });
 
-        // 2. Faster Voice Logic
+        // 2. MOBILE OPTIMIZATION: Faster Voice Logic - Stream more aggressively on mobile
         const unsentPart = fullResponse.slice(lastSpokenIndex);
         const words = unsentPart.trim().split(/\s+/);
 
-        // Terminate on punctuation OR if we reach 5 words
+        // Terminate on punctuation OR if we reach word threshold
         const terminators = /[.!?।\n]/;
         const hasTerminator = terminators.test(unsentPart);
         
-        if (hasTerminator || words.length >= 5) {
+        if (hasTerminator || words.length >= wordThreshold) {
           let boundaryIndex = unsentPart.search(terminators);
           
-          // Agar punctuation nahi mila par 5 words ho gaye, toh last space dhoondo
+          // Agar punctuation nahi mila par word threshold ho gaye, toh last space dhoondo
           if (boundaryIndex === -1) {
             boundaryIndex = unsentPart.lastIndexOf(' ');
           }
@@ -265,9 +289,17 @@ export default function App() {
 
     } catch (e) {
       console.error("Fetch Error:", e);
+      // MOBILE OPTIMIZATION: Better error messages for mobile
+      let errorMsg = "Sorry, something went wrong. Please try again.";
+      if (e.name === 'AbortError') {
+        errorMsg = isMobileDevice_check 
+          ? "Connection timeout. Check your network." 
+          : "Request timeout. Please try again.";
+      }
+      
       setMessages(prev => {
         const newMsg = [...prev];
-        newMsg[newMsg.length - 1].content = "Sorry, something went wrong. Please try again.";
+        newMsg[newMsg.length - 1].content = errorMsg;
         return newMsg;
       });
     } finally {

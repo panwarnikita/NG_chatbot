@@ -1,5 +1,20 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { getCachedOrFetch } from '../utils/modelCache';
+import { isMobileDevice, detectNetworkSpeed } from '../utils/deviceDetector';
+
+// MOBILE OPTIMIZATION: Detect network speed and device capabilities
+const getDeviceConfig = () => {
+    const isMobile = isMobileDevice();
+    const networkSpeed = detectNetworkSpeed();
+    
+    return {
+        isMobile,
+        networkSpeed,
+        isSlowNetwork: networkSpeed === 'slow' || networkSpeed === '2g' || networkSpeed === '3g',
+        isHighEndMobile: isMobile && /iPhone|iPad|Samsung Galaxy S2[0-9]/.test(navigator.userAgent),
+        useReducedQuality: isMobile && networkSpeed !== 'wifi' && networkSpeed !== '4g',
+    };
+};
 
 export const usePiper = (config) => {
     const [state, setState] = useState({
@@ -18,6 +33,7 @@ export const usePiper = (config) => {
     const isSynthesizingRef = useRef(false);
     const workerRef = useRef(null);
     const initTimeoutRef = useRef(null);
+    const deviceConfigRef = useRef(getDeviceConfig());
 
     useEffect(() => {
         if (!config || !config.voiceModelUrl || !config.voiceConfigUrl) return;
@@ -26,11 +42,18 @@ export const usePiper = (config) => {
 
         const initPiper = async () => {
             console.log("🚀 Initializing Hindi Piper...");
+            console.log(`📱 Device Config:`, deviceConfigRef.current);
             setState(s => ({ ...s, isReady: false, isLoading: true, error: null })); 
 
             try {
+                // MOBILE OPTIMIZATION: Add timeout based on network speed
+                const timeout = deviceConfigRef.current.isSlowNetwork ? 40000 : 25000;
+                
+                // MOBILE OPTIMIZATION: Pre-fetch with progress on slower networks
                 const modelBlob = await getCachedOrFetch(config.voiceModelUrl, (loaded, total) => {
-                    if (active) setState(s => ({ ...s, downloadProgress: { loaded, total } }));
+                    if (active && deviceConfigRef.current.isMobile) {
+                        setState(s => ({ ...s, downloadProgress: { loaded, total } }));
+                    }
                 });
                 const configBlob = await getCachedOrFetch(config.voiceConfigUrl);
 
@@ -55,7 +78,7 @@ export const usePiper = (config) => {
                         isReady: false,
                         error: 'Hindi voice init timeout. Check worker/wasm loading.'
                     }));
-                }, 25000);
+                }, timeout);
 
                 worker.onmessage = (event) => {
                     if (event.data.kind === 'output') {

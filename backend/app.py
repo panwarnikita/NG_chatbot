@@ -129,6 +129,10 @@ def ask():
     user_lang = data.get("language", "en")
     selected_role = (data.get("role") or "student").lower()
     
+    # MOBILE OPTIMIZATION: Detect device and network type
+    is_mobile = data.get("isMobile", False)
+    network_speed = data.get("networkSpeed", "unknown")
+    
     # FRONTEND se hum ek flag bhejenge 'is_first' taaki greeting handle ho sake
     is_first_message = data.get("is_first", False)
 
@@ -146,6 +150,13 @@ def ask():
         rag_query = f"{prev_user_line} {query}"
     else:
         rag_query = query
+    
+    # MOBILE OPTIMIZATION: Adjust RAG retrieval parameters for mobile
+    rag_top_k = RAG_TOP_K if not is_mobile else 3  # Fewer docs for mobile = faster retrieval
+    rag_max_context = RAG_MAX_CONTEXT_CHARS if not is_mobile else 2000  # Smaller context for mobile
+    llm_max_tokens = LLM_MAX_TOKENS if not is_mobile else 250  # Shorter responses for mobile
+    
+    print(f"[DEBUG] Mobile Request: {is_mobile}, Network: {network_speed}", flush=True)
 
     # Normalize query to English for retrieval regardless of UI language.
     # Users may type Hinglish even when user_lang=='en' (e.g. "navgurukul ke
@@ -156,9 +167,9 @@ def ask():
     if rag_query != original_rag_query:
         print(f"[DEBUG] HI->EN rag_query: {original_rag_query[:120]} => {rag_query[:120]}", flush=True)
 
-    docs = vector_db.similarity_search(rag_query, k=RAG_TOP_K) if vector_db else []
-    context = "\n\n---\n\n".join([f"[Doc {i+1}] {d.page_content}" for i, d in enumerate(docs)])[:RAG_MAX_CONTEXT_CHARS]
-    print(f"\n[DEBUG] ===== RAG RETRIEVAL =====", flush=True)
+    docs = vector_db.similarity_search(rag_query, k=rag_top_k) if vector_db else []
+    context = "\n\n---\n\n".join([f"[Doc {i+1}] {d.page_content}" for i, d in enumerate(docs)])[:rag_max_context]
+    print(f"\n[DEBUG] ===== RAG RETRIEVAL (Mobile: {is_mobile}) =====", flush=True)
     print(f"[DEBUG] Query: {rag_query[:150]}", flush=True)
     print(f"[DEBUG] Retrieved {len(docs)} docs, total context chars: {len(context)}", flush=True)
     for i, d in enumerate(docs):
@@ -268,7 +279,7 @@ def ask():
                 ],
                 temperature=0.0,
                 top_p=0.1,
-                max_tokens=LLM_MAX_TOKENS,
+                max_tokens=llm_max_tokens,  # MOBILE OPTIMIZATION: Use adjusted token limit
                 stream=True
             )
             for chunk in response:
