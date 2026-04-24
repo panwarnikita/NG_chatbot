@@ -16,6 +16,8 @@ export const usePiper = (config) => {
     const synthesisQueueRef = useRef([]);
     const processingRef = useRef(false);
     const isSynthesizingRef = useRef(false);
+    const currentAudioRef = useRef(null);
+    const generationRef = useRef(0);
     const workerRef = useRef(null);
     const initTimeoutRef = useRef(null);
 
@@ -170,19 +172,24 @@ worker.postMessage({
     const playQueue = useCallback(async () => {
         if (processingRef.current) return;
         processingRef.current = true;
+        const localGeneration = generationRef.current;
         setIsPlaying(true);
         try {
-            while (audioQueueRef.current.length > 0) {
+            while (audioQueueRef.current.length > 0 && localGeneration === generationRef.current) {
                 const blob = audioQueueRef.current.shift();
                 if (!blob) break;
                 setCurrentlyPlayingIndex(playbackCounterRef.current);
                 await new Promise((resolve) => {
                     const url = URL.createObjectURL(blob);
                     const audio = new Audio(url);
+                    currentAudioRef.current = audio;
                     audio.onended = () => { URL.revokeObjectURL(url); resolve(); };
                     audio.onerror = () => { URL.revokeObjectURL(url); resolve(); };
                     audio.play().catch(resolve);
                 });
+                if (currentAudioRef.current) {
+                    currentAudioRef.current = null;
+                }
                 playbackCounterRef.current += 1;
             }
         } finally {
@@ -195,12 +202,13 @@ worker.postMessage({
     const processSynthesisQueue = useCallback(async () => {
         if (isSynthesizingRef.current) return;
         isSynthesizingRef.current = true;
+        const localGeneration = generationRef.current;
         try {
-            while (synthesisQueueRef.current.length > 0) {
+            while (synthesisQueueRef.current.length > 0 && localGeneration === generationRef.current) {
                 const text = synthesisQueueRef.current.shift();
                 if (text) {
                     const blob = await synthesize(text);
-                    if (blob) {
+                    if (blob && localGeneration === generationRef.current) {
                         audioQueueRef.current.push(blob);
                         if (!processingRef.current) playQueue();
                     }
@@ -217,8 +225,14 @@ worker.postMessage({
     }, [processSynthesisQueue]);
 
     const resetTTS = useCallback(() => {
+        generationRef.current += 1;
         audioQueueRef.current = [];
         synthesisQueueRef.current = [];
+        if (currentAudioRef.current) {
+            currentAudioRef.current.pause();
+            currentAudioRef.current.src = '';
+            currentAudioRef.current = null;
+        }
         playbackCounterRef.current = 0;
         setCurrentlyPlayingIndex(null);
         setIsPlaying(false);

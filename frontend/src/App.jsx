@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { marked } from 'marked';
-import { FiMic, FiGlobe, FiChevronLeft, FiCheckCircle, FiVolume2, FiPause } from 'react-icons/fi';
+import { FiMic, FiGlobe, FiPause, FiChevronLeft } from 'react-icons/fi';
+import { FaGraduationCap, FaUsers, FaHandshake } from 'react-icons/fa';
 import { IoSend } from 'react-icons/io5';
 import { usePiper } from './hooks/text-to-speech_hook';
 
@@ -16,6 +17,9 @@ const translations = {
     testMic: 'Test Microphone', testSpk: 'Test Speaker', micOk: 'Mic Access Granted', spkOk: 'Sound Working?',
     askAnything: 'Ask AI anything...',
     tapToBegin: 'Tap to begin',
+    quickQuestionsLabel: 'Quick Questions',
+    openQuickQuestions: 'Suggested Questions',
+    closeQuickQuestions: 'Close',
     quickPrompt1: 'What is NavGurukul?',
     quickPrompt2: 'Tell me about Admission Process',
     quickPrompt3: 'Tell me about Schools in NavGurukul',
@@ -30,6 +34,9 @@ const translations = {
     testMic: 'माइक टेस्ट करें', testSpk: 'स्पीकर टेस्ट करें', micOk: 'माइक चालू है', spkOk: 'आवाज़ आई?',
     askAnything: 'AI से कुछ भी पूछें...',
     tapToBegin: 'शुरू करने के लिए टैप करें',
+    quickQuestionsLabel: 'झटपट सवाल',
+    openQuickQuestions: 'सुझाए गए सवाल',
+    closeQuickQuestions: 'बंद करें',
     quickPrompt1: 'नवगुरुकुल क्या है?',
     quickPrompt2: 'प्रवेश प्रक्रिया बताएं',
     quickPrompt3: 'नवगुरुकुल में स्कूलों के बारे में बताएं',
@@ -39,8 +46,8 @@ const translations = {
 
 // --- Welcome Messages ---
 const welcomeMessages = {
-  en: "Hi, I'm Swara. I can help you with any information about NavGurukul. What would you like to know today?",
-  hi: 'नमस्ते! मैं स्वरा हूँ मैं नवगुरुकुल के बारे में आपकी किसी भी प्रकार की सहायता कर सकती हूँ। बताइए, आज आप क्या जानना चाहेंगे?'
+  en: "I'm Swara. I can help you with any information about NavGurukul. What would you like to know today?",
+  hi: 'मैं स्वरा हूँ। मैं नवगुरुकुल के बारे में आपकी किसी भी प्रकार की सहायता कर सकती हूँ। बताइए, आज आप क्या जानना चाहेंगे?'
 };
 
 export default function App() {
@@ -51,14 +58,19 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [language, setLanguage] = useState('hi');
-  const [micTested, setMicTested] = useState(false);
   const [hasUserGesture, setHasUserGesture] = useState(false);
+  const [showQuickPrompts, setShowQuickPrompts] = useState(false);
 
   const chatRef = useRef(null);
-  const setupAnnouncedRef = useRef(false);
+  const appStageRef = useRef(appStage);
+  const ttsStoppedRef = useRef(false);
   const selectionAnnouncedRef = useRef(false);
   const chatWelcomeAnnouncedRef = useRef(false);
   const t = translations[language];
+
+  useEffect(() => {
+    appStageRef.current = appStage;
+  }, [appStage]);
 
   // --- TTS Hook Config ---
   const piperConfig = useMemo(() => {
@@ -80,31 +92,24 @@ export default function App() {
   const { speak, isReady, isPlaying: isTTSPlaying, resetTTS, isLoading: isModelLoading } = usePiper(piperConfig);
 
   useEffect(() => {
-    if (appStage !== 'setup' || setupAnnouncedRef.current) return;
-    setupAnnouncedRef.current = true;
-    const intro = language === 'hi'
-      ? 'चलिए माइक्रोफोन और स्पीकर टेस्ट करते हैं।'
-      : "Let's test your microphone and speaker.";
-    speakText(intro).catch(() => {});
-  }, [appStage, language]);
-
-  useEffect(() => {
-    if (appStage !== 'setup') {
-      setupAnnouncedRef.current = false;
-    }
+    // Stop the previous page narration when stage changes.
+    ttsStoppedRef.current = false;
+    resetTTS();
     if (appStage === 'selection') {
-      selectionAnnouncedRef.current = false;
       chatWelcomeAnnouncedRef.current = false;
     }
-  }, [appStage]);
+    if (appStage === 'chat') {
+      selectionAnnouncedRef.current = false;
+    }
+  }, [appStage, resetTTS]);
 
   useEffect(() => {
-    if (appStage === 'chat' && messages.length === 0 && !chatWelcomeAnnouncedRef.current && isReady) {
-      chatWelcomeAnnouncedRef.current = true;
-      const welcomeMsg = welcomeMessages[language];
-      speakText(welcomeMsg).catch(() => {});
-    }
-  }, [appStage, isReady, language]);
+    if (appStage !== 'chat') return;
+    if (!hasUserGesture || !isReady || chatWelcomeAnnouncedRef.current) return;
+    chatWelcomeAnnouncedRef.current = true;
+    const chatIntro = welcomeMessages[language];
+    speakText(chatIntro, 'chat').catch(() => {});
+  }, [appStage, hasUserGesture, isReady, language]);
 
   useEffect(() => {
     if (appStage !== 'selection') {
@@ -113,11 +118,11 @@ export default function App() {
     }
     if (!hasUserGesture || !isReady || selectionAnnouncedRef.current) return;
     selectionAnnouncedRef.current = true;
-    const greeting = language === 'hi'
+    const selectionIntro = language === 'hi'
       ? 'नमस्ते! मैं स्वरा हूँ आगे बढ़ने के लिए कृपया बताइए — क्या आप छात्र हैं, माता-पिता हैं, या भागीदार हैं?'
       : "Hi, I'm Swara. To get started, please tell me — are you a student, a parent, or a partner?";
-    speakText(greeting).catch(() => {});
-  }, [appStage, isReady, language, hasUserGesture]);
+    speakText(selectionIntro, 'selection').catch(() => {});
+  }, [appStage, hasUserGesture, isReady, language]);
 
   // --- Auto Scroll Chat ---
   useEffect(() => {
@@ -125,17 +130,41 @@ export default function App() {
   }, [messages]);
 
   // --- Speak Logic ---
-  const speakText = async (text) => {
+  const speakText = async (text, stageGuard = null) => {
     if (!text || !text.trim()) return;
     if (!isReady) return;
+    if (ttsStoppedRef.current) return;
+    if (stageGuard && appStageRef.current !== stageGuard) return;
 
     const sentences = text.replace(/[*#\-_]/g, ' ').match(/[^.!?।\n]+[.!?।\n]+/g) || [text];
-    sentences.forEach((s) => speak(s.trim()));
+    for (const s of sentences) {
+      if (ttsStoppedRef.current) break;
+      if (stageGuard && appStageRef.current !== stageGuard) break;
+      speak(s.trim());
+    }
   };
 
   // --- Stop TTS Logic ---
   const stopTTS = () => {
+    ttsStoppedRef.current = true;
     resetTTS();
+  };
+
+  const handleQuickPromptClick = (promptText) => {
+    if (!promptText) return;
+    setShowQuickPrompts(false);
+    sendMessage(promptText, false);
+  };
+
+  const handleBackToHome = () => {
+    ttsStoppedRef.current = false;
+    resetTTS();
+    setIsListening(false);
+    setLoading(false);
+    setInput('');
+    setMessages([]);
+    setShowQuickPrompts(false);
+    setAppStage('selection');
   };
 
   // --- Send Message Logic ---
@@ -194,7 +223,8 @@ export default function App() {
   const sendMessage = async (queryText = input, wasVoice = false) => {
     if (!queryText.trim() || loading) return;
     
-    stopTTS(); // Purani voice band karo
+    ttsStoppedRef.current = false;
+    resetTTS(); // Purani voice band karo
     
     // UI Update
     setMessages(prev => [...prev, { role: 'User', content: queryText }]);
@@ -222,6 +252,22 @@ export default function App() {
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
+        if (ttsStoppedRef.current) {
+          try {
+            await reader.cancel();
+          } catch {
+            // ignore cancellation errors
+          }
+          break;
+        }
+        if (appStageRef.current !== 'chat') {
+          try {
+            await reader.cancel();
+          } catch {
+            // ignore cancellation errors
+          }
+          break;
+        }
         
         const chunk = decoder.decode(value);
         fullResponse += chunk;
@@ -254,6 +300,8 @@ export default function App() {
             
             // Sirf tab bole jab text valid ho
             if (textToSpeak.length > 1) {
+              if (ttsStoppedRef.current) break;
+              if (appStageRef.current !== 'chat') break;
               speak(textToSpeak);
               lastSpokenIndex += (boundaryIndex + 1);
             }
@@ -263,7 +311,7 @@ export default function App() {
 
       // Final Check: Bacha hua text (agar last mein punctuation na ho)
       const remaining = fullResponse.slice(lastSpokenIndex).trim();
-      if (remaining.length > 0) {
+      if (remaining.length > 0 && appStageRef.current === 'chat' && !ttsStoppedRef.current) {
         speak(remaining);
       }
 
@@ -295,30 +343,37 @@ export default function App() {
   return (
     <div className="zoe-container">
       {!hasUserGesture && (
-        <div
-          onClick={() => setHasUserGesture(true)}
-          style={{
-            position: 'fixed',
-            inset: 0,
-            background: 'rgba(252, 228, 236, 0.96)',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 9999,
-            cursor: 'pointer',
-            textAlign: 'center',
-            padding: '24px',
-          }}
-        >
-          <div style={{ fontSize: '64px', marginBottom: '16px' }}>👋</div>
-          <h2 style={{ color: '#2d5a27', margin: '0 0 8px 0' }}>{t.hiGuest}</h2>
-          <p style={{ color: '#2d5a27', fontSize: '18px', margin: 0 }}>{t.tapToBegin}</p>
+        <div className="gesture-overlay" onClick={() => setHasUserGesture(true)}>
+          <div className="gesture-overlay-card">
+            <div className="gesture-mascot-wrap" aria-hidden="true">
+              <span className="gesture-mascot-ring" />
+              <span className="gesture-mascot-ring gesture-mascot-ring-delayed" />
+              <div className="gesture-mascot">
+                <video autoPlay muted loop playsInline>
+                  <source src="/thoughtbubble.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+            <h2 className="gesture-title">{t.hiGuest}</h2>
+            <p className="gesture-subtitle">{t.tapToBegin}</p>
+          </div>
         </div>
       )}
       <header className="zoe-header">
-        {/* <button onClick={() => setAppStage('selection')} className="back-btn"><FiChevronLeft /> {t.back}</button> */}
-        <h2 className="brand">{t.navGurukul}</h2>
+        <h2
+          className="brand brand-clickable"
+          role="button"
+          tabIndex={0}
+          onClick={handleBackToHome}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              handleBackToHome();
+            }
+          }}
+        >
+          {t.navGurukul}
+        </h2>
         <button onClick={() => setLanguage(l => l === 'en' ? 'hi' : 'en')} className="lang-btn">
           <FiGlobe /> {language === 'en' ? 'हिन्दी' : 'English'}
         </button>
@@ -327,96 +382,118 @@ export default function App() {
       {/* --- STAGE 1: SELECTION --- */}
       {appStage === 'selection' && (
         <div className="stage selection">
-          <div className="zoe-avatar-static">
-            <video autoPlay muted loop key={isTTSPlaying ? "speaking" : "idle"} width="300" height="300">
-              <source src={isTTSPlaying ? "/speaking-edited.mp4" : "/glassadjustment.mp4"} type="video/mp4" />
-            </video>
-          </div>
-          <h1>{t.hiGuest}</h1>
-          <p>{t.selectRole}</p>
-          <div className="role-grid">
-            {['student', 'parent', 'partner'].map(role => (
-              <div key={role} className="zoe-card" onClick={() => { setSelectedRole(role); setAppStage('setup'); }}>
-                <h3>{translations[language][role]}</h3>
-                <p>{translations[language][role + 'Desc']}</p>
+          <div className={`selection-shell ${language === 'hi' ? 'is-hi' : ''}`}>
+            <div className="selection-mascot" aria-hidden="true">
+              <div className="mascot-circle-frame">
+                <video autoPlay muted loop key={isTTSPlaying ? 'selection-speaking' : 'selection-idle'} width="300" height="300">
+                  <source src={isTTSPlaying ? '/speaking-edited.mp4' : '/ballbounce.mp4'} type="video/mp4" />
+                </video>
               </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* --- STAGE 2: SETUP --- */}
-      {appStage === 'setup' && (
-        <div className="stage setup">
-          <h2>Test your mic and speaker</h2>
-          <div className="test-grid">
-            <div className="test-card" onClick={async () => { 
-                try { await navigator.mediaDevices.getUserMedia({ audio: true }); setMicTested(true); } 
-                catch(e) { alert("Mic permission denied"); }
-              }}>
-              {micTested ? <FiCheckCircle color="green" /> : <FiMic />}
-              <p>{micTested ? t.micOk : t.testMic}</p>
             </div>
-            <div className="test-card" onClick={() => { 
-                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                const osc = audioContext.createOscillator();
-                osc.connect(audioContext.destination);
-                osc.start();
-                osc.stop(audioContext.currentTime + 0.3);
-              }}>
-              <FiVolume2 />
-              <p>{t.testSpk}</p>
-            </div> 
+            <h2 className="selection-title">{t.hiGuest}</h2>
+            <p className="text-slate-500 text-sm font-medium max-w-xl mx-auto px-4 mb-7">{t.selectRole}</p>
+
+            <div className="selection-cards">
+              <button
+                className="card"
+                onClick={() => {
+                  setSelectedRole('student');
+                  setAppStage('chat');
+                }}
+              >
+                <div className="card-header">
+                  <div className="feature-icon"><FaGraduationCap /></div>
+                  <h3 className="card-title">{t.student}</h3>
+                </div>
+                <p className="card-description">{t.studentDesc}</p>
+                <div className="card-content-text"></div>
+              </button>
+
+              <button className="card" onClick={() => { setSelectedRole('parent'); setAppStage('chat'); }}>
+                <div className="card-header">
+                  <div className="feature-icon"><FaUsers /></div>
+                  <h3 className="card-title">{t.parent}</h3>
+                </div>
+                <p className="card-description">{t.parentDesc}</p>
+                <div className="card-content-text"></div>
+              </button>
+
+              <button className="card" onClick={() => { setSelectedRole('partner'); setAppStage('chat'); }}>
+                <div className="card-header">
+                  <div className="feature-icon"><FaHandshake /></div>
+                  <h3 className="card-title">{t.partner}</h3>
+                </div>
+                <p className="card-description">{t.partnerDesc}</p>
+                <div className="card-content-text"></div>
+              </button>
+            </div>
           </div>
-           <button className="primary-btn" onClick={() => setAppStage('chat')} disabled={isModelLoading || !isReady}>
-             {isModelLoading ? t.loading : t.startBtn}
-          </button>
         </div>
       )}
       
       {appStage === 'chat' && (
         <div className="stage chat">
+          <div className="chat-back-row">
+            <button onClick={handleBackToHome} className="chat-back-btn"><FiChevronLeft /> {t.back}</button>
+          </div>
+
           <div className="ai-visual-container">
-            {isListening ? (
-              <video autoPlay muted loop key="listening">
-                <source src="/listening.mp4" type="video/mp4" />
-              </video>
-            ) : isTTSPlaying ? (
-              <video autoPlay muted loop key="speaking">
-                <source src="/speaking-edited.mp4" type="video/mp4" />
-              </video>
-            ) : (
-              <video autoPlay muted loop key="idle">
-                <source src="/ballbounce.mp4" type="video/mp4" />
-              </video>
-            )}
+            <div className="chat-mascot-frame mascot-circle-frame">
+              {isListening ? (
+                <video autoPlay muted loop key="listening">
+                  <source src="/listening.mp4" type="video/mp4" />
+                </video>
+              ) : isTTSPlaying ? (
+                <video autoPlay muted loop key="speaking">
+                  <source src="/speaking-edited.mp4" type="video/mp4" />
+                </video>
+              ) : (
+                <video autoPlay muted loop key="idle">
+                  <source src="/bubblepop.mp4" type="video/mp4" />
+                </video>
+              )}
+            </div>
           </div>
 
           <div className="chat-history" ref={chatRef}>
-            {messages.length === 0 && (
-              <div className="quick-prompts-section">
-                <p className="quick-prompts-label">Quick Questions:</p>
-                <div className="quick-prompts-grid">
-                  <button className="quick-prompt-btn" onClick={() => sendMessage(t.quickPrompt1, false)}>
-                    {t.quickPrompt1}
-                  </button>
-                  <button className="quick-prompt-btn" onClick={() => sendMessage(t.quickPrompt2, false)}>
-                    {t.quickPrompt2}
-                  </button>
-                  <button className="quick-prompt-btn" onClick={() => sendMessage(t.quickPrompt3, false)}>
-                    {t.quickPrompt3}
-                  </button>
-                  <button className="quick-prompt-btn" onClick={() => sendMessage(t.quickPrompt4, false)}>
-                    {t.quickPrompt4}
-                  </button>
-                </div>
-              </div>
-            )}
             {messages.map((m, i) => (
               <div key={i} className={`msg-bubble ${m.role.toLowerCase()}`}>
                 <div dangerouslySetInnerHTML={{ __html: marked.parse(m.content) }} />
               </div>
             ))}
+          </div>
+
+          <div className={`quick-prompts-dock ${showQuickPrompts ? 'is-open' : 'is-closed'}`}>
+            <div className="quick-prompts-section">
+              {!showQuickPrompts ? (
+                <button className="quick-prompts-toggle-btn quick-launcher-btn" onClick={() => setShowQuickPrompts(true)}>
+                  {t.openQuickQuestions}
+                </button>
+              ) : (
+                <>
+                  <div className="quick-prompts-head">
+                    <p className="quick-prompts-label">{t.quickQuestionsLabel}</p>
+                    <button className="quick-prompts-close-btn" onClick={() => setShowQuickPrompts(false)}>
+                      {t.closeQuickQuestions}
+                    </button>
+                  </div>
+                  <div className="quick-prompts-grid">
+                    <button className="quick-prompt-btn" onClick={() => handleQuickPromptClick(t.quickPrompt1)}>
+                      {t.quickPrompt1}
+                    </button>
+                    <button className="quick-prompt-btn" onClick={() => handleQuickPromptClick(t.quickPrompt2)}>
+                      {t.quickPrompt2}
+                    </button>
+                    <button className="quick-prompt-btn" onClick={() => handleQuickPromptClick(t.quickPrompt3)}>
+                      {t.quickPrompt3}
+                    </button>
+                    <button className="quick-prompt-btn" onClick={() => handleQuickPromptClick(t.quickPrompt4)}>
+                      {t.quickPrompt4}
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
 
           <div className="zoe-input-section">
