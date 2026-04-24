@@ -1,187 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { getCachedOrFetch } from '../utils/modelCache';
-import { playAudioChunk, stopMobileAudio, initTTSAudioContext } from '../utils/mobileAudioStreaming.js';
-
-
-
-
-
-
-// Reusable AudioContext for mobile optimizations
-let sharedAudioCtx = null;
-const getAudioContext = () => {
-    if (!sharedAudioCtx) {
-        sharedAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    }
-    if (sharedAudioCtx.state === 'suspended') {
-        sharedAudioCtx.resume();
-    }
-    return sharedAudioCtx;
-};
-
-export const usePiper = (config) => {
-    const [state, setState] = useState({
-        isReady: false,
-        isLoading: false,
-        error: null,
-        downloadProgress: null
-    });
-    const [isPlaying, setIsPlaying] = useState(false);
-    const [currentlyPlayingIndex, setCurrentlyPlayingIndex] = useState(null);
-    
-    const playbackCounterRef = useRef(0);
-    const audioQueueRef = useRef([]);
-    const synthesisQueueRef = useRef([]);
-    const processingRef = useRef(false);
-    const isSynthesizingRef = useRef(false);
-    const workerRef = useRef(null);
-    const activeAudioNodesRef = useRef([]); // Track active nodes to allow stopping
-
-    // ... [Keep your existing useEffect worker initialization exactly as is] ...
-
-    const synthesize = useCallback(async (text) => {
-        if (!workerRef.current) throw new Error("Worker not ready");
-
-        return new Promise((resolve) => {
-            const worker = workerRef.current;
-            const handleMessage = (event) => {
-                if (event.data.kind === 'output') {
-                    worker.removeEventListener('message', handleMessage);
-                    resolve(event.data.file);
-                }
-            };
-            worker.addEventListener('message', handleMessage);
-
-            worker.postMessage({
-                kind: 'generate',
-                input: text,
-                modelUrl: config.voiceModelUrl,
-                modelConfigUrl: config.voiceConfigUrl,
-                piperPhonemizeJsUrl: '/piper-wasm/piper_phonemize.js',
-                piperPhonemizeWasmUrl: '/piper-wasm/piper_phonemize.wasm',
-                piperPhonemizeDataUrl: '/piper-wasm/piper_phonemize.data',
-                onnxruntimeUrl: '/piper-wasm/dist/',
-                blobs: { "ort-wasm-simd-threaded.wasm": true },
-            });
-        });
-    }, [config.voiceModelUrl, config.voiceConfigUrl]);
-
-    // Use Web Audio API for Gapless Mobile Playback
-    const playQueue = useCallback(async () => {
-        if (processingRef.current) return;
-        processingRef.current = true;
-        setIsPlaying(true);
-        const audioCtx = getAudioContext();
-
-        try {
-            while (audioQueueRef.current.length > 0) {
-                const blob = audioQueueRef.current.shift();
-                if (!blob) break;
-                
-                setCurrentlyPlayingIndex(playbackCounterRef.current);
-                
-                await new Promise((resolve) => {
-                    const reader = new FileReader();
-                    reader.onload = async (e) => {
-                        try {
-                            const arrayBuffer = e.target.result;
-                            const audioBuffer = await audioCtx.decodeAudioData(arrayBuffer);
-                            const source = audioCtx.createBufferSource();
-                            source.buffer = audioBuffer;
-                            source.connect(audioCtx.destination);
-                            
-                            source.onended = () => {
-                                activeAudioNodesRef.current = activeAudioNodesRef.current.filter(n => n !== source);
-                                resolve();
-                            };
-                            
-                            activeAudioNodesRef.current.push(source);
-                            source.start(0);
-                        } catch (err) {
-                            console.error("Audio Decode Error", err);
-                            resolve(); // Skip chunk on error
-                        }
-                    };
-                    reader.readAsArrayBuffer(blob);
-                });
-                
-                playbackCounterRef.current += 1;
-            }
-        } finally {
-            processingRef.current = false;
-            // Only set playing to false if the synthesis queue is completely empty
-            if (synthesisQueueRef.current.length === 0) {
-                setIsPlaying(false);
-            }
-            setCurrentlyPlayingIndex(null);
-        }
-    }, []);
-
-    const processSynthesisQueue = useCallback(async () => {
-        if (isSynthesizingRef.current) return;
-        isSynthesizingRef.current = true;
-        
-        try {
-            while (synthesisQueueRef.current.length > 0) {
-                const text = synthesisQueueRef.current.shift();
-                if (text) {
-                    const blob = await synthesize(text);
-                    if (blob) {
-                        audioQueueRef.current.push(blob);
-                        
-                        // PRE-BUFFERING LOGIC: 
-                        // On mobile, wait until we have at least 2 sentences in the audio queue before starting,
-                        // OR if there are no more sentences left to synthesize.
-                        const isLastSentence = synthesisQueueRef.current.length === 0;
-                        if (!processingRef.current && (audioQueueRef.current.length > 1 || isLastSentence)) {
-                            playQueue();
-                        }
-                    }
-                }
-            }
-        } finally { 
-            isSynthesizingRef.current = false; 
-        }
-    }, [synthesize, playQueue]);
-
-    const speak = useCallback((text) => {
-        if (text && text.trim()) {
-            // Wake up AudioContext on user interaction
-            getAudioContext(); 
-            synthesisQueueRef.current.push(text.trim());
-            processSynthesisQueue();
-        }
-    }, [processSynthesisQueue]);
-
-    const resetTTS = useCallback(() => {
-        // Immediately halt Web Audio playback
-        activeAudioNodesRef.current.forEach(source => {
-            try { source.stop(); } catch(e) {}
-        });
-        activeAudioNodesRef.current = [];
-        
-        audioQueueRef.current = [];
-        synthesisQueueRef.current = [];
-        playbackCounterRef.current = 0;
-        setCurrentlyPlayingIndex(null);
-        setIsPlaying(false);
-    }, []);
-
-    return { speak, isPlaying, currentlyPlayingIndex, resetTTS, ...state };
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 export const usePiper = (config) => {
     const [state, setState] = useState({
@@ -208,7 +26,7 @@ export const usePiper = (config) => {
 
         const initPiper = async () => {
             console.log("🚀 Initializing Hindi Piper...");
-            setState(s => ({ ...s, isReady: false, isLoading: true, error: null })); 
+            setState(s => ({ ...s, isReady: false, isLoading: true, error: null }));
 
             try {
                 const modelBlob = await getCachedOrFetch(config.voiceModelUrl, (loaded, total) => {
@@ -218,8 +36,7 @@ export const usePiper = (config) => {
 
                 if (!active) return;
 
-                // Fetch/cache ko warmup ke liye run karte hain, but worker ko direct public URLs dete hain.
-                // Blob URLs worker boundary pe flaky ho sakte hain.
+                // Cache fetched to warm up, but pass direct URLs to worker
                 void modelBlob;
                 void configBlob;
 
@@ -282,23 +99,17 @@ export const usePiper = (config) => {
                     console.error('❌ Hindi worker message error:', err);
                 };
 
-                // FIXED INIT: Yahan blobs ko force karna zaroori hai
-              // text-to-speech_hook.js mein postMessage:
-worker.postMessage({
-    kind: 'init',
-    input: config.warmupText || 'नमस्ते', 
-    modelUrl: modelUrl,
-    modelConfigUrl: configUrl,
-    
-    // Sirf relative path use karein, window.location mat lagaiye
-    piperPhonemizeJsUrl: '/piper-wasm/piper_phonemize.js',
-    piperPhonemizeWasmUrl: '/piper-wasm/piper_phonemize.wasm',
-    piperPhonemizeDataUrl: '/piper-wasm/piper_phonemize.data',
-    onnxruntimeUrl: '/piper-wasm/dist/', 
-    
-    // SABSE ZAROORI: Ye line memory conflict ko bypass karegi
-    blobs: { "ort-wasm-simd-threaded.wasm": true }, 
-});
+                worker.postMessage({
+                    kind: 'init',
+                    input: config.warmupText || 'नमस्ते',
+                    modelUrl: modelUrl,
+                    modelConfigUrl: configUrl,
+                    piperPhonemizeJsUrl: '/piper-wasm/piper_phonemize.js',
+                    piperPhonemizeWasmUrl: '/piper-wasm/piper_phonemize.wasm',
+                    piperPhonemizeDataUrl: '/piper-wasm/piper_phonemize.data',
+                    onnxruntimeUrl: '/piper-wasm/dist/',
+                    blobs: { "ort-wasm-simd-threaded.wasm": true }
+                });
 
             } catch (err) {
                 console.error("❌ Failed to start Piper worker", err);
@@ -322,17 +133,20 @@ worker.postMessage({
         };
     }, [config?.voiceModelUrl, config?.voiceConfigUrl]);
 
+    // Helper: Synthesize a single sentence
     const synthesize = useCallback(async (text) => {
-        if (!workerRef.current) throw new Error("Worker not ready");
+        if (!workerRef.current) throw new Error("Worker not initialized");
 
         return new Promise((resolve) => {
             const worker = workerRef.current;
+
             const handleMessage = (event) => {
                 if (event.data.kind === 'output') {
                     worker.removeEventListener('message', handleMessage);
                     resolve(event.data.file);
                 }
             };
+
             worker.addEventListener('message', handleMessage);
 
             worker.postMessage({
@@ -344,27 +158,46 @@ worker.postMessage({
                 piperPhonemizeWasmUrl: '/piper-wasm/piper_phonemize.wasm',
                 piperPhonemizeDataUrl: '/piper-wasm/piper_phonemize.data',
                 onnxruntimeUrl: '/piper-wasm/dist/',
-                blobs: { "ort-wasm-simd-threaded.wasm": true },
+                blobs: { "ort-wasm-simd-threaded.wasm": true }
             });
         });
-    }, [config.voiceModelUrl, config.voiceConfigUrl]);
+    }, [config]);
 
+    // Loop 2: Audio Player Consumer
     const playQueue = useCallback(async () => {
         if (processingRef.current) return;
         processingRef.current = true;
         setIsPlaying(true);
+
         try {
             while (audioQueueRef.current.length > 0) {
                 const blob = audioQueueRef.current.shift();
                 if (!blob) break;
+
                 setCurrentlyPlayingIndex(playbackCounterRef.current);
+
                 await new Promise((resolve) => {
                     const url = URL.createObjectURL(blob);
                     const audio = new Audio(url);
-                    audio.onended = () => { URL.revokeObjectURL(url); resolve(); };
-                    audio.onerror = () => { URL.revokeObjectURL(url); resolve(); };
-                    audio.play().catch(resolve);
+                    
+                    audio.onended = () => {
+                        URL.revokeObjectURL(url);
+                        resolve();
+                    };
+                    
+                    audio.onerror = (e) => {
+                        console.error("Audio playback error", e);
+                        URL.revokeObjectURL(url);
+                        resolve();
+                    };
+                    
+                    audio.play().catch((err) => {
+                        console.error("Playback failed", err);
+                        URL.revokeObjectURL(url);
+                        resolve();
+                    });
                 });
+
                 playbackCounterRef.current += 1;
             }
         } finally {
@@ -374,23 +207,34 @@ worker.postMessage({
         }
     }, []);
 
+    // Loop 1: Synthesis Consumer
     const processSynthesisQueue = useCallback(async () => {
         if (isSynthesizingRef.current) return;
         isSynthesizingRef.current = true;
+
         try {
             while (synthesisQueueRef.current.length > 0) {
                 const text = synthesisQueueRef.current.shift();
                 if (text) {
-                    const blob = await synthesize(text);
-                    if (blob) {
-                        audioQueueRef.current.push(blob);
-                        if (!processingRef.current) playQueue();
+                    try {
+                        const blob = await synthesize(text);
+                        if (blob) {
+                            audioQueueRef.current.push(blob);
+                            if (!processingRef.current) {
+                                playQueue();
+                            }
+                        }
+                    } catch (err) {
+                        console.error("Synthesis error:", err);
                     }
                 }
             }
-        } finally { isSynthesizingRef.current = false; }
+        } finally {
+            isSynthesizingRef.current = false;
+        }
     }, [synthesize, playQueue]);
 
+    // Main: Output Entry Point
     const speak = useCallback((text) => {
         if (text && text.trim()) {
             synthesisQueueRef.current.push(text.trim());
@@ -398,6 +242,7 @@ worker.postMessage({
         }
     }, [processSynthesisQueue]);
 
+    // Reset Logic
     const resetTTS = useCallback(() => {
         audioQueueRef.current = [];
         synthesisQueueRef.current = [];
@@ -406,5 +251,11 @@ worker.postMessage({
         setIsPlaying(false);
     }, []);
 
-    return { speak, isPlaying, currentlyPlayingIndex, resetTTS, ...state };
+    return {
+        speak,
+        isPlaying,
+        currentlyPlayingIndex,
+        resetTTS,
+        ...state
+    };
 };
