@@ -4,7 +4,7 @@ import { FiMic, FiGlobe, FiChevronLeft, FiCheckCircle, FiVolume2, FiPause } from
 import { IoSend } from 'react-icons/io5';
 import { usePiper } from './hooks/text-to-speech_hook';
 import { staticPhrases } from './constants/staticPhrases';
-import { playCachedAudio } from './utils/cachedAudio';
+import { playCachedAudio, stopCachedAudio } from './utils/cachedAudio';
 
 
 // --- Translations & Content ---
@@ -131,6 +131,7 @@ export default function App() {
 
   // --- Stop TTS Logic ---
   const stopTTS = () => {
+    stopCachedAudio();
     resetTTS();
   };
 
@@ -332,7 +333,7 @@ export default function App() {
           <p>{t.selectRole}</p>
           <div className="role-grid">
             {['student', 'parent', 'partner'].map(role => (
-              <div key={role} className="zoe-card" onClick={() => { setSelectedRole(role); setAppStage('setup'); }}>
+              <div key={role} className="zoe-card" onClick={() => { stopTTS(); setSelectedRole(role); setAppStage('setup'); }}>
                 <h3>{translations[language][role]}</h3>
                 <p>{translations[language][role + 'Desc']}</p>
               </div>
@@ -364,7 +365,7 @@ export default function App() {
               <p>{t.testSpk}</p>
             </div> 
           </div>
-           <button className="primary-btn" onClick={() => setAppStage('chat')} disabled={isModelLoading || !isReady}>
+           <button className="primary-btn" onClick={() => { stopTTS(); setAppStage('chat'); }} disabled={isModelLoading || !isReady}>
              {isModelLoading ? t.loading : t.startBtn}
           </button>
         </div>

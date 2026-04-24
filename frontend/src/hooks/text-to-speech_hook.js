@@ -18,6 +18,9 @@ export const usePiper = (config) => {
     const isSynthesizingRef = useRef(false);
     const workerRef = useRef(null);
     const initTimeoutRef = useRef(null);
+    const currentAudioRef = useRef(null);
+    const abortPlaybackRef = useRef(false);
+    const abortSynthesisRef = useRef(false);
 
     useEffect(() => {
         if (!config || !config.voiceModelUrl || !config.voiceConfigUrl) return;
@@ -170,7 +173,7 @@ export const usePiper = (config) => {
         setIsPlaying(true);
 
         try {
-            while (audioQueueRef.current.length > 0) {
+            while (audioQueueRef.current.length > 0 && !abortPlaybackRef.current) {
                 const blob = audioQueueRef.current.shift();
                 if (!blob) break;
 
@@ -179,20 +182,24 @@ export const usePiper = (config) => {
                 await new Promise((resolve) => {
                     const url = URL.createObjectURL(blob);
                     const audio = new Audio(url);
+                    currentAudioRef.current = audio;
                     
                     audio.onended = () => {
+                        currentAudioRef.current = null;
                         URL.revokeObjectURL(url);
                         resolve();
                     };
                     
                     audio.onerror = (e) => {
                         console.error("Audio playback error", e);
+                        currentAudioRef.current = null;
                         URL.revokeObjectURL(url);
                         resolve();
                     };
                     
                     audio.play().catch((err) => {
                         console.error("Playback failed", err);
+                        currentAudioRef.current = null;
                         URL.revokeObjectURL(url);
                         resolve();
                     });
@@ -213,14 +220,14 @@ export const usePiper = (config) => {
         isSynthesizingRef.current = true;
 
         try {
-            while (synthesisQueueRef.current.length > 0) {
+            while (synthesisQueueRef.current.length > 0 && !abortSynthesisRef.current) {
                 const text = synthesisQueueRef.current.shift();
                 if (text) {
                     try {
                         const blob = await synthesize(text);
-                        if (blob) {
+                        if (blob && !abortSynthesisRef.current) {
                             audioQueueRef.current.push(blob);
-                            if (!processingRef.current) {
+                            if (!processingRef.current && !abortPlaybackRef.current) {
                                 playQueue();
                             }
                         }
@@ -244,11 +251,31 @@ export const usePiper = (config) => {
 
     // Reset Logic
     const resetTTS = useCallback(() => {
+        // Abort both synthesis and playback immediately
+        abortSynthesisRef.current = true;
+        abortPlaybackRef.current = true;
+        isSynthesizingRef.current = false;
+        processingRef.current = false;
+        
+        // Stop currently playing audio immediately
+        if (currentAudioRef.current) {
+            currentAudioRef.current.pause();
+            currentAudioRef.current.currentTime = 0;
+            currentAudioRef.current = null;
+        }
+        
+        // Clear all queues
         audioQueueRef.current = [];
         synthesisQueueRef.current = [];
         playbackCounterRef.current = 0;
         setCurrentlyPlayingIndex(null);
         setIsPlaying(false);
+        
+        // Reset abort flags after microtask for next session
+        Promise.resolve().then(() => {
+            abortSynthesisRef.current = false;
+            abortPlaybackRef.current = false;
+        });
     }, []);
 
     return {
