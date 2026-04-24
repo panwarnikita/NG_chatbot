@@ -59,7 +59,6 @@ export default function App() {
   const [isListening, setIsListening] = useState(false);
   const [language, setLanguage] = useState('hi');
   const [hasUserGesture, setHasUserGesture] = useState(false);
-  const [showQuickPrompts, setShowQuickPrompts] = useState(false);
 
   const chatRef = useRef(null);
   const appStageRef = useRef(appStage);
@@ -99,7 +98,7 @@ export default function App() {
       chatWelcomeAnnouncedRef.current = false;
     }
     if (appStage === 'chat') {
-      selectionAnnouncedRef.current = false;
+      // selectionAnnouncedRef.current = false; // Don't reset, so it doesn't repeat on back
     }
   }, [appStage, resetTTS]);
 
@@ -113,7 +112,6 @@ export default function App() {
 
   useEffect(() => {
     if (appStage !== 'selection') {
-      selectionAnnouncedRef.current = false;
       return;
     }
     if (!hasUserGesture || !isReady || selectionAnnouncedRef.current) return;
@@ -152,7 +150,6 @@ export default function App() {
 
   const handleQuickPromptClick = (promptText) => {
     if (!promptText) return;
-    setShowQuickPrompts(false);
     sendMessage(promptText, false);
   };
 
@@ -163,7 +160,6 @@ export default function App() {
     setLoading(false);
     setInput('');
     setMessages([]);
-    setShowQuickPrompts(false);
     setAppStage('selection');
   };
 
@@ -395,12 +391,17 @@ export default function App() {
 
             <div className="selection-cards">
               <button
-                className="card"
-                onClick={() => {
-                  setSelectedRole('student');
-                  setAppStage('chat');
-                }}
+                className={`card ${selectedRole === 'student' ? 'selected' : ''}`}
+                onClick={() => setSelectedRole('student')}
               >
+                <div className="radio-container">
+                  <input 
+                    type="radio" 
+                    name="role" 
+                    checked={selectedRole === 'student'} 
+                    readOnly 
+                  />
+                </div>
                 <div className="card-header">
                   <div className="feature-icon"><FaGraduationCap /></div>
                   <h3 className="card-title">{t.student}</h3>
@@ -409,7 +410,18 @@ export default function App() {
                 <div className="card-content-text"></div>
               </button>
 
-              <button className="card" onClick={() => { setSelectedRole('parent'); setAppStage('chat'); }}>
+              <button 
+                className={`card ${selectedRole === 'parent' ? 'selected' : ''}`} 
+                onClick={() => setSelectedRole('parent')}
+              >
+                <div className="radio-container">
+                  <input 
+                    type="radio" 
+                    name="role" 
+                    checked={selectedRole === 'parent'} 
+                    readOnly 
+                  />
+                </div>
                 <div className="card-header">
                   <div className="feature-icon"><FaUsers /></div>
                   <h3 className="card-title">{t.parent}</h3>
@@ -418,13 +430,30 @@ export default function App() {
                 <div className="card-content-text"></div>
               </button>
 
-              <button className="card" onClick={() => { setSelectedRole('partner'); setAppStage('chat'); }}>
+              <button 
+                className={`card ${selectedRole === 'partner' ? 'selected' : ''}`} 
+                onClick={() => setSelectedRole('partner')}
+              >
+                <div className="radio-container">
+                  <input 
+                    type="radio" 
+                    name="role" 
+                    checked={selectedRole === 'partner'} 
+                    readOnly 
+                  />
+                </div>
                 <div className="card-header">
                   <div className="feature-icon"><FaHandshake /></div>
                   <h3 className="card-title">{t.partner}</h3>
                 </div>
                 <p className="card-description">{t.partnerDesc}</p>
                 <div className="card-content-text"></div>
+              </button>
+            </div>
+
+            <div className="proceed-container">
+              <button className="primary-btn proceed-btn" onClick={() => setAppStage('chat')}>
+                {t.startBtn}
               </button>
             </div>
           </div>
@@ -463,38 +492,20 @@ export default function App() {
             ))}
           </div>
 
-          <div className={`quick-prompts-dock ${showQuickPrompts ? 'is-open' : 'is-closed'}`}>
-            <div className="quick-prompts-section">
-              {!showQuickPrompts ? (
-                <button className="quick-prompts-toggle-btn quick-launcher-btn" onClick={() => setShowQuickPrompts(true)}>
-                  {t.openQuickQuestions}
-                </button>
-              ) : (
-                <>
-                  <div className="quick-prompts-head">
-                    <p className="quick-prompts-label">{t.quickQuestionsLabel}</p>
-                    <button className="quick-prompts-close-btn" onClick={() => setShowQuickPrompts(false)}>
-                      {t.closeQuickQuestions}
-                    </button>
-                  </div>
-                  <div className="quick-prompts-grid">
-                    <button className="quick-prompt-btn" onClick={() => handleQuickPromptClick(t.quickPrompt1)}>
-                      {t.quickPrompt1}
-                    </button>
-                    <button className="quick-prompt-btn" onClick={() => handleQuickPromptClick(t.quickPrompt2)}>
-                      {t.quickPrompt2}
-                    </button>
-                    <button className="quick-prompt-btn" onClick={() => handleQuickPromptClick(t.quickPrompt3)}>
-                      {t.quickPrompt3}
-                    </button>
-                    <button className="quick-prompt-btn" onClick={() => handleQuickPromptClick(t.quickPrompt4)}>
-                      {t.quickPrompt4}
-                    </button>
-                  </div>
-                </>
-              )}
+          {messages.length === 0 && (
+            <div className="quick-prompts-dock is-open">
+              <div className="quick-prompts-section">
+                <div className="quick-prompts-grid">
+                  <button className="quick-prompt-btn" onClick={() => handleQuickPromptClick(t.quickPrompt1)}>
+                    {t.quickPrompt1}
+                  </button>
+                  <button className="quick-prompt-btn" onClick={() => handleQuickPromptClick(t.quickPrompt2)}>
+                    {t.quickPrompt2}
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
+          )}
 
           <div className="zoe-input-section">
             <div className="input-pill">
