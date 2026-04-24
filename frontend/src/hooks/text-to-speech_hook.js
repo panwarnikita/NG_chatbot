@@ -18,6 +18,7 @@ export const usePiper = (config) => {
     const isSynthesizingRef = useRef(false);
     const workerRef = useRef(null);
     const initTimeoutRef = useRef(null);
+    const lastPlayEndRef = useRef(null);
 
     useEffect(() => {
         if (!config || !config.voiceModelUrl || !config.voiceConfigUrl) return;
@@ -143,11 +144,15 @@ worker.postMessage({
     const synthesize = useCallback(async (text) => {
         if (!workerRef.current) throw new Error("Worker not ready");
 
+        const t0 = performance.now();
         return new Promise((resolve) => {
             const worker = workerRef.current;
             const handleMessage = (event) => {
                 if (event.data.kind === 'output') {
                     worker.removeEventListener('message', handleMessage);
+                    const synthMs = (performance.now() - t0).toFixed(0);
+                    const preview = text.length > 40 ? text.slice(0, 40) + '…' : text;
+                    console.log(`[tts] synth=${synthMs}ms "${preview}"`);
                     resolve(event.data.file);
                 }
             };
@@ -176,6 +181,10 @@ worker.postMessage({
                 const blob = audioQueueRef.current.shift();
                 if (!blob) break;
                 setCurrentlyPlayingIndex(playbackCounterRef.current);
+                const playStart = performance.now();
+                const gap = lastPlayEndRef.current == null
+                    ? 'n/a'
+                    : `${(playStart - lastPlayEndRef.current).toFixed(0)}ms`;
                 await new Promise((resolve) => {
                     const url = URL.createObjectURL(blob);
                     const audio = new Audio(url);
@@ -183,6 +192,9 @@ worker.postMessage({
                     audio.onerror = () => { URL.revokeObjectURL(url); resolve(); };
                     audio.play().catch(resolve);
                 });
+                const playEnd = performance.now();
+                lastPlayEndRef.current = playEnd;
+                console.log(`[tts] play=${(playEnd - playStart).toFixed(0)}ms gap_before=${gap}`);
                 playbackCounterRef.current += 1;
             }
         } finally {
@@ -220,6 +232,7 @@ worker.postMessage({
         audioQueueRef.current = [];
         synthesisQueueRef.current = [];
         playbackCounterRef.current = 0;
+        lastPlayEndRef.current = null;
         setCurrentlyPlayingIndex(null);
         setIsPlaying(false);
     }, []);

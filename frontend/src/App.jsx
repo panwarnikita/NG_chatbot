@@ -233,11 +233,14 @@ export default function App() {
         const unsentPart = fullResponse.slice(lastSpokenIndex);
         const words = unsentPart.trim().split(/\s+/);
 
-        // Terminate on punctuation OR if we reach 5 words
+        // Sentence-level terminators only (no comma). Word-count fallback is
+        // a safety net for run-on sentences. Larger chunks amortize Piper's
+        // per-inference overhead, which matters a lot on mobile.
         const terminators = /[.!?।\n]/;
         const hasTerminator = terminators.test(unsentPart);
-        
-        if (hasTerminator || words.length >= 5) {
+        const MIN_WORDS_FALLBACK = 20;
+
+        if (hasTerminator || words.length >= MIN_WORDS_FALLBACK) {
           let boundaryIndex = unsentPart.search(terminators);
           
           // Agar punctuation nahi mila par 5 words ho gaye, toh last space dhoondo
