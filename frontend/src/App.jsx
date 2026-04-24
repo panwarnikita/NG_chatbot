@@ -4,6 +4,8 @@ import { FiMic, FiGlobe, FiPause, FiChevronLeft } from 'react-icons/fi';
 import { FaGraduationCap, FaUsers, FaHandshake } from 'react-icons/fa';
 import { IoSend } from 'react-icons/io5';
 import { usePiper } from './hooks/text-to-speech_hook';
+import { staticPhrases } from './constants/staticPhrases';
+import { playCachedAudio, stopCachedAudio } from './utils/cachedAudio';
 
 
 // --- Translations & Content ---
@@ -40,11 +42,7 @@ const translations = {
   }
 };
 
-// --- Welcome Messages ---
-const welcomeMessages = {
-  en: "Hi, I'm Swara. I can help you with any information about NavGurukul. What would you like to know today?",
-  hi: 'नमस्ते! मैं स्वरा हूँ मैं नवगुरुकुल के बारे में आपकी किसी भी प्रकार की सहायता कर सकती हूँ। बताइए, आज आप क्या जानना चाहेंगे?'
-};
+const welcomeMessages = staticPhrases.welcome;
 
 export default function App() {
   const [appStage, setAppStage] = useState('selection'); 
@@ -110,7 +108,7 @@ export default function App() {
     if (appStage !== 'selection') {
       return;
     }
-    if (!hasUserGesture || !isReady || selectionAnnouncedRef.current) return;
+    if (!hasUserGesture || selectionAnnouncedRef.current) return;
     selectionAnnouncedRef.current = true;
     const selectionIntro = language === 'hi'
       ? 'नमस्ते! मैं स्वरा हूँ आगे बढ़ने के लिए कृपया बताइए — क्या आप छात्र हैं, माता-पिता हैं, या भागीदार हैं?'
@@ -225,7 +223,7 @@ export default function App() {
     setMessages(prev => [...prev, { role: 'AI', content: '...' }]);
 
     try {
-      const res = await fetch('/ask', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || ''}/ask`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 

@@ -21,6 +21,9 @@ export const usePiper = (config) => {
     const activeAudioUrlRef = useRef(null);
     const workerRef = useRef(null);
     const initTimeoutRef = useRef(null);
+    const currentAudioRef = useRef(null);
+    const abortPlaybackRef = useRef(false);
+    const abortSynthesisRef = useRef(false);
 
     useEffect(() => {
         if (!config || !config.voiceModelUrl || !config.voiceConfigUrl) return;
@@ -29,7 +32,7 @@ export const usePiper = (config) => {
 
         const initPiper = async () => {
             console.log("🚀 Initializing Hindi Piper...");
-            setState(s => ({ ...s, isReady: false, isLoading: true, error: null })); 
+            setState(s => ({ ...s, isReady: false, isLoading: true, error: null }));
 
             try {
                 const modelBlob = await getCachedOrFetch(config.voiceModelUrl, (loaded, total) => {
@@ -39,8 +42,7 @@ export const usePiper = (config) => {
 
                 if (!active) return;
 
-                // Fetch/cache ko warmup ke liye run karte hain, but worker ko direct public URLs dete hain.
-                // Blob URLs worker boundary pe flaky ho sakte hain.
+                // Cache fetched to warm up, but pass direct URLs to worker
                 void modelBlob;
                 void configBlob;
 
@@ -103,23 +105,17 @@ export const usePiper = (config) => {
                     console.error('❌ Hindi worker message error:', err);
                 };
 
-                // FIXED INIT: Yahan blobs ko force karna zaroori hai
-              // text-to-speech_hook.js mein postMessage:
-worker.postMessage({
-    kind: 'init',
-    input: config.warmupText || 'नमस्ते', 
-    modelUrl: modelUrl,
-    modelConfigUrl: configUrl,
-    
-    // Sirf relative path use karein, window.location mat lagaiye
-    piperPhonemizeJsUrl: '/piper-wasm/piper_phonemize.js',
-    piperPhonemizeWasmUrl: '/piper-wasm/piper_phonemize.wasm',
-    piperPhonemizeDataUrl: '/piper-wasm/piper_phonemize.data',
-    onnxruntimeUrl: '/piper-wasm/dist/', 
-    
-    // SABSE ZAROORI: Ye line memory conflict ko bypass karegi
-    blobs: { "ort-wasm-simd-threaded.wasm": true }, 
-});
+                worker.postMessage({
+                    kind: 'init',
+                    input: config.warmupText || 'नमस्ते',
+                    modelUrl: modelUrl,
+                    modelConfigUrl: configUrl,
+                    piperPhonemizeJsUrl: '/piper-wasm/piper_phonemize.js',
+                    piperPhonemizeWasmUrl: '/piper-wasm/piper_phonemize.wasm',
+                    piperPhonemizeDataUrl: '/piper-wasm/piper_phonemize.data',
+                    onnxruntimeUrl: '/piper-wasm/dist/',
+                    blobs: { "ort-wasm-simd-threaded.wasm": true }
+                });
 
             } catch (err) {
                 console.error("❌ Failed to start Piper worker", err);
@@ -143,17 +139,20 @@ worker.postMessage({
         };
     }, [config?.voiceModelUrl, config?.voiceConfigUrl]);
 
+    // Helper: Synthesize a single sentence
     const synthesize = useCallback(async (text) => {
-        if (!workerRef.current) throw new Error("Worker not ready");
+        if (!workerRef.current) throw new Error("Worker not initialized");
 
         return new Promise((resolve) => {
             const worker = workerRef.current;
+
             const handleMessage = (event) => {
                 if (event.data.kind === 'output') {
                     worker.removeEventListener('message', handleMessage);
                     resolve(event.data.file);
                 }
             };
+
             worker.addEventListener('message', handleMessage);
 
             worker.postMessage({
@@ -165,20 +164,24 @@ worker.postMessage({
                 piperPhonemizeWasmUrl: '/piper-wasm/piper_phonemize.wasm',
                 piperPhonemizeDataUrl: '/piper-wasm/piper_phonemize.data',
                 onnxruntimeUrl: '/piper-wasm/dist/',
-                blobs: { "ort-wasm-simd-threaded.wasm": true },
+                blobs: { "ort-wasm-simd-threaded.wasm": true }
             });
         });
-    }, [config.voiceModelUrl, config.voiceConfigUrl]);
+    }, [config]);
 
+    // Loop 2: Audio Player Consumer
     const playQueue = useCallback(async () => {
         if (processingRef.current) return;
         processingRef.current = true;
         setIsPlaying(true);
+
         try {
-            while (audioQueueRef.current.length > 0) {
+            while (audioQueueRef.current.length > 0 && !abortPlaybackRef.current) {
                 const blob = audioQueueRef.current.shift();
                 if (!blob) break;
+
                 setCurrentlyPlayingIndex(playbackCounterRef.current);
+
                 await new Promise((resolve) => {
                     const url = URL.createObjectURL(blob);
                     activeAudioUrlRef.current = url;
@@ -209,6 +212,7 @@ worker.postMessage({
                         resolve();
                     });
                 });
+
                 playbackCounterRef.current += 1;
             }
         } finally {
@@ -219,9 +223,11 @@ worker.postMessage({
         }
     }, []);
 
+    // Loop 1: Synthesis Consumer
     const processSynthesisQueue = useCallback(async () => {
         if (isSynthesizingRef.current) return;
         isSynthesizingRef.current = true;
+
         try {
             while (synthesisQueueRef.current.length > 0) {
                 const item = synthesisQueueRef.current.shift();
@@ -233,9 +239,12 @@ worker.postMessage({
                     }
                 }
             }
-        } finally { isSynthesizingRef.current = false; }
+        } finally {
+            isSynthesizingRef.current = false;
+        }
     }, [synthesize, playQueue]);
 
+    // Main: Output Entry Point
     const speak = useCallback((text) => {
         if (text && text.trim()) {
             synthesisQueueRef.current.push({
@@ -246,6 +255,7 @@ worker.postMessage({
         }
     }, [processSynthesisQueue]);
 
+    // Reset Logic
     const resetTTS = useCallback(() => {
         generationRef.current += 1;
         audioQueueRef.current = [];
@@ -265,7 +275,19 @@ worker.postMessage({
 
         setCurrentlyPlayingIndex(null);
         setIsPlaying(false);
+        
+        // Reset abort flags after microtask for next session
+        Promise.resolve().then(() => {
+            abortSynthesisRef.current = false;
+            abortPlaybackRef.current = false;
+        });
     }, []);
 
-    return { speak, isPlaying, currentlyPlayingIndex, resetTTS, ...state };
+    return {
+        speak,
+        isPlaying,
+        currentlyPlayingIndex,
+        resetTTS,
+        ...state
+    };
 };
