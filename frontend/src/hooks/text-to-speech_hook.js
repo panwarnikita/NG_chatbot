@@ -16,6 +16,9 @@ export const usePiper = (config) => {
     const synthesisQueueRef = useRef([]);
     const processingRef = useRef(false);
     const isSynthesizingRef = useRef(false);
+    const generationRef = useRef(0);
+    const activeAudioRef = useRef(null);
+    const activeAudioUrlRef = useRef(null);
     const workerRef = useRef(null);
     const initTimeoutRef = useRef(null);
 
@@ -178,15 +181,39 @@ worker.postMessage({
                 setCurrentlyPlayingIndex(playbackCounterRef.current);
                 await new Promise((resolve) => {
                     const url = URL.createObjectURL(blob);
+                    activeAudioUrlRef.current = url;
                     const audio = new Audio(url);
-                    audio.onended = () => { URL.revokeObjectURL(url); resolve(); };
-                    audio.onerror = () => { URL.revokeObjectURL(url); resolve(); };
-                    audio.play().catch(resolve);
+                    activeAudioRef.current = audio;
+                    audio.onended = () => {
+                        if (activeAudioUrlRef.current) {
+                            URL.revokeObjectURL(activeAudioUrlRef.current);
+                            activeAudioUrlRef.current = null;
+                        }
+                        activeAudioRef.current = null;
+                        resolve();
+                    };
+                    audio.onerror = () => {
+                        if (activeAudioUrlRef.current) {
+                            URL.revokeObjectURL(activeAudioUrlRef.current);
+                            activeAudioUrlRef.current = null;
+                        }
+                        activeAudioRef.current = null;
+                        resolve();
+                    };
+                    audio.play().catch(() => {
+                        if (activeAudioUrlRef.current) {
+                            URL.revokeObjectURL(activeAudioUrlRef.current);
+                            activeAudioUrlRef.current = null;
+                        }
+                        activeAudioRef.current = null;
+                        resolve();
+                    });
                 });
                 playbackCounterRef.current += 1;
             }
         } finally {
             processingRef.current = false;
+            activeAudioRef.current = null;
             setIsPlaying(false);
             setCurrentlyPlayingIndex(null);
         }
@@ -197,10 +224,10 @@ worker.postMessage({
         isSynthesizingRef.current = true;
         try {
             while (synthesisQueueRef.current.length > 0) {
-                const text = synthesisQueueRef.current.shift();
-                if (text) {
-                    const blob = await synthesize(text);
-                    if (blob) {
+                const item = synthesisQueueRef.current.shift();
+                if (item?.text) {
+                    const blob = await synthesize(item.text);
+                    if (blob && item.generation === generationRef.current) {
                         audioQueueRef.current.push(blob);
                         if (!processingRef.current) playQueue();
                     }
@@ -211,15 +238,31 @@ worker.postMessage({
 
     const speak = useCallback((text) => {
         if (text && text.trim()) {
-            synthesisQueueRef.current.push(text.trim());
+            synthesisQueueRef.current.push({
+                text: text.trim(),
+                generation: generationRef.current,
+            });
             processSynthesisQueue();
         }
     }, [processSynthesisQueue]);
 
     const resetTTS = useCallback(() => {
+        generationRef.current += 1;
         audioQueueRef.current = [];
         synthesisQueueRef.current = [];
         playbackCounterRef.current = 0;
+
+        // Stop in-flight audio immediately when page/stage changes.
+        if (activeAudioRef.current) {
+            activeAudioRef.current.pause();
+            activeAudioRef.current.src = '';
+            activeAudioRef.current = null;
+        }
+        if (activeAudioUrlRef.current) {
+            URL.revokeObjectURL(activeAudioUrlRef.current);
+            activeAudioUrlRef.current = null;
+        }
+
         setCurrentlyPlayingIndex(null);
         setIsPlaying(false);
     }, []);
