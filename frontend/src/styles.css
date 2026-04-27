@@ -1702,35 +1702,9 @@ body {
     font-size: 0.95rem;
   }
 
-  .selection-mascot img,
-  .selection-mascot video {
-    width: 170px;
-    height: 170px;
-  }
-
-  .selection-mascot .mascot-circle-frame {
-    width: 165px;
-    height: 165px;
-  }
-
-  .selection-mascot .mascot-circle-frame img,
-  .selection-mascot .mascot-circle-frame video {
-    width: 165px;
-    height: 165px;
-  }
-
-  .selection-title {
-    font-size: 24px;
-    line-height: 1.2;
-  }
-
-  .selection-subtitle {
-    font-size: 13px;
-  }
-
   .selection-cards {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 8px;
   }
 
   .card {
@@ -1738,16 +1712,41 @@ body {
     max-width: 100%;
   }
 
+  .radio-container {
+    padding: 10px 14px 0;
+  }
+
+  .radio-container input[type="radio"] {
+    width: 18px;
+    height: 18px;
+  }
+
   .card-header {
-    padding: 16px;
+    padding: 10px 14px;
+    gap: 10px;
+  }
+
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+  }
+
+  .card-title {
+    font-size: 18px;
+    line-height: 1.2;
   }
 
   .card-description {
-    padding: 0 16px;
+    padding: 0 14px 10px;
+    font-size: 12px;
+    line-height: 1.35;
   }
 
   .card-content-text {
-    padding: 0 16px 16px;
+    padding: 0;
   }
 
   .feature-card {
@@ -1760,19 +1759,34 @@ body {
     line-height: 1.5rem;
   }
 
-  .selection-shell.is-hi .selection-title {
-    font-size: 24px;
-    line-height: 1.2;
-  }
-
-  .selection-shell.is-hi .selection-subtitle {
-    font-size: 13px;
-  }
-
   .browser-note {
     width: 100%;
     border-radius: 14px;
     font-size: 0.86rem;
     padding: 10px 12px;
   }
+}
+
+@media (max-width: 480px) {
+  .card-header {
+    padding: 8px 12px;
+  }
+
+  .feature-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    font-size: 1.05rem;
+  }
+
+  .card-title {
+    font-size: 16px;
+  }
+
+  .card-description {
+    padding: 0 12px 8px;
+    font-size: 11px;
+    line-height: 1.3;
+  }
+
 }
