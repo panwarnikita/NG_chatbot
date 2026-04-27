@@ -16,6 +16,9 @@ export const usePiper = (config) => {
     const synthesisQueueRef = useRef([]);
     const processingRef = useRef(false);
     const isSynthesizingRef = useRef(false);
+    const generationRef = useRef(0);
+    const activeAudioRef = useRef(null);
+    const activeAudioUrlRef = useRef(null);
     const workerRef = useRef(null);
     const initTimeoutRef = useRef(null);
     const currentAudioRef = useRef(null);
@@ -181,26 +184,31 @@ export const usePiper = (config) => {
 
                 await new Promise((resolve) => {
                     const url = URL.createObjectURL(blob);
+                    activeAudioUrlRef.current = url;
                     const audio = new Audio(url);
-                    currentAudioRef.current = audio;
-                    
+                    activeAudioRef.current = audio;
                     audio.onended = () => {
-                        currentAudioRef.current = null;
-                        URL.revokeObjectURL(url);
+                        if (activeAudioUrlRef.current) {
+                            URL.revokeObjectURL(activeAudioUrlRef.current);
+                            activeAudioUrlRef.current = null;
+                        }
+                        activeAudioRef.current = null;
                         resolve();
                     };
-                    
-                    audio.onerror = (e) => {
-                        console.error("Audio playback error", e);
-                        currentAudioRef.current = null;
-                        URL.revokeObjectURL(url);
+                    audio.onerror = () => {
+                        if (activeAudioUrlRef.current) {
+                            URL.revokeObjectURL(activeAudioUrlRef.current);
+                            activeAudioUrlRef.current = null;
+                        }
+                        activeAudioRef.current = null;
                         resolve();
                     };
-                    
-                    audio.play().catch((err) => {
-                        console.error("Playback failed", err);
-                        currentAudioRef.current = null;
-                        URL.revokeObjectURL(url);
+                    audio.play().catch(() => {
+                        if (activeAudioUrlRef.current) {
+                            URL.revokeObjectURL(activeAudioUrlRef.current);
+                            activeAudioUrlRef.current = null;
+                        }
+                        activeAudioRef.current = null;
                         resolve();
                     });
                 });
@@ -209,6 +217,7 @@ export const usePiper = (config) => {
             }
         } finally {
             processingRef.current = false;
+            activeAudioRef.current = null;
             setIsPlaying(false);
             setCurrentlyPlayingIndex(null);
         }
@@ -220,19 +229,13 @@ export const usePiper = (config) => {
         isSynthesizingRef.current = true;
 
         try {
-            while (synthesisQueueRef.current.length > 0 && !abortSynthesisRef.current) {
-                const text = synthesisQueueRef.current.shift();
-                if (text) {
-                    try {
-                        const blob = await synthesize(text);
-                        if (blob && !abortSynthesisRef.current) {
-                            audioQueueRef.current.push(blob);
-                            if (!processingRef.current && !abortPlaybackRef.current) {
-                                playQueue();
-                            }
-                        }
-                    } catch (err) {
-                        console.error("Synthesis error:", err);
+            while (synthesisQueueRef.current.length > 0) {
+                const item = synthesisQueueRef.current.shift();
+                if (item?.text) {
+                    const blob = await synthesize(item.text);
+                    if (blob && item.generation === generationRef.current) {
+                        audioQueueRef.current.push(blob);
+                        if (!processingRef.current) playQueue();
                     }
                 }
             }
@@ -244,30 +247,32 @@ export const usePiper = (config) => {
     // Main: Output Entry Point
     const speak = useCallback((text) => {
         if (text && text.trim()) {
-            synthesisQueueRef.current.push(text.trim());
+            synthesisQueueRef.current.push({
+                text: text.trim(),
+                generation: generationRef.current,
+            });
             processSynthesisQueue();
         }
     }, [processSynthesisQueue]);
 
     // Reset Logic
     const resetTTS = useCallback(() => {
-        // Abort both synthesis and playback immediately
-        abortSynthesisRef.current = true;
-        abortPlaybackRef.current = true;
-        isSynthesizingRef.current = false;
-        processingRef.current = false;
-        
-        // Stop currently playing audio immediately
-        if (currentAudioRef.current) {
-            currentAudioRef.current.pause();
-            currentAudioRef.current.currentTime = 0;
-            currentAudioRef.current = null;
-        }
-        
-        // Clear all queues
+        generationRef.current += 1;
         audioQueueRef.current = [];
         synthesisQueueRef.current = [];
         playbackCounterRef.current = 0;
+
+        // Stop in-flight audio immediately when page/stage changes.
+        if (activeAudioRef.current) {
+            activeAudioRef.current.pause();
+            activeAudioRef.current.src = '';
+            activeAudioRef.current = null;
+        }
+        if (activeAudioUrlRef.current) {
+            URL.revokeObjectURL(activeAudioUrlRef.current);
+            activeAudioUrlRef.current = null;
+        }
+
         setCurrentlyPlayingIndex(null);
         setIsPlaying(false);
         
