@@ -38,6 +38,7 @@ export default function App() {
   const [isListening, setIsListening] = useState(false);
   const [language, setLanguage] = useState('hi');
   const [hasUserGesture, setHasUserGesture] = useState(false);
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
 
   const chatRef = useRef(null);
   const appStageRef = useRef(appStage);
@@ -59,7 +60,8 @@ export default function App() {
 
   const stopAllAudio = () => {
     ttsStoppedRef.current = true;
-    resetTTS(); // Stop AI
+    resetTTS(); 
+    setIsAudioPlaying(false); 
     if (currentAudioRef.current) {
       currentAudioRef.current.pause();
       currentAudioRef.current.currentTime = 0;
@@ -72,13 +74,18 @@ export default function App() {
     if (appStage === 'selection') chatWelcomeAnnouncedRef.current = false;
   }, [appStage]);
 
-  // Play Static Audio Helper
   const playStaticFile = (fileName) => {
     return new Promise((resolve, reject) => {
       stopAllAudio();
       ttsStoppedRef.current = false;
       const audio = new Audio(`/audio/${fileName}.wav`);
       currentAudioRef.current = audio;
+
+    
+      audio.onplay = () => setIsAudioPlaying(true);
+      audio.onended = () => setIsAudioPlaying(false);
+      audio.onpause = () => setIsAudioPlaying(false);
+
       audio.play().then(resolve).catch(reject);
     });
   };
@@ -92,7 +99,6 @@ export default function App() {
     });
   }, [appStage, hasUserGesture, language]);
 
-  // --- Chat Welcome Audio ---
   useEffect(() => {
     if (appStage !== 'chat' || messages.length !== 0 || chatWelcomeAnnouncedRef.current || !hasUserGesture) return;
     chatWelcomeAnnouncedRef.current = true;
@@ -191,8 +197,8 @@ export default function App() {
           <div className={`selection-shell ${language === 'hi' ? 'is-hi' : ''}`}>
             <div className="selection-mascot">
               <div className="mascot-circle-frame">
-                <video autoPlay muted loop key={isTTSPlaying || (currentAudioRef.current && !currentAudioRef.current.paused) ? 's-speak' : 's-idle'} width="300">
-                  <source src={isTTSPlaying || (currentAudioRef.current && !currentAudioRef.current.paused) ? '/speaking-edited.mp4' : '/ballbounce.mp4'} type="video/mp4" />
+                <video autoPlay muted loop key={(isTTSPlaying || isAudioPlaying) ? 's-speak' : 's-idle'} width="300">
+                  <source src={(isTTSPlaying || isAudioPlaying) ? '/speaking-edited.mp4' : '/ballbounce.mp4'} type="video/mp4" />
                 </video>
               </div>
             </div>
@@ -226,8 +232,9 @@ export default function App() {
 
           <div className="ai-visual-container">
             <div className="chat-mascot-frame mascot-circle-frame">
-              <video autoPlay muted loop key={isListening ? 'l' : isTTSPlaying || (currentAudioRef.current && !currentAudioRef.current.paused) ? 's' : 'i'}>
-                <source src={isListening ? "/listening.mp4" : isTTSPlaying || (currentAudioRef.current && !currentAudioRef.current.paused) ? "/speaking-edited.mp4" : "/bubblepop.mp4"} type="video/mp4" />
+              {/* Mascot key logic updated to check both Piper and Static Audio */}
+              <video autoPlay muted loop key={isListening ? 'l' : (isTTSPlaying || isAudioPlaying) ? 's' : 'i'}>
+                <source src={isListening ? "/listening.mp4" : (isTTSPlaying || isAudioPlaying) ? "/speaking-edited.mp4" : "/bubblepop.mp4"} type="video/mp4" />
               </video>
             </div>
           </div>
@@ -266,7 +273,7 @@ export default function App() {
               <button className={`mic-circle ${isListening ? 'active' : ''}`} onClick={handleVoiceInput}>
                 <FiMic />
               </button>
-              {isTTSPlaying || (currentAudioRef.current && !currentAudioRef.current.paused) ? (
+              {(isTTSPlaying || isAudioPlaying) ? (
                 <button className="send-circle stop-btn" onClick={stopAllAudio}>
                   <FiPause />
                 </button>
