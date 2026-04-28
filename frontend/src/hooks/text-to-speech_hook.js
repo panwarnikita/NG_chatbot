@@ -23,6 +23,9 @@ export const usePiper = (config) => {
     const audioQueueRef = useRef([]);
     const processingRef = useRef(false);
     const lastPlayEndRef = useRef(null);
+    const activeAudioRef = useRef(null);
+    const activeAudioUrlRef = useRef(null);
+    const abortPlaybackRef = useRef(false);
 
     // Synthesis-side refs (reset when config reloads or resetTTS() is called)
     const workerPoolRef = useRef([]);           // [{ worker, id, ready, busy, currentJob }]
@@ -36,14 +39,17 @@ export const usePiper = (config) => {
     const speakRef = useRef(() => {});
     const resetTTSRef = useRef(() => {});
 
+    // Loop 2: Audio Player Consumer
     const playQueue = useCallback(async () => {
         if (processingRef.current) return;
         processingRef.current = true;
         setIsPlaying(true);
+
         try {
-            while (audioQueueRef.current.length > 0) {
+            while (audioQueueRef.current.length > 0 && !abortPlaybackRef.current) {
                 const blob = audioQueueRef.current.shift();
                 if (!blob) break;
+
                 setCurrentlyPlayingIndex(playbackCounterRef.current);
                 const playStart = performance.now();
                 const gap = lastPlayEndRef.current == null
@@ -51,10 +57,33 @@ export const usePiper = (config) => {
                     : `${(playStart - lastPlayEndRef.current).toFixed(0)}ms`;
                 await new Promise((resolve) => {
                     const url = URL.createObjectURL(blob);
+                    activeAudioUrlRef.current = url;
                     const audio = new Audio(url);
-                    audio.onended = () => { URL.revokeObjectURL(url); resolve(); };
-                    audio.onerror = () => { URL.revokeObjectURL(url); resolve(); };
-                    audio.play().catch(resolve);
+                    activeAudioRef.current = audio;
+                    audio.onended = () => {
+                        if (activeAudioUrlRef.current) {
+                            URL.revokeObjectURL(activeAudioUrlRef.current);
+                            activeAudioUrlRef.current = null;
+                        }
+                        activeAudioRef.current = null;
+                        resolve();
+                    };
+                    audio.onerror = () => {
+                        if (activeAudioUrlRef.current) {
+                            URL.revokeObjectURL(activeAudioUrlRef.current);
+                            activeAudioUrlRef.current = null;
+                        }
+                        activeAudioRef.current = null;
+                        resolve();
+                    };
+                    audio.play().catch(() => {
+                        if (activeAudioUrlRef.current) {
+                            URL.revokeObjectURL(activeAudioUrlRef.current);
+                            activeAudioUrlRef.current = null;
+                        }
+                        activeAudioRef.current = null;
+                        resolve();
+                    });
                 });
                 const playEnd = performance.now();
                 lastPlayEndRef.current = playEnd;
@@ -63,6 +92,7 @@ export const usePiper = (config) => {
             }
         } finally {
             processingRef.current = false;
+            activeAudioRef.current = null;
             setIsPlaying(false);
             setCurrentlyPlayingIndex(null);
         }
@@ -254,6 +284,9 @@ export const usePiper = (config) => {
         };
 
         resetTTSRef.current = () => {
+            // Break the playback loop so it stops pulling from the queue
+            abortPlaybackRef.current = true;
+
             audioQueueRef.current = [];
             synthesisQueueRef.current = [];
             pendingBlobsRef.current = {};
@@ -262,10 +295,29 @@ export const usePiper = (config) => {
             resetGenRef.current += 1;
             playbackCounterRef.current = 0;
             lastPlayEndRef.current = null;
-            // In-flight jobs stay in-flight; their 'output' will be dropped as
-            // stale when they return, freeing the worker for the next job.
+
+            // Stop in-flight audio immediately when page/stage changes.
+            if (activeAudioRef.current) {
+                activeAudioRef.current.pause();
+                activeAudioRef.current.src = '';
+                activeAudioRef.current = null;
+            }
+            if (activeAudioUrlRef.current) {
+                URL.revokeObjectURL(activeAudioUrlRef.current);
+                activeAudioUrlRef.current = null;
+            }
+
+            // In-flight synthesis jobs stay in-flight; their 'output' will be
+            // dropped as stale when they return, freeing the worker for the
+            // next job.
             setCurrentlyPlayingIndex(null);
             setIsPlaying(false);
+
+            // Re-arm playback for the next session after the current microtask,
+            // so any pending iteration sees the abort and exits first.
+            Promise.resolve().then(() => {
+                abortPlaybackRef.current = false;
+            });
         };
 
         return () => {
