@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Web Speech API — Hindi TTS Test</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 16px;
+    background: #f8fafc;
+    color: #0f172a;
+  }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  .sub { color: #64748b; font-size: 13px; margin-bottom: 16px; }
+  .panel {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 14px;
+  }
+  label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+  select, input[type=range] { width: 100%; padding: 8px; font-size: 14px; }
+  .row { display: flex; gap: 10px; margin-bottom: 10px; }
+  .row > div { flex: 1; }
+  .sample {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: #fff;
+  }
+  .sample-title { font-size: 12px; color: #64748b; text-transform: uppercase; margin-bottom: 6px; letter-spacing: 0.05em; }
+  .sample-text { font-size: 15px; margin-bottom: 10px; line-height: 1.5; }
+  button {
+    background: #2563eb;
+    color: #fff;
+    border: 0;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  button:disabled { background: #94a3b8; cursor: not-allowed; }
+  button.secondary { background: #475569; }
+  .stop { background: #dc2626; }
+  .info {
+    font-size: 12px;
+    color: #475569;
+    background: #f1f5f9;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 12px;
+  }
+  .warn { background: #fef3c7; color: #78350f; }
+  .meta { font-size: 11px; color: #64748b; margin-top: 4px; }
+</style>
+</head>
+<body>
+  <h1>Web Speech API — Hindi TTS Test</h1>
+  <div class="sub">Open this page on each target device. Quality varies by OS/browser.</div>
+
+  <div class="panel">
+    <label for="voice">Voice</label>
+    <select id="voice"></select>
+    <div id="voiceMeta" class="meta"></div>
+
+    <div class="row" style="margin-top: 12px;">
+      <div>
+        <label for="rate">Rate: <span id="rateVal">1.0</span></label>
+        <input id="rate" type="range" min="0.5" max="1.5" step="0.05" value="1" />
+      </div>
+      <div>
+        <label for="pitch">Pitch: <span id="pitchVal">1.0</span></label>
+        <input id="pitch" type="range" min="0.5" max="1.5" step="0.05" value="1" />
+      </div>
+    </div>
+
+    <button id="stopAll" class="stop">Stop</button>
+  </div>
+
+  <div id="samples"></div>
+
+  <div id="status" class="info"></div>
+
+<script>
+  const samples = [
+    {
+      title: "Welcome (short)",
+      text: "नमस्ते! मैं स्वरा हूँ। आगे बढ़ने के लिए कृपया अपनी भूमिका चुनें।"
+    },
+    {
+      title: "Long answer (multi-sentence)",
+      text: "नवगुरुकुल एक गैर-लाभकारी संस्था है जो कम-संसाधन वाले युवाओं को सॉफ्टवेयर इंजीनियरिंग सिखाती है। यहाँ एक साल का आवासीय कार्यक्रम होता है जिसमें छात्रों को कोडिंग, संचार और जीवन कौशल सिखाए जाते हैं। प्रवेश के लिए कोई शुल्क नहीं है और भोजन तथा रहने की व्यवस्था भी निःशुल्क है।"
+    },
+    {
+      title: "Mixed Hindi-English (code-switching)",
+      text: "हमारा admission process बहुत simple है। पहले आप online form भरते हैं, फिर एक aptitude test होता है। Selection के बाद आपको campus पर एक interview देना होता है।"
+    },
+    {
+      title: "Numbers & dates",
+      text: "अगला बैच 15 जून 2026 को शुरू होगा। आवेदन की अंतिम तारीख 30 अप्रैल है, और कुल 250 सीटें उपलब्ध हैं।"
+    },
+    {
+      title: "Question style",
+      text: "क्या आप जानना चाहते हैं कि प्रवेश के लिए क्या योग्यता चाहिए? या आप पहले कोर्स के बारे में सुनना पसंद करेंगे?"
+    }
+  ];
+
+  const synth = window.speechSynthesis;
+  const voiceSelect = document.getElementById("voice");
+  const voiceMeta = document.getElementById("voiceMeta");
+  const rate = document.getElementById("rate");
+  const pitch = document.getElementById("pitch");
+  const rateVal = document.getElementById("rateVal");
+  const pitchVal = document.getElementById("pitchVal");
+  const status = document.getElementById("status");
+  const samplesEl = document.getElementById("samples");
+
+  let voices = [];
+
+  function refreshVoices() {
+    voices = synth.getVoices();
+    voiceSelect.innerHTML = "";
+
+    const hindiVoices = voices.filter(v => /hi[-_]?IN|hindi/i.test(v.lang) || /hindi/i.test(v.name));
+    const otherVoices = voices.filter(v => !hindiVoices.includes(v));
+
+    if (hindiVoices.length === 0) {
+      status.className = "info warn";
+      status.textContent = "⚠ No Hindi (hi-IN) voice found on this device. Web Speech API will fall back to a non-Hindi voice — quality will be very poor for Devanagari text. This is the key risk: many Android/iOS devices ship without a Hindi voice installed.";
+    } else {
+      status.className = "info";
+      status.textContent = `Found ${hindiVoices.length} Hindi voice(s). Try each one across the samples below.`;
+    }
+
+    const addOptions = (list, label) => {
+      if (list.length === 0) return;
+      const group = document.createElement("optgroup");
+      group.label = label;
+      list.forEach((v, i) => {
+        const opt = document.createElement("option");
+        opt.value = voices.indexOf(v);
+        opt.textContent = `${v.name} — ${v.lang}${v.localService ? " (local)" : " (network)"}`;
+        group.appendChild(opt);
+      });
+      voiceSelect.appendChild(group);
+    };
+
+    addOptions(hindiVoices, "Hindi voices");
+    addOptions(otherVoices, "Other voices (fallback)");
+    updateVoiceMeta();
+  }
+
+  function updateVoiceMeta() {
+    const v = voices[voiceSelect.value];
+    if (!v) { voiceMeta.textContent = ""; return; }
+    voiceMeta.textContent = `lang=${v.lang} • ${v.localService ? "on-device (offline)" : "network (online required)"} • default=${v.default}`;
+  }
+
+  function speak(text) {
+    synth.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    const v = voices[voiceSelect.value];
+    if (v) u.voice = v;
+    u.rate = parseFloat(rate.value);
+    u.pitch = parseFloat(pitch.value);
+    u.lang = v ? v.lang : "hi-IN";
+    synth.speak(u);
+  }
+
+  rate.oninput = () => rateVal.textContent = rate.value;
+  pitch.oninput = () => pitchVal.textContent = pitch.value;
+  voiceSelect.onchange = updateVoiceMeta;
+  document.getElementById("stopAll").onclick = () => synth.cancel();
+
+  samples.forEach(s => {
+    const div = document.createElement("div");
+    div.className = "sample";
+    div.innerHTML = `
+      <div class="sample-title">${s.title}</div>
+      <div class="sample-text">${s.text}</div>
+      <button>▶ Play</button>
+    `;
+    div.querySelector("button").onclick = () => speak(s.text);
+    samplesEl.appendChild(div);
+  });
+
+  refreshVoices();
+  if (synth.onvoiceschanged !== undefined) {
+    synth.onvoiceschanged = refreshVoices;
+  }
+</script>
+</body>
+</html>
