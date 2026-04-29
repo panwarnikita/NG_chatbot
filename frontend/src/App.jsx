@@ -3,7 +3,7 @@ import { marked } from 'marked';
 import { FiMic, FiGlobe, FiPause, FiChevronLeft } from 'react-icons/fi';
 import { FaGraduationCap, FaUsers, FaHandshake } from 'react-icons/fa';
 import { IoSend } from 'react-icons/io5';
-import { usePiper } from './hooks/text-to-speech_hook';
+import { useTTS } from './hooks/useTTS';
 import { staticPhrases } from './constants/staticPhrases';
 
 const translations = {
@@ -56,7 +56,7 @@ export default function App() {
       : { voiceModelUrl: '/models/Indian_accent_1.onnx', voiceConfigUrl: '/models/Indian_accent_1.json', warmupText: "Hello" };
   }, [language]);
 
-  const { speak, isReady, isPlaying: isTTSPlaying, resetTTS, isLoading: isModelLoading } = usePiper(piperConfig);
+  const { speak, isReady, isPlaying: isTTSPlaying, resetTTS, isLoading: isModelLoading, engine: ttsEngine } = useTTS(piperConfig);
 
   const stopAllAudio = () => {
     ttsStoppedRef.current = true;
@@ -112,7 +112,15 @@ export default function App() {
   const speakText = async (text, stageGuard = null) => {
     if (!text || !text.trim() || !isReady || ttsStoppedRef.current) return;
     if (stageGuard && appStageRef.current !== stageGuard) return;
-    const sentences = text.replace(/[*#\-_]/g, ' ').match(/[^.!?।\n]+[.!?।\n]+/g) || [text];
+    const cleaned = text.replace(/[*#\-_]/g, ' ');
+
+    if (ttsEngine === 'webspeech') {
+      // OS-level synthesizer handles its own pacing; hand it the full text.
+      speak(cleaned);
+      return;
+    }
+
+    const sentences = cleaned.match(/[^.!?।\n]+[.!?।\n]+/g) || [cleaned];
     for (const s of sentences) {
       if (ttsStoppedRef.current || (stageGuard && appStageRef.current !== stageGuard)) break;
       speak(s.trim());
@@ -145,37 +153,47 @@ export default function App() {
         fullResponse += decoder.decode(value);
         setMessages(prev => { const n = [...prev]; n[n.length - 1].content = fullResponse; return n; });
 
-        // 2. Faster Voice Logic
-        const unsentPart = fullResponse.slice(lastSpokenIndex);
-        const words = unsentPart.trim().split(/\s+/);
+        // Piper-only: progressive sentence-level chunking to start voice
+        // playback before the LLM finishes streaming. Web Speech reads the
+        // full text once at the end — the OS synthesizer handles pacing.
+        if (ttsEngine === 'piper') {
+          const unsentPart = fullResponse.slice(lastSpokenIndex);
+          const words = unsentPart.trim().split(/\s+/);
 
-        // Sentence-level terminators only (no comma). Word-count fallback is
-        // a safety net for run-on sentences. Larger chunks amortize Piper's
-        // per-inference overhead, which matters a lot on mobile.
-        const terminators = /[.!?।\n]/;
-        const hasTerminator = terminators.test(unsentPart);
-        const MIN_WORDS_FALLBACK = 20;
+          // Sentence-level terminators only (no comma). Word-count fallback is
+          // a safety net for run-on sentences. Larger chunks amortize Piper's
+          // per-inference overhead, which matters a lot on mobile.
+          const terminators = /[.!?।\n]/;
+          const hasTerminator = terminators.test(unsentPart);
+          const MIN_WORDS_FALLBACK = 20;
 
-        if (hasTerminator || words.length >= MIN_WORDS_FALLBACK) {
-          let boundaryIndex = unsentPart.search(terminators);
+          if (hasTerminator || words.length >= MIN_WORDS_FALLBACK) {
+            let boundaryIndex = unsentPart.search(terminators);
 
-          // No punctuation but past the word fallback — break at last space.
-          if (boundaryIndex === -1) {
-            boundaryIndex = unsentPart.lastIndexOf(' ');
-          }
+            // No punctuation but past the word fallback — break at last space.
+            if (boundaryIndex === -1) {
+              boundaryIndex = unsentPart.lastIndexOf(' ');
+            }
 
-          if (boundaryIndex !== -1) {
-            const textToSpeak = unsentPart.slice(0, boundaryIndex + 1).trim();
+            if (boundaryIndex !== -1) {
+              const textToSpeak = unsentPart.slice(0, boundaryIndex + 1).trim();
 
-            if (textToSpeak.length > 1) {
-              speak(textToSpeak);
-              lastSpokenIndex += (boundaryIndex + 1);
+              if (textToSpeak.length > 1) {
+                speak(textToSpeak);
+                lastSpokenIndex += (boundaryIndex + 1);
+              }
             }
           }
         }
       }
-      const rem = fullResponse.slice(lastSpokenIndex).trim();
-      if (rem.length > 0 && !ttsStoppedRef.current) speak(rem);
+
+      if (ttsEngine === 'webspeech') {
+        const cleaned = fullResponse.replace(/[*#\-_]/g, ' ').trim();
+        if (cleaned && !ttsStoppedRef.current) speak(cleaned);
+      } else {
+        const rem = fullResponse.slice(lastSpokenIndex).trim();
+        if (rem.length > 0 && !ttsStoppedRef.current) speak(rem);
+      }
     } catch (e) { console.error(e); } finally { setLoading(false); }
   };
 
